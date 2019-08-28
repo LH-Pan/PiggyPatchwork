@@ -7,8 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		220383FC231654A0003C285B /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220383FB231654A0003C285B /* UIScreen+Extension.swift */; };
+		220383FE231657E8003C285B /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220383FD231657E8003C285B /* UIColor+Extension.swift */; };
+		2203840023165860003C285B /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220383FF23165860003C285B /* UIImage+Extension.swift */; };
+		2203840223165999003C285B /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2203840123165999003C285B /* UICollectionView+Extension.swift */; };
+		2203840523165CA6003C285B /* PrototypeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2203840423165CA6003C285B /* PrototypeCollectionViewCell.xib */; };
+		2203840923165D85003C285B /* PrototypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2203840823165D85003C285B /* PrototypeCollectionViewCell.swift */; };
+		2203840B231665D6003C285B /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2203840A231665D6003C285B /* SelectionView.swift */; };
+		2203840E23166CF2003C285B /* PrototypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2203840D23166CF2003C285B /* PrototypeViewController.swift */; };
 		22D5268E2315460B00F76354 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D5268D2315460B00F76354 /* AppDelegate.swift */; };
-		22D526902315460B00F76354 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D5268F2315460B00F76354 /* ViewController.swift */; };
+		22D526902315460B00F76354 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D5268F2315460B00F76354 /* CameraViewController.swift */; };
 		22D526932315460B00F76354 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22D526912315460B00F76354 /* Main.storyboard */; };
 		22D526962315460B00F76354 /* PiggyPatchwork.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22D526942315460B00F76354 /* PiggyPatchwork.xcdatamodeld */; };
 		22D526982315460D00F76354 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22D526972315460D00F76354 /* Assets.xcassets */; };
@@ -18,9 +26,17 @@
 
 /* Begin PBXFileReference section */
 		05D3706CE9AF71A0B1261D49 /* Pods_PiggyPatchwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PiggyPatchwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		220383FB231654A0003C285B /* UIScreen+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
+		220383FD231657E8003C285B /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		220383FF23165860003C285B /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		2203840123165999003C285B /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		2203840423165CA6003C285B /* PrototypeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrototypeCollectionViewCell.xib; sourceTree = "<group>"; };
+		2203840823165D85003C285B /* PrototypeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrototypeCollectionViewCell.swift; sourceTree = "<group>"; };
+		2203840A231665D6003C285B /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
+		2203840D23166CF2003C285B /* PrototypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrototypeViewController.swift; sourceTree = "<group>"; };
 		22D5268A2315460B00F76354 /* PiggyPatchwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PiggyPatchwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22D5268D2315460B00F76354 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		22D5268F2315460B00F76354 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		22D5268F2315460B00F76354 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		22D526922315460B00F76354 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		22D526952315460B00F76354 /* PiggyPatchwork.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PiggyPatchwork.xcdatamodel; sourceTree = "<group>"; };
 		22D526972315460D00F76354 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -48,6 +64,23 @@
 				05D3706CE9AF71A0B1261D49 /* Pods_PiggyPatchwork.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2203840323165C66003C285B /* Prototype */ = {
+			isa = PBXGroup;
+			children = (
+				2203840423165CA6003C285B /* PrototypeCollectionViewCell.xib */,
+				2203840823165D85003C285B /* PrototypeCollectionViewCell.swift */,
+			);
+			path = Prototype;
+			sourceTree = "<group>";
+		};
+		2203840C23166CD6003C285B /* PrototypeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2203840D23166CF2003C285B /* PrototypeViewController.swift */,
+			);
+			path = PrototypeViewController;
 			sourceTree = "<group>";
 		};
 		22D526812315460B00F76354 = {
@@ -87,6 +120,7 @@
 		22D526A4231558BB00F76354 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2203840A231665D6003C285B /* SelectionView.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -94,7 +128,8 @@
 		22D526A5231558CC00F76354 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				22D5268F2315460B00F76354 /* ViewController.swift */,
+				2203840C23166CD6003C285B /* PrototypeViewController */,
+				22D5268F2315460B00F76354 /* CameraViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -102,8 +137,9 @@
 		22D526A62315593100F76354 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				22D526912315460B00F76354 /* Main.storyboard */,
+				2203840323165C66003C285B /* Prototype */,
 				22D526992315460D00F76354 /* LaunchScreen.storyboard */,
+				22D526912315460B00F76354 /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -118,6 +154,10 @@
 		22D526A8231559F400F76354 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				220383FB231654A0003C285B /* UIScreen+Extension.swift */,
+				220383FD231657E8003C285B /* UIColor+Extension.swift */,
+				220383FF23165860003C285B /* UIImage+Extension.swift */,
+				2203840123165999003C285B /* UICollectionView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -200,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22D5269B2315460D00F76354 /* LaunchScreen.storyboard in Resources */,
+				2203840523165CA6003C285B /* PrototypeCollectionViewCell.xib in Resources */,
 				22D526982315460D00F76354 /* Assets.xcassets in Resources */,
 				22D526932315460B00F76354 /* Main.storyboard in Resources */,
 			);
@@ -255,9 +296,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22D526902315460B00F76354 /* ViewController.swift in Sources */,
+				22D526902315460B00F76354 /* CameraViewController.swift in Sources */,
+				2203840223165999003C285B /* UICollectionView+Extension.swift in Sources */,
+				220383FC231654A0003C285B /* UIScreen+Extension.swift in Sources */,
+				2203840923165D85003C285B /* PrototypeCollectionViewCell.swift in Sources */,
 				22D5268E2315460B00F76354 /* AppDelegate.swift in Sources */,
+				2203840E23166CF2003C285B /* PrototypeViewController.swift in Sources */,
+				2203840B231665D6003C285B /* SelectionView.swift in Sources */,
+				2203840023165860003C285B /* UIImage+Extension.swift in Sources */,
 				22D526962315460B00F76354 /* PiggyPatchwork.xcdatamodeld in Sources */,
+				220383FE231657E8003C285B /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,7 +453,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CL27H452FX;
 				INFOPLIST_FILE = PiggyPatchwork/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -423,7 +473,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CL27H452FX;
 				INFOPLIST_FILE = PiggyPatchwork/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
