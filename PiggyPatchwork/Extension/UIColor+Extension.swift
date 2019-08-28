@@ -8,6 +8,27 @@
 
 import UIKit
 
+struct CustomColor {
+    
+    //Red Color
+    static let PastelPink = "#FFD0D6"
+    
+    //Orange Color
+    static let MelonOrange = "#E5A46E"
+    static let SalamanderOrange = "#F15A22"
+    
+    //Yellow Color
+    static let LemonadeYellow = "#FEE19F"
+    
+    //Green Color
+    static let EucalyptusGreen = "#85CFB4"
+    static let ZigguartGreen = "#B7DDE0"
+    
+    //Blue Color
+    static let TurquoiseBlue = "#85B8CB"
+    
+}
+
 extension UIColor {
     
     static func hexStringToUIColor(hex: String) -> UIColor {

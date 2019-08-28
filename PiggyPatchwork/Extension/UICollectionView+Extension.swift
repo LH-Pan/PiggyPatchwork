@@ -17,3 +17,11 @@ extension UICollectionView {
         register(nib, forCellWithReuseIdentifier: identifier)
     }
 }
+
+extension UICollectionViewCell {
+    
+    static var identifier: String {
+        
+        return String(describing: self)
+    }
+}

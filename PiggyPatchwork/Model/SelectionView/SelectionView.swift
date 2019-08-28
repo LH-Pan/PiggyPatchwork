@@ -47,7 +47,7 @@ class SelectionView: UIView {
             
             button.titleLabel?.font = dataSource.fontOfText(self)
             
-            button.backgroundColor = .gray
+            button.backgroundColor = .white
             
             self.addSubview(button)
             
@@ -55,7 +55,11 @@ class SelectionView: UIView {
             
             if index == 0 {
                 
-                indicatorView.frame = CGRect(x: 0, y: btnHeight, width: btnWidth, height: 2)
+                indicatorView.frame = CGRect(x: 0, y: btnHeight, width: btnWidth * 2 / 3, height: 2)
+                
+                indicatorView.center.x = button.center.x
+                
+                indicatorView.layer.cornerRadius = 15
                 
                 indicatorView.backgroundColor = dataSource.colorOfIndicatorView(self)
                 
@@ -109,11 +113,11 @@ extension SelectionViewDataSource {
     }
     
     func colorOfIndicatorView(_ selectionView: SelectionView) -> UIColor {
-        return .blue
+        return UIColor.hexStringToUIColor(hex: CustomColor.LemonadeYellow)
     }
     
     func colorOfSelectionText(_ selectionView: SelectionView) -> UIColor {
-        return .white
+        return UIColor.hexStringToUIColor(hex: CustomColor.SalamanderOrange)
     }
     
     func fontOfText(_ selectionView: SelectionView) -> UIFont {

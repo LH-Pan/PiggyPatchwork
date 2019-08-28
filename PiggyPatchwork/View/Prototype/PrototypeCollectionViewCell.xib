@@ -12,13 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-        </view>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="SD7-G8-Ncf">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PrototypeCollectionViewCell" id="SD7-G8-Ncf" customClass="PrototypeCollectionViewCell" customModule="PiggyPatchwork" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -49,7 +43,10 @@
                 <constraint firstItem="SpF-Tv-PkX" firstAttribute="leading" secondItem="SD7-G8-Ncf" secondAttribute="leading" id="xMU-ec-KA8"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Vvq-Vu-W6I"/>
-            <point key="canvasLocation" x="55" y="119"/>
+            <connections>
+                <outlet property="imageView" destination="2bd-H5-Qqf" id="OI7-Lp-6Mm"/>
+            </connections>
+            <point key="canvasLocation" x="53.623188405797109" y="118.52678571428571"/>
         </collectionViewCell>
     </objects>
 </document>
