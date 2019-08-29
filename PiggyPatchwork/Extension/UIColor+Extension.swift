@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct CustomColor {
+struct CustomColorCode {
     
     //Red Color
     static let PastelPink = "#FFD0D6"

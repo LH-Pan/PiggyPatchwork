@@ -33,6 +33,10 @@ class PrototypeViewController: UIViewController {
     let collectionInfo = CollectionInfo(title: ["編排", "背景"],
                                         images: [#imageLiteral(resourceName: "Double_vertical_retangel_60x60"), #imageLiteral(resourceName: "Double_horizontal_retangel_60x60")])
     
+    let firstImageView = UIImageView()
+    
+    let secondImagaView = UIImageView()
+    
     // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +60,19 @@ class PrototypeViewController: UIViewController {
     private func setupCollectionViewLayout() {
         
         collectionView.collectionViewLayout = prototypeLayout
+    }
+    
+    func setupImageView() {
+//
+        firstImageView.frame = CGRect(x: collageView.frame.origin.x + 20,
+                                      y: collageView.frame.origin.y + 20,
+                                      width: (collageView.frame.width - 20 * 3) / 2,
+                                      height: collageView.frame.height - 20 * 2)
+        
+//        secondImagaView.frame = CGRect(x: collageView.frame.origin.x + 20 * 2 + (collageView.frame.width - 20 * 3) / 2,
+//                                       y: ,
+//                                       width: <#T##CGFloat#>,
+//                                       height: <#T##CGFloat#>)
     }
 }
     // MARK: UICollectionViewDataSource
@@ -101,7 +118,7 @@ extension PrototypeViewController: UICollectionViewDataSource {
             return
         }
         
-        cell.layer.borderColor = UIColor.hexStringToUIColor(hex: CustomColor.SilverGray).cgColor
+        cell.layer.borderColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SilverGray).cgColor
         
         cell.layer.borderWidth = 2
     }

@@ -16,6 +16,8 @@
 		2203840B231665D6003C285B /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2203840A231665D6003C285B /* SelectionView.swift */; };
 		2203840E23166CF2003C285B /* PrototypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2203840D23166CF2003C285B /* PrototypeViewController.swift */; };
 		220384122316A633003C285B /* PrototypeCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220384112316A633003C285B /* PrototypeCollectionViewLayout.swift */; };
+		220384162317A3BF003C285B /* CollageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220384152317A3BF003C285B /* CollageView.swift */; };
+		220384182317A5AC003C285B /* CollectionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220384172317A5AC003C285B /* CollectionInfo.swift */; };
 		22D5268E2315460B00F76354 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D5268D2315460B00F76354 /* AppDelegate.swift */; };
 		22D526902315460B00F76354 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D5268F2315460B00F76354 /* CameraViewController.swift */; };
 		22D526932315460B00F76354 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22D526912315460B00F76354 /* Main.storyboard */; };
@@ -36,6 +38,8 @@
 		2203840A231665D6003C285B /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
 		2203840D23166CF2003C285B /* PrototypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrototypeViewController.swift; sourceTree = "<group>"; };
 		220384112316A633003C285B /* PrototypeCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrototypeCollectionViewLayout.swift; sourceTree = "<group>"; };
+		220384152317A3BF003C285B /* CollageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollageView.swift; sourceTree = "<group>"; };
+		220384172317A5AC003C285B /* CollectionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionInfo.swift; sourceTree = "<group>"; };
 		22D5268A2315460B00F76354 /* PiggyPatchwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PiggyPatchwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22D5268D2315460B00F76354 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22D5268F2315460B00F76354 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +77,8 @@
 			children = (
 				2203840423165CA6003C285B /* PrototypeCollectionViewCell.xib */,
 				2203840823165D85003C285B /* PrototypeCollectionViewCell.swift */,
+				220384112316A633003C285B /* PrototypeCollectionViewLayout.swift */,
+				220384152317A3BF003C285B /* CollageView.swift */,
 			);
 			path = Prototype;
 			sourceTree = "<group>";
@@ -96,7 +102,7 @@
 		220384102316A605003C285B /* PrototypeCollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				220384112316A633003C285B /* PrototypeCollectionViewLayout.swift */,
+				220384172317A5AC003C285B /* CollectionInfo.swift */,
 			);
 			path = PrototypeCollectionView;
 			sourceTree = "<group>";
@@ -139,7 +145,6 @@
 			isa = PBXGroup;
 			children = (
 				220384102316A605003C285B /* PrototypeCollectionView */,
-				2203840F23168358003C285B /* SelectionView */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -156,6 +161,7 @@
 		22D526A62315593100F76354 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2203840F23168358003C285B /* SelectionView */,
 				2203840323165C66003C285B /* Prototype */,
 				22D526992315460D00F76354 /* LaunchScreen.storyboard */,
 				22D526912315460B00F76354 /* Main.storyboard */,
@@ -321,6 +327,8 @@
 				220384122316A633003C285B /* PrototypeCollectionViewLayout.swift in Sources */,
 				2203840923165D85003C285B /* PrototypeCollectionViewCell.swift in Sources */,
 				22D5268E2315460B00F76354 /* AppDelegate.swift in Sources */,
+				220384162317A3BF003C285B /* CollageView.swift in Sources */,
+				220384182317A5AC003C285B /* CollectionInfo.swift in Sources */,
 				2203840E23166CF2003C285B /* PrototypeViewController.swift in Sources */,
 				2203840B231665D6003C285B /* SelectionView.swift in Sources */,
 				2203840023165860003C285B /* UIImage+Extension.swift in Sources */,

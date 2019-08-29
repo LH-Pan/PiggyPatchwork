@@ -10,8 +10,6 @@ import UIKit
 
 class SelectionView: UIView {
     
-    @IBOutlet weak var selectionView: SelectionView!
-    
     weak var delegate: SelectionViewDelegate?
     
     weak var dataSource: SelectionViewDataSource? {
@@ -113,11 +111,11 @@ extension SelectionViewDataSource {
     }
     
     func colorOfIndicatorView(_ selectionView: SelectionView) -> UIColor {
-        return UIColor.hexStringToUIColor(hex: CustomColor.LemonadeYellow)
+        return UIColor.hexStringToUIColor(hex: CustomColorCode.LemonadeYellow)
     }
     
     func colorOfSelectionText(_ selectionView: SelectionView) -> UIColor {
-        return UIColor.hexStringToUIColor(hex: CustomColor.EucalyptusGreen)
+        return UIColor.hexStringToUIColor(hex: CustomColorCode.EucalyptusGreen)
     }
     
     func fontOfText(_ selectionView: SelectionView) -> UIFont {

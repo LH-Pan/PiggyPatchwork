@@ -13,9 +13,9 @@ enum ImageAsset: String {
     // swiftlint:disable identifier_name
     case Double_horizontal_retangel_60x60
     case Double_vertical_retangel_60x60
+    
+    // swiftlint:enable identifier_name
 }
-
-// swiftlint:enable identifier_name
 
 extension UIImage {
     
