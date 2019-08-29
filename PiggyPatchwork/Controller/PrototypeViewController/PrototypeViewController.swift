@@ -43,6 +43,8 @@ class PrototypeViewController: UIViewController {
         
         setupCollectionView()
         
+        setupImageView()
+        
     }
     
     // MARK: Private method
@@ -63,16 +65,76 @@ class PrototypeViewController: UIViewController {
     }
     
     func setupImageView() {
-//
-        firstImageView.frame = CGRect(x: collageView.frame.origin.x + 20,
-                                      y: collageView.frame.origin.y + 20,
-                                      width: (collageView.frame.width - 20 * 3) / 2,
-                                      height: collageView.frame.height - 20 * 2)
+        collageView.addSubview(firstImageView)
         
-//        secondImagaView.frame = CGRect(x: collageView.frame.origin.x + 20 * 2 + (collageView.frame.width - 20 * 3) / 2,
-//                                       y: ,
-//                                       width: <#T##CGFloat#>,
-//                                       height: <#T##CGFloat#>)
+        collageView.addSubview(secondImagaView)
+        
+        firstImageView.layer.borderColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SilverGray).cgColor
+        
+        firstImageView.layer.borderWidth = 1
+        
+        secondImagaView.layer.borderColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SilverGray).cgColor
+        
+        secondImagaView.layer.borderWidth = 1
+        
+        firstImageView.isUserInteractionEnabled = true
+        
+        secondImagaView.isUserInteractionEnabled = true
+        
+        secondImagaView.addGestureRecognizer(setupTapGestureRecognizer())
+        
+        firstImageView.addGestureRecognizer(setupTapGestureRecognizer())
+    }
+    
+    func setupTapGestureRecognizer() -> UITapGestureRecognizer {
+        
+        let singleTap = UITapGestureRecognizer(target: self,
+                                               action: #selector(
+                                                    self.singleTapping(recognizer:)))
+        
+        return singleTap
+    }
+    
+    @objc func singleTapping(recognizer: UIGestureRecognizer) {
+        print ("點屁點")
+    }
+    
+    func setupVerticalImageView() {
+        
+        let inset = 20 / 414 * UIScreen.width
+        
+        let imageViewWidth = (collageView.frame.width - inset * 3) / 2
+        
+        let imageViewHeight = collageView.frame.height - (inset * 2)
+
+        firstImageView.frame = CGRect(x: collageView.bounds.origin.x + inset,
+                                      y: collageView.bounds.origin.y + inset,
+                                      width: imageViewWidth,
+                                      height: imageViewHeight)
+        
+        secondImagaView.frame = CGRect(x: imageViewWidth + inset * 2,
+                                       y: collageView.bounds.origin.y + inset,
+                                       width: imageViewWidth,
+                                       height: imageViewHeight)
+    }
+    
+    func setupHorizontalImageView() {
+        
+        let inset = 20 / 414 * UIScreen.width
+        
+        let imageViewWidth = collageView.frame.height - inset * 2
+        
+        let imageViewHeight = (collageView.frame.width - inset * 3) / 2
+        
+        firstImageView.frame = CGRect(x: collageView.bounds.origin.x + inset,
+                                      y: collageView.bounds.origin.y + inset,
+                                      width: imageViewWidth,
+                                      height: imageViewHeight)
+        
+        secondImagaView.frame = CGRect(x: collageView.bounds.origin.x + inset,
+                                       y: imageViewHeight + inset * 2,
+                                       width: imageViewWidth,
+                                       height: imageViewHeight)
     }
 }
     // MARK: UICollectionViewDataSource
@@ -111,6 +173,21 @@ extension PrototypeViewController: UICollectionViewDataSource {
     func collectionView(
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath) {
+        
+        switch indexPath.row {
+            
+        case 0: UIView.animate(withDuration: 0.2,
+                               animations: {
+                self.setupVerticalImageView()
+        })
+            
+        case 1: UIView.animate(withDuration: 0.2,
+                               animations: {
+                self.setupHorizontalImageView()
+        })
+            
+        default: break
+        }
         
         guard
             let cell = collectionView.cellForItem(at: indexPath)
