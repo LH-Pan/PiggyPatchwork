@@ -27,6 +27,9 @@ struct CustomColor {
     //Blue Color
     static let TurquoiseBlue = "#85B8CB"
     
+    //Gray Color
+    static let SilverGray = "#CED7D4"
+    
 }
 
 extension UIColor {

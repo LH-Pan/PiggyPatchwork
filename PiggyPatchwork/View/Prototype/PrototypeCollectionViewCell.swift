@@ -16,3 +16,10 @@ class PrototypeCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
     }
 }
+
+struct CollectionInfo {
+    
+    var title: [String]
+    
+    var images: [UIImage]
+}
