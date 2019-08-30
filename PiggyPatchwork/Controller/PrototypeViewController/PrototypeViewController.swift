@@ -278,6 +278,8 @@ extension PrototypeViewController: UIImagePickerControllerDelegate,
         
         chooseImage?.image = info[.originalImage] as? UIImage
         
+        chooseImage?.layer.borderWidth = 0
+        
         picker.dismiss(animated: true, completion: nil)
     }
 }

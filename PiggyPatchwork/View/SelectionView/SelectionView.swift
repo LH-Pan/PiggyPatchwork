@@ -27,7 +27,7 @@ class SelectionView: UIView {
         
         guard let dataSource = dataSource else { return }
         
-        let btnWidth = self.bounds.width / CGFloat(dataSource.numberOfSelections(self))
+        let btnWidth = UIScreen.width / CGFloat(dataSource.numberOfSelections(self))
         
         let btnHeight = self.bounds.height - 2
         
