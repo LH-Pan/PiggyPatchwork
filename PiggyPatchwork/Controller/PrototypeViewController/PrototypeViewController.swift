@@ -23,6 +23,8 @@ class PrototypeViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var testImageVIew: UIImageView!
+    
     lazy var prototypeLayout: PrototypeCollectionViewLayout = {
         
         let layout = PrototypeCollectionViewLayout()
@@ -39,13 +41,17 @@ class PrototypeViewController: UIViewController {
     
     var chooseImage: UIImageView?
     
+    var savedImage: UIImage?
+    
     // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupCollectionView()
         
-        setupImageView()
+        setupImageView(with: collageView, add: firstImageView)
+        
+        setupImageView(with: collageView, add: secondImageView)
         
     }
     
@@ -66,34 +72,21 @@ class PrototypeViewController: UIViewController {
         collectionView.collectionViewLayout = prototypeLayout
     }
     
-    private func setupImageView() {
-        collageView.addSubview(firstImageView)
+    private func setupImageView(with view: UIView, add imageView: UIImageView) {
         
-        collageView.addSubview(secondImageView)
+        view.addSubview(imageView)
         
-        firstImageView.layer.borderColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SilverGray).cgColor
+        imageView.layer.borderColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SilverGray).cgColor
         
-        firstImageView.layer.borderWidth = 1
+        imageView.layer.borderWidth = 1
         
-        secondImageView.layer.borderColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SilverGray).cgColor
+        imageView.contentMode = .scaleAspectFill
         
-        secondImageView.layer.borderWidth = 1
+        imageView.clipsToBounds = true
         
-        firstImageView.contentMode = .scaleAspectFill
+        imageView.isUserInteractionEnabled = true
         
-        firstImageView.clipsToBounds = true
-        
-        secondImageView.contentMode = .scaleAspectFill
-        
-        secondImageView.clipsToBounds = true
-        
-        firstImageView.isUserInteractionEnabled = true
-        
-        secondImageView.isUserInteractionEnabled = true
-        
-        secondImageView.addGestureRecognizer(setupTapGestureRecognizer())
-        
-        firstImageView.addGestureRecognizer(setupTapGestureRecognizer())
+        imageView.addGestureRecognizer(setupTapGestureRecognizer())
     }
     
     func setupTapGestureRecognizer() -> UITapGestureRecognizer {
@@ -148,6 +141,21 @@ class PrototypeViewController: UIViewController {
                                        width: imageViewWidth,
                                        height: imageViewHeight)
     }
+    
+    @IBAction func savePhoto(_ sender: Any) {
+        
+        savedImage = collageView.takeSnapshot()
+        
+        guard
+            let savedImage = savedImage
+        else {
+
+            print ("目前沒有拼貼好的照片哦")
+            return
+        }
+
+        UIImageWriteToSavedPhotosAlbum(savedImage, nil, nil, nil)
+    }
 }
     // MARK: UICollectionViewDataSource
 extension PrototypeViewController: UICollectionViewDataSource {
@@ -157,7 +165,7 @@ extension PrototypeViewController: UICollectionViewDataSource {
         numberOfItemsInSection section: Int
         ) -> Int {
         
-        return 2
+        return collectionInfo.images.count
     }
     
     func collectionView(
@@ -254,6 +262,7 @@ extension PrototypeViewController: SelectionViewDelegate,
 extension PrototypeViewController: UIImagePickerControllerDelegate,
                                    UINavigationControllerDelegate {
     
+    // 開啟相簿
     func showAlbum() {
         
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary) {
@@ -272,6 +281,7 @@ extension PrototypeViewController: UIImagePickerControllerDelegate,
         }
     }
     
+    // 選用照片後置入點選的 imageView
     func imagePickerController(
         _ picker: UIImagePickerController,
         didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
