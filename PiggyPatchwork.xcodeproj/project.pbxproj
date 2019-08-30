@@ -16,7 +16,6 @@
 		2203840B231665D6003C285B /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2203840A231665D6003C285B /* SelectionView.swift */; };
 		2203840E23166CF2003C285B /* PrototypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2203840D23166CF2003C285B /* PrototypeViewController.swift */; };
 		220384122316A633003C285B /* PrototypeCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220384112316A633003C285B /* PrototypeCollectionViewLayout.swift */; };
-		220384162317A3BF003C285B /* CollageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220384152317A3BF003C285B /* CollageView.swift */; };
 		220384182317A5AC003C285B /* CollectionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220384172317A5AC003C285B /* CollectionInfo.swift */; };
 		22D5268E2315460B00F76354 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D5268D2315460B00F76354 /* AppDelegate.swift */; };
 		22D526902315460B00F76354 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D5268F2315460B00F76354 /* CameraViewController.swift */; };
@@ -38,7 +37,6 @@
 		2203840A231665D6003C285B /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
 		2203840D23166CF2003C285B /* PrototypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrototypeViewController.swift; sourceTree = "<group>"; };
 		220384112316A633003C285B /* PrototypeCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrototypeCollectionViewLayout.swift; sourceTree = "<group>"; };
-		220384152317A3BF003C285B /* CollageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollageView.swift; sourceTree = "<group>"; };
 		220384172317A5AC003C285B /* CollectionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionInfo.swift; sourceTree = "<group>"; };
 		22D5268A2315460B00F76354 /* PiggyPatchwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PiggyPatchwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22D5268D2315460B00F76354 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,7 +76,6 @@
 				2203840423165CA6003C285B /* PrototypeCollectionViewCell.xib */,
 				2203840823165D85003C285B /* PrototypeCollectionViewCell.swift */,
 				220384112316A633003C285B /* PrototypeCollectionViewLayout.swift */,
-				220384152317A3BF003C285B /* CollageView.swift */,
 			);
 			path = Prototype;
 			sourceTree = "<group>";
@@ -327,7 +324,6 @@
 				220384122316A633003C285B /* PrototypeCollectionViewLayout.swift in Sources */,
 				2203840923165D85003C285B /* PrototypeCollectionViewCell.swift in Sources */,
 				22D5268E2315460B00F76354 /* AppDelegate.swift in Sources */,
-				220384162317A3BF003C285B /* CollageView.swift in Sources */,
 				220384182317A5AC003C285B /* CollectionInfo.swift in Sources */,
 				2203840E23166CF2003C285B /* PrototypeViewController.swift in Sources */,
 				2203840B231665D6003C285B /* SelectionView.swift in Sources */,

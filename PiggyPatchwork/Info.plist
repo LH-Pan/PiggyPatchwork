@@ -42,8 +42,10 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>NSCameraUsageDescription</key>
-	<string>將存取於您的相簿</string>
+	<string>將取用您的相簿</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>將取用您的相機</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>將存取於您的相簿</string>
 </dict>
 </plist>

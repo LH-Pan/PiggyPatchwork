@@ -35,7 +35,9 @@ class PrototypeViewController: UIViewController {
     
     let firstImageView = UIImageView()
     
-    let secondImagaView = UIImageView()
+    let secondImageView = UIImageView()
+    
+    var chooseImage: UIImageView?
     
     // MARK: View Life Cycle
     override func viewDidLoad() {
@@ -64,24 +66,32 @@ class PrototypeViewController: UIViewController {
         collectionView.collectionViewLayout = prototypeLayout
     }
     
-    func setupImageView() {
+    private func setupImageView() {
         collageView.addSubview(firstImageView)
         
-        collageView.addSubview(secondImagaView)
+        collageView.addSubview(secondImageView)
         
         firstImageView.layer.borderColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SilverGray).cgColor
         
         firstImageView.layer.borderWidth = 1
         
-        secondImagaView.layer.borderColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SilverGray).cgColor
+        secondImageView.layer.borderColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SilverGray).cgColor
         
-        secondImagaView.layer.borderWidth = 1
+        secondImageView.layer.borderWidth = 1
+        
+        firstImageView.contentMode = .scaleAspectFill
+        
+        firstImageView.clipsToBounds = true
+        
+        secondImageView.contentMode = .scaleAspectFill
+        
+        secondImageView.clipsToBounds = true
         
         firstImageView.isUserInteractionEnabled = true
         
-        secondImagaView.isUserInteractionEnabled = true
+        secondImageView.isUserInteractionEnabled = true
         
-        secondImagaView.addGestureRecognizer(setupTapGestureRecognizer())
+        secondImageView.addGestureRecognizer(setupTapGestureRecognizer())
         
         firstImageView.addGestureRecognizer(setupTapGestureRecognizer())
     }
@@ -89,14 +99,16 @@ class PrototypeViewController: UIViewController {
     func setupTapGestureRecognizer() -> UITapGestureRecognizer {
         
         let singleTap = UITapGestureRecognizer(target: self,
-                                               action: #selector(
-                                                    self.singleTapping(recognizer:)))
+                                               action: #selector(singleTapping(recognizer:)))
         
         return singleTap
     }
     
     @objc func singleTapping(recognizer: UIGestureRecognizer) {
-        print ("點屁點")
+        
+        chooseImage = recognizer.view as? UIImageView
+        
+        showAlbum()
     }
     
     func setupVerticalImageView() {
@@ -112,7 +124,7 @@ class PrototypeViewController: UIViewController {
                                       width: imageViewWidth,
                                       height: imageViewHeight)
         
-        secondImagaView.frame = CGRect(x: imageViewWidth + inset * 2,
+        secondImageView.frame = CGRect(x: imageViewWidth + inset * 2,
                                        y: collageView.bounds.origin.y + inset,
                                        width: imageViewWidth,
                                        height: imageViewHeight)
@@ -131,7 +143,7 @@ class PrototypeViewController: UIViewController {
                                       width: imageViewWidth,
                                       height: imageViewHeight)
         
-        secondImagaView.frame = CGRect(x: collageView.bounds.origin.x + inset,
+        secondImageView.frame = CGRect(x: collageView.bounds.origin.x + inset,
                                        y: imageViewHeight + inset * 2,
                                        width: imageViewWidth,
                                        height: imageViewHeight)
@@ -227,7 +239,8 @@ extension PrototypeViewController: UICollectionViewDelegateFlowLayout {
 }
 
     // MARK: SelectionViewDelegate & SelectionViewDataSource
-extension PrototypeViewController: SelectionViewDelegate, SelectionViewDataSource {
+extension PrototypeViewController: SelectionViewDelegate,
+                                   SelectionViewDataSource {
     
     func textOfSelections(_ selectionView: SelectionView, index: Int) -> String {
         return collectionInfo.title[index]
@@ -235,5 +248,36 @@ extension PrototypeViewController: SelectionViewDelegate, SelectionViewDataSourc
     
     func enable(_ selectionView: SelectionView, index: Int) -> Bool {
         return true
+    }
+}
+
+extension PrototypeViewController: UIImagePickerControllerDelegate,
+                                   UINavigationControllerDelegate {
+    
+    func showAlbum() {
+        
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary) {
+            
+            let picker: UIImagePickerController = UIImagePickerController()
+            
+            picker.sourceType = UIImagePickerController.SourceType.savedPhotosAlbum
+            
+            picker.delegate = self
+            
+            self.present(picker, animated: true, completion: nil)
+            
+        } else {
+            
+            print("無法讀取相簿")
+        }
+    }
+    
+    func imagePickerController(
+        _ picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        
+        chooseImage?.image = info[.originalImage] as? UIImage
+        
+        picker.dismiss(animated: true, completion: nil)
     }
 }
