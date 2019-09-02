@@ -10,7 +10,7 @@ import UIKit
 
 struct CollectionInfo {
     
-    var title: [String]
+    var title: String
     
     var images: [UIImage]
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreImage
 
 class PrototypeViewController: UIViewController {
     
@@ -23,25 +24,37 @@ class PrototypeViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    @IBOutlet weak var testImageVIew: UIImageView!
-    
-    lazy var prototypeLayout: PrototypeCollectionViewLayout = {
+    lazy var prototypeCollectionVoewLayout: PrototypeCollectionViewLayout = {
         
         let layout = PrototypeCollectionViewLayout()
         
         return layout
     }()
     
-    let collectionInfo = CollectionInfo(title: ["編排", "背景"],
-                                        images: [#imageLiteral(resourceName: "Double_vertical_retangel_60x60"), #imageLiteral(resourceName: "Double_horizontal_retangel_60x60")])
+    let collectionInfo = [
+        CollectionInfo(title: "拼貼邊框",
+                       images: [#imageLiteral(resourceName: "Double_vertical_retangel_60x60"), #imageLiteral(resourceName: "Double_horizontal_retangel_60x60")]),
+        CollectionInfo(title: "背景",
+                       images: [#imageLiteral(resourceName: "Double_horizontal_retangel_60x60"), #imageLiteral(resourceName: "Double_vertical_retangel_60x60")]),
+        CollectionInfo(title: "顏文字換臉",
+                       images: [#imageLiteral(resourceName: "Double_horizontal_retangel_60x60"), #imageLiteral(resourceName: "Double_vertical_retangel_60x60")])]
     
     let firstImageView = UIImageView()
     
     let secondImageView = UIImageView()
     
+    let personFaceImage = UIImageView()
+    
     var chooseImage: UIImageView?
     
     var savedImage: UIImage?
+    
+    var doubleView: (CGRect, CGRect) = (.zero, .zero) {
+        
+        didSet {
+            (firstImageView.frame, secondImageView.frame) = doubleView
+        }
+    }
     
     // MARK: View Life Cycle
     override func viewDidLoad() {
@@ -53,9 +66,13 @@ class PrototypeViewController: UIViewController {
         
         setupImageView(with: collageView, add: secondImageView)
         
+        setupImageView(with: collageView, add: personFaceImage)
+        
     }
     
     // MARK: Private method
+    
+    // 建立 collection view
     private func setupCollectionView() {
         
         self.collectionView.delegate = self
@@ -69,10 +86,11 @@ class PrototypeViewController: UIViewController {
     
     private func setupCollectionViewLayout() {
         
-        collectionView.collectionViewLayout = prototypeLayout
+        collectionView.collectionViewLayout = prototypeCollectionVoewLayout
     }
     
-    private func setupImageView(with view: UIView, add imageView: UIImageView) {
+    private func setupImageView(with view: UIView,
+                                add imageView: UIImageView) {
         
         view.addSubview(imageView)
         
@@ -87,6 +105,15 @@ class PrototypeViewController: UIViewController {
         imageView.isUserInteractionEnabled = true
         
         imageView.addGestureRecognizer(setupTapGestureRecognizer())
+    }
+    
+    private func setupCollectionViewCell(with cell: UICollectionViewCell,
+                                         add imageView: UIImageView) {
+        
+        view.addSubview(imageView)
+        
+        imageView.backgroundColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SilverGray)
+        
     }
     
     func setupTapGestureRecognizer() -> UITapGestureRecognizer {
@@ -104,42 +131,39 @@ class PrototypeViewController: UIViewController {
         showAlbum()
     }
     
-    func setupVerticalImageView() {
+    func detect() {
         
-        let inset = 20 / 414 * UIScreen.width
+        guard
+            let personCiImage = CIImage(image: personFaceImage.image!)
+        else {
+            return
+        }
         
-        let imageViewWidth = (collageView.frame.width - inset * 3) / 2
+        let accuracy = [CIDetectorAccuracy: CIDetectorAccuracyHigh]
+        let faceDetector = CIDetector(ofType: CIDetectorTypeFace,
+                                      context: nil,
+                                      options: accuracy)
+        let faces = faceDetector?.features(in: personCiImage)
         
-        let imageViewHeight = collageView.frame.height - (inset * 2)
-
-        firstImageView.frame = CGRect(x: collageView.bounds.origin.x + inset,
-                                      y: collageView.bounds.origin.y + inset,
-                                      width: imageViewWidth,
-                                      height: imageViewHeight)
-        
-        secondImageView.frame = CGRect(x: imageViewWidth + inset * 2,
-                                       y: collageView.bounds.origin.y + inset,
-                                       width: imageViewWidth,
-                                       height: imageViewHeight)
-    }
-    
-    func setupHorizontalImageView() {
-        
-        let inset = 20 / 414 * UIScreen.width
-        
-        let imageViewWidth = collageView.frame.height - inset * 2
-        
-        let imageViewHeight = (collageView.frame.width - inset * 3) / 2
-        
-        firstImageView.frame = CGRect(x: collageView.bounds.origin.x + inset,
-                                      y: collageView.bounds.origin.y + inset,
-                                      width: imageViewWidth,
-                                      height: imageViewHeight)
-        
-        secondImageView.frame = CGRect(x: collageView.bounds.origin.x + inset,
-                                       y: imageViewHeight + inset * 2,
-                                       width: imageViewWidth,
-                                       height: imageViewHeight)
+        for face in faces as? [CIFaceFeature] ?? [] {
+            
+            print ("Found bounds are \(face.bounds)")
+            
+            let faceBox = UIView(frame: face.bounds)
+            
+            faceBox.layer.borderWidth = 3
+            faceBox.layer.borderColor = UIColor.red.cgColor
+            faceBox.backgroundColor = .clear
+            personFaceImage.addSubview(faceBox)
+            
+            if face.hasLeftEyePosition {
+                print("Left eye bounds are \(face.leftEyePosition)")
+            }
+            
+            if face.hasRightEyePosition {
+                print("Right eye bounds are \(face.rightEyePosition)")
+            }
+        }
     }
     
     @IBAction func savePhoto(_ sender: Any) {
@@ -165,7 +189,7 @@ extension PrototypeViewController: UICollectionViewDataSource {
         numberOfItemsInSection section: Int
         ) -> Int {
         
-        return collectionInfo.images.count
+        return collectionInfo[section].images.count
     }
     
     func collectionView(
@@ -184,9 +208,11 @@ extension PrototypeViewController: UICollectionViewDataSource {
             
             return cell
         }
-        
-        prototypeCell.imageView.image = collectionInfo.images[indexPath.row]
-            
+
+            prototypeCell.imageView.image = collectionInfo[selectionView.selectedIndex].images[indexPath.row]
+    
+            prototypeCell.layer.borderWidth = 0
+    
         return prototypeCell
     }
     
@@ -198,12 +224,15 @@ extension PrototypeViewController: UICollectionViewDataSource {
             
         case 0: UIView.animate(withDuration: 0.2,
                                animations: {
-                self.setupVerticalImageView()
+                                
+                self.doubleView = PrototypeLayout.doubleVerticalLayout(size: self.collageView.frame.size)
+
         })
             
         case 1: UIView.animate(withDuration: 0.2,
                                animations: {
-                self.setupHorizontalImageView()
+               
+                self.doubleView = PrototypeLayout.doubleHorizontalLayout(size: self.collageView.frame.size)
         })
             
         default: break
@@ -250,11 +279,18 @@ extension PrototypeViewController: UICollectionViewDelegateFlowLayout {
 extension PrototypeViewController: SelectionViewDelegate,
                                    SelectionViewDataSource {
     
+    func numberOfSelections(_ selectionView: SelectionView) -> Int {
+        return collectionInfo.count
+    }
+    
     func textOfSelections(_ selectionView: SelectionView, index: Int) -> String {
-        return collectionInfo.title[index]
+        return collectionInfo[index].title
     }
     
     func enable(_ selectionView: SelectionView, index: Int) -> Bool {
+        
+        collectionView.reloadData()
+        
         return true
     }
 }
@@ -289,6 +325,8 @@ extension PrototypeViewController: UIImagePickerControllerDelegate,
         chooseImage?.image = info[.originalImage] as? UIImage
         
         chooseImage?.layer.borderWidth = 0
+        
+        detect()
         
         picker.dismiss(animated: true, completion: nil)
     }

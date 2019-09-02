@@ -24,6 +24,9 @@
 		22D526962315460B00F76354 /* PiggyPatchwork.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22D526942315460B00F76354 /* PiggyPatchwork.xcdatamodeld */; };
 		22D526982315460D00F76354 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22D526972315460D00F76354 /* Assets.xcassets */; };
 		22D5269B2315460D00F76354 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22D526992315460D00F76354 /* LaunchScreen.storyboard */; };
+		22FE5042231CE86300C2C1C1 /* BackgroundColorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FE5041231CE86300C2C1C1 /* BackgroundColorCollectionViewCell.xib */; };
+		22FE5044231CE89600C2C1C1 /* BackgroundColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE5043231CE89600C2C1C1 /* BackgroundColorCollectionViewCell.swift */; };
+		22FE5046231CFC7F00C2C1C1 /* PrototypeLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE5045231CFC7F00C2C1C1 /* PrototypeLayout.swift */; };
 		252133BE3CDEF6C3528CA833 /* Pods_PiggyPatchwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05D3706CE9AF71A0B1261D49 /* Pods_PiggyPatchwork.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +51,9 @@
 		22D526972315460D00F76354 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22D5269A2315460D00F76354 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22D5269C2315460D00F76354 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22FE5041231CE86300C2C1C1 /* BackgroundColorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BackgroundColorCollectionViewCell.xib; sourceTree = "<group>"; };
+		22FE5043231CE89600C2C1C1 /* BackgroundColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColorCollectionViewCell.swift; sourceTree = "<group>"; };
+		22FE5045231CFC7F00C2C1C1 /* PrototypeLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrototypeLayout.swift; sourceTree = "<group>"; };
 		86A91C2890B62BF2078CC51D /* Pods-PiggyPatchwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PiggyPatchwork.debug.xcconfig"; path = "Target Support Files/Pods-PiggyPatchwork/Pods-PiggyPatchwork.debug.xcconfig"; sourceTree = "<group>"; };
 		A10A8CAE55D2F84AFD8E0D3C /* Pods-PiggyPatchwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PiggyPatchwork.release.xcconfig"; path = "Target Support Files/Pods-PiggyPatchwork/Pods-PiggyPatchwork.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,6 +83,8 @@
 			children = (
 				2203840423165CA6003C285B /* PrototypeCollectionViewCell.xib */,
 				2203840823165D85003C285B /* PrototypeCollectionViewCell.swift */,
+				22FE5041231CE86300C2C1C1 /* BackgroundColorCollectionViewCell.xib */,
+				22FE5043231CE89600C2C1C1 /* BackgroundColorCollectionViewCell.swift */,
 				220384112316A633003C285B /* PrototypeCollectionViewLayout.swift */,
 			);
 			path = Prototype;
@@ -102,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				220384172317A5AC003C285B /* CollectionInfo.swift */,
+				22FE5045231CFC7F00C2C1C1 /* PrototypeLayout.swift */,
 			);
 			path = PrototypeCollectionView;
 			sourceTree = "<group>";
@@ -264,6 +273,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22FE5042231CE86300C2C1C1 /* BackgroundColorCollectionViewCell.xib in Resources */,
 				22D5269B2315460D00F76354 /* LaunchScreen.storyboard in Resources */,
 				2203840523165CA6003C285B /* PrototypeCollectionViewCell.xib in Resources */,
 				22D526982315460D00F76354 /* Assets.xcassets in Resources */,
@@ -323,12 +333,14 @@
 			files = (
 				22D526902315460B00F76354 /* CameraViewController.swift in Sources */,
 				2206B7E42318DCC3000B0135 /* UIView+Extension.swift in Sources */,
+				22FE5044231CE89600C2C1C1 /* BackgroundColorCollectionViewCell.swift in Sources */,
 				2203840223165999003C285B /* UICollectionView+Extension.swift in Sources */,
 				220383FC231654A0003C285B /* UIScreen+Extension.swift in Sources */,
 				220384122316A633003C285B /* PrototypeCollectionViewLayout.swift in Sources */,
 				2203840923165D85003C285B /* PrototypeCollectionViewCell.swift in Sources */,
 				22D5268E2315460B00F76354 /* AppDelegate.swift in Sources */,
 				220384182317A5AC003C285B /* CollectionInfo.swift in Sources */,
+				22FE5046231CFC7F00C2C1C1 /* PrototypeLayout.swift in Sources */,
 				2203840E23166CF2003C285B /* PrototypeViewController.swift in Sources */,
 				2203840B231665D6003C285B /* SelectionView.swift in Sources */,
 				2203840023165860003C285B /* UIImage+Extension.swift in Sources */,
