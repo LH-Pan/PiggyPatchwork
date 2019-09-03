@@ -18,9 +18,9 @@ class PrototypeLayout {
         let sideLength = size.width - inset * 2
 
         let firstCGRect = CGRect(x: inset,
-                             y: inset,
-                             width: sideLength,
-                             height: sideLength)
+                                 y: inset,
+                                 width: sideLength,
+                                 height: sideLength)
 
         return firstCGRect
     }

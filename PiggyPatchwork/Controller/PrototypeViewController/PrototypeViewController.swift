@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import CoreImage
+import Vision
+import AVFoundation
 
 class PrototypeViewController: UIViewController {
     
@@ -67,7 +68,6 @@ class PrototypeViewController: UIViewController {
         setupImageView(with: collageView, add: secondImageView)
         
         setupImageView(with: collageView, add: personFaceImage)
-        
     }
     
     // MARK: Private method
@@ -131,38 +131,68 @@ class PrototypeViewController: UIViewController {
         showAlbum()
     }
     
-    func detect() {
+    func faceDetection() {
+        
+        let detectRequest = VNDetectFaceRectanglesRequest(completionHandler: self.handleFaces)
+        
+        let detectRequestHandler = VNImageRequestHandler(cgImage: (chooseImage?.image?.cgImage)!, options: [ : ])
+        
+        do {
+            try detectRequestHandler.perform([detectRequest])
+        } catch {
+            
+            print(error)
+        }
+    }
+    
+    func handleFaces(request: VNRequest, error: Error?) {
         
         guard
-            let personCiImage = CIImage(image: personFaceImage.image!)
-        else {
+            let faceDetectResults = request.results as? [VNFaceObservation]
+            else {
+                fatalError("Unexpected result type from VNDetectFaceRetanglesRequest.")
+        }
+        
+        if faceDetectResults.count == 0 {
+            
+            print("No face detect.")
             return
         }
         
-        let accuracy = [CIDetectorAccuracy: CIDetectorAccuracyHigh]
-        let faceDetector = CIDetector(ofType: CIDetectorTypeFace,
-                                      context: nil,
-                                      options: accuracy)
-        let faces = faceDetector?.features(in: personCiImage)
+        self.addShapeToFace(forObservations: faceDetectResults)
+    }
+    
+    func addShapeToFace(forObservations observations: [VNFaceObservation]) {
         
-        for face in faces as? [CIFaceFeature] ?? [] {
-            
-            print ("Found bounds are \(face.bounds)")
-            
-            let faceBox = UIView(frame: face.bounds)
-            
-            faceBox.layer.borderWidth = 3
-            faceBox.layer.borderColor = UIColor.red.cgColor
-            faceBox.backgroundColor = .clear
-            personFaceImage.addSubview(faceBox)
-            
-            if face.hasLeftEyePosition {
-                print("Left eye bounds are \(face.leftEyePosition)")
+        if let sublayers = personFaceImage.layer.sublayers {
+            for layer in sublayers {
+                layer.removeFromSuperlayer()
             }
+        }
+        
+        let imageRect = AVMakeRect(aspectRatio: (chooseImage?.image?.size)!,
+                                   insideRect: (chooseImage?.bounds)!)
+        
+        let layers: [CAShapeLayer] = observations.map { observation in
             
-            if face.hasRightEyePosition {
-                print("Right eye bounds are \(face.rightEyePosition)")
-            }
+            let width = observation.boundingBox.size.width * imageRect.width
+            let height = observation.boundingBox.size.height * imageRect.height
+            let originX = observation.boundingBox.origin.x * imageRect.width
+            let originY = imageRect.maxY - (observation.boundingBox.origin.y * imageRect.height) - height
+
+            let layer = CAShapeLayer()
+            layer.frame = CGRect(x: originX,
+                                 y: originY,
+                                 width: width,
+                                 height: height)
+            layer.borderColor = UIColor.red.cgColor
+            layer.borderWidth = 2
+            layer.cornerRadius = 3
+            return layer
+        }
+        
+        for layer in layers {
+            personFaceImage.layer.addSublayer(layer)
         }
     }
     
@@ -173,8 +203,6 @@ class PrototypeViewController: UIViewController {
         guard
             let savedImage = savedImage
         else {
-
-            print ("目前沒有拼貼好的照片哦")
             return
         }
 
@@ -182,7 +210,8 @@ class PrototypeViewController: UIViewController {
     }
 }
     // MARK: UICollectionViewDataSource
-extension PrototypeViewController: UICollectionViewDataSource {
+extension PrototypeViewController: UICollectionViewDataSource,
+                                   UICollectionViewDelegate {
     
     func collectionView(
         _ collectionView: UICollectionView,
@@ -208,10 +237,21 @@ extension PrototypeViewController: UICollectionViewDataSource {
             
             return cell
         }
+            if selectionView.selectedIndex == 2 {
+                
+                doubleView = (.zero, .zero)
+                
+                personFaceImage.frame = PrototypeLayout.singleSquareLayout(size: self.collageView.frame.size)
+                
+            } else {
+                
+            personFaceImage.frame = .zero
 
             prototypeCell.imageView.image = collectionInfo[selectionView.selectedIndex].images[indexPath.row]
     
             prototypeCell.layer.borderWidth = 0
+            
+            }
     
         return prototypeCell
     }
@@ -326,7 +366,7 @@ extension PrototypeViewController: UIImagePickerControllerDelegate,
         
         chooseImage?.layer.borderWidth = 0
         
-        detect()
+        faceDetection()
         
         picker.dismiss(animated: true, completion: nil)
     }
