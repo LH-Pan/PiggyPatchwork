@@ -10,7 +10,7 @@ import UIKit
 
 class BackgroundColorCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var view: UIView!
+    @IBOutlet weak var backgroundImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

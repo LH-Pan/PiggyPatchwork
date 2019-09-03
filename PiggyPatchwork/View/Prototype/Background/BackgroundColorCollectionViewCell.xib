@@ -19,38 +19,20 @@
                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UcM-1P-x7P">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bXy-Xy-rsn">
                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1UX-cC-nco">
-                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="1UX-cC-nco" secondAttribute="trailing" id="FSO-d9-J6B"/>
-                            <constraint firstAttribute="bottom" secondItem="1UX-cC-nco" secondAttribute="bottom" id="Fq9-cf-BbK"/>
-                            <constraint firstItem="1UX-cC-nco" firstAttribute="top" secondItem="UcM-1P-x7P" secondAttribute="top" id="JZO-RA-SBt"/>
-                            <constraint firstItem="1UX-cC-nco" firstAttribute="top" secondItem="UcM-1P-x7P" secondAttribute="top" id="KQW-p7-rTN"/>
-                            <constraint firstAttribute="trailing" secondItem="1UX-cC-nco" secondAttribute="trailing" id="Q5R-1Z-c0Q"/>
-                            <constraint firstItem="1UX-cC-nco" firstAttribute="leading" secondItem="UcM-1P-x7P" secondAttribute="leading" id="Xx3-Ef-pen"/>
-                            <constraint firstItem="1UX-cC-nco" firstAttribute="leading" secondItem="UcM-1P-x7P" secondAttribute="leading" id="mbr-cA-PUB"/>
-                            <constraint firstAttribute="bottom" secondItem="1UX-cC-nco" secondAttribute="bottom" id="tj7-Gt-RH5"/>
-                        </constraints>
-                    </view>
+                    </imageView>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="UcM-1P-x7P" firstAttribute="top" secondItem="Nwa-IJ-H93" secondAttribute="top" id="3jB-As-FtR"/>
-                <constraint firstAttribute="trailing" secondItem="UcM-1P-x7P" secondAttribute="trailing" id="5NW-d9-fb4"/>
-                <constraint firstItem="UcM-1P-x7P" firstAttribute="leading" secondItem="Nwa-IJ-H93" secondAttribute="leading" id="7zO-cZ-Txh"/>
-                <constraint firstAttribute="bottom" secondItem="UcM-1P-x7P" secondAttribute="bottom" id="bMz-Pg-18w"/>
+                <constraint firstItem="bXy-Xy-rsn" firstAttribute="leading" secondItem="Nwa-IJ-H93" secondAttribute="leading" id="KyU-Is-jpC"/>
+                <constraint firstAttribute="bottom" secondItem="bXy-Xy-rsn" secondAttribute="bottom" id="Msz-jG-hEc"/>
+                <constraint firstItem="bXy-Xy-rsn" firstAttribute="top" secondItem="Nwa-IJ-H93" secondAttribute="top" id="nsZ-rg-wi9"/>
+                <constraint firstAttribute="trailing" secondItem="bXy-Xy-rsn" secondAttribute="trailing" id="saN-Ae-yI2"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vJW-4v-2n9"/>
             <connections>
-                <outlet property="backgroundView" destination="UcM-1P-x7P" id="hXw-xZ-gcn"/>
-                <outlet property="view" destination="1UX-cC-nco" id="ig8-zC-XUF"/>
+                <outlet property="backgroundImageView" destination="bXy-Xy-rsn" id="7qm-dv-dFI"/>
             </connections>
             <point key="canvasLocation" x="201" y="70"/>
         </collectionViewCell>

@@ -19,28 +19,16 @@
                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SpF-Tv-PkX">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2bd-H5-Qqf">
                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2bd-H5-Qqf">
-                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="2bd-H5-Qqf" secondAttribute="trailing" id="K4S-72-eRO"/>
-                            <constraint firstItem="2bd-H5-Qqf" firstAttribute="leading" secondItem="SpF-Tv-PkX" secondAttribute="leading" id="K8O-kk-0Ef"/>
-                            <constraint firstAttribute="bottom" secondItem="2bd-H5-Qqf" secondAttribute="bottom" id="LaY-qg-h9p"/>
-                            <constraint firstItem="2bd-H5-Qqf" firstAttribute="top" secondItem="SpF-Tv-PkX" secondAttribute="top" id="Ovq-p7-kLf"/>
-                        </constraints>
-                    </view>
+                    </imageView>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="SpF-Tv-PkX" firstAttribute="top" secondItem="SD7-G8-Ncf" secondAttribute="top" id="Kyp-GP-MCH"/>
-                <constraint firstAttribute="trailing" secondItem="SpF-Tv-PkX" secondAttribute="trailing" id="fbo-Fm-nvm"/>
-                <constraint firstAttribute="bottom" secondItem="SpF-Tv-PkX" secondAttribute="bottom" id="ufs-Jy-8YH"/>
-                <constraint firstItem="SpF-Tv-PkX" firstAttribute="leading" secondItem="SD7-G8-Ncf" secondAttribute="leading" id="xMU-ec-KA8"/>
+                <constraint firstAttribute="trailing" secondItem="2bd-H5-Qqf" secondAttribute="trailing" id="7RH-hd-AD1"/>
+                <constraint firstAttribute="bottom" secondItem="2bd-H5-Qqf" secondAttribute="bottom" id="jvL-QW-F9Q"/>
+                <constraint firstItem="2bd-H5-Qqf" firstAttribute="leading" secondItem="SD7-G8-Ncf" secondAttribute="leading" id="uXH-za-IqC"/>
+                <constraint firstItem="2bd-H5-Qqf" firstAttribute="top" secondItem="SD7-G8-Ncf" secondAttribute="top" id="zvw-Zv-ZV3"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Vvq-Vu-W6I"/>
             <connections>

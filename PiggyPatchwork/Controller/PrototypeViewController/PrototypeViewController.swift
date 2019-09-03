@@ -81,6 +81,13 @@ class PrototypeViewController: UIViewController {
         
         collectionView.custom_registerCellWithNib(identifier: PrototypeCollectionViewCell.identifier,
                                                   bundle: nil)
+        
+        collectionView.custom_registerCellWithNib(identifier: BackgroundColorCollectionViewCell.identifier,
+                                                  bundle: nil)
+        
+        collectionView.custom_registerCellWithNib(identifier: EmoticonCollectionViewCell.identifier,
+                                                  bundle: nil)
+        
         setupCollectionViewLayout()
     }
     
@@ -185,10 +192,9 @@ class PrototypeViewController: UIViewController {
                                  y: originY,
                                  width: width * 3 / 5,
                                  height: height * 4 / 5)
-            layer.borderColor = UIColor.red.cgColor
-            layer.borderWidth = 0
+//            layer.borderColor = UIColor.red.cgColor
+//            layer.borderWidth = 0
             layer.cornerRadius = layer.frame.size.height / 2
-            
             layer.position = CGPoint(x: (originX + width / 2), y: (originY + height / 2))
 
             layer.backgroundColor = personFaceImage.image?[
@@ -235,67 +241,85 @@ extension PrototypeViewController: UICollectionViewDataSource,
         cellForItemAt indexPath: IndexPath)
         -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: PrototypeCollectionViewCell.identifier,
-            for: indexPath
-        )
-            
-        guard
-            let prototypeCell = cell as? PrototypeCollectionViewCell
-        else {
-            
-            return cell
-        }
-            if selectionView.selectedIndex == 2 {
-                
-                doubleView = (.zero, .zero)
-                
-                personFaceImage.frame = PrototypeLayout.singleSquareLayout(size: self.collageView.frame.size)
-                
-            } else {
-                
-            personFaceImage.frame = .zero
+        if selectionView.selectedIndex == 0 {
 
-            prototypeCell.imageView.image = collectionInfo[selectionView.selectedIndex].images[indexPath.row]
-    
-            prototypeCell.layer.borderWidth = 0
-            
+            guard
+                let prototypeCell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: PrototypeCollectionViewCell.identifier,
+                    for: indexPath
+                    ) as? PrototypeCollectionViewCell
+            else {
+                return UICollectionViewCell()
             }
+                
+                personFaceImage.frame = .zero
+
+                prototypeCell.imageView.image = collectionInfo[selectionView.selectedIndex].images[indexPath.row]
     
-        return prototypeCell
+                prototypeCell.layer.borderWidth = 0
+            
+                return prototypeCell
+            
+        } else if selectionView.selectedIndex == 1 {
+            
+            guard
+                let bakcgroundCell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: BackgroundColorCollectionViewCell.identifier,
+                    for: indexPath
+                    ) as? BackgroundColorCollectionViewCell
+            else {
+                return UICollectionViewCell()
+            }
+                return bakcgroundCell
+            
+        } else {
+            
+            guard
+                let emoticonCell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: EmoticonCollectionViewCell.identifier,
+                    for: indexPath
+                    ) as? EmoticonCollectionViewCell
+            else {
+                return UICollectionViewCell()
+            }
+            
+                doubleView = (.zero, .zero)
+            
+                personFaceImage.frame = PrototypeLayout.singleSquareLayout(size: self.collageView.frame.size)
+            
+                return emoticonCell
+        }
     }
     
     func collectionView(
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath) {
         
-        switch indexPath.row {
-            
-        case 0: UIView.animate(withDuration: 0.2,
-                               animations: {
-                                
-                self.doubleView = PrototypeLayout.doubleVerticalLayout(size: self.collageView.frame.size)
-
-        })
-            
-        case 1: UIView.animate(withDuration: 0.2,
-                               animations: {
-               
-                self.doubleView = PrototypeLayout.doubleHorizontalLayout(size: self.collageView.frame.size)
-        })
-            
-        default: break
-        }
-        
         guard
             let cell = collectionView.cellForItem(at: indexPath)
-        else {
-            return
+            else {
+                return
         }
         
         cell.layer.borderColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SilverGray).cgColor
         
         cell.layer.borderWidth = 2
+        
+        switch selectionView.selectedIndex {
+            
+        case 0:
+            UIView.animate(withDuration: 0.2, animations: {
+
+                switch indexPath.row {
+                case 0: self.doubleView = PrototypeLayout.doubleVerticalLayout(size: self.collageView.frame.size)
+                case 1: self.doubleView = PrototypeLayout.doubleHorizontalLayout(size: self.collageView.frame.size)
+                default: break
+                }
+            })
+//        case 1:
+//        case 2:
+        default: break
+        }
     }
     
     func collectionView(

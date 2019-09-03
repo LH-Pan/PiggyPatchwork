@@ -6,4 +6,13 @@
 //  Copyright © 2019 PanLiHsiang. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class EmoticonCollectionViewCell: UICollectionViewCell {
+    
+    @IBOutlet weak var emoticonImageView: UIImageView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+}
