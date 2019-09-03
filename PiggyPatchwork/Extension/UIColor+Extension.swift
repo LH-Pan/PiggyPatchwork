@@ -34,6 +34,7 @@ struct CustomColorCode {
 
 extension UIColor {
     
+    // Hex String -> UIColor
     static func hexStringToUIColor(hex: String) -> UIColor {
         
         var cString: String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()

@@ -183,16 +183,25 @@ class PrototypeViewController: UIViewController {
             let layer = CAShapeLayer()
             layer.frame = CGRect(x: originX,
                                  y: originY,
-                                 width: width,
-                                 height: height)
+                                 width: width * 3 / 5,
+                                 height: height * 4 / 5)
             layer.borderColor = UIColor.red.cgColor
-            layer.borderWidth = 2
-            layer.cornerRadius = 3
+            layer.borderWidth = 0
+            layer.cornerRadius = layer.frame.size.height / 2
+            
+            layer.position = CGPoint(x: (originX + width / 2), y: (originY + height / 2))
+
+            layer.backgroundColor = personFaceImage.image?[
+                Int((originX + width / 2) * 1800 / personFaceImage.frame.width),
+                Int((originY + height / 2) * 1800 / personFaceImage.frame.height)
+                ]?.cgColor
+            
             return layer
         }
         
         for layer in layers {
             personFaceImage.layer.addSublayer(layer)
+            
         }
     }
     

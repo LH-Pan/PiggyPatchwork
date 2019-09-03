@@ -27,6 +27,8 @@
 		22FE5042231CE86300C2C1C1 /* BackgroundColorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FE5041231CE86300C2C1C1 /* BackgroundColorCollectionViewCell.xib */; };
 		22FE5044231CE89600C2C1C1 /* BackgroundColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE5043231CE89600C2C1C1 /* BackgroundColorCollectionViewCell.swift */; };
 		22FE5046231CFC7F00C2C1C1 /* PrototypeLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE5045231CFC7F00C2C1C1 /* PrototypeLayout.swift */; };
+		22FE5048231E77B600C2C1C1 /* EmoticonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FE5047231E77B600C2C1C1 /* EmoticonCollectionViewCell.xib */; };
+		22FE504A231E78AE00C2C1C1 /* EmoticonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE5049231E78AE00C2C1C1 /* EmoticonCollectionViewCell.swift */; };
 		252133BE3CDEF6C3528CA833 /* Pods_PiggyPatchwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05D3706CE9AF71A0B1261D49 /* Pods_PiggyPatchwork.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +56,8 @@
 		22FE5041231CE86300C2C1C1 /* BackgroundColorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BackgroundColorCollectionViewCell.xib; sourceTree = "<group>"; };
 		22FE5043231CE89600C2C1C1 /* BackgroundColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		22FE5045231CFC7F00C2C1C1 /* PrototypeLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrototypeLayout.swift; sourceTree = "<group>"; };
+		22FE5047231E77B600C2C1C1 /* EmoticonCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmoticonCollectionViewCell.xib; sourceTree = "<group>"; };
+		22FE5049231E78AE00C2C1C1 /* EmoticonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoticonCollectionViewCell.swift; sourceTree = "<group>"; };
 		86A91C2890B62BF2078CC51D /* Pods-PiggyPatchwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PiggyPatchwork.debug.xcconfig"; path = "Target Support Files/Pods-PiggyPatchwork/Pods-PiggyPatchwork.debug.xcconfig"; sourceTree = "<group>"; };
 		A10A8CAE55D2F84AFD8E0D3C /* Pods-PiggyPatchwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PiggyPatchwork.release.xcconfig"; path = "Target Support Files/Pods-PiggyPatchwork/Pods-PiggyPatchwork.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,10 +85,9 @@
 		2203840323165C66003C285B /* Prototype */ = {
 			isa = PBXGroup;
 			children = (
-				2203840423165CA6003C285B /* PrototypeCollectionViewCell.xib */,
-				2203840823165D85003C285B /* PrototypeCollectionViewCell.swift */,
-				22FE5041231CE86300C2C1C1 /* BackgroundColorCollectionViewCell.xib */,
-				22FE5043231CE89600C2C1C1 /* BackgroundColorCollectionViewCell.swift */,
+				22FE504E231E790A00C2C1C1 /* Emoticon */,
+				22FE504D231E78F600C2C1C1 /* Background */,
+				22FE504B231E78D400C2C1C1 /* Prototype */,
 				220384112316A633003C285B /* PrototypeCollectionViewLayout.swift */,
 			);
 			path = Prototype;
@@ -171,8 +174,8 @@
 			children = (
 				2203840F23168358003C285B /* SelectionView */,
 				2203840323165C66003C285B /* Prototype */,
-				22D526992315460D00F76354 /* LaunchScreen.storyboard */,
 				22D526912315460B00F76354 /* Main.storyboard */,
+				22D526992315460D00F76354 /* LaunchScreen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -202,6 +205,33 @@
 				22D526972315460D00F76354 /* Assets.xcassets */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		22FE504B231E78D400C2C1C1 /* Prototype */ = {
+			isa = PBXGroup;
+			children = (
+				2203840823165D85003C285B /* PrototypeCollectionViewCell.swift */,
+				2203840423165CA6003C285B /* PrototypeCollectionViewCell.xib */,
+			);
+			path = Prototype;
+			sourceTree = "<group>";
+		};
+		22FE504D231E78F600C2C1C1 /* Background */ = {
+			isa = PBXGroup;
+			children = (
+				22FE5043231CE89600C2C1C1 /* BackgroundColorCollectionViewCell.swift */,
+				22FE5041231CE86300C2C1C1 /* BackgroundColorCollectionViewCell.xib */,
+			);
+			path = Background;
+			sourceTree = "<group>";
+		};
+		22FE504E231E790A00C2C1C1 /* Emoticon */ = {
+			isa = PBXGroup;
+			children = (
+				22FE5049231E78AE00C2C1C1 /* EmoticonCollectionViewCell.swift */,
+				22FE5047231E77B600C2C1C1 /* EmoticonCollectionViewCell.xib */,
+			);
+			path = Emoticon;
 			sourceTree = "<group>";
 		};
 		F20B23BCCE0EA2967217A4D6 /* Pods */ = {
@@ -273,6 +303,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22FE5048231E77B600C2C1C1 /* EmoticonCollectionViewCell.xib in Resources */,
 				22FE5042231CE86300C2C1C1 /* BackgroundColorCollectionViewCell.xib in Resources */,
 				22D5269B2315460D00F76354 /* LaunchScreen.storyboard in Resources */,
 				2203840523165CA6003C285B /* PrototypeCollectionViewCell.xib in Resources */,
@@ -331,6 +362,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22FE504A231E78AE00C2C1C1 /* EmoticonCollectionViewCell.swift in Sources */,
 				22D526902315460B00F76354 /* CameraViewController.swift in Sources */,
 				2206B7E42318DCC3000B0135 /* UIView+Extension.swift in Sources */,
 				22FE5044231CE89600C2C1C1 /* BackgroundColorCollectionViewCell.swift in Sources */,
