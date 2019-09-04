@@ -29,6 +29,7 @@
 		22FE5046231CFC7F00C2C1C1 /* PrototypeLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE5045231CFC7F00C2C1C1 /* PrototypeLayout.swift */; };
 		22FE5048231E77B600C2C1C1 /* EmoticonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FE5047231E77B600C2C1C1 /* EmoticonCollectionViewCell.xib */; };
 		22FE504A231E78AE00C2C1C1 /* EmoticonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE5049231E78AE00C2C1C1 /* EmoticonCollectionViewCell.swift */; };
+		22FE5050231F9A5500C2C1C1 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE504F231F9A5500C2C1C1 /* CGFloat+Extension.swift */; };
 		252133BE3CDEF6C3528CA833 /* Pods_PiggyPatchwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05D3706CE9AF71A0B1261D49 /* Pods_PiggyPatchwork.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		22FE5045231CFC7F00C2C1C1 /* PrototypeLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrototypeLayout.swift; sourceTree = "<group>"; };
 		22FE5047231E77B600C2C1C1 /* EmoticonCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmoticonCollectionViewCell.xib; sourceTree = "<group>"; };
 		22FE5049231E78AE00C2C1C1 /* EmoticonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoticonCollectionViewCell.swift; sourceTree = "<group>"; };
+		22FE504F231F9A5500C2C1C1 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
 		86A91C2890B62BF2078CC51D /* Pods-PiggyPatchwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PiggyPatchwork.debug.xcconfig"; path = "Target Support Files/Pods-PiggyPatchwork/Pods-PiggyPatchwork.debug.xcconfig"; sourceTree = "<group>"; };
 		A10A8CAE55D2F84AFD8E0D3C /* Pods-PiggyPatchwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PiggyPatchwork.release.xcconfig"; path = "Target Support Files/Pods-PiggyPatchwork/Pods-PiggyPatchwork.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,12 +95,12 @@
 			path = Prototype;
 			sourceTree = "<group>";
 		};
-		2203840C23166CD6003C285B /* PrototypeViewController */ = {
+		2203840C23166CD6003C285B /* Prototype */ = {
 			isa = PBXGroup;
 			children = (
 				2203840D23166CF2003C285B /* PrototypeViewController.swift */,
 			);
-			path = PrototypeViewController;
+			path = Prototype;
 			sourceTree = "<group>";
 		};
 		2203840F23168358003C285B /* SelectionView */ = {
@@ -163,7 +165,7 @@
 		22D526A5231558CC00F76354 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2203840C23166CD6003C285B /* PrototypeViewController */,
+				2203840C23166CD6003C285B /* Prototype */,
 				22D5268F2315460B00F76354 /* CameraViewController.swift */,
 			);
 			path = Controller;
@@ -195,6 +197,7 @@
 				220383FF23165860003C285B /* UIImage+Extension.swift */,
 				2203840123165999003C285B /* UICollectionView+Extension.swift */,
 				2206B7E32318DCC3000B0135 /* UIView+Extension.swift */,
+				22FE504F231F9A5500C2C1C1 /* CGFloat+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				2203840223165999003C285B /* UICollectionView+Extension.swift in Sources */,
 				220383FC231654A0003C285B /* UIScreen+Extension.swift in Sources */,
 				220384122316A633003C285B /* PrototypeCollectionViewLayout.swift in Sources */,
+				22FE5050231F9A5500C2C1C1 /* CGFloat+Extension.swift in Sources */,
 				2203840923165D85003C285B /* PrototypeCollectionViewCell.swift in Sources */,
 				22D5268E2315460B00F76354 /* AppDelegate.swift in Sources */,
 				220384182317A5AC003C285B /* CollectionInfo.swift in Sources */,

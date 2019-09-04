@@ -44,23 +44,24 @@ class PrototypeViewController: UIViewController {
     
     let secondImageView = UIImageView()
     
+    let thirdImageView = UIImageView()
+    
     let personFaceImage = UIImageView()
+    
+    lazy var viewArray: [UIImageView] = [firstImageView, secondImageView, thirdImageView]
+    
+    let prototypeLayout: [Layoutable] = [DoubleVerticle(), DoubleHorizontal()]
+    
+    let faceImageLayout: Layoutable = SingleSquare()
     
     var chooseImage: UIImageView?
     
     var savedImage: UIImage?
-    
-    var doubleView: (CGRect, CGRect) = (.zero, .zero) {
-        
-        didSet {
-            (firstImageView.frame, secondImageView.frame) = doubleView
-        }
-    }
-    
+
     // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setupCollectionView()
         
         setupImageView(with: collageView, add: firstImageView)
@@ -71,7 +72,6 @@ class PrototypeViewController: UIViewController {
     }
     
     // MARK: Private method
-    
     // 建立 collection view
     private func setupCollectionView() {
         
@@ -112,15 +112,6 @@ class PrototypeViewController: UIViewController {
         imageView.isUserInteractionEnabled = true
         
         imageView.addGestureRecognizer(setupTapGestureRecognizer())
-    }
-    
-    private func setupCollectionViewCell(with cell: UICollectionViewCell,
-                                         add imageView: UIImageView) {
-        
-        view.addSubview(imageView)
-        
-        imageView.backgroundColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SilverGray)
-        
     }
     
     func setupTapGestureRecognizer() -> UITapGestureRecognizer {
@@ -233,7 +224,7 @@ extension PrototypeViewController: UICollectionViewDataSource,
         numberOfItemsInSection section: Int
         ) -> Int {
         
-        return collectionInfo[section].images.count
+        return prototypeLayout.count
     }
     
     func collectionView(
@@ -251,12 +242,18 @@ extension PrototypeViewController: UICollectionViewDataSource,
             else {
                 return UICollectionViewCell()
             }
-                
                 personFaceImage.frame = .zero
-
-                prototypeCell.imageView.image = collectionInfo[selectionView.selectedIndex].images[indexPath.row]
     
                 prototypeCell.layer.borderWidth = 0
+            
+                switch indexPath.row {
+                
+                case 0: prototypeCell.doubleView = PrototypeLayout.doubleVerticalLayout(
+                                                    size: prototypeCell.prototypeCellView.frame.size)
+                case 1: prototypeCell.doubleView = PrototypeLayout.doubleHorizontalLayout(
+                                                    size: prototypeCell.prototypeCellView.frame.size)
+                default: break
+                }
             
                 return prototypeCell
             
@@ -282,10 +279,9 @@ extension PrototypeViewController: UICollectionViewDataSource,
             else {
                 return UICollectionViewCell()
             }
+//                doubleView = [.zero, .zero]
             
-                doubleView = (.zero, .zero)
-            
-                personFaceImage.frame = PrototypeLayout.singleSquareLayout(size: self.collageView.frame.size)
+                personFaceImage.frame = faceImageLayout.operation(self.collageView.frame.size).first ?? .zero
             
                 return emoticonCell
         }
@@ -296,24 +292,36 @@ extension PrototypeViewController: UICollectionViewDataSource,
         didSelectItemAt indexPath: IndexPath) {
         
         guard
-            let cell = collectionView.cellForItem(at: indexPath)
+            let
+                cell = collectionView.cellForItem(at: indexPath)
             else {
                 return
         }
+            cell.layer.borderColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SilverGray).cgColor
         
-        cell.layer.borderColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SilverGray).cgColor
-        
-        cell.layer.borderWidth = 2
+            cell.layer.borderWidth = 2
         
         switch selectionView.selectedIndex {
             
         case 0:
+            
+            let frames = self.prototypeLayout[indexPath.row].operation(self.collageView.frame.size)
+            
+            collageView.subviews.forEach({$0.removeFromSuperview()})
+            
             UIView.animate(withDuration: 0.2, animations: {
-
-                switch indexPath.row {
-                case 0: self.doubleView = PrototypeLayout.doubleVerticalLayout(size: self.collageView.frame.size)
-                case 1: self.doubleView = PrototypeLayout.doubleHorizontalLayout(size: self.collageView.frame.size)
-                default: break
+                
+                for layout in frames {
+                    
+                    let imageView = UIImageView()
+                    
+                    imageView.frame = layout
+                    
+                    imageView.layer.borderColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SilverGray).cgColor
+                    
+                    imageView.layer.borderWidth = 2
+                    
+                    self.collageView.addSubview(imageView)
                 }
             })
 //        case 1:
@@ -328,10 +336,9 @@ extension PrototypeViewController: UICollectionViewDataSource,
         
         guard
             let cell = collectionView.cellForItem(at: indexPath)
-            else {
+        else {
                 return
         }
-        
         cell.layer.borderWidth = 0
     }
 }
@@ -370,7 +377,6 @@ extension PrototypeViewController: SelectionViewDelegate,
 
 extension PrototypeViewController: UIImagePickerControllerDelegate,
                                    UINavigationControllerDelegate {
-    
     // 開啟相簿
     func showAlbum() {
         
