@@ -27,9 +27,9 @@ class PrototypeViewController: UIViewController {
     
     lazy var prototypeCollectionVoewLayout: PrototypeCollectionViewLayout = {
         
-        let layout = PrototypeCollectionViewLayout()
+        let layoutObject = PrototypeCollectionViewLayout()
         
-        return layout
+        return layoutObject
     }()
     
     let collectionInfo: [CollectionInfo] = [.prototypeFrame, .background, .emoticon]
@@ -57,6 +57,14 @@ class PrototypeViewController: UIViewController {
         setupCollectionView()
         
         setupImageView(at: collageView, add: personFaceImage)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+         let collectionViewLayout = self.collectionView.collectionViewLayout as? PrototypeCollectionViewLayout
+        
+            collectionViewLayout?.itemCount = CGFloat(self.prototypeLayout.count)
     }
     
     // MARK: Private method
@@ -231,21 +239,6 @@ extension PrototypeViewController: UICollectionViewDataSource,
             }
                 personFaceImage.frame = .zero
             
-//                if indexPath == prototypeCellIndexPath {
-//
-//                    prototypeCell.layer.borderColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SilverGray).cgColor
-//
-//                    prototypeCell.layer.borderWidth = 2
-//
-//                    prototypeCell.isSelected = true
-//
-//                } else {
-//
-//                    prototypeCell.layer.borderWidth = 0
-//
-//                    prototypeCell.isSelected = false
-//                }
-//
                 let frames = self.prototypeLayout[indexPath.row].getFrames(prototypeCell.frame.size)
             
                 for layout in frames {
@@ -350,7 +343,6 @@ extension PrototypeViewController: UICollectionViewDataSource,
                     imageView.frame = layout
                     
                     self.setupImageView(at: self.collageView, add: imageView)
-                    
                 }
             })
 //        case 1:
@@ -373,18 +365,6 @@ extension PrototypeViewController: UICollectionViewDataSource,
     }
 }
 
-extension PrototypeViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(
-        _ collectionView: UICollectionView,
-        layout collectionViewLayout: UICollectionViewLayout,
-        sizeForItemAt indexPath: IndexPath
-        ) -> CGSize {
-
-        return CGSize(width: 80/414 * UIScreen.width, height: 80/414 * UIScreen.width)
-    }
-}
-
     // MARK: SelectionViewDelegate & SelectionViewDataSource
 extension PrototypeViewController: SelectionViewDelegate,
                                    SelectionViewDataSource {
@@ -398,6 +378,15 @@ extension PrototypeViewController: SelectionViewDelegate,
     }
     
     func enable(_ selectionView: SelectionView, index: Int) -> Bool {
+        
+        let collectionViewLayout = self.collectionView.collectionViewLayout as? PrototypeCollectionViewLayout
+        
+        switch index {
+        case 0: collectionViewLayout?.itemCount = CGFloat(self.prototypeLayout.count)
+        case 1: collectionViewLayout?.itemCount = CGFloat(self.prototypeLayout.count)
+        case 2: collectionViewLayout?.itemCount = CGFloat(self.prototypeLayout.count)
+        default: break
+        }
         
         collectionView.reloadData()
         
