@@ -21,18 +21,7 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0gh-Ap-ZDg">
                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2bd-H5-Qqf">
-                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                            </imageView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="2bd-H5-Qqf" firstAttribute="top" secondItem="0gh-Ap-ZDg" secondAttribute="top" id="UR3-fd-8Ws"/>
-                            <constraint firstAttribute="trailing" secondItem="2bd-H5-Qqf" secondAttribute="trailing" id="fB8-TJ-Ajp"/>
-                            <constraint firstAttribute="bottom" secondItem="2bd-H5-Qqf" secondAttribute="bottom" id="foH-bL-phJ"/>
-                            <constraint firstItem="2bd-H5-Qqf" firstAttribute="leading" secondItem="0gh-Ap-ZDg" secondAttribute="leading" id="qYm-SQ-ybZ"/>
-                        </constraints>
                     </view>
                 </subviews>
             </view>
@@ -44,7 +33,6 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="Vvq-Vu-W6I"/>
             <connections>
-                <outlet property="imageView" destination="2bd-H5-Qqf" id="OI7-Lp-6Mm"/>
                 <outlet property="prototypeCellView" destination="0gh-Ap-ZDg" id="WAd-Qt-noL"/>
             </connections>
             <point key="canvasLocation" x="53.623188405797109" y="118.52678571428571"/>

@@ -8,9 +8,11 @@
 
 import UIKit
 
-struct CollectionInfo {
+enum CollectionInfo: String {
     
-    var title: String
+   case prototypeFrame = "拼貼邊框"
     
-    var images: [UIImage]
+   case background = "背景"
+    
+   case emoticon = "顏文字換臉"
 }

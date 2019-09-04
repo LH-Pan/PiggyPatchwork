@@ -32,31 +32,23 @@ class PrototypeViewController: UIViewController {
         return layout
     }()
     
-    let collectionInfo = [
-        CollectionInfo(title: "拼貼邊框",
-                       images: [#imageLiteral(resourceName: "Double_vertical_retangel_60x60"), #imageLiteral(resourceName: "Double_horizontal_retangel_60x60")]),
-        CollectionInfo(title: "背景",
-                       images: [#imageLiteral(resourceName: "Double_horizontal_retangel_60x60"), #imageLiteral(resourceName: "Double_vertical_retangel_60x60")]),
-        CollectionInfo(title: "顏文字換臉",
-                       images: [#imageLiteral(resourceName: "Double_horizontal_retangel_60x60"), #imageLiteral(resourceName: "Double_vertical_retangel_60x60")])]
-    
-    let firstImageView = UIImageView()
-    
-    let secondImageView = UIImageView()
-    
-    let thirdImageView = UIImageView()
-    
-    let personFaceImage = UIImageView()
-    
-    lazy var viewArray: [UIImageView] = [firstImageView, secondImageView, thirdImageView]
+    let collectionInfo: [CollectionInfo] = [.prototypeFrame, .background, .emoticon]
     
     let prototypeLayout: [Layoutable] = [DoubleVerticle(), DoubleHorizontal()]
     
     let faceImageLayout: Layoutable = SingleSquare()
     
+    let personFaceImage = UIImageView()
+    
     var chooseImage: UIImageView?
     
     var savedImage: UIImage?
+    
+    var prototypeCellIndexPath: IndexPath?
+    
+    var backgroundCellIndexPath: IndexPath?
+    
+    var emoticonCellIndexPath: IndexPath?
 
     // MARK: View Life Cycle
     override func viewDidLoad() {
@@ -64,11 +56,7 @@ class PrototypeViewController: UIViewController {
 
         setupCollectionView()
         
-        setupImageView(with: collageView, add: firstImageView)
-        
-        setupImageView(with: collageView, add: secondImageView)
-        
-        setupImageView(with: collageView, add: personFaceImage)
+        setupImageView(at: collageView, add: personFaceImage)
     }
     
     // MARK: Private method
@@ -96,10 +84,7 @@ class PrototypeViewController: UIViewController {
         collectionView.collectionViewLayout = prototypeCollectionVoewLayout
     }
     
-    private func setupImageView(with view: UIView,
-                                add imageView: UIImageView) {
-        
-        view.addSubview(imageView)
+    func setupImageView(at superView: UIView, add imageView: UIImageView) {
         
         imageView.layer.borderColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SilverGray).cgColor
         
@@ -111,7 +96,9 @@ class PrototypeViewController: UIViewController {
         
         imageView.isUserInteractionEnabled = true
         
-        imageView.addGestureRecognizer(setupTapGestureRecognizer())
+        imageView.addGestureRecognizer(self.setupTapGestureRecognizer())
+        
+        superView.addSubview(imageView)
     }
     
     func setupTapGestureRecognizer() -> UITapGestureRecognizer {
@@ -243,16 +230,34 @@ extension PrototypeViewController: UICollectionViewDataSource,
                 return UICollectionViewCell()
             }
                 personFaceImage.frame = .zero
-    
-                prototypeCell.layer.borderWidth = 0
             
-                switch indexPath.row {
+//                if indexPath == prototypeCellIndexPath {
+//
+//                    prototypeCell.layer.borderColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SilverGray).cgColor
+//
+//                    prototypeCell.layer.borderWidth = 2
+//
+//                    prototypeCell.isSelected = true
+//
+//                } else {
+//
+//                    prototypeCell.layer.borderWidth = 0
+//
+//                    prototypeCell.isSelected = false
+//                }
+//
+                let frames = self.prototypeLayout[indexPath.row].getFrames(prototypeCell.frame.size)
+            
+                for layout in frames {
+                    
+                    let subView = UIView()
+                    
+                    subView.frame = layout
+                    
+                    subView.backgroundColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SilverGray)
+                    
+                    prototypeCell.addSubview(subView)
                 
-                case 0: prototypeCell.doubleView = PrototypeLayout.doubleVerticalLayout(
-                                                    size: prototypeCell.prototypeCellView.frame.size)
-                case 1: prototypeCell.doubleView = PrototypeLayout.doubleHorizontalLayout(
-                                                    size: prototypeCell.prototypeCellView.frame.size)
-                default: break
                 }
             
                 return prototypeCell
@@ -279,11 +284,19 @@ extension PrototypeViewController: UICollectionViewDataSource,
             else {
                 return UICollectionViewCell()
             }
-//                doubleView = [.zero, .zero]
             
-                personFaceImage.frame = faceImageLayout.operation(self.collageView.frame.size).first ?? .zero
-            
-                return emoticonCell
+            for subView in self.collageView.subviews {
+                
+                if subView != personFaceImage {
+                    
+                    subView.frame = .zero
+                    
+                } else {
+                
+                personFaceImage.frame = faceImageLayout.getFrames(self.collageView.frame.size)[0]
+                }
+            }
+        return emoticonCell
         }
     }
     
@@ -297,17 +310,36 @@ extension PrototypeViewController: UICollectionViewDataSource,
             else {
                 return
         }
+        
+        if prototypeCellIndexPath != nil {
+            guard let cellIndexPath = prototypeCellIndexPath else { return }
+            guard let pressedCell = collectionView.cellForItem(at: cellIndexPath) else { return }
+            
+            pressedCell.layer.borderWidth = 0
+        }
+        
             cell.layer.borderColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SilverGray).cgColor
         
             cell.layer.borderWidth = 2
-        
+    
         switch selectionView.selectedIndex {
             
         case 0:
             
-            let frames = self.prototypeLayout[indexPath.row].operation(self.collageView.frame.size)
+            prototypeCellIndexPath = indexPath
             
-            collageView.subviews.forEach({$0.removeFromSuperview()})
+            let frames = self.prototypeLayout[indexPath.row].getFrames(self.collageView.frame.size)
+            
+            for subView in collageView.subviews {
+                
+                if subView == personFaceImage {
+                    
+                    subView.frame = .zero
+                } else {
+                    
+                    subView.removeFromSuperview()
+                }
+            }
             
             UIView.animate(withDuration: 0.2, animations: {
                 
@@ -317,11 +349,8 @@ extension PrototypeViewController: UICollectionViewDataSource,
                     
                     imageView.frame = layout
                     
-                    imageView.layer.borderColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SilverGray).cgColor
+                    self.setupImageView(at: self.collageView, add: imageView)
                     
-                    imageView.layer.borderWidth = 2
-                    
-                    self.collageView.addSubview(imageView)
                 }
             })
 //        case 1:
@@ -340,6 +369,7 @@ extension PrototypeViewController: UICollectionViewDataSource,
                 return
         }
         cell.layer.borderWidth = 0
+        
     }
 }
 
@@ -364,7 +394,7 @@ extension PrototypeViewController: SelectionViewDelegate,
     }
     
     func textOfSelections(_ selectionView: SelectionView, index: Int) -> String {
-        return collectionInfo[index].title
+        return collectionInfo[index].rawValue
     }
     
     func enable(_ selectionView: SelectionView, index: Int) -> Bool {
