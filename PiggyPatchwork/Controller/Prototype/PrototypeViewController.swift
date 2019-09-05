@@ -29,10 +29,16 @@ class PrototypeViewController: UIViewController {
         
         let layoutObject = PrototypeCollectionViewLayout()
         
+        layoutObject.itemCount = CGFloat(self.prototypeLayout.count)
+        
         return layoutObject
     }()
     
-    let collectionInfo: [CollectionInfo] = [.prototypeFrame, .background, .emoticon]
+    let functionOption: [FunctionOption] = [.prototypeFrame, .background, .emoticon]
+    
+    let colorCode: [ColorCode] = [.white, .petalPink, .waterMelonRed,
+                                  .roseRed, .carrotOrange, .sunOrange,
+                                  .pineappleYellow, .tigerYellow]
     
     let prototypeLayout: [Layoutable] = [DoubleVerticle(), DoubleHorizontal()]
     
@@ -57,14 +63,6 @@ class PrototypeViewController: UIViewController {
         setupCollectionView()
         
         setupImageView(at: collageView, add: personFaceImage)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-         let collectionViewLayout = self.collectionView.collectionViewLayout as? PrototypeCollectionViewLayout
-        
-            collectionViewLayout?.itemCount = CGFloat(self.prototypeLayout.count)
     }
     
     // MARK: Private method
@@ -219,7 +217,18 @@ extension PrototypeViewController: UICollectionViewDataSource,
         numberOfItemsInSection section: Int
         ) -> Int {
         
-        return prototypeLayout.count
+        if selectionView.selectedIndex == 0 {
+            
+            return prototypeLayout.count
+            
+        } else if selectionView.selectedIndex == 1 {
+            
+            return colorCode.count
+            
+        } else {
+            
+            return 2
+        }
     }
     
     func collectionView(
@@ -265,6 +274,11 @@ extension PrototypeViewController: UICollectionViewDataSource,
             else {
                 return UICollectionViewCell()
             }
+            
+                bakcgroundCell.backgroundColor = UIColor.hexStringToUIColor(hex: self.colorCode[indexPath.row].rawValue)
+            
+                bakcgroundCell.layer.cornerRadius = bakcgroundCell.frame.size.height / 2
+            
                 return bakcgroundCell
             
         } else {
@@ -286,7 +300,7 @@ extension PrototypeViewController: UICollectionViewDataSource,
                     
                 } else {
                 
-                personFaceImage.frame = faceImageLayout.getFrames(self.collageView.frame.size)[0]
+                personFaceImage.frame = faceImageLayout.getFrames(self.collageView.frame.size).first ?? .zero
                 }
             }
         return emoticonCell
@@ -303,21 +317,24 @@ extension PrototypeViewController: UICollectionViewDataSource,
             else {
                 return
         }
-        
-        if prototypeCellIndexPath != nil {
-            guard let cellIndexPath = prototypeCellIndexPath else { return }
-            guard let pressedCell = collectionView.cellForItem(at: cellIndexPath) else { return }
-            
-            pressedCell.layer.borderWidth = 0
-        }
-        
-            cell.layer.borderColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SilverGray).cgColor
-        
-            cell.layer.borderWidth = 2
+
+//        if backgroundCellIndexPath != nil {
+//            guard let acellIndexPath = backgroundCellIndexPath else { return }
+//            guard let apressedCell = collectionView.cellForItem(at: acellIndexPath) else { return }
+//
+//            apressedCell.layer.borderWidth = 0
+//        }
     
         switch selectionView.selectedIndex {
             
         case 0:
+            
+            if prototypeCellIndexPath != nil {
+                guard let cellIndexPath = prototypeCellIndexPath else { return }
+                guard let pressedCell = collectionView.cellForItem(at: cellIndexPath) else { return }
+                
+                pressedCell.layer.borderWidth = 0
+            }
             
             prototypeCellIndexPath = indexPath
             
@@ -345,10 +362,18 @@ extension PrototypeViewController: UICollectionViewDataSource,
                     self.setupImageView(at: self.collageView, add: imageView)
                 }
             })
-//        case 1:
+        case 1:
+            
+            backgroundCellIndexPath = indexPath
+            
+            collageView.backgroundColor = UIColor.hexStringToUIColor(hex: colorCode[indexPath.row].rawValue)
 //        case 2:
         default: break
         }
+        
+        cell.layer.borderColor = UIColor.brown.cgColor
+        
+        cell.layer.borderWidth = 2
     }
     
     func collectionView(
@@ -370,26 +395,26 @@ extension PrototypeViewController: SelectionViewDelegate,
                                    SelectionViewDataSource {
     
     func numberOfSelections(_ selectionView: SelectionView) -> Int {
-        return collectionInfo.count
+        return functionOption.count
     }
     
     func textOfSelections(_ selectionView: SelectionView, index: Int) -> String {
-        return collectionInfo[index].rawValue
+        return functionOption[index].rawValue
     }
     
     func enable(_ selectionView: SelectionView, index: Int) -> Bool {
         
-        let collectionViewLayout = self.collectionView.collectionViewLayout as? PrototypeCollectionViewLayout
-        
-        switch index {
-        case 0: collectionViewLayout?.itemCount = CGFloat(self.prototypeLayout.count)
-        case 1: collectionViewLayout?.itemCount = CGFloat(self.prototypeLayout.count)
-        case 2: collectionViewLayout?.itemCount = CGFloat(self.prototypeLayout.count)
-        default: break
-        }
-        
         collectionView.reloadData()
         
+        // 待更換
+        
+        switch index {
+        case 0: prototypeCollectionVoewLayout.itemCount = CGFloat(self.prototypeLayout.count)
+        case 1: prototypeCollectionVoewLayout.itemCount = CGFloat(self.colorCode.count)
+        case 2: prototypeCollectionVoewLayout.itemCount = CGFloat(self.prototypeLayout.count)
+        default: break
+        }
+ 
         return true
     }
 }

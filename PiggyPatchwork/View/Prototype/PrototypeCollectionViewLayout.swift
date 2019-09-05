@@ -21,13 +21,15 @@ class PrototypeCollectionViewLayout: UICollectionViewFlowLayout {
         
         let inset = (collectionView!.frame.height - itemSize.height) / 2
         
-        sectionInset = UIEdgeInsets(top: inset, left: 20, bottom: inset, right: 0)
+        sectionInset = UIEdgeInsets(top: inset, left: 20, bottom: inset, right: 20)
+        
+        minimumLineSpacing = UIScreen.width * CGFloat.insetRatio
     }
 
     override var collectionViewContentSize: CGSize {
         if collectionView == nil { return CGSize.zero }
         
-        return CGSize(width: (itemSize.width + itemSize.width * CGFloat.insetRatio) * itemCount,
+        return CGSize(width: (itemSize.width + minimumLineSpacing) * itemCount + minimumLineSpacing,
                       height: collectionView!.bounds.height)
     }
     
