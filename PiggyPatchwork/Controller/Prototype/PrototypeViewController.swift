@@ -90,7 +90,7 @@ class PrototypeViewController: UIViewController {
         collectionView.collectionViewLayout = prototypeCollectionVoewLayout
     }
     
-    func setupImageView(at superView: UIView, add imageView: UIImageView) {
+    private func setupImageView(at superView: UIView, add imageView: UIImageView) {
         
         imageView.layer.borderColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SilverGray).cgColor
         
@@ -246,6 +246,17 @@ extension PrototypeViewController: UICollectionViewDataSource,
             else {
                 return UICollectionViewCell()
             }
+            
+                if indexPath == prototypeCellIndexPath {
+                    
+                    prototypeCell.layer.borderWidth = 2
+                    
+                    prototypeCell.layer.borderColor = UIColor.brown.cgColor
+                } else {
+                    
+                    prototypeCell.layer.borderWidth = 0
+                }
+            
                 personFaceImage.frame = .zero
             
                 let frames = self.prototypeLayout[indexPath.row].getFrames(prototypeCell.frame.size)
@@ -275,11 +286,22 @@ extension PrototypeViewController: UICollectionViewDataSource,
                 return UICollectionViewCell()
             }
             
-                bakcgroundCell.backgroundColor = UIColor.hexStringToUIColor(hex: self.colorCode[indexPath.row].rawValue)
-            
-                bakcgroundCell.layer.cornerRadius = bakcgroundCell.frame.size.height / 2
-            
-                return bakcgroundCell
+            if indexPath == backgroundCellIndexPath {
+                
+                bakcgroundCell.layer.borderWidth = 2
+                
+                bakcgroundCell.layer.borderColor = UIColor.brown.cgColor
+                
+            } else {
+                
+                bakcgroundCell.layer.borderWidth = 0
+            }
+        
+            bakcgroundCell.backgroundColor = UIColor.hexStringToUIColor(hex: self.colorCode[indexPath.row].rawValue)
+        
+            bakcgroundCell.layer.cornerRadius = bakcgroundCell.frame.size.height / 2
+        
+            return bakcgroundCell
             
         } else {
             
@@ -303,7 +325,8 @@ extension PrototypeViewController: UICollectionViewDataSource,
                 personFaceImage.frame = faceImageLayout.getFrames(self.collageView.frame.size).first ?? .zero
                 }
             }
-        return emoticonCell
+            
+            return emoticonCell
         }
     }
     
@@ -317,24 +340,14 @@ extension PrototypeViewController: UICollectionViewDataSource,
             else {
                 return
         }
-
-//        if backgroundCellIndexPath != nil {
-//            guard let acellIndexPath = backgroundCellIndexPath else { return }
-//            guard let apressedCell = collectionView.cellForItem(at: acellIndexPath) else { return }
-//
-//            apressedCell.layer.borderWidth = 0
-//        }
-    
+        
+        cell.layer.borderColor = UIColor.brown.cgColor
+        
+        cell.layer.borderWidth = 2
+        
         switch selectionView.selectedIndex {
             
         case 0:
-            
-            if prototypeCellIndexPath != nil {
-                guard let cellIndexPath = prototypeCellIndexPath else { return }
-                guard let pressedCell = collectionView.cellForItem(at: cellIndexPath) else { return }
-                
-                pressedCell.layer.borderWidth = 0
-            }
             
             prototypeCellIndexPath = indexPath
             
@@ -370,23 +383,27 @@ extension PrototypeViewController: UICollectionViewDataSource,
 //        case 2:
         default: break
         }
-        
-        cell.layer.borderColor = UIColor.brown.cgColor
-        
-        cell.layer.borderWidth = 2
     }
     
     func collectionView(
         _ collectionView: UICollectionView,
         didDeselectItemAt indexPath: IndexPath) {
-        
+
         guard
             let cell = collectionView.cellForItem(at: indexPath)
         else {
                 return
         }
+        
         cell.layer.borderWidth = 0
         
+        switch selectionView.selectedIndex {
+            
+        case 0: prototypeCellIndexPath = indexPath
+        case 1: backgroundCellIndexPath = indexPath
+        case 2: emoticonCellIndexPath = indexPath
+        default: break
+        }
     }
 }
 
@@ -414,7 +431,7 @@ extension PrototypeViewController: SelectionViewDelegate,
         case 2: prototypeCollectionVoewLayout.itemCount = CGFloat(self.prototypeLayout.count)
         default: break
         }
- 
+
         return true
     }
 }

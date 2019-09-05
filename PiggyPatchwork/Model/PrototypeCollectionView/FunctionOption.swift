@@ -12,7 +12,7 @@ enum FunctionOption: String {
     
    case prototypeFrame = "拼貼邊框"
     
-   case background = "背景"
+   case background = "背景顏色"
     
    case emoticon = "顏文字換臉"
 }
