@@ -38,7 +38,11 @@ class PrototypeViewController: UIViewController {
     
     let colorCode: [ColorCode] = [.white, .petalPink, .waterMelonRed,
                                   .roseRed, .carrotOrange, .sunOrange,
-                                  .pineappleYellow, .tigerYellow]
+                                  .pineappleYellow, .tigerYellow, .chartreuseGreen,
+                                  .olivineGreen, .zucchiniGreen, .babyBlue,
+                                  .clearSkyBlue, .prussianBlue, .lilacSkuPurple,
+                                  .vividPurple, .amethystPurple, .ashGray,
+                                  .stoneGray, .black]
     
     let prototypeLayout: [Layoutable] = [DoubleVerticle(), DoubleHorizontal()]
     
