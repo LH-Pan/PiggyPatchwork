@@ -24,4 +24,36 @@ extension UICollectionViewCell {
         
         return String(describing: self)
     }
+    
+    func makeCircleShadow() {
+    
+        self.layer.shadowColor = UIColor.black.cgColor
+        
+        self.layer.shadowOffset = CGSize(width: 0, height: 5)
+        
+        self.layer.shadowRadius = 5
+        
+        self.layer.shadowOpacity = 0.6
+        
+        self.layer.masksToBounds = false
+        
+        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds,
+                                             cornerRadius: self.contentView.layer.bounds.width / 2 ).cgPath
+    }
+    
+    func makeSquareShadow() {
+        
+        self.layer.shadowColor = UIColor.black.cgColor
+        
+        self.layer.shadowOffset = CGSize(width: 0, height: 5)
+        
+        self.layer.shadowRadius = 5
+        
+        self.layer.shadowOpacity = 0.6
+        
+        self.layer.masksToBounds = false
+        
+        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds,
+                                             cornerRadius: 0 ).cgPath
+    }
 }

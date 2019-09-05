@@ -19,21 +19,7 @@ class BackgroundColorCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        layoutIfNeeded()
-
-        self.layer.shadowColor = UIColor.black.cgColor
+        self.makeCircleShadow()
         
-        self.layer.shadowOffset = CGSize(width: 0, height: 5)
-        
-        self.layer.shadowRadius = 5
-        
-        self.layer.shadowOpacity = 0.6
-        
-        self.layer.masksToBounds = false
-        
-        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds,
-                                             cornerRadius: self.contentView.layer.bounds.width / 2 ).cgPath
-        
-//        self.layer.backgroundColor = UIColor.clear.cgColor
     }
 }

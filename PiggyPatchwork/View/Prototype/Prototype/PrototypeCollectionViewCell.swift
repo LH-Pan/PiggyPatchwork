@@ -15,4 +15,10 @@ class PrototypeCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        self.makeSquareShadow()
+    }
 }
