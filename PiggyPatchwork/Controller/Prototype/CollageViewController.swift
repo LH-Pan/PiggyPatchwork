@@ -38,13 +38,13 @@ class CollageViewController: UIViewController {
     
     let functionOption: [FunctionOption] = [.prototypeFrame, .background, .emoticon]
     
-    let colorCode: [ColorCode] = [.white, .petalPink, .waterMelonRed,
-                                  .roseRed, .carrotOrange, .sunOrange,
-                                  .pineappleYellow, .tigerYellow, .chartreuseGreen,
-                                  .olivineGreen, .zucchiniGreen, .babyBlue,
-                                  .clearSkyBlue, .prussianBlue, .lilacSkuPurple,
-                                  .vividPurple, .amethystPurple, .ashGray,
-                                  .stoneGray, .black]
+    let colorCode: [ColorCode] = [.white, .petalPink, .waterMelonRed,.roseRed,
+                                  .carrotOrange, .sunOrange,
+                                  .pineappleYellow, .tigerYellow,
+                                  .chartreuseGreen,.olivineGreen, .zucchiniGreen,
+                                  .babyBlue,.clearSkyBlue, .prussianBlue,
+                                  .lilacSkuPurple,.vividPurple, .amethystPurple,
+                                  .ashGray,.stoneGray, .black]
     
     let cellEmoticon: [CellEmoticon] = [.funny, .doNotThinkSo]
     
@@ -74,7 +74,7 @@ class CollageViewController: UIViewController {
         
         setupImageView(at: collageView, add: personFaceImage)
         
-        addGradientLayer(at: self.view)
+        addGradientLayer(at: view)
     }
     
     // MARK: Private method
