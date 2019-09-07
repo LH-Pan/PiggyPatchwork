@@ -46,7 +46,9 @@ class CollageViewController: UIViewController {
                                   .vividPurple, .amethystPurple, .ashGray,
                                   .stoneGray, .black]
     
-    let emoticon: [Emoticon] = [.funny, .doNotThinkSo]
+    let cellEmoticon: [CellEmoticon] = [.funny, .doNotThinkSo]
+    
+    let faceEmoticon: [FaceEmoticon] = [.funny, .doNotThinkSo]
     
     let prototypeLayout: [Layoutable] = [DoubleVerticle(), DoubleHorizontal()]
     
@@ -133,9 +135,9 @@ class CollageViewController: UIViewController {
         showAlbum()
     }
     
-    func radioCollection(at cell: UICollectionViewCell,
-                         in currentIndexPath: IndexPath,
-                         eqaulTo lastIndexPath: IndexPath?) {
+    func memorizeCollection(at cell: UICollectionViewCell,
+                            in currentIndexPath: IndexPath,
+                            eqaulTo lastIndexPath: IndexPath?) {
         
         if currentIndexPath == lastIndexPath {
             
@@ -146,7 +148,18 @@ class CollageViewController: UIViewController {
             
             cell.layer.borderWidth = 0
         }
+    }
+    
+    func radioCollection(in currentIndexPath: IndexPath,
+                         eqaulTo lastIndexPath: IndexPath?) {
         
+        if currentIndexPath != lastIndexPath {
+            if let lastSelectedIndexPath = lastIndexPath {
+                if let cell = collectionView.cellForItem(at: lastSelectedIndexPath) {
+                    cell.layer.borderWidth = 0
+                }
+            }
+        }
     }
     
     func addGradientLayer(at view: UIView) {
@@ -224,10 +237,9 @@ class CollageViewController: UIViewController {
             let layer = CAShapeLayer()
             layer.frame = CGRect(x: originX,
                                  y: originY ,
-                                 width: width * 5 / 6,
+                                 width: width * 5 / 7,
                                  height: height * 4 / 5)
-            layer.borderColor = UIColor.red.cgColor
-//            layer.borderWidth = 2
+
             layer.cornerRadius = layer.frame.size.height / 2
             layer.position = CGPoint(x: (originX + width / 2) - surplusWidth,
                                      y: (originY + height / 2) - surplusHeight - 3)
@@ -252,12 +264,12 @@ class CollageViewController: UIViewController {
             emoticonFace.frame = CGRect(x: originX,
                                         y: originY,
                                         width: width * 100 / 414 * 3,
-                                        height: height * 40 / 414 * 3)
+                                        height: height * 70 / 414 * 3)
 
             emoticonFace.center = CGPoint(x: (originX + width / 2) - surplusWidth ,
                                           y: (originY + height / 2) - surplusHeight)
 
-            emoticonFace.image = UIImage(named: emoticon[etCellSelectedIndexPath?.row ?? 0].rawValue)
+            emoticonFace.image = UIImage(named: faceEmoticon[etCellSelectedIndexPath?.row ?? 0].rawValue)
 
             return emoticonFace
         }
@@ -300,7 +312,7 @@ extension CollageViewController: UICollectionViewDataSource,
         
         case 0: return prototypeLayout.count
         case 1: return colorCode.count
-        case 2: return emoticon.count
+        case 2: return cellEmoticon.count
         default: return 0
         }
     }
@@ -321,9 +333,9 @@ extension CollageViewController: UICollectionViewDataSource,
                 return UICollectionViewCell()
             }
             
-            radioCollection(at: prototypeCell,
-                            in: indexPath,
-                            eqaulTo: ptCellSelectedIndexPath)
+            memorizeCollection(at: prototypeCell,
+                               in: indexPath,
+                               eqaulTo: ptCellSelectedIndexPath)
 
             personFaceImage.frame = .zero
             
@@ -354,9 +366,9 @@ extension CollageViewController: UICollectionViewDataSource,
                 return UICollectionViewCell()
             }
             
-            radioCollection(at: bakcgroundCell,
-                            in: indexPath,
-                            eqaulTo: bgCellSelectedIndexPath)
+            memorizeCollection(at: bakcgroundCell,
+                               in: indexPath,
+                               eqaulTo: bgCellSelectedIndexPath)
         
             bakcgroundCell.backgroundColor = UIColor.hexStringToUIColor(hex: self.colorCode[indexPath.row].rawValue)
         
@@ -373,6 +385,10 @@ extension CollageViewController: UICollectionViewDataSource,
                 return UICollectionViewCell()
             }
             
+            memorizeCollection(at: emoticonCell,
+                               in: indexPath,
+                               eqaulTo: etCellSelectedIndexPath)
+            
             for subView in self.collageView.subviews {
                 
                 if subView != personFaceImage {
@@ -385,12 +401,8 @@ extension CollageViewController: UICollectionViewDataSource,
                     
                 }
             }
-            
-            emoticonCell.emoticonImageView.image = UIImage(named: emoticon[indexPath.row].rawValue)
-            
-            radioCollection(at: emoticonCell,
-                            in: indexPath,
-                            eqaulTo: etCellSelectedIndexPath)
+        
+            emoticonCell.emoticonImageView.image = UIImage(named: cellEmoticon[indexPath.row].rawValue)
             
             return emoticonCell
         }
@@ -414,6 +426,9 @@ extension CollageViewController: UICollectionViewDataSource,
         switch selectionView.selectedIndex {
             
         case 0:
+            
+            radioCollection(in: indexPath,
+                            eqaulTo: ptCellSelectedIndexPath)
             
             ptCellSelectedIndexPath = indexPath
             
@@ -443,11 +458,17 @@ extension CollageViewController: UICollectionViewDataSource,
             })
         case 1:
             
+            radioCollection(in: indexPath,
+                            eqaulTo: bgCellSelectedIndexPath)
+            
             bgCellSelectedIndexPath = indexPath
             
             collageView.backgroundColor = UIColor.hexStringToUIColor(hex: colorCode[indexPath.row].rawValue)
         case 2:
             
+            radioCollection(in: indexPath,
+                            eqaulTo: etCellSelectedIndexPath)
+        
             etCellSelectedIndexPath = indexPath
             
             faceDetection()
@@ -506,7 +527,7 @@ extension CollageViewController: SelectionViewDelegate,
         switch index {
         case 0: prototypeCollectionVoewLayout.itemCount = CGFloat(self.prototypeLayout.count)
         case 1: prototypeCollectionVoewLayout.itemCount = CGFloat(self.colorCode.count)
-        case 2: prototypeCollectionVoewLayout.itemCount = CGFloat(self.emoticon.count)
+        case 2: prototypeCollectionVoewLayout.itemCount = CGFloat(self.cellEmoticon.count)
         default: break
         }
 
