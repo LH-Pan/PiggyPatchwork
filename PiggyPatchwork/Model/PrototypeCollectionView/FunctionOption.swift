@@ -48,3 +48,9 @@ enum ColorCode: String {
     
     case black = "#000000"
 }
+
+enum Emoticon: String {
+    
+    case funny = "Emoticon_Funny"
+    case doNotThinkSo = "Emoticon_DoNotThinkSo"
+}

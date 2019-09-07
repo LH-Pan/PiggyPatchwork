@@ -115,7 +115,7 @@ extension SelectionViewDataSource {
     }
     
     func colorOfSelectionText(_ selectionView: SelectionView) -> UIColor {
-        return UIColor.hexStringToUIColor(hex: CustomColorCode.EucalyptusGreen)
+        return .blue
     }
     
     func fontOfText(_ selectionView: SelectionView) -> UIFont {

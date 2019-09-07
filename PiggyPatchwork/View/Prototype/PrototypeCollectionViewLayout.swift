@@ -12,12 +12,20 @@ class PrototypeCollectionViewLayout: UICollectionViewFlowLayout {
     
     var itemCount: CGFloat = 0
     
+    var selectedIndex: Int = 0
+    
     override func prepare() {
         super.prepare()
         
         scrollDirection = .horizontal
         
-        itemSize = CGSize(width: 80/414 * UIScreen.width, height: 80/414 * UIScreen.width)
+        if selectedIndex == 2 {
+            
+            itemSize = CGSize(width: 100/414 * UIScreen.width, height: 40/414 * UIScreen.width)
+        } else {
+            
+            itemSize = CGSize(width: 80/414 * UIScreen.width, height: 80/414 * UIScreen.width)
+        }
         
         let inset = (collectionView!.frame.height - itemSize.height) / 2
         

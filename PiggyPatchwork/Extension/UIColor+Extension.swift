@@ -12,6 +12,7 @@ struct CustomColorCode {
     
     //Red Color
     static let PastelPink = "#FFD0D6"
+    static let OrchidPink = "#DAB2D3"
     
     //Orange Color
     static let MelonOrange = "#E5A46E"
@@ -28,6 +29,7 @@ struct CustomColorCode {
     static let TurquoiseBlue = "#85B8CB"
     
     //Gray Color
+    static let StoneGray = "#877D7C#"
     static let SilverGray = "#CED7D4"
     
 }

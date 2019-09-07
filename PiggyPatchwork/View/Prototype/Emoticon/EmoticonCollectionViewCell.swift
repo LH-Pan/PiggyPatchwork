@@ -15,4 +15,14 @@ class EmoticonCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        layer.cornerRadius = 20
+        
+        backgroundColor = .white
+        
+        makeOvalShadow()
+    }
 }

@@ -10,7 +10,9 @@ import UIKit
 import Vision
 import AVFoundation
 
-class PrototypeViewController: UIViewController {
+class CollageViewController: UIViewController {
+    
+    @IBOutlet weak var gradientView: UIView!
     
     @IBOutlet weak var selectionView: SelectionView! {
         
@@ -44,6 +46,8 @@ class PrototypeViewController: UIViewController {
                                   .vividPurple, .amethystPurple, .ashGray,
                                   .stoneGray, .black]
     
+    let emoticon: [Emoticon] = [.funny, .doNotThinkSo]
+    
     let prototypeLayout: [Layoutable] = [DoubleVerticle(), DoubleHorizontal()]
     
     let faceImageLayout: Layoutable = SingleSquare()
@@ -54,11 +58,11 @@ class PrototypeViewController: UIViewController {
     
     var savedImage: UIImage?
     
-    var prototypeCellIndexPath: IndexPath?
+    var ptCellSelectedIndexPath: IndexPath?
     
-    var backgroundCellIndexPath: IndexPath?
+    var bgCellSelectedIndexPath: IndexPath?
     
-    var emoticonCellIndexPath: IndexPath?
+    var etCellSelectedIndexPath: IndexPath?
 
     // MARK: View Life Cycle
     override func viewDidLoad() {
@@ -67,6 +71,8 @@ class PrototypeViewController: UIViewController {
         setupCollectionView()
         
         setupImageView(at: collageView, add: personFaceImage)
+        
+        addGradientLayer(at: self.view)
     }
     
     // MARK: Private method
@@ -87,6 +93,7 @@ class PrototypeViewController: UIViewController {
                                                   bundle: nil)
         
         setupCollectionViewLayout()
+        
     }
     
     private func setupCollectionViewLayout() {
@@ -126,12 +133,43 @@ class PrototypeViewController: UIViewController {
         showAlbum()
     }
     
+    func radioCollection(at cell: UICollectionViewCell,
+                         in currentIndexPath: IndexPath,
+                         eqaulTo lastIndexPath: IndexPath?) {
+        
+        if currentIndexPath == lastIndexPath {
+            
+            cell.layer.borderWidth = 2
+            
+            cell.layer.borderColor = UIColor.brown.cgColor
+        } else {
+            
+            cell.layer.borderWidth = 0
+        }
+        
+    }
+    
+    func addGradientLayer(at view: UIView) {
+        
+        let gradientLayer = CAGradientLayer()
+        
+        gradientLayer.frame = view.bounds
+        
+        gradientLayer.colors = [UIColor.hexStringToUIColor(hex: CustomColorCode.PastelPink).cgColor,
+                                UIColor.hexStringToUIColor(hex: CustomColorCode.OrchidPink).cgColor
+                                ]
+
+        view.layer.insertSublayer(gradientLayer, at: 0)
+
+    }
+    
+    // MARK: - 人臉辨識
     func faceDetection() {
         
         let detectRequest = VNDetectFaceRectanglesRequest(completionHandler: self.handleFaces)
         
-        let detectRequestHandler = VNImageRequestHandler(cgImage: (chooseImage?.image?.cgImage)!, options: [ : ])
-        
+        let detectRequestHandler = VNImageRequestHandler(cgImage: (savedImage?.cgImage)!, options: [ : ])
+ 
         do {
             try detectRequestHandler.perform([detectRequest])
         } catch {
@@ -165,37 +203,74 @@ class PrototypeViewController: UIViewController {
             }
         }
         
-        let imageRect = AVMakeRect(aspectRatio: (chooseImage?.image?.size)!,
-                                   insideRect: (chooseImage?.bounds)!)
+        let imageRect = AVMakeRect(aspectRatio: savedImage!.size,
+                                   insideRect: collageView.bounds)
         
+        let surplusWidth = CGFloat.insetRatio * collageView.frame.width
+        
+        let surplusHeight = CGFloat.insetRatio * collageView.frame.height
+        
+//        let widthZoomRatio = collageView.bounds.width / savedImage!.size.width
+//
+//        let heightZoomRatio = collageView.bounds.height / savedImage!.size.height
+    
         let layers: [CAShapeLayer] = observations.map { observation in
+            print(4, observation.boundingBox.origin.x)
+            let width = observation.boundingBox.size.width * imageRect.width
+            let height = observation.boundingBox.size.height * imageRect.height
+            let originX = observation.boundingBox.origin.x * imageRect.width
+            let originY = imageRect.maxY - (observation.boundingBox.origin.y * imageRect.height) - height
             
+            let layer = CAShapeLayer()
+            layer.frame = CGRect(x: originX,
+                                 y: originY ,
+                                 width: width * 5 / 6,
+                                 height: height * 4 / 5)
+            layer.borderColor = UIColor.red.cgColor
+//            layer.borderWidth = 2
+            layer.cornerRadius = layer.frame.size.height / 2
+            layer.position = CGPoint(x: (originX + width / 2) - surplusWidth,
+                                     y: (originY + height / 2) - surplusHeight - 3)
+
+            layer.backgroundColor = UIColor.hexStringToUIColor(hex: "#FCE6C9").cgColor
+//            layer.backgroundColor = savedImage?[
+//                Int(((originX + width / 2) / widthZoomRatio) - surplusWidth),
+//                Int(((originY + height / 2) / heightZoomRatio) - surplusHeight)
+//                ]?.cgColor
+
+            return layer
+        }
+        
+        let emoticonFaces: [UIImageView] = observations.map { observation in
+
             let width = observation.boundingBox.size.width * imageRect.width
             let height = observation.boundingBox.size.height * imageRect.height
             let originX = observation.boundingBox.origin.x * imageRect.width
             let originY = imageRect.maxY - (observation.boundingBox.origin.y * imageRect.height) - height
 
-            let layer = CAShapeLayer()
-            layer.frame = CGRect(x: originX,
-                                 y: originY,
-                                 width: width * 3 / 5,
-                                 height: height * 4 / 5)
-//            layer.borderColor = UIColor.red.cgColor
-//            layer.borderWidth = 0
-            layer.cornerRadius = layer.frame.size.height / 2
-            layer.position = CGPoint(x: (originX + width / 2), y: (originY + height / 2))
+            let emoticonFace = UIImageView()
+            emoticonFace.frame = CGRect(x: originX,
+                                        y: originY,
+                                        width: width * 100 / 414 * 3,
+                                        height: height * 40 / 414 * 3)
 
-            layer.backgroundColor = personFaceImage.image?[
-                Int((originX + width / 2) * 1800 / personFaceImage.frame.width),
-                Int((originY + height / 2) * 1800 / personFaceImage.frame.height)
-                ]?.cgColor
-            
-            return layer
+            emoticonFace.center = CGPoint(x: (originX + width / 2) - surplusWidth ,
+                                          y: (originY + height / 2) - surplusHeight)
+
+            emoticonFace.image = UIImage(named: emoticon[etCellSelectedIndexPath?.row ?? 0].rawValue)
+
+            return emoticonFace
         }
         
         for layer in layers {
             personFaceImage.layer.addSublayer(layer)
             
+        }
+        
+        for emoticonFace in emoticonFaces {
+            
+            emoticonFace.removeFromSuperview()
+            personFaceImage.addSubview(emoticonFace)
         }
     }
     
@@ -213,7 +288,7 @@ class PrototypeViewController: UIViewController {
     }
 }
     // MARK: UICollectionViewDataSource
-extension PrototypeViewController: UICollectionViewDataSource,
+extension CollageViewController: UICollectionViewDataSource,
                                    UICollectionViewDelegate {
     
     func collectionView(
@@ -221,17 +296,12 @@ extension PrototypeViewController: UICollectionViewDataSource,
         numberOfItemsInSection section: Int
         ) -> Int {
         
-        if selectionView.selectedIndex == 0 {
-            
-            return prototypeLayout.count
-            
-        } else if selectionView.selectedIndex == 1 {
-            
-            return colorCode.count
-            
-        } else {
-            
-            return 2
+        switch selectionView.selectedIndex {
+        
+        case 0: return prototypeLayout.count
+        case 1: return colorCode.count
+        case 2: return emoticon.count
+        default: return 0
         }
     }
     
@@ -251,33 +321,27 @@ extension PrototypeViewController: UICollectionViewDataSource,
                 return UICollectionViewCell()
             }
             
-                if indexPath == prototypeCellIndexPath {
-                    
-                    prototypeCell.layer.borderWidth = 2
-                    
-                    prototypeCell.layer.borderColor = UIColor.brown.cgColor
-                } else {
-                    
-                    prototypeCell.layer.borderWidth = 0
-                }
+            radioCollection(at: prototypeCell,
+                            in: indexPath,
+                            eqaulTo: ptCellSelectedIndexPath)
+
+            personFaceImage.frame = .zero
             
-                personFaceImage.frame = .zero
+            let frames = self.prototypeLayout[indexPath.row].getFrames(prototypeCell.frame.size)
             
-                let frames = self.prototypeLayout[indexPath.row].getFrames(prototypeCell.frame.size)
-            
-                for layout in frames {
+            for layout in frames {
                     
-                    let subView = UIView()
+                let subView = UIView()
                     
-                    subView.frame = layout
+                subView.frame = layout
                     
-                    subView.backgroundColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SilverGray)
+                subView.backgroundColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SilverGray)
                     
-                    prototypeCell.addSubview(subView)
+                prototypeCell.addSubview(subView)
                 
-                }
+            }
             
-                return prototypeCell
+            return prototypeCell
             
         } else if selectionView.selectedIndex == 1 {
             
@@ -290,20 +354,11 @@ extension PrototypeViewController: UICollectionViewDataSource,
                 return UICollectionViewCell()
             }
             
-            if indexPath == backgroundCellIndexPath {
-                
-                bakcgroundCell.layer.borderWidth = 2
-                
-                bakcgroundCell.layer.borderColor = UIColor.brown.cgColor
-                
-            } else {
-                
-                bakcgroundCell.layer.borderWidth = 0
-            }
+            radioCollection(at: bakcgroundCell,
+                            in: indexPath,
+                            eqaulTo: bgCellSelectedIndexPath)
         
             bakcgroundCell.backgroundColor = UIColor.hexStringToUIColor(hex: self.colorCode[indexPath.row].rawValue)
-        
-            bakcgroundCell.layer.cornerRadius = bakcgroundCell.frame.size.height / 2
         
             return bakcgroundCell
             
@@ -327,8 +382,15 @@ extension PrototypeViewController: UICollectionViewDataSource,
                 } else {
                 
                 personFaceImage.frame = faceImageLayout.getFrames(self.collageView.frame.size).first ?? .zero
+                    
                 }
             }
+            
+            emoticonCell.emoticonImageView.image = UIImage(named: emoticon[indexPath.row].rawValue)
+            
+            radioCollection(at: emoticonCell,
+                            in: indexPath,
+                            eqaulTo: etCellSelectedIndexPath)
             
             return emoticonCell
         }
@@ -353,7 +415,7 @@ extension PrototypeViewController: UICollectionViewDataSource,
             
         case 0:
             
-            prototypeCellIndexPath = indexPath
+            ptCellSelectedIndexPath = indexPath
             
             let frames = self.prototypeLayout[indexPath.row].getFrames(self.collageView.frame.size)
             
@@ -381,10 +443,14 @@ extension PrototypeViewController: UICollectionViewDataSource,
             })
         case 1:
             
-            backgroundCellIndexPath = indexPath
+            bgCellSelectedIndexPath = indexPath
             
             collageView.backgroundColor = UIColor.hexStringToUIColor(hex: colorCode[indexPath.row].rawValue)
-//        case 2:
+        case 2:
+            
+            etCellSelectedIndexPath = indexPath
+            
+            faceDetection()
         default: break
         }
     }
@@ -403,16 +469,16 @@ extension PrototypeViewController: UICollectionViewDataSource,
         
         switch selectionView.selectedIndex {
             
-        case 0: prototypeCellIndexPath = indexPath
-        case 1: backgroundCellIndexPath = indexPath
-        case 2: emoticonCellIndexPath = indexPath
+        case 0: ptCellSelectedIndexPath = indexPath
+        case 1: bgCellSelectedIndexPath = indexPath
+        case 2: etCellSelectedIndexPath = indexPath
         default: break
         }
     }
 }
 
     // MARK: SelectionViewDelegate & SelectionViewDataSource
-extension PrototypeViewController: SelectionViewDelegate,
+extension CollageViewController: SelectionViewDelegate,
                                    SelectionViewDataSource {
     
     func numberOfSelections(_ selectionView: SelectionView) -> Int {
@@ -423,16 +489,24 @@ extension PrototypeViewController: SelectionViewDelegate,
         return functionOption[index].rawValue
     }
     
+    func colorOfIndicatorView(_ selectionView: SelectionView) -> UIColor {
+        return UIColor.hexStringToUIColor(hex: CustomColorCode.LemonadeYellow)
+    }
+    
+    func colorOfSelectionText(_ selectionView: SelectionView) -> UIColor {
+        return UIColor.hexStringToUIColor(hex: CustomColorCode.StoneGray)
+    }
+    
     func enable(_ selectionView: SelectionView, index: Int) -> Bool {
         
         collectionView.reloadData()
         
-        // 待更換
-        
+        prototypeCollectionVoewLayout.selectedIndex = index
+
         switch index {
         case 0: prototypeCollectionVoewLayout.itemCount = CGFloat(self.prototypeLayout.count)
         case 1: prototypeCollectionVoewLayout.itemCount = CGFloat(self.colorCode.count)
-        case 2: prototypeCollectionVoewLayout.itemCount = CGFloat(self.prototypeLayout.count)
+        case 2: prototypeCollectionVoewLayout.itemCount = CGFloat(self.emoticon.count)
         default: break
         }
 
@@ -440,7 +514,7 @@ extension PrototypeViewController: SelectionViewDelegate,
     }
 }
 
-extension PrototypeViewController: UIImagePickerControllerDelegate,
+extension CollageViewController: UIImagePickerControllerDelegate,
                                    UINavigationControllerDelegate {
     // 開啟相簿
     func showAlbum() {
@@ -470,7 +544,7 @@ extension PrototypeViewController: UIImagePickerControllerDelegate,
         
         chooseImage?.layer.borderWidth = 0
         
-        faceDetection()
+        savedImage = collageView.takeSnapshot()
         
         picker.dismiss(animated: true, completion: nil)
     }

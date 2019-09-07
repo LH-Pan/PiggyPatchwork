@@ -14,7 +14,7 @@
 		2203840523165CA6003C285B /* PrototypeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2203840423165CA6003C285B /* PrototypeCollectionViewCell.xib */; };
 		2203840923165D85003C285B /* PrototypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2203840823165D85003C285B /* PrototypeCollectionViewCell.swift */; };
 		2203840B231665D6003C285B /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2203840A231665D6003C285B /* SelectionView.swift */; };
-		2203840E23166CF2003C285B /* PrototypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2203840D23166CF2003C285B /* PrototypeViewController.swift */; };
+		2203840E23166CF2003C285B /* CollageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2203840D23166CF2003C285B /* CollageViewController.swift */; };
 		220384122316A633003C285B /* PrototypeCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220384112316A633003C285B /* PrototypeCollectionViewLayout.swift */; };
 		220384182317A5AC003C285B /* FunctionOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220384172317A5AC003C285B /* FunctionOption.swift */; };
 		2206B7E42318DCC3000B0135 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2206B7E32318DCC3000B0135 /* UIView+Extension.swift */; };
@@ -42,7 +42,7 @@
 		2203840423165CA6003C285B /* PrototypeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrototypeCollectionViewCell.xib; sourceTree = "<group>"; };
 		2203840823165D85003C285B /* PrototypeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrototypeCollectionViewCell.swift; sourceTree = "<group>"; };
 		2203840A231665D6003C285B /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
-		2203840D23166CF2003C285B /* PrototypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrototypeViewController.swift; sourceTree = "<group>"; };
+		2203840D23166CF2003C285B /* CollageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollageViewController.swift; sourceTree = "<group>"; };
 		220384112316A633003C285B /* PrototypeCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrototypeCollectionViewLayout.swift; sourceTree = "<group>"; };
 		220384172317A5AC003C285B /* FunctionOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionOption.swift; sourceTree = "<group>"; };
 		2206B7E32318DCC3000B0135 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -87,9 +87,9 @@
 		2203840323165C66003C285B /* Prototype */ = {
 			isa = PBXGroup;
 			children = (
-				22FE504E231E790A00C2C1C1 /* Emoticon */,
-				22FE504D231E78F600C2C1C1 /* Background */,
 				22FE504B231E78D400C2C1C1 /* Prototype */,
+				22FE504D231E78F600C2C1C1 /* Background */,
+				22FE504E231E790A00C2C1C1 /* Emoticon */,
 				220384112316A633003C285B /* PrototypeCollectionViewLayout.swift */,
 			);
 			path = Prototype;
@@ -98,7 +98,7 @@
 		2203840C23166CD6003C285B /* Prototype */ = {
 			isa = PBXGroup;
 			children = (
-				2203840D23166CF2003C285B /* PrototypeViewController.swift */,
+				2203840D23166CF2003C285B /* CollageViewController.swift */,
 			);
 			path = Prototype;
 			sourceTree = "<group>";
@@ -377,7 +377,7 @@
 				22D5268E2315460B00F76354 /* AppDelegate.swift in Sources */,
 				220384182317A5AC003C285B /* FunctionOption.swift in Sources */,
 				22FE5046231CFC7F00C2C1C1 /* PrototypeLayout.swift in Sources */,
-				2203840E23166CF2003C285B /* PrototypeViewController.swift in Sources */,
+				2203840E23166CF2003C285B /* CollageViewController.swift in Sources */,
 				2203840B231665D6003C285B /* SelectionView.swift in Sources */,
 				2203840023165860003C285B /* UIImage+Extension.swift in Sources */,
 				22D526962315460B00F76354 /* PiggyPatchwork.xcdatamodeld in Sources */,

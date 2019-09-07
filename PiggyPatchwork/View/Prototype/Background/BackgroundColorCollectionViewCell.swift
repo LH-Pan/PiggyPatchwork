@@ -19,7 +19,9 @@ class BackgroundColorCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        self.makeCircleShadow()
+        layer.cornerRadius = frame.size.height / 2
+        
+        makeCircleShadow()
         
     }
 }
