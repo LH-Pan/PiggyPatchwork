@@ -79,7 +79,9 @@ class CollageViewController: UIViewController {
         
         setupImageView(at: collageView, add: personFaceImage)
         
-        addGradientLayer(at: view)
+        addGradientLayer(at: view,
+                         firstColor: CustomColorCode.PigletPink,
+                         secondColor: CustomColorCode.OrchidPink)
     }
     
     // MARK: Private method
@@ -136,15 +138,61 @@ class CollageViewController: UIViewController {
 //    func setupSwipeUpGesture() -> UISwipeGestureRecognizer {
 //
 //        let swipeUp = UISwipeGestureRecognizer(target: self,
-//                                               action: #selector(swipe(gesture:)))
+//                                               action: #selector(swipe(recognizer:)))
 //        swipeUp.direction = .up
 //
 //        return swipeUp
 //    }
 //
-//    @objc func swipe(gesture: UISwipeGestureRecognizer) {
+//    @objc func swipe(recognizer: UISwipeGestureRecognizer) {
+
+//        guard let myView = recognizer.view else { return }
 //
+//        let point = myView.center
 //
+//        switch recognizer.direction {
+//        case .up:
+//            print("Go Up")
+//            if point.y >= 150 {
+//                myView.center = CGPoint(x: myView.center.x,
+//                                      y: myView.center.y - 100)
+//            } else {
+//                myView.center = CGPoint(x: myView.center.x,
+//                                      y: 50)
+//            }
+//
+//        case .left:
+//
+//            if point.x >= 150 {
+//                myView.center = CGPoint(x: myView.center.x - 100,
+//                                      y: myView.center.y)
+//            } else {
+//                myView.center = CGPoint(x: 50,
+//                                      y: myView.center.y)
+//            }
+//
+//        case .down:
+//
+//            if point.y <= UIScreen.height - 150 {
+//                myView.center = CGPoint(x: myView.center.x,
+//                                      y: myView.center.y + 100)
+//            } else {
+//                myView.center = CGPoint(x: myView.center.x,
+//                                      y: UIScreen.height - 50)
+//            }
+//
+//        case .right:
+//
+//            if point.x <= UIScreen.width - 150 {
+//                myView.center = CGPoint(x: myView.center.x + 100,
+//                                      y: myView.center.y)
+//            } else {
+//                myView.center = CGPoint(x: UIScreen.width - 50,
+//                                      y: myView.center.y)
+//            }
+//
+//        default: break
+//        }
 //    }
     
     @objc func singleTapping(recognizer: UIGestureRecognizer) {
@@ -169,7 +217,8 @@ class CollageViewController: UIViewController {
         }
     }
     
-    func radioCollection(in currentIndexPath: IndexPath,
+    func radioCollection(at collectionView: UICollectionView,
+                         in currentIndexPath: IndexPath,
                          eqaulTo lastIndexPath: IndexPath?) {
         
         if currentIndexPath != lastIndexPath {
@@ -181,18 +230,17 @@ class CollageViewController: UIViewController {
         }
     }
     
-    func addGradientLayer(at view: UIView) {
+    func addGradientLayer(at view: UIView, firstColor: String, secondColor: String ) {
         
         let gradientLayer = CAGradientLayer()
         
         gradientLayer.frame = view.bounds
         
-        gradientLayer.colors = [UIColor.hexStringToUIColor(hex: CustomColorCode.PigletPink).cgColor,
-                                UIColor.hexStringToUIColor(hex: CustomColorCode.OrchidPink).cgColor
+        gradientLayer.colors = [UIColor.hexStringToUIColor(hex: firstColor).cgColor,
+                                UIColor.hexStringToUIColor(hex: secondColor).cgColor
                                 ]
 
         view.layer.insertSublayer(gradientLayer, at: 0)
-
     }
     
     // MARK: - 人臉辨識
@@ -214,12 +262,14 @@ class CollageViewController: UIViewController {
         
         guard
             let faceDetectResults = request.results as? [VNFaceObservation]
-            else {
-                fatalError("Unexpected result type from VNDetectFaceRetanglesRequest.")
+        else {
+            fatalError("Unexpected result type from VNDetectFaceRetanglesRequest.")
         }
         
         if faceDetectResults.count == 0 {
             
+            PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.exclamation_mark),
+                                         message: "這張照片偵測不到人臉 இдஇ")
             print("No face detect.")
             return
         }
@@ -432,15 +482,12 @@ extension CollageViewController: UICollectionViewDataSource,
                 return
         }
         
-        cell.layer.borderColor = UIColor.brown.cgColor
-        
-        cell.layer.borderWidth = 2
-        
         switch selectionView.selectedIndex {
             
         case 0:
             
-            radioCollection(in: indexPath,
+            radioCollection(at: collectionView,
+                            in: indexPath,
                             eqaulTo: ptCellSelectedIndexPath)
             
             ptCellSelectedIndexPath = indexPath
@@ -465,13 +512,14 @@ extension CollageViewController: UICollectionViewDataSource,
                     let imageView = UIImageView()
                     
                     imageView.frame = layout
-                    
+      
                     self.setupImageView(at: self.collageView, add: imageView)
                 }
             })
         case 1:
             
-            radioCollection(in: indexPath,
+            radioCollection(at: collectionView,
+                            in: indexPath,
                             eqaulTo: bgCellSelectedIndexPath)
             
             bgCellSelectedIndexPath = indexPath
@@ -479,14 +527,28 @@ extension CollageViewController: UICollectionViewDataSource,
             collageView.backgroundColor = UIColor.hexStringToUIColor(hex: colorCode[indexPath.row].rawValue)
         case 2:
             
-            radioCollection(in: indexPath,
+            if savedImage == nil {
+                
+                PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.error_mark),
+                                             message: "必須先選取照片哦！")
+                
+                return
+            }
+            
+            radioCollection(at: collectionView,
+                            in: indexPath,
                             eqaulTo: etCellSelectedIndexPath)
-        
+            
             etCellSelectedIndexPath = indexPath
             
             faceDetection()
+            
         default: break
         }
+        
+        cell.layer.borderColor = UIColor.brown.cgColor
+        
+        cell.layer.borderWidth = 2
     }
     
     func collectionView(
@@ -505,7 +567,8 @@ extension CollageViewController: UICollectionViewDataSource,
             
         case 0: ptCellSelectedIndexPath = indexPath
         case 1: bgCellSelectedIndexPath = indexPath
-        case 2: etCellSelectedIndexPath = indexPath
+        case 2: if savedImage == nil { return }
+                etCellSelectedIndexPath = indexPath
         default: break
         }
     }

@@ -8,18 +8,24 @@
 
 import UIKit
 
-//enum ImageAsset: String {
-//    
+enum ImageAsset: String {
 
-//}
-//
-//extension UIImage {
-//    
-//    static func asset(_ asset: ImageAsset) -> UIImage? {
-//        
-//        return UIImage(named: asset.rawValue)
-//    }
-//}
+// swiftlint:disable identifier_name
+    case exclamation_mark
+    case error_mark
+    case tick_mark
+
+}
+
+// swiftlint:enable identifier_name
+
+extension UIImage {
+    
+    static func asset(_ asset: ImageAsset) -> UIImage? {
+        
+        return UIImage(named: asset.rawValue)
+    }
+}
 
 extension UIImage {
     
@@ -29,8 +35,7 @@ extension UIImage {
             
             return nil
         }
-        print (5, self.size)
-        print (6, "color:", originX, originY)
+        
         let provider = self.cgImage!.dataProvider
         let providerData = provider!.data
         let data = CFDataGetBytePtr(providerData)
