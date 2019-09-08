@@ -9,6 +9,7 @@
 import UIKit
 import Vision
 import AVFoundation
+import CoreImage
 
 class CollageViewController: UIViewController {
     
@@ -36,15 +37,19 @@ class CollageViewController: UIViewController {
         return layoutObject
     }()
     
+    lazy var context: CIContext = {
+        return CIContext(options: nil)
+    }()
+    
     let functionOption: [FunctionOption] = [.prototypeFrame, .background, .emoticon]
     
-    let colorCode: [ColorCode] = [.white, .petalPink, .waterMelonRed,.roseRed,
+    let colorCode: [ColorCode] = [.white, .petalPink, .waterMelonRed, .roseRed,
                                   .carrotOrange, .sunOrange,
                                   .pineappleYellow, .tigerYellow,
-                                  .chartreuseGreen,.olivineGreen, .zucchiniGreen,
-                                  .babyBlue,.clearSkyBlue, .prussianBlue,
-                                  .lilacSkuPurple,.vividPurple, .amethystPurple,
-                                  .ashGray,.stoneGray, .black]
+                                  .chartreuseGreen, .olivineGreen, .zucchiniGreen,
+                                  .babyBlue, .clearSkyBlue, .prussianBlue,
+                                  .lilacSkuPurple, .vividPurple, .amethystPurple,
+                                  .ashGray, .stoneGray, .black]
     
     let cellEmoticon: [CellEmoticon] = [.funny, .doNotThinkSo]
     
@@ -127,6 +132,20 @@ class CollageViewController: UIViewController {
         
         return singleTap
     }
+
+//    func setupSwipeUpGesture() -> UISwipeGestureRecognizer {
+//
+//        let swipeUp = UISwipeGestureRecognizer(target: self,
+//                                               action: #selector(swipe(gesture:)))
+//        swipeUp.direction = .up
+//
+//        return swipeUp
+//    }
+//
+//    @objc func swipe(gesture: UISwipeGestureRecognizer) {
+//
+//
+//    }
     
     @objc func singleTapping(recognizer: UIGestureRecognizer) {
         
@@ -168,7 +187,7 @@ class CollageViewController: UIViewController {
         
         gradientLayer.frame = view.bounds
         
-        gradientLayer.colors = [UIColor.hexStringToUIColor(hex: CustomColorCode.PastelPink).cgColor,
+        gradientLayer.colors = [UIColor.hexStringToUIColor(hex: CustomColorCode.PigletPink).cgColor,
                                 UIColor.hexStringToUIColor(hex: CustomColorCode.OrchidPink).cgColor
                                 ]
 
@@ -222,33 +241,27 @@ class CollageViewController: UIViewController {
         let surplusWidth = CGFloat.insetRatio * collageView.frame.width
         
         let surplusHeight = CGFloat.insetRatio * collageView.frame.height
-        
-//        let widthZoomRatio = collageView.bounds.width / savedImage!.size.width
-//
-//        let heightZoomRatio = collageView.bounds.height / savedImage!.size.height
     
         let layers: [CAShapeLayer] = observations.map { observation in
-            print(4, observation.boundingBox.origin.x)
+            
             let width = observation.boundingBox.size.width * imageRect.width
             let height = observation.boundingBox.size.height * imageRect.height
             let originX = observation.boundingBox.origin.x * imageRect.width
             let originY = imageRect.maxY - (observation.boundingBox.origin.y * imageRect.height) - height
             
             let layer = CAShapeLayer()
+            
             layer.frame = CGRect(x: originX,
                                  y: originY ,
                                  width: width * 5 / 7,
                                  height: height * 4 / 5)
-
+            
+            layer.backgroundColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SkinOrange).cgColor
+            
             layer.cornerRadius = layer.frame.size.height / 2
+            
             layer.position = CGPoint(x: (originX + width / 2) - surplusWidth,
                                      y: (originY + height / 2) - surplusHeight - 3)
-
-            layer.backgroundColor = UIColor.hexStringToUIColor(hex: "#FCE6C9").cgColor
-//            layer.backgroundColor = savedImage?[
-//                Int(((originX + width / 2) / widthZoomRatio) - surplusWidth),
-//                Int(((originY + height / 2) / heightZoomRatio) - surplusHeight)
-//                ]?.cgColor
 
             return layer
         }
@@ -259,7 +272,7 @@ class CollageViewController: UIViewController {
             let height = observation.boundingBox.size.height * imageRect.height
             let originX = observation.boundingBox.origin.x * imageRect.width
             let originY = imageRect.maxY - (observation.boundingBox.origin.y * imageRect.height) - height
-
+            
             let emoticonFace = UIImageView()
             emoticonFace.frame = CGRect(x: originX,
                                         y: originY,
@@ -270,7 +283,7 @@ class CollageViewController: UIViewController {
                                           y: (originY + height / 2) - surplusHeight)
 
             emoticonFace.image = UIImage(named: faceEmoticon[etCellSelectedIndexPath?.row ?? 0].rawValue)
-
+            
             return emoticonFace
         }
         
@@ -278,7 +291,7 @@ class CollageViewController: UIViewController {
             personFaceImage.layer.addSublayer(layer)
             
         }
-        
+
         for emoticonFace in emoticonFaces {
             
             emoticonFace.removeFromSuperview()
@@ -515,7 +528,7 @@ extension CollageViewController: SelectionViewDelegate,
     }
     
     func colorOfSelectionText(_ selectionView: SelectionView) -> UIColor {
-        return UIColor.hexStringToUIColor(hex: CustomColorCode.StoneGray)
+        return UIColor.hexStringToUIColor(hex: CustomColorCode.EucalyptusGreen)
     }
     
     func enable(_ selectionView: SelectionView, index: Int) -> Bool {

@@ -11,12 +11,14 @@ import UIKit
 struct CustomColorCode {
     
     //Red Color
+    static let PigletPink = "#FBEAF0"
     static let PastelPink = "#FFD0D6"
-    static let OrchidPink = "#DAB2D3"
+    static let OrchidPink = "#EF95AC"
     
     //Orange Color
     static let MelonOrange = "#E5A46E"
     static let SalamanderOrange = "#F15A22"
+    static let SkinOrange = "#FCE6C9"
     
     //Yellow Color
     static let LemonadeYellow = "#FEE19F"
@@ -27,6 +29,7 @@ struct CustomColorCode {
     
     //Blue Color
     static let TurquoiseBlue = "#85B8CB"
+    static let AquaBlue = "BEE2E4"
     
     //Gray Color
     static let StoneGray = "#877D7C#"
