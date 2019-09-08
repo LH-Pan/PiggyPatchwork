@@ -1,16 +1,20 @@
 PODS:
+  - JonAlert (1.0.0)
   - SwiftLint (0.34.0)
 
 DEPENDENCIES:
+  - JonAlert (~> 1.0)
   - SwiftLint
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - JonAlert
     - SwiftLint
 
 SPEC CHECKSUMS:
+  JonAlert: a83b374ccbf1a14aeb25537d5a3cbe957aac1c2b
   SwiftLint: 79d48a17c6565dc286c37efb8322c7b450f95c67
 
-PODFILE CHECKSUM: 61e3ab62e047be60eea9bb63c1af1a0283b8d96b
+PODFILE CHECKSUM: ed687f5600ba9fc89b20a64422db7496d93a6100
 
 COCOAPODS: 1.7.4

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,7 @@
 		2203840E23166CF2003C285B /* CollageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2203840D23166CF2003C285B /* CollageViewController.swift */; };
 		220384122316A633003C285B /* PrototypeCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220384112316A633003C285B /* PrototypeCollectionViewLayout.swift */; };
 		220384182317A5AC003C285B /* FunctionOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220384172317A5AC003C285B /* FunctionOption.swift */; };
+		2205CC8B23250682000682BE /* JonAlertWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2205CC8A23250682000682BE /* JonAlertWrapper.swift */; };
 		2206B7E42318DCC3000B0135 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2206B7E32318DCC3000B0135 /* UIView+Extension.swift */; };
 		22D5268E2315460B00F76354 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D5268D2315460B00F76354 /* AppDelegate.swift */; };
 		22D526902315460B00F76354 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D5268F2315460B00F76354 /* CameraViewController.swift */; };
@@ -45,6 +46,7 @@
 		2203840D23166CF2003C285B /* CollageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollageViewController.swift; sourceTree = "<group>"; };
 		220384112316A633003C285B /* PrototypeCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrototypeCollectionViewLayout.swift; sourceTree = "<group>"; };
 		220384172317A5AC003C285B /* FunctionOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionOption.swift; sourceTree = "<group>"; };
+		2205CC8A23250682000682BE /* JonAlertWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JonAlertWrapper.swift; sourceTree = "<group>"; };
 		2206B7E32318DCC3000B0135 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		22D5268A2315460B00F76354 /* PiggyPatchwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PiggyPatchwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22D5268D2315460B00F76354 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 		22D526A7231559E600F76354 /* Third-Party */ = {
 			isa = PBXGroup;
 			children = (
+				2205CC8A23250682000682BE /* JonAlertWrapper.swift */,
 			);
 			path = "Third-Party";
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				22D526872315460B00F76354 /* Frameworks */,
 				22D526882315460B00F76354 /* Resources */,
 				22D526A32315476500F76354 /* SwiftLint */,
+				ACE2988F41AFB5298B2AAA91 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -358,6 +362,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		ACE2988F41AFB5298B2AAA91 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PiggyPatchwork/Pods-PiggyPatchwork-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PiggyPatchwork/Pods-PiggyPatchwork-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PiggyPatchwork/Pods-PiggyPatchwork-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -382,6 +403,7 @@
 				2203840023165860003C285B /* UIImage+Extension.swift in Sources */,
 				22D526962315460B00F76354 /* PiggyPatchwork.xcdatamodeld in Sources */,
 				220383FE231657E8003C285B /* UIColor+Extension.swift in Sources */,
+				2205CC8B23250682000682BE /* JonAlertWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
