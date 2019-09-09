@@ -18,6 +18,8 @@
 		220384122316A633003C285B /* PrototypeCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220384112316A633003C285B /* PrototypeCollectionViewLayout.swift */; };
 		220384182317A5AC003C285B /* FunctionOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220384172317A5AC003C285B /* FunctionOption.swift */; };
 		2205CC8B23250682000682BE /* JonAlertWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2205CC8A23250682000682BE /* JonAlertWrapper.swift */; };
+		2205CC8E23269CBB000682BE /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2205CC8D23269CBB000682BE /* PreviewViewController.swift */; };
+		2205CC902326A700000682BE /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2205CC8F2326A700000682BE /* Gradient.swift */; };
 		2206B7E42318DCC3000B0135 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2206B7E32318DCC3000B0135 /* UIView+Extension.swift */; };
 		22D5268E2315460B00F76354 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D5268D2315460B00F76354 /* AppDelegate.swift */; };
 		22D526902315460B00F76354 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D5268F2315460B00F76354 /* CameraViewController.swift */; };
@@ -47,6 +49,8 @@
 		220384112316A633003C285B /* PrototypeCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrototypeCollectionViewLayout.swift; sourceTree = "<group>"; };
 		220384172317A5AC003C285B /* FunctionOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionOption.swift; sourceTree = "<group>"; };
 		2205CC8A23250682000682BE /* JonAlertWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JonAlertWrapper.swift; sourceTree = "<group>"; };
+		2205CC8D23269CBB000682BE /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		2205CC8F2326A700000682BE /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
 		2206B7E32318DCC3000B0135 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		22D5268A2315460B00F76354 /* PiggyPatchwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PiggyPatchwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22D5268D2315460B00F76354 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -118,8 +122,17 @@
 			children = (
 				220384172317A5AC003C285B /* FunctionOption.swift */,
 				22FE5045231CFC7F00C2C1C1 /* PrototypeLayout.swift */,
+				2205CC8F2326A700000682BE /* Gradient.swift */,
 			);
 			path = PrototypeCollectionView;
+			sourceTree = "<group>";
+		};
+		2205CC8C23269A4C000682BE /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+				2205CC8D23269CBB000682BE /* PreviewViewController.swift */,
+			);
+			path = Preview;
 			sourceTree = "<group>";
 		};
 		22D526812315460B00F76354 = {
@@ -167,6 +180,7 @@
 		22D526A5231558CC00F76354 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2205CC8C23269A4C000682BE /* Preview */,
 				2203840C23166CD6003C285B /* Prototype */,
 				22D5268F2315460B00F76354 /* CameraViewController.swift */,
 			);
@@ -396,10 +410,12 @@
 				22FE5050231F9A5500C2C1C1 /* CGFloat+Extension.swift in Sources */,
 				2203840923165D85003C285B /* PrototypeCollectionViewCell.swift in Sources */,
 				22D5268E2315460B00F76354 /* AppDelegate.swift in Sources */,
+				2205CC8E23269CBB000682BE /* PreviewViewController.swift in Sources */,
 				220384182317A5AC003C285B /* FunctionOption.swift in Sources */,
 				22FE5046231CFC7F00C2C1C1 /* PrototypeLayout.swift in Sources */,
 				2203840E23166CF2003C285B /* CollageViewController.swift in Sources */,
 				2203840B231665D6003C285B /* SelectionView.swift in Sources */,
+				2205CC902326A700000682BE /* Gradient.swift in Sources */,
 				2203840023165860003C285B /* UIImage+Extension.swift in Sources */,
 				22D526962315460B00F76354 /* PiggyPatchwork.xcdatamodeld in Sources */,
 				220383FE231657E8003C285B /* UIColor+Extension.swift in Sources */,

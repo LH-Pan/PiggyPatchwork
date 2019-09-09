@@ -32,6 +32,7 @@ class CollageCollectionViewLayout: UICollectionViewFlowLayout {
         sectionInset = UIEdgeInsets(top: inset, left: 20, bottom: inset, right: 20)
         
         minimumLineSpacing = UIScreen.width * CGFloat.insetRatio
+        
     }
 
     override var collectionViewContentSize: CGSize {

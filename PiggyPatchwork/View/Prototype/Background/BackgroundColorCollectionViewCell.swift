@@ -21,7 +21,7 @@ class BackgroundColorCollectionViewCell: UICollectionViewCell {
         
         layer.cornerRadius = frame.size.height / 2
         
-        makeCircleShadow()
+        makeCellCircleShadow()
         
     }
 }

@@ -24,7 +24,12 @@ class CollageViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var collageView: UIView!
+    @IBOutlet weak var collageView: UIView! {
+        
+        didSet {
+            collageView.makeViewSquareShadow()
+        }
+    }
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -75,13 +80,14 @@ class CollageViewController: UIViewController {
         
         setupImageView(at: collageView, add: personFaceImage)
         
-        addGradientLayer(at: view,
-                         firstColor: CustomColorCode.PigletPink,
-                         secondColor: CustomColorCode.OrchidPink)
+        Gradient.shared.addGradientLayer(at: view,
+                                         firstColor: CustomColorCode.PigletPink,
+                                         secondColor: CustomColorCode.OrchidPink)
     }
     
     // MARK: Private method
     // 建立 collection view
+    
     private func setupCollectionView() {
         
         self.collectionView.delegate = self
@@ -229,20 +235,20 @@ class CollageViewController: UIViewController {
         }
     }
     
-    func addGradientLayer(at view: UIView,
-                          firstColor: String,
-                          secondColor: String ) {
-        
-        let gradientLayer = CAGradientLayer()
-        
-        gradientLayer.frame = view.bounds
-        
-        gradientLayer.colors = [UIColor.hexStringToUIColor(hex: firstColor).cgColor,
-                                UIColor.hexStringToUIColor(hex: secondColor).cgColor
-                                ]
-
-        view.layer.insertSublayer(gradientLayer, at: 0)
-    }
+//    func addGradientLayer(at view: UIView,
+//                          firstColor: String,
+//                          secondColor: String ) {
+//
+//        let gradientLayer = CAGradientLayer()
+//
+//        gradientLayer.frame = view.bounds
+//
+//        gradientLayer.colors = [UIColor.hexStringToUIColor(hex: firstColor).cgColor,
+//                                UIColor.hexStringToUIColor(hex: secondColor).cgColor
+//                                ]
+//
+//        view.layer.insertSublayer(gradientLayer, at: 0)
+//    }
     
     // MARK: - 人臉辨識
     func faceDetection() {
@@ -256,6 +262,8 @@ class CollageViewController: UIViewController {
             try detectRequestHandler.perform([detectRequest])
         } catch {
             
+            PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.exclamation_mark),
+                                         message: "人臉偵測錯誤 (つд⊂)")
             print(error)
         }
     }
@@ -273,7 +281,6 @@ class CollageViewController: UIViewController {
             
             PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.exclamation_mark),
                                          message: "這張照片偵測不到人臉 இдஇ")
-            print("No face detect.")
             return
         }
         
@@ -650,7 +657,8 @@ extension CollageViewController: UIImagePickerControllerDelegate,
             
         } else {
             
-            print("無法讀取相簿")
+            PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.error_mark),
+                                         message: "無法讀取相簿 Σ(ﾟдﾟ)")
         }
     }
     

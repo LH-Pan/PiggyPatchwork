@@ -14,6 +14,7 @@ enum ImageAsset: String {
     case exclamation_mark
     case error_mark
     case tick_mark
+    case next_icon
 
 }
 

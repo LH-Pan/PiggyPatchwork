@@ -23,6 +23,6 @@ class EmoticonCollectionViewCell: UICollectionViewCell {
         
         backgroundColor = .white
         
-        makeOvalShadow()
+        makeCellOvalShadow()
     }
 }

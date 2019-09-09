@@ -19,6 +19,6 @@ class PrototypeCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        self.makeSquareShadow()
+        self.makeCellSquareShadow()
     }
 }

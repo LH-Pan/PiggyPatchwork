@@ -38,7 +38,7 @@ extension UICollectionViewCell {
         layer.masksToBounds = false
     }
     
-    func makeCircleShadow() {
+    func makeCellCircleShadow() {
     
         shadowInfo()
         
@@ -46,7 +46,7 @@ extension UICollectionViewCell {
                                         cornerRadius: contentView.layer.bounds.width / 2 ).cgPath
     }
     
-    func makeSquareShadow() {
+    func makeCellSquareShadow() {
         
         shadowInfo()
         
@@ -54,7 +54,7 @@ extension UICollectionViewCell {
                                         cornerRadius: 0 ).cgPath
     }
     
-    func makeOvalShadow() {
+    func makeCellOvalShadow() {
         
         shadowInfo()
         
