@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="n6Q-8Q-B6S">
-                                <rect key="frame" x="0.0" y="746" width="414" height="150"/>
+                                <rect key="frame" x="0.0" y="761" width="414" height="135"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="dQJ-Ws-kGr"/>
+                                    <constraint firstAttribute="height" constant="135" id="dQJ-Ws-kGr"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tS4-mm-ukd">
                                     <size key="itemSize" width="50" height="50"/>
@@ -33,40 +33,24 @@
                                 <cells/>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WyR-M8-wYU" customClass="SelectionView" customModule="PiggyPatchwork" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="706" width="414" height="40"/>
+                                <rect key="frame" x="0.0" y="721" width="414" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="z44-gi-WEx"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FE3-Tr-52n">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="706"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="721"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HZa-86-RcU">
-                                        <rect key="frame" x="20" y="166" width="374" height="374"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2BI-tI-vHX">
-                                                <rect key="frame" x="20" y="20" width="157" height="334"/>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jky-1E-qXX">
-                                                <rect key="frame" x="197" y="20" width="157" height="334"/>
-                                            </imageView>
-                                        </subviews>
+                                        <rect key="frame" x="20" y="173.5" width="374" height="374"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="jky-1E-qXX" firstAttribute="leading" secondItem="2BI-tI-vHX" secondAttribute="trailing" constant="20" id="4mU-JS-ah7"/>
-                                            <constraint firstAttribute="bottom" secondItem="jky-1E-qXX" secondAttribute="bottom" constant="20" id="Cp6-Qt-hm6"/>
-                                            <constraint firstItem="2BI-tI-vHX" firstAttribute="top" secondItem="HZa-86-RcU" secondAttribute="top" constant="20" id="KfY-vJ-9ls"/>
-                                            <constraint firstItem="jky-1E-qXX" firstAttribute="top" secondItem="HZa-86-RcU" secondAttribute="top" constant="20" id="XnK-UB-EGy"/>
                                             <constraint firstAttribute="width" secondItem="HZa-86-RcU" secondAttribute="height" multiplier="1:1" id="YH1-12-JTd"/>
-                                            <constraint firstAttribute="trailing" secondItem="jky-1E-qXX" secondAttribute="trailing" constant="20" id="f2v-Yv-k4e"/>
-                                            <constraint firstAttribute="bottom" secondItem="2BI-tI-vHX" secondAttribute="bottom" constant="20" id="i0Y-w8-Oau"/>
-                                            <constraint firstItem="2BI-tI-vHX" firstAttribute="leading" secondItem="HZa-86-RcU" secondAttribute="leading" constant="20" id="sUk-8l-ZlQ"/>
-                                            <constraint firstItem="2BI-tI-vHX" firstAttribute="width" secondItem="jky-1E-qXX" secondAttribute="width" id="zkt-YM-1Kt"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3kU-MO-UMY">
-                                        <rect key="frame" x="176" y="560" width="62" height="30"/>
+                                        <rect key="frame" x="176" y="567.5" width="62" height="30"/>
                                         <state key="normal" title="儲存照片"/>
                                         <connections>
                                             <action selector="savePhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gph-1J-JbO"/>

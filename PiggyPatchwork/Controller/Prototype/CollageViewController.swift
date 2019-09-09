@@ -28,17 +28,13 @@ class CollageViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    lazy var prototypeCollectionVoewLayout: PrototypeCollectionViewLayout = {
+    lazy var collageCollectionVoewLayout: CollageCollectionViewLayout = {
         
-        let layoutObject = PrototypeCollectionViewLayout()
+        let layoutObject = CollageCollectionViewLayout()
         
         layoutObject.itemCount = CGFloat(self.prototypeLayout.count)
         
         return layoutObject
-    }()
-    
-    lazy var context: CIContext = {
-        return CIContext(options: nil)
     }()
     
     let functionOption: [FunctionOption] = [.prototypeFrame, .background, .emoticon]
@@ -107,10 +103,11 @@ class CollageViewController: UIViewController {
     
     private func setupCollectionViewLayout() {
         
-        collectionView.collectionViewLayout = prototypeCollectionVoewLayout
+        collectionView.collectionViewLayout = collageCollectionVoewLayout
     }
     
-    private func setupImageView(at superView: UIView, add imageView: UIImageView) {
+    private func setupImageView(at superView: UIView,
+                                add imageView: UIImageView) {
         
         imageView.layer.borderColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SilverGray).cgColor
         
@@ -199,7 +196,9 @@ class CollageViewController: UIViewController {
         
         chooseImage = recognizer.view as? UIImageView
         
-        showAlbum()
+        showAlbum(subviews: recognizer.view?.subviews,
+                  sublayers: recognizer.view?.layer.sublayers)
+        
     }
     
     func memorizeCollection(at cell: UICollectionViewCell,
@@ -230,7 +229,9 @@ class CollageViewController: UIViewController {
         }
     }
     
-    func addGradientLayer(at view: UIView, firstColor: String, secondColor: String ) {
+    func addGradientLayer(at view: UIView,
+                          firstColor: String,
+                          secondColor: String ) {
         
         let gradientLayer = CAGradientLayer()
         
@@ -248,7 +249,8 @@ class CollageViewController: UIViewController {
         
         let detectRequest = VNDetectFaceRectanglesRequest(completionHandler: self.handleFaces)
         
-        let detectRequestHandler = VNImageRequestHandler(cgImage: (savedImage?.cgImage)!, options: [ : ])
+        let detectRequestHandler = VNImageRequestHandler(cgImage: (savedImage?.cgImage)!,
+                                                         options: [ : ])
  
         do {
             try detectRequestHandler.perform([detectRequest])
@@ -258,7 +260,8 @@ class CollageViewController: UIViewController {
         }
     }
     
-    func handleFaces(request: VNRequest, error: Error?) {
+    func handleFaces(request: VNRequest,
+                     error: Error?) {
         
         guard
             let faceDetectResults = request.results as? [VNFaceObservation]
@@ -324,6 +327,7 @@ class CollageViewController: UIViewController {
             let originY = imageRect.maxY - (observation.boundingBox.origin.y * imageRect.height) - height
             
             let emoticonFace = UIImageView()
+            
             emoticonFace.frame = CGRect(x: originX,
                                         y: originY,
                                         width: width * 100 / 414 * 3,
@@ -598,12 +602,12 @@ extension CollageViewController: SelectionViewDelegate,
         
         collectionView.reloadData()
         
-        prototypeCollectionVoewLayout.selectedIndex = index
+        collageCollectionVoewLayout.selectedIndex = index
 
         switch index {
-        case 0: prototypeCollectionVoewLayout.itemCount = CGFloat(self.prototypeLayout.count)
-        case 1: prototypeCollectionVoewLayout.itemCount = CGFloat(self.colorCode.count)
-        case 2: prototypeCollectionVoewLayout.itemCount = CGFloat(self.cellEmoticon.count)
+        case 0: collageCollectionVoewLayout.itemCount = CGFloat(self.prototypeLayout.count)
+        case 1: collageCollectionVoewLayout.itemCount = CGFloat(self.colorCode.count)
+        case 2: collageCollectionVoewLayout.itemCount = CGFloat(self.cellEmoticon.count)
         default: break
         }
 
@@ -614,7 +618,8 @@ extension CollageViewController: SelectionViewDelegate,
 extension CollageViewController: UIImagePickerControllerDelegate,
                                    UINavigationControllerDelegate {
     // 開啟相簿
-    func showAlbum() {
+    func showAlbum(subviews: [UIView]?,
+                   sublayers: [CALayer]?) {
         
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary) {
             
@@ -624,7 +629,24 @@ extension CollageViewController: UIImagePickerControllerDelegate,
             
             picker.delegate = self
             
-            self.present(picker, animated: true, completion: nil)
+            self.present(picker, animated: true, completion: {
+                
+                if subviews != nil {
+                    
+                    for subview in subviews! {
+                        
+                        subview.removeFromSuperview()
+                    }
+                }
+                
+                if sublayers != nil {
+                    
+                    for sublayer in sublayers! {
+                        
+                        sublayer.removeFromSuperlayer()
+                    }
+                }
+            })
             
         } else {
             

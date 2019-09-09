@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PrototypeCollectionViewLayout: UICollectionViewFlowLayout {
+class CollageCollectionViewLayout: UICollectionViewFlowLayout {
     
     var itemCount: CGFloat = 0
     
@@ -35,6 +35,7 @@ class PrototypeCollectionViewLayout: UICollectionViewFlowLayout {
     }
 
     override var collectionViewContentSize: CGSize {
+        
         if collectionView == nil { return CGSize.zero }
         
         return CGSize(width: (itemSize.width + minimumLineSpacing) * itemCount + minimumLineSpacing,
