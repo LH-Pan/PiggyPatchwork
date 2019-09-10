@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="SD7-G8-Ncf" customClass="PrototypeCollectionViewCell" customModule="PiggyPatchwork" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="SD7-G8-Ncf" customClass="CollageCollectionViewCell" customModule="PiggyPatchwork" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -33,7 +33,7 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="Vvq-Vu-W6I"/>
             <connections>
-                <outlet property="prototypeCellView" destination="0gh-Ap-ZDg" id="WAd-Qt-noL"/>
+                <outlet property="collageCellView" destination="0gh-Ap-ZDg" id="juJ-rK-TAt"/>
             </connections>
             <point key="canvasLocation" x="53.623188405797109" y="118.52678571428571"/>
         </collectionViewCell>

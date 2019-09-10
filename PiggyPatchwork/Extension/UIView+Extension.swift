@@ -23,7 +23,7 @@ extension UIView {
         return image!
     }
     
-    func makeViewSquareShadow() {
+    func addViewShadow() {
         
         layer.shadowColor = UIColor.black.cgColor
         

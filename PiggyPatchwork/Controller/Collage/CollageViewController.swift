@@ -1,5 +1,5 @@
 //
-//  PrototypeViewController.swift
+//  CollageViewController.swift
 //  PiggyPatchwork
 //
 //  Created by 潘立祥 on 2019/8/28.
@@ -27,11 +27,20 @@ class CollageViewController: UIViewController {
     @IBOutlet weak var collageView: UIView! {
         
         didSet {
-            collageView.makeViewSquareShadow()
+            collageView.addViewShadow()
         }
     }
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet weak var nextPageBtn: UIButton! {
+        
+        didSet {
+            nextPageBtn.setTitleColor(.hexStringToUIColor(hex: CustomColorCode.OrchidPink),
+                                      for: .normal)
+            nextPageBtn.layer.cornerRadius = 10
+        }
+    }
     
     lazy var collageCollectionVoewLayout: CollageCollectionViewLayout = {
         
@@ -80,9 +89,14 @@ class CollageViewController: UIViewController {
         
         setupImageView(at: collageView, add: personFaceImage)
         
-        Gradient.shared.addGradientLayer(at: view,
-                                         firstColor: CustomColorCode.PigletPink,
-                                         secondColor: CustomColorCode.OrchidPink)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        Gradient.shared.doubleColor(at: view,
+                                    firstColor: CustomColorCode.PigletPink,
+                                    secondColor: CustomColorCode.OrchidPink)
     }
     
     // MARK: Private method
@@ -94,7 +108,7 @@ class CollageViewController: UIViewController {
         
         self.collectionView.dataSource = self
         
-        collectionView.custom_registerCellWithNib(identifier: PrototypeCollectionViewCell.identifier,
+        collectionView.custom_registerCellWithNib(identifier: CollageCollectionViewCell.identifier,
                                                   bundle: nil)
         
         collectionView.custom_registerCellWithNib(identifier: BackgroundColorCollectionViewCell.identifier,
@@ -136,67 +150,7 @@ class CollageViewController: UIViewController {
                                                action: #selector(singleTapping(recognizer:)))
         
         return singleTap
-    }
-
-//    func setupSwipeUpGesture() -> UISwipeGestureRecognizer {
-//
-//        let swipeUp = UISwipeGestureRecognizer(target: self,
-//                                               action: #selector(swipe(recognizer:)))
-//        swipeUp.direction = .up
-//
-//        return swipeUp
-//    }
-//
-//    @objc func swipe(recognizer: UISwipeGestureRecognizer) {
-
-//        guard let myView = recognizer.view else { return }
-//
-//        let point = myView.center
-//
-//        switch recognizer.direction {
-//        case .up:
-//            print("Go Up")
-//            if point.y >= 150 {
-//                myView.center = CGPoint(x: myView.center.x,
-//                                      y: myView.center.y - 100)
-//            } else {
-//                myView.center = CGPoint(x: myView.center.x,
-//                                      y: 50)
-//            }
-//
-//        case .left:
-//
-//            if point.x >= 150 {
-//                myView.center = CGPoint(x: myView.center.x - 100,
-//                                      y: myView.center.y)
-//            } else {
-//                myView.center = CGPoint(x: 50,
-//                                      y: myView.center.y)
-//            }
-//
-//        case .down:
-//
-//            if point.y <= UIScreen.height - 150 {
-//                myView.center = CGPoint(x: myView.center.x,
-//                                      y: myView.center.y + 100)
-//            } else {
-//                myView.center = CGPoint(x: myView.center.x,
-//                                      y: UIScreen.height - 50)
-//            }
-//
-//        case .right:
-//
-//            if point.x <= UIScreen.width - 150 {
-//                myView.center = CGPoint(x: myView.center.x + 100,
-//                                      y: myView.center.y)
-//            } else {
-//                myView.center = CGPoint(x: UIScreen.width - 50,
-//                                      y: myView.center.y)
-//            }
-//
-//        default: break
-//        }
-//    }
+    } 
     
     @objc func singleTapping(recognizer: UIGestureRecognizer) {
         
@@ -234,21 +188,6 @@ class CollageViewController: UIViewController {
             }
         }
     }
-    
-//    func addGradientLayer(at view: UIView,
-//                          firstColor: String,
-//                          secondColor: String ) {
-//
-//        let gradientLayer = CAGradientLayer()
-//
-//        gradientLayer.frame = view.bounds
-//
-//        gradientLayer.colors = [UIColor.hexStringToUIColor(hex: firstColor).cgColor,
-//                                UIColor.hexStringToUIColor(hex: secondColor).cgColor
-//                                ]
-//
-//        view.layer.insertSublayer(gradientLayer, at: 0)
-//    }
     
     // MARK: - 人臉辨識
     func faceDetection() {
@@ -400,9 +339,9 @@ extension CollageViewController: UICollectionViewDataSource,
 
             guard
                 let prototypeCell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: PrototypeCollectionViewCell.identifier,
+                    withReuseIdentifier: CollageCollectionViewCell.identifier,
                     for: indexPath
-                    ) as? PrototypeCollectionViewCell
+                    ) as? CollageCollectionViewCell
             else {
                 return UICollectionViewCell()
             }
@@ -615,6 +554,7 @@ extension CollageViewController: SelectionViewDelegate,
         case 0: collageCollectionVoewLayout.itemCount = CGFloat(self.prototypeLayout.count)
         case 1: collageCollectionVoewLayout.itemCount = CGFloat(self.colorCode.count)
         case 2: collageCollectionVoewLayout.itemCount = CGFloat(self.cellEmoticon.count)
+                savedImage = nil
         default: break
         }
 

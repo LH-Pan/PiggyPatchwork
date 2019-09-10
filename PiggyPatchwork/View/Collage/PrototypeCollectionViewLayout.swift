@@ -33,13 +33,15 @@ class CollageCollectionViewLayout: UICollectionViewFlowLayout {
         
         minimumLineSpacing = UIScreen.width * CGFloat.insetRatio
         
+        minimumInteritemSpacing = UIScreen.width * CGFloat.insetRatio
+        
     }
 
     override var collectionViewContentSize: CGSize {
         
         if collectionView == nil { return CGSize.zero }
         
-        return CGSize(width: (itemSize.width + minimumLineSpacing) * itemCount + minimumLineSpacing,
+        return CGSize(width: (itemSize.width + minimumInteritemSpacing) * itemCount + minimumInteritemSpacing,
                       height: collectionView!.bounds.height)
     }
     

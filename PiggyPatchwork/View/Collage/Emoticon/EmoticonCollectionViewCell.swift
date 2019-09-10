@@ -19,7 +19,7 @@ class EmoticonCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        layer.cornerRadius = 20
+        layer.cornerRadius = 18
         
         backgroundColor = .white
         

@@ -11,8 +11,8 @@
 		220383FE231657E8003C285B /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220383FD231657E8003C285B /* UIColor+Extension.swift */; };
 		2203840023165860003C285B /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220383FF23165860003C285B /* UIImage+Extension.swift */; };
 		2203840223165999003C285B /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2203840123165999003C285B /* UICollectionView+Extension.swift */; };
-		2203840523165CA6003C285B /* PrototypeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2203840423165CA6003C285B /* PrototypeCollectionViewCell.xib */; };
-		2203840923165D85003C285B /* PrototypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2203840823165D85003C285B /* PrototypeCollectionViewCell.swift */; };
+		2203840523165CA6003C285B /* CollageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2203840423165CA6003C285B /* CollageCollectionViewCell.xib */; };
+		2203840923165D85003C285B /* CollageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2203840823165D85003C285B /* CollageCollectionViewCell.swift */; };
 		2203840B231665D6003C285B /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2203840A231665D6003C285B /* SelectionView.swift */; };
 		2203840E23166CF2003C285B /* CollageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2203840D23166CF2003C285B /* CollageViewController.swift */; };
 		220384122316A633003C285B /* PrototypeCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220384112316A633003C285B /* PrototypeCollectionViewLayout.swift */; };
@@ -42,8 +42,8 @@
 		220383FD231657E8003C285B /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		220383FF23165860003C285B /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		2203840123165999003C285B /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
-		2203840423165CA6003C285B /* PrototypeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrototypeCollectionViewCell.xib; sourceTree = "<group>"; };
-		2203840823165D85003C285B /* PrototypeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrototypeCollectionViewCell.swift; sourceTree = "<group>"; };
+		2203840423165CA6003C285B /* CollageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollageCollectionViewCell.xib; sourceTree = "<group>"; };
+		2203840823165D85003C285B /* CollageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollageCollectionViewCell.swift; sourceTree = "<group>"; };
 		2203840A231665D6003C285B /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
 		2203840D23166CF2003C285B /* CollageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollageViewController.swift; sourceTree = "<group>"; };
 		220384112316A633003C285B /* PrototypeCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrototypeCollectionViewLayout.swift; sourceTree = "<group>"; };
@@ -90,23 +90,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		2203840323165C66003C285B /* Prototype */ = {
+		2203840323165C66003C285B /* Collage */ = {
 			isa = PBXGroup;
 			children = (
-				22FE504B231E78D400C2C1C1 /* Prototype */,
+				22FE504B231E78D400C2C1C1 /* Collage */,
 				22FE504D231E78F600C2C1C1 /* Background */,
 				22FE504E231E790A00C2C1C1 /* Emoticon */,
 				220384112316A633003C285B /* PrototypeCollectionViewLayout.swift */,
 			);
-			path = Prototype;
+			path = Collage;
 			sourceTree = "<group>";
 		};
-		2203840C23166CD6003C285B /* Prototype */ = {
+		2203840C23166CD6003C285B /* Collage */ = {
 			isa = PBXGroup;
 			children = (
 				2203840D23166CF2003C285B /* CollageViewController.swift */,
 			);
-			path = Prototype;
+			path = Collage;
 			sourceTree = "<group>";
 		};
 		2203840F23168358003C285B /* SelectionView */ = {
@@ -180,8 +180,8 @@
 		22D526A5231558CC00F76354 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2203840C23166CD6003C285B /* Collage */,
 				2205CC8C23269A4C000682BE /* Preview */,
-				2203840C23166CD6003C285B /* Prototype */,
 				22D5268F2315460B00F76354 /* CameraViewController.swift */,
 			);
 			path = Controller;
@@ -191,7 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				2203840F23168358003C285B /* SelectionView */,
-				2203840323165C66003C285B /* Prototype */,
+				2203840323165C66003C285B /* Collage */,
 				22D526912315460B00F76354 /* Main.storyboard */,
 				22D526992315460D00F76354 /* LaunchScreen.storyboard */,
 			);
@@ -227,13 +227,13 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
-		22FE504B231E78D400C2C1C1 /* Prototype */ = {
+		22FE504B231E78D400C2C1C1 /* Collage */ = {
 			isa = PBXGroup;
 			children = (
-				2203840823165D85003C285B /* PrototypeCollectionViewCell.swift */,
-				2203840423165CA6003C285B /* PrototypeCollectionViewCell.xib */,
+				2203840823165D85003C285B /* CollageCollectionViewCell.swift */,
+				2203840423165CA6003C285B /* CollageCollectionViewCell.xib */,
 			);
-			path = Prototype;
+			path = Collage;
 			sourceTree = "<group>";
 		};
 		22FE504D231E78F600C2C1C1 /* Background */ = {
@@ -327,7 +327,7 @@
 				22FE5048231E77B600C2C1C1 /* EmoticonCollectionViewCell.xib in Resources */,
 				22FE5042231CE86300C2C1C1 /* BackgroundColorCollectionViewCell.xib in Resources */,
 				22D5269B2315460D00F76354 /* LaunchScreen.storyboard in Resources */,
-				2203840523165CA6003C285B /* PrototypeCollectionViewCell.xib in Resources */,
+				2203840523165CA6003C285B /* CollageCollectionViewCell.xib in Resources */,
 				22D526982315460D00F76354 /* Assets.xcassets in Resources */,
 				22D526932315460B00F76354 /* Main.storyboard in Resources */,
 			);
@@ -408,7 +408,7 @@
 				220383FC231654A0003C285B /* UIScreen+Extension.swift in Sources */,
 				220384122316A633003C285B /* PrototypeCollectionViewLayout.swift in Sources */,
 				22FE5050231F9A5500C2C1C1 /* CGFloat+Extension.swift in Sources */,
-				2203840923165D85003C285B /* PrototypeCollectionViewCell.swift in Sources */,
+				2203840923165D85003C285B /* CollageCollectionViewCell.swift in Sources */,
 				22D5268E2315460B00F76354 /* AppDelegate.swift in Sources */,
 				2205CC8E23269CBB000682BE /* PreviewViewController.swift in Sources */,
 				220384182317A5AC003C285B /* FunctionOption.swift in Sources */,

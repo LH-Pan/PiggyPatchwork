@@ -12,11 +12,11 @@ class Gradient {
     
     static let shared = Gradient()
     
-    func addGradientLayer(at view: UIView,
-                          firstColor: String,
-                          secondColor: String ) {
-        
-        let gradientLayer = CAGradientLayer()
+    let gradientLayer = CAGradientLayer()
+    
+    func doubleColor(at view: UIView,
+                     firstColor: String,
+                     secondColor: String ) {
         
         gradientLayer.frame = view.bounds
         

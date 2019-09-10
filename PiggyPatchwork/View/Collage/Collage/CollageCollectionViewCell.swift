@@ -8,9 +8,9 @@
 
 import UIKit
 
-class PrototypeCollectionViewCell: UICollectionViewCell {
+class CollageCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var prototypeCellView: UIView!
+    @IBOutlet weak var collageCellView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
