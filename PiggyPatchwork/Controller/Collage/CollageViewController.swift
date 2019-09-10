@@ -311,19 +311,6 @@ class CollageViewController: UIViewController {
         
         previewVC.storageImage = savedImage
     }
-    
-    @IBAction func savePhoto(_ sender: Any) {
-        
-        savedImage = collageView.takeSnapshot()
-        
-        guard
-            let savedImage = savedImage
-        else {
-            return
-        }
-
-        UIImageWriteToSavedPhotosAlbum(savedImage, nil, nil, nil)
-    }
 }
     // MARK: UICollectionViewDataSource
 extension CollageViewController: UICollectionViewDataSource,

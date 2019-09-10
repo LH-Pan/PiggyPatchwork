@@ -63,23 +63,20 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right_ear" translatesAutoresizingMaskIntoConstraints="NO" id="Cz3-0U-EVr">
                                         <rect key="frame" x="370" y="173" width="44" height="38"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3kU-MO-UMY">
-                                        <rect key="frame" x="177" y="525" width="60" height="60"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nose" translatesAutoresizingMaskIntoConstraints="NO" id="hU7-jB-AsP">
+                                        <rect key="frame" x="167" y="525" width="80" height="80"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="iGD-1F-QeK"/>
-                                            <constraint firstAttribute="height" constant="60" id="kUD-qx-IV6"/>
+                                            <constraint firstAttribute="width" constant="80" id="3eY-qW-EZV"/>
+                                            <constraint firstAttribute="height" constant="80" id="cLL-Py-2YP"/>
                                         </constraints>
-                                        <state key="normal" image="nose"/>
-                                        <connections>
-                                            <action selector="savePhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gph-1J-JbO"/>
-                                        </connections>
-                                    </button>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="3kU-MO-UMY" firstAttribute="centerX" secondItem="FE3-Tr-52n" secondAttribute="centerX" id="0JK-6L-SXU"/>
                                     <constraint firstItem="HZa-86-RcU" firstAttribute="leading" secondItem="FE3-Tr-52n" secondAttribute="leading" constant="20" id="0Xc-rb-yHh"/>
+                                    <constraint firstItem="hU7-jB-AsP" firstAttribute="centerX" secondItem="FE3-Tr-52n" secondAttribute="centerX" id="Cg5-8E-Qt3"/>
                                     <constraint firstAttribute="trailing" secondItem="uut-hv-bej" secondAttribute="trailing" constant="16" id="GQh-NZ-PRf"/>
+                                    <constraint firstItem="hU7-jB-AsP" firstAttribute="top" secondItem="HZa-86-RcU" secondAttribute="bottom" constant="-30" id="SHt-DC-1nt"/>
                                     <constraint firstItem="HZa-86-RcU" firstAttribute="top" secondItem="zbH-t3-vJB" secondAttribute="bottom" constant="-30" id="Xcc-Jn-M9g"/>
                                     <constraint firstItem="HZa-86-RcU" firstAttribute="centerY" secondItem="FE3-Tr-52n" secondAttribute="centerY" id="Y5g-fb-t1e"/>
                                     <constraint firstItem="zbH-t3-vJB" firstAttribute="leading" secondItem="FE3-Tr-52n" secondAttribute="leading" id="bQn-uI-fz0"/>
@@ -88,7 +85,6 @@
                                     <constraint firstItem="uut-hv-bej" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FE3-Tr-52n" secondAttribute="leading" id="mES-P6-VjK"/>
                                     <constraint firstItem="HZa-86-RcU" firstAttribute="top" secondItem="Cz3-0U-EVr" secondAttribute="bottom" constant="-30" id="p2H-vW-TM5"/>
                                     <constraint firstItem="HZa-86-RcU" firstAttribute="centerX" secondItem="FE3-Tr-52n" secondAttribute="centerX" id="shs-cf-3GW"/>
-                                    <constraint firstItem="3kU-MO-UMY" firstAttribute="top" secondItem="HZa-86-RcU" secondAttribute="bottom" constant="-30" id="y9v-1C-fbm"/>
                                     <constraint firstItem="uut-hv-bej" firstAttribute="top" secondItem="FE3-Tr-52n" secondAttribute="topMargin" id="ybt-fF-79Q"/>
                                 </constraints>
                             </view>
