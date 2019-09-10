@@ -54,7 +54,7 @@
                                             <color key="titleColor" red="1" green="0.81568627449999997" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="9gf-z2-M70" kind="show" id="ENN-Ek-6gW"/>
+                                            <segue destination="9gf-z2-M70" kind="show" identifier="goNextPage" id="ENN-Ek-6gW"/>
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left_ear" translatesAutoresizingMaskIntoConstraints="NO" id="zbH-t3-vJB">
@@ -269,6 +269,7 @@
                         <outlet property="editBtn" destination="ehO-aB-eB5" id="zQQ-Mj-0qn"/>
                         <outlet property="editView" destination="gkr-g7-21j" id="Veo-Z9-ZZL"/>
                         <outlet property="goLastPage" destination="sbd-FK-rJV" id="jVk-oZ-Riz"/>
+                        <outlet property="previewImage" destination="8RW-Lg-a5t" id="DTH-ee-niH"/>
                         <outlet property="previewImageView" destination="XYX-y0-UY6" id="AZM-lR-4RY"/>
                         <outlet property="previewView" destination="XYX-y0-UY6" id="BWX-Ar-DGz"/>
                         <outlet property="savePhotoBtn" destination="7Ov-R4-93W" id="pxy-tL-Cqf"/>

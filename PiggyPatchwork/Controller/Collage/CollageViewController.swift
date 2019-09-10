@@ -299,6 +299,19 @@ class CollageViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        savedImage = collageView.takeSnapshot()
+        
+        guard
+            let previewVC = segue.destination as? PreviewViewController
+        else {
+            return
+        }
+        
+        previewVC.storageImage = savedImage
+    }
+    
     @IBAction func savePhoto(_ sender: Any) {
         
         savedImage = collageView.takeSnapshot()

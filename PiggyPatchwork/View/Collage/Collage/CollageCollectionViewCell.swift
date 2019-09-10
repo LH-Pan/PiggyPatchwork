@@ -1,5 +1,5 @@
 //
-//  PrototypeCollectionViewCell.swift
+//  CollageCollectionViewCell.swift
 //  PiggyPatchwork
 //
 //  Created by 潘立祥 on 2019/8/28.

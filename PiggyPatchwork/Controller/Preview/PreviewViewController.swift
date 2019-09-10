@@ -40,6 +40,10 @@ class PreviewViewController: UIViewController {
     
     @IBOutlet weak var showAlbumView: UIView!
     
+    @IBOutlet weak var previewImage: UIImageView!
+    
+    var storageImage: UIImage?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,6 +54,8 @@ class PreviewViewController: UIViewController {
         Gradient.shared.doubleColor(at: view,
                                     firstColor: CustomColorCode.PigletPink,
                                     secondColor: CustomColorCode.OrchidPink)
+        
+        previewImage.image = storageImage
     }
     
     func setupButton() {
@@ -90,7 +96,23 @@ class PreviewViewController: UIViewController {
     }
     
     @IBAction func savePhoto(_ sender: Any) {
+        
+        storageImage = previewImageView.takeSnapshot()
+        
+        guard
+            let image = storageImage
+        else {
+            return
+        }
+        
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        
+        PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.tick_mark),
+                                     message: "照片已儲存至相簿囉 ♥")
+        
+        navigationController?.popViewController(animated: true)
     }
+    
     @IBAction func showAlbum(_ sender: Any) {
     }
 }
