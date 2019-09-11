@@ -20,6 +20,9 @@
 		2205CC8B23250682000682BE /* JonAlertWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2205CC8A23250682000682BE /* JonAlertWrapper.swift */; };
 		2205CC8E23269CBB000682BE /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2205CC8D23269CBB000682BE /* PreviewViewController.swift */; };
 		2205CC902326A700000682BE /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2205CC8F2326A700000682BE /* Gradient.swift */; };
+		2205CC922328D24F000682BE /* PushTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2205CC912328D24F000682BE /* PushTransition.swift */; };
+		2205CC952328D380000682BE /* CanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2205CC942328D380000682BE /* CanvasViewController.swift */; };
+		2205CC992329057A000682BE /* PopTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2205CC982329057A000682BE /* PopTransition.swift */; };
 		2206B7E42318DCC3000B0135 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2206B7E32318DCC3000B0135 /* UIView+Extension.swift */; };
 		22D5268E2315460B00F76354 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D5268D2315460B00F76354 /* AppDelegate.swift */; };
 		22D526902315460B00F76354 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D5268F2315460B00F76354 /* CameraViewController.swift */; };
@@ -51,6 +54,9 @@
 		2205CC8A23250682000682BE /* JonAlertWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JonAlertWrapper.swift; sourceTree = "<group>"; };
 		2205CC8D23269CBB000682BE /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		2205CC8F2326A700000682BE /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
+		2205CC912328D24F000682BE /* PushTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushTransition.swift; sourceTree = "<group>"; };
+		2205CC942328D380000682BE /* CanvasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasViewController.swift; sourceTree = "<group>"; };
+		2205CC982329057A000682BE /* PopTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopTransition.swift; sourceTree = "<group>"; };
 		2206B7E32318DCC3000B0135 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		22D5268A2315460B00F76354 /* PiggyPatchwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PiggyPatchwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22D5268D2315460B00F76354 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +141,23 @@
 			path = Preview;
 			sourceTree = "<group>";
 		};
+		2205CC932328D365000682BE /* Canvas */ = {
+			isa = PBXGroup;
+			children = (
+				2205CC942328D380000682BE /* CanvasViewController.swift */,
+			);
+			path = Canvas;
+			sourceTree = "<group>";
+		};
+		2205CC9723290554000682BE /* TransitionAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				2205CC912328D24F000682BE /* PushTransition.swift */,
+				2205CC982329057A000682BE /* PopTransition.swift */,
+			);
+			path = TransitionAnimation;
+			sourceTree = "<group>";
+		};
 		22D526812315460B00F76354 = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				220384102316A605003C285B /* PrototypeCollectionView */,
+				2205CC9723290554000682BE /* TransitionAnimation */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -182,6 +206,7 @@
 			children = (
 				2203840C23166CD6003C285B /* Collage */,
 				2205CC8C23269A4C000682BE /* Preview */,
+				2205CC932328D365000682BE /* Canvas */,
 				22D5268F2315460B00F76354 /* CameraViewController.swift */,
 			);
 			path = Controller;
@@ -401,6 +426,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22FE504A231E78AE00C2C1C1 /* EmoticonCollectionViewCell.swift in Sources */,
+				2205CC922328D24F000682BE /* PushTransition.swift in Sources */,
 				22D526902315460B00F76354 /* CameraViewController.swift in Sources */,
 				2206B7E42318DCC3000B0135 /* UIView+Extension.swift in Sources */,
 				22FE5044231CE89600C2C1C1 /* BackgroundColorCollectionViewCell.swift in Sources */,
@@ -408,6 +434,7 @@
 				220383FC231654A0003C285B /* UIScreen+Extension.swift in Sources */,
 				220384122316A633003C285B /* PrototypeCollectionViewLayout.swift in Sources */,
 				22FE5050231F9A5500C2C1C1 /* CGFloat+Extension.swift in Sources */,
+				2205CC952328D380000682BE /* CanvasViewController.swift in Sources */,
 				2203840923165D85003C285B /* CollageCollectionViewCell.swift in Sources */,
 				22D5268E2315460B00F76354 /* AppDelegate.swift in Sources */,
 				2205CC8E23269CBB000682BE /* PreviewViewController.swift in Sources */,
@@ -419,6 +446,7 @@
 				2203840023165860003C285B /* UIImage+Extension.swift in Sources */,
 				22D526962315460B00F76354 /* PiggyPatchwork.xcdatamodeld in Sources */,
 				220383FE231657E8003C285B /* UIColor+Extension.swift in Sources */,
+				2205CC992329057A000682BE /* PopTransition.swift in Sources */,
 				2205CC8B23250682000682BE /* JonAlertWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

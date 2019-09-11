@@ -17,7 +17,7 @@ class PreviewViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var previewImageView: UIView!
+    @IBOutlet weak var previewImageView: UIImageView!
     
     @IBOutlet weak var goLastPage: UIButton! {
         
@@ -40,8 +40,6 @@ class PreviewViewController: UIViewController {
     
     @IBOutlet weak var showAlbumView: UIView!
     
-    @IBOutlet weak var previewImage: UIImageView!
-    
     var storageImage: UIImage?
     
     override func viewDidLoad() {
@@ -55,7 +53,11 @@ class PreviewViewController: UIViewController {
                                     firstColor: CustomColorCode.PigletPink,
                                     secondColor: CustomColorCode.OrchidPink)
         
-        previewImage.image = storageImage
+        previewImageView.image = storageImage
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.delegate = self
     }
     
     func setupButton() {
@@ -90,6 +92,17 @@ class PreviewViewController: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard
+            let canvasVC = segue.destination as? CanvasViewController
+        else {
+            return
+        }
+        
+        canvasVC.storageImage = storageImage
+    }
+    
     @IBAction func backToCollage(_ sender: Any) {
         
         navigationController?.popViewController(animated: true)
@@ -97,7 +110,7 @@ class PreviewViewController: UIViewController {
     
     @IBAction func savePhoto(_ sender: Any) {
         
-        storageImage = previewImageView.takeSnapshot()
+        storageImage = previewView.takeSnapshot()
         
         guard
             let image = storageImage
@@ -114,5 +127,21 @@ class PreviewViewController: UIViewController {
     }
     
     @IBAction func showAlbum(_ sender: Any) {
+    }
+}
+
+extension PreviewViewController: UINavigationControllerDelegate {
+    func navigationController(
+        _ navigationController: UINavigationController,
+        animationControllerFor operation: UINavigationController.Operation,
+        from fromVC: UIViewController,
+        to toVC: UIViewController
+        ) -> UIViewControllerAnimatedTransitioning? {
+        
+        if operation == .push {
+            return PushTransition()
+        } else {
+            return nil
+        }
     }
 }

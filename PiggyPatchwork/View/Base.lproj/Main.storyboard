@@ -46,11 +46,10 @@
                                             <constraint firstAttribute="width" secondItem="HZa-86-RcU" secondAttribute="height" multiplier="1:1" id="YH1-12-JTd"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uut-hv-bej">
-                                        <rect key="frame" x="336" y="52" width="62" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uut-hv-bej">
+                                        <rect key="frame" x="316" y="52" width="82" height="22"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <state key="normal" title="  下一步  ">
+                                        <state key="normal" title="  下一步  " image="next_icon_right">
                                             <color key="titleColor" red="1" green="0.81568627449999997" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -126,11 +125,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sbd-FK-rJV">
-                                <rect key="frame" x="16" y="52" width="62" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sbd-FK-rJV">
+                                <rect key="frame" x="16" y="52" width="82" height="22"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="  上一步  ">
+                                <state key="normal" title="  上一步  " image="next_icon_left">
                                     <color key="titleColor" red="1" green="0.81568627449999997" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -159,6 +157,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehO-aB-eB5">
                                         <rect key="frame" x="0.0" y="10" width="214" height="30"/>
                                         <state key="normal" title="再編輯一下 "/>
+                                        <connections>
+                                            <segue destination="7Hj-kQ-YiH" kind="show" id="ieY-mL-zAZ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -265,9 +266,8 @@
                         <outlet property="editBtn" destination="ehO-aB-eB5" id="zQQ-Mj-0qn"/>
                         <outlet property="editView" destination="gkr-g7-21j" id="Veo-Z9-ZZL"/>
                         <outlet property="goLastPage" destination="sbd-FK-rJV" id="jVk-oZ-Riz"/>
-                        <outlet property="previewImage" destination="8RW-Lg-a5t" id="DTH-ee-niH"/>
-                        <outlet property="previewImageView" destination="XYX-y0-UY6" id="AZM-lR-4RY"/>
-                        <outlet property="previewView" destination="XYX-y0-UY6" id="BWX-Ar-DGz"/>
+                        <outlet property="previewImageView" destination="8RW-Lg-a5t" id="SBf-MN-jte"/>
+                        <outlet property="previewView" destination="XYX-y0-UY6" id="A6i-1u-ZvF"/>
                         <outlet property="savePhotoBtn" destination="7Ov-R4-93W" id="pxy-tL-Cqf"/>
                         <outlet property="savePhotoView" destination="2aY-4V-r13" id="aaN-06-f68"/>
                         <outlet property="showAlbumBtn" destination="h68-7n-Yie" id="foP-y5-0UK"/>
@@ -277,6 +277,55 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tWZ-rz-bst" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4582.608695652174" y="20.758928571428569"/>
+        </scene>
+        <!--Canvas View Controller-->
+        <scene sceneID="4wi-ua-nx1">
+            <objects>
+                <viewController storyboardIdentifier="canvasVC" id="7Hj-kQ-YiH" customClass="CanvasViewController" customModule="PiggyPatchwork" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nqw-6F-Rne">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rH6-xC-Rp6">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y3e-TS-IeM">
+                                <rect key="frame" x="0.0" y="146" width="414" height="414"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nws-y9-tlJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="y3e-TS-IeM" secondAttribute="height" multiplier="1:1" id="3HA-Cc-qz3"/>
+                                    <constraint firstItem="Nws-y9-tlJ" firstAttribute="leading" secondItem="y3e-TS-IeM" secondAttribute="leading" id="NU8-09-9A5"/>
+                                    <constraint firstAttribute="trailing" secondItem="Nws-y9-tlJ" secondAttribute="trailing" id="QwL-mk-DPY"/>
+                                    <constraint firstItem="Nws-y9-tlJ" firstAttribute="top" secondItem="y3e-TS-IeM" secondAttribute="top" id="qLr-gI-xpz"/>
+                                    <constraint firstAttribute="bottom" secondItem="Nws-y9-tlJ" secondAttribute="bottom" id="x0u-Iw-WY3"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="y3e-TS-IeM" firstAttribute="leading" secondItem="Nq7-1P-thv" secondAttribute="leading" id="06z-73-dgw"/>
+                            <constraint firstAttribute="bottom" secondItem="rH6-xC-Rp6" secondAttribute="bottom" id="MIP-8w-rqb"/>
+                            <constraint firstItem="y3e-TS-IeM" firstAttribute="centerX" secondItem="Nq7-1P-thv" secondAttribute="centerX" id="SLm-jf-i9y"/>
+                            <constraint firstItem="rH6-xC-Rp6" firstAttribute="top" secondItem="nqw-6F-Rne" secondAttribute="top" id="YUy-Rg-eRy"/>
+                            <constraint firstItem="rH6-xC-Rp6" firstAttribute="leading" secondItem="Nq7-1P-thv" secondAttribute="leading" id="i9R-TZ-iZk"/>
+                            <constraint firstItem="y3e-TS-IeM" firstAttribute="centerY" secondItem="Nq7-1P-thv" secondAttribute="centerY" constant="-100" id="t5l-q2-cjA"/>
+                            <constraint firstItem="Nq7-1P-thv" firstAttribute="trailing" secondItem="rH6-xC-Rp6" secondAttribute="trailing" id="z6f-qB-vyw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Nq7-1P-thv"/>
+                    </view>
+                    <connections>
+                        <outlet property="canvasImageView" destination="Nws-y9-tlJ" id="vII-7R-bDn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TH9-e7-QGL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5495" y="22"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eAS-cp-vji">
@@ -298,6 +347,8 @@
     </scenes>
     <resources>
         <image name="left_ear" width="44" height="38"/>
+        <image name="next_icon_left" width="8" height="12"/>
+        <image name="next_icon_right" width="8" height="12"/>
         <image name="nose" width="118" height="100"/>
         <image name="right_ear" width="44" height="38"/>
     </resources>
