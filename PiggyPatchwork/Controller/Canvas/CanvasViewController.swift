@@ -22,8 +22,10 @@ class CanvasViewController: UIViewController {
     @IBOutlet weak var backToPreviewBtn: UIButton! {
         
         didSet {
+            
             backToPreviewBtn.setTitleColor(.hexStringToUIColor(hex: CustomColorCode.OrchidPink),
                                            for: .normal)
+            
             backToPreviewBtn.layer.cornerRadius = 10
         }
     }
@@ -31,8 +33,10 @@ class CanvasViewController: UIViewController {
     @IBOutlet weak var editCompleteBtn: UIButton! {
         
         didSet {
+            
             editCompleteBtn.setTitleColor(.hexStringToUIColor(hex: CustomColorCode.OrchidPink),
                                           for: .normal)
+            
             editCompleteBtn.layer.cornerRadius = 10
         }
     }
@@ -41,7 +45,7 @@ class CanvasViewController: UIViewController {
     
     weak var delegate: ImageProviderDelegate?
     
-    let canvas: UIView = Canvas()
+    let canvas = Canvas()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +70,8 @@ class CanvasViewController: UIViewController {
                                     secondColor: CustomColorCode.OrchidPink)
     }
 
-    @IBAction func backToPreView(_ sender: Any) {
+    @IBAction func cancelEdit(_ sender: Any) {
+        
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -77,6 +82,16 @@ class CanvasViewController: UIViewController {
         delegate?.manager(self, didGet: storageImage)
         
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func undo(_ sender: Any) {
+        
+        canvas.undo()
+    }
+    
+    @IBAction func clearAll(_ sender: Any) {
+        
+        canvas.clear()
     }
 }
 
@@ -90,8 +105,11 @@ extension CanvasViewController: UINavigationControllerDelegate {
         ) -> UIViewControllerAnimatedTransitioning? {
         
         if operation == .pop {
+            
             return PopTransition()
+            
         } else {
+            
             return nil
         }
     }

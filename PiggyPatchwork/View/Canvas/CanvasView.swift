@@ -10,7 +10,10 @@ import UIKit
 
 class Canvas: UIView {
     
+    var lines = [[CGPoint]]()
+    
     override func draw(_ rect: CGRect) {
+        
         // custom drawing
         super.draw(rect)
         
@@ -36,8 +39,6 @@ class Canvas: UIView {
         context.strokePath()
     }
     
-    var lines = [[CGPoint]]()
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 
         lines.append([CGPoint]())
@@ -56,6 +57,20 @@ class Canvas: UIView {
         lastLine.append(point)
 
         lines.append(lastLine)
+        
+        setNeedsDisplay()
+    }
+    
+    func undo() {
+        
+        _ = lines.popLast()
+        
+        setNeedsDisplay()
+    }
+    
+    func clear() {
+        
+        lines.removeAll()
         
         setNeedsDisplay()
     }

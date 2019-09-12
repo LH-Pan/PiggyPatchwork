@@ -324,7 +324,7 @@
                                             <color key="titleColor" red="1" green="0.81568627449999997" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="backToPreView:" destination="7Hj-kQ-YiH" eventType="touchUpInside" id="93X-Ar-1nX"/>
+                                            <action selector="cancelEdit:" destination="7Hj-kQ-YiH" eventType="touchUpInside" id="XAJ-Hq-QCw"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gph-mR-4cd">
@@ -341,15 +341,57 @@
                                             <action selector="editComplete:" destination="7Hj-kQ-YiH" eventType="touchUpInside" id="Cvq-sl-zx7"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iWV-GF-qxx">
+                                        <rect key="frame" x="157" y="52" width="24" height="22"/>
+                                        <state key="normal" image="undo"/>
+                                        <connections>
+                                            <action selector="undo:" destination="7Hj-kQ-YiH" eventType="touchUpInside" id="T3f-h0-c49"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcW-3O-auO">
+                                        <rect key="frame" x="246" y="52" width="20" height="24"/>
+                                        <state key="normal" image="clear"/>
+                                        <connections>
+                                            <action selector="clearAll:" destination="7Hj-kQ-YiH" eventType="touchUpInside" id="abj-Xk-IKa"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gcP-31-I32">
+                                        <rect key="frame" x="92" y="52" width="65" height="22"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OjH-h8-oDb">
+                                        <rect key="frame" x="181" y="52" width="65" height="22"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vYJ-Fq-IqK">
+                                        <rect key="frame" x="266" y="52" width="65" height="22"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="Zwa-aG-z0t" firstAttribute="top" secondItem="rH6-xC-Rp6" secondAttribute="topMargin" id="2ha-0e-tFO"/>
+                                    <constraint firstItem="gcP-31-I32" firstAttribute="top" secondItem="rH6-xC-Rp6" secondAttribute="topMargin" id="4EV-bi-NFS"/>
+                                    <constraint firstItem="iWV-GF-qxx" firstAttribute="top" secondItem="rH6-xC-Rp6" secondAttribute="topMargin" id="6iv-vf-MvV"/>
                                     <constraint firstAttribute="trailing" secondItem="gph-mR-4cd" secondAttribute="trailing" constant="16" id="Cb6-ep-535"/>
+                                    <constraint firstItem="OjH-h8-oDb" firstAttribute="height" secondItem="iWV-GF-qxx" secondAttribute="height" id="DZw-9L-Vua"/>
+                                    <constraint firstItem="vYJ-Fq-IqK" firstAttribute="leading" secondItem="mcW-3O-auO" secondAttribute="trailing" id="DlX-yn-eaZ"/>
+                                    <constraint firstItem="gph-mR-4cd" firstAttribute="leading" secondItem="vYJ-Fq-IqK" secondAttribute="trailing" constant="7" id="F1c-CP-dVt"/>
+                                    <constraint firstItem="mcW-3O-auO" firstAttribute="top" secondItem="rH6-xC-Rp6" secondAttribute="topMargin" id="GCg-WY-3Qa"/>
+                                    <constraint firstItem="vYJ-Fq-IqK" firstAttribute="top" secondItem="rH6-xC-Rp6" secondAttribute="topMargin" id="KwU-47-Uj4"/>
+                                    <constraint firstItem="iWV-GF-qxx" firstAttribute="leading" secondItem="gcP-31-I32" secondAttribute="trailing" id="N1Z-w2-OhA"/>
+                                    <constraint firstItem="gcP-31-I32" firstAttribute="leading" secondItem="Zwa-aG-z0t" secondAttribute="trailing" constant="8" id="OFw-8d-GZE"/>
+                                    <constraint firstItem="gcP-31-I32" firstAttribute="height" secondItem="iWV-GF-qxx" secondAttribute="height" id="Ohg-yG-aC1"/>
+                                    <constraint firstItem="OjH-h8-oDb" firstAttribute="leading" secondItem="iWV-GF-qxx" secondAttribute="trailing" id="P6n-Sc-PNn"/>
+                                    <constraint firstItem="vYJ-Fq-IqK" firstAttribute="height" secondItem="iWV-GF-qxx" secondAttribute="height" id="Pkk-Gk-Bkw"/>
                                     <constraint firstItem="gph-mR-4cd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rH6-xC-Rp6" secondAttribute="leading" id="SEl-w1-Pyd"/>
+                                    <constraint firstItem="gcP-31-I32" firstAttribute="width" secondItem="vYJ-Fq-IqK" secondAttribute="width" id="Sfl-tz-Ri3"/>
+                                    <constraint firstItem="OjH-h8-oDb" firstAttribute="top" secondItem="rH6-xC-Rp6" secondAttribute="topMargin" id="VOQ-PI-eT8"/>
+                                    <constraint firstItem="gcP-31-I32" firstAttribute="width" secondItem="OjH-h8-oDb" secondAttribute="width" id="Vew-Je-W1K"/>
                                     <constraint firstItem="Zwa-aG-z0t" firstAttribute="leading" secondItem="rH6-xC-Rp6" secondAttribute="leading" constant="16" id="lsT-15-TdL"/>
                                     <constraint firstItem="gph-mR-4cd" firstAttribute="top" secondItem="rH6-xC-Rp6" secondAttribute="topMargin" id="qX3-3Z-X7O"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Zwa-aG-z0t" secondAttribute="trailing" id="rRQ-dB-N3R"/>
+                                    <constraint firstItem="mcW-3O-auO" firstAttribute="leading" secondItem="OjH-h8-oDb" secondAttribute="trailing" id="vAj-f9-Iob"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y3e-TS-IeM">
@@ -411,10 +453,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="clear" width="20" height="24"/>
         <image name="left_ear" width="44" height="38"/>
         <image name="next_icon_left" width="8" height="12"/>
         <image name="next_icon_right" width="8" height="12"/>
         <image name="nose" width="118" height="100"/>
         <image name="right_ear" width="44" height="38"/>
+        <image name="undo" width="24" height="22"/>
     </resources>
 </document>

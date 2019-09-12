@@ -45,9 +45,9 @@ class PreviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupButton()
-        
         setupView()
+        
+        setupButton()
         
         previewImageView.image = storageImage
     }
@@ -103,6 +103,8 @@ class PreviewViewController: UIViewController {
         
         canvasVC.delegate = self
         
+        storageImage = previewImageView.takeSnapshot()
+        
         canvasVC.storageImage = storageImage
     }
     
@@ -143,8 +145,11 @@ extension PreviewViewController: UINavigationControllerDelegate {
         ) -> UIViewControllerAnimatedTransitioning? {
         
         if operation == .push {
+            
             return PushTransition()
+            
         } else {
+            
             return nil
         }
     }
@@ -153,6 +158,7 @@ extension PreviewViewController: UINavigationControllerDelegate {
 extension PreviewViewController: ImageProviderDelegate {
     
     func manager(_ viewController: CanvasViewController, didGet image: UIImage?) {
+        
         previewImageView.image = image
     }
 }
