@@ -23,6 +23,7 @@
 		2205CC922328D24F000682BE /* PushTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2205CC912328D24F000682BE /* PushTransition.swift */; };
 		2205CC952328D380000682BE /* CanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2205CC942328D380000682BE /* CanvasViewController.swift */; };
 		2205CC992329057A000682BE /* PopTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2205CC982329057A000682BE /* PopTransition.swift */; };
+		2205CC9C2329F736000682BE /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2205CC9B2329F736000682BE /* CanvasView.swift */; };
 		2206B7E42318DCC3000B0135 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2206B7E32318DCC3000B0135 /* UIView+Extension.swift */; };
 		22D5268E2315460B00F76354 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D5268D2315460B00F76354 /* AppDelegate.swift */; };
 		22D526902315460B00F76354 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D5268F2315460B00F76354 /* CameraViewController.swift */; };
@@ -57,6 +58,7 @@
 		2205CC912328D24F000682BE /* PushTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushTransition.swift; sourceTree = "<group>"; };
 		2205CC942328D380000682BE /* CanvasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasViewController.swift; sourceTree = "<group>"; };
 		2205CC982329057A000682BE /* PopTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopTransition.swift; sourceTree = "<group>"; };
+		2205CC9B2329F736000682BE /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		2206B7E32318DCC3000B0135 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		22D5268A2315460B00F76354 /* PiggyPatchwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PiggyPatchwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22D5268D2315460B00F76354 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				2205CC8D23269CBB000682BE /* PreviewViewController.swift */,
+				2205CC912328D24F000682BE /* PushTransition.swift */,
 			);
 			path = Preview;
 			sourceTree = "<group>";
@@ -145,17 +148,17 @@
 			isa = PBXGroup;
 			children = (
 				2205CC942328D380000682BE /* CanvasViewController.swift */,
+				2205CC982329057A000682BE /* PopTransition.swift */,
 			);
 			path = Canvas;
 			sourceTree = "<group>";
 		};
-		2205CC9723290554000682BE /* TransitionAnimation */ = {
+		2205CC9A2329F71F000682BE /* Canvas */ = {
 			isa = PBXGroup;
 			children = (
-				2205CC912328D24F000682BE /* PushTransition.swift */,
-				2205CC982329057A000682BE /* PopTransition.swift */,
+				2205CC9B2329F736000682BE /* CanvasView.swift */,
 			);
-			path = TransitionAnimation;
+			path = Canvas;
 			sourceTree = "<group>";
 		};
 		22D526812315460B00F76354 = {
@@ -196,7 +199,6 @@
 			isa = PBXGroup;
 			children = (
 				220384102316A605003C285B /* PrototypeCollectionView */,
-				2205CC9723290554000682BE /* TransitionAnimation */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -217,6 +219,7 @@
 			children = (
 				2203840F23168358003C285B /* SelectionView */,
 				2203840323165C66003C285B /* Collage */,
+				2205CC9A2329F71F000682BE /* Canvas */,
 				22D526912315460B00F76354 /* Main.storyboard */,
 				22D526992315460D00F76354 /* LaunchScreen.storyboard */,
 			);
@@ -427,6 +430,7 @@
 			files = (
 				22FE504A231E78AE00C2C1C1 /* EmoticonCollectionViewCell.swift in Sources */,
 				2205CC922328D24F000682BE /* PushTransition.swift in Sources */,
+				2205CC9C2329F736000682BE /* CanvasView.swift in Sources */,
 				22D526902315460B00F76354 /* CameraViewController.swift in Sources */,
 				2206B7E42318DCC3000B0135 /* UIView+Extension.swift in Sources */,
 				22FE5044231CE89600C2C1C1 /* BackgroundColorCollectionViewCell.swift in Sources */,

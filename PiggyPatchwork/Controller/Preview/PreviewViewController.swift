@@ -49,15 +49,17 @@ class PreviewViewController: UIViewController {
         
         setupView()
         
-        Gradient.shared.doubleColor(at: view,
-                                    firstColor: CustomColorCode.PigletPink,
-                                    secondColor: CustomColorCode.OrchidPink)
-        
         previewImageView.image = storageImage
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         self.navigationController?.delegate = self
+        
+        Gradient.shared.doubleColor(at: view,
+                                    firstColor: CustomColorCode.PigletPink,
+                                    secondColor: CustomColorCode.OrchidPink)
     }
     
     func setupButton() {
@@ -89,7 +91,6 @@ class PreviewViewController: UIViewController {
         view.layer.cornerRadius = 25
         
         view.addViewShadow()
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -131,6 +132,7 @@ class PreviewViewController: UIViewController {
 }
 
 extension PreviewViewController: UINavigationControllerDelegate {
+    
     func navigationController(
         _ navigationController: UINavigationController,
         animationControllerFor operation: UINavigationController.Operation,

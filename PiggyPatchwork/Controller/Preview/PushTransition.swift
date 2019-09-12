@@ -16,8 +16,12 @@ class PushTransition: NSObject, UIViewControllerAnimatedTransitioning {
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
-        guard let fromVC = transitionContext.viewController(forKey: .from) as? PreviewViewController,
-              let toVC = transitionContext.viewController(forKey: .to) as? CanvasViewController  else { return }
+        guard
+            let fromVC = transitionContext.viewController(forKey: .from) as? PreviewViewController,
+            let toVC = transitionContext.viewController(forKey: .to) as? CanvasViewController
+        else {
+            return
+        }
         
         let container = transitionContext.containerView
         

@@ -136,7 +136,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XYX-y0-UY6">
-                                <rect key="frame" x="40" y="186" width="334" height="334"/>
+                                <rect key="frame" x="40" y="236" width="334" height="334"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8RW-Lg-a5t">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="334"/>
@@ -152,11 +152,21 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gkr-g7-21j">
-                                <rect key="frame" x="100" y="568" width="214" height="50"/>
+                                <rect key="frame" x="100" y="605.5" width="214" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehO-aB-eB5">
-                                        <rect key="frame" x="0.0" y="10" width="214" height="30"/>
-                                        <state key="normal" title="再編輯一下 "/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ehO-aB-eB5">
+                                        <rect key="frame" x="0.0" y="8.5" width="214" height="33"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="再編輯一下 ">
+                                                    <attributes>
+                                                        <color key="NSColor" red="0.52156862745098043" green="0.81176470588235294" blue="0.70588235294117641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <font key="NSFont" size="15" name="PingFangTC-Semibold"/>
+                                                        <font key="NSOriginalFont" size="15" name="PingFangTC-Semibold"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
                                         <connections>
                                             <segue destination="7Hj-kQ-YiH" kind="show" id="ieY-mL-zAZ"/>
                                         </connections>
@@ -171,11 +181,20 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2aY-4V-r13">
-                                <rect key="frame" x="100" y="666" width="214" height="50"/>
+                                <rect key="frame" x="100" y="691" width="214" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ov-R4-93W">
-                                        <rect key="frame" x="0.0" y="10" width="214" height="30"/>
-                                        <state key="normal" title="儲存於相簿"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Ov-R4-93W">
+                                        <rect key="frame" x="0.0" y="8.5" width="214" height="33"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="儲存於相簿">
+                                                    <attributes>
+                                                        <color key="NSColor" red="0.52156862745098043" green="0.81176470588235294" blue="0.70588235294117641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <font key="NSFont" size="15" name="PingFangTC-Semibold"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
                                         <connections>
                                             <action selector="savePhoto:" destination="9gf-z2-M70" eventType="touchUpInside" id="zL0-XW-0Vp"/>
                                         </connections>
@@ -190,27 +209,36 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rXH-76-84t">
-                                <rect key="frame" x="100" y="520" width="214" height="48"/>
+                                <rect key="frame" x="100" y="570" width="214" height="35.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Ba-4P-xmt">
-                                <rect key="frame" x="100" y="618" width="214" height="48"/>
+                                <rect key="frame" x="100" y="655.5" width="214" height="35.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OFY-XR-Cqm">
-                                <rect key="frame" x="100" y="814" width="214" height="48"/>
+                                <rect key="frame" x="100" y="826.5" width="214" height="35.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GL7-XY-MXO">
-                                <rect key="frame" x="100" y="716" width="214" height="48"/>
+                                <rect key="frame" x="100" y="741" width="214" height="35.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oS5-Dl-7HX">
-                                <rect key="frame" x="100" y="764" width="214" height="50"/>
+                                <rect key="frame" x="100" y="776.5" width="214" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h68-7n-Yie">
-                                        <rect key="frame" x="0.0" y="10" width="214" height="30"/>
-                                        <state key="normal" title="查看相簿"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h68-7n-Yie">
+                                        <rect key="frame" x="0.0" y="8.5" width="214" height="33"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="查看相簿">
+                                                    <attributes>
+                                                        <color key="NSColor" red="0.52156862745098043" green="0.81176470588235294" blue="0.70588235294117641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <font key="NSFont" size="15" name="PingFangTC-Semibold"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
                                         <connections>
                                             <action selector="showAlbum:" destination="9gf-z2-M70" eventType="touchUpInside" id="eA7-QX-bqb"/>
                                         </connections>
@@ -253,7 +281,7 @@
                             <constraint firstItem="4rE-YD-sXu" firstAttribute="trailing" secondItem="rXH-76-84t" secondAttribute="trailing" constant="100" id="r4I-4m-kzf"/>
                             <constraint firstItem="sbd-FK-rJV" firstAttribute="leading" secondItem="G9z-bM-GfL" secondAttribute="leading" constant="16" id="rFV-11-33I"/>
                             <constraint firstItem="sbd-FK-rJV" firstAttribute="top" secondItem="G9z-bM-GfL" secondAttribute="topMargin" constant="8" id="sq7-I6-U5Q"/>
-                            <constraint firstItem="XYX-y0-UY6" firstAttribute="centerY" secondItem="4rE-YD-sXu" secondAttribute="centerY" constant="-100" id="tQs-Ui-dX0"/>
+                            <constraint firstItem="XYX-y0-UY6" firstAttribute="centerY" secondItem="4rE-YD-sXu" secondAttribute="centerY" constant="-50" id="tQs-Ui-dX0"/>
                             <constraint firstItem="gkr-g7-21j" firstAttribute="top" secondItem="rXH-76-84t" secondAttribute="bottom" id="tcL-zK-445"/>
                             <constraint firstItem="7Ba-4P-xmt" firstAttribute="top" secondItem="gkr-g7-21j" secondAttribute="bottom" id="uXL-YB-oys"/>
                             <constraint firstItem="4rE-YD-sXu" firstAttribute="trailing" secondItem="2aY-4V-r13" secondAttribute="trailing" constant="100" id="uxv-ft-Lxt"/>
@@ -286,12 +314,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rH6-xC-Rp6">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rH6-xC-Rp6">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zwa-aG-z0t">
+                                        <rect key="frame" x="16" y="52" width="82" height="22"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="  回預覽  " image="next_icon_left">
+                                            <color key="titleColor" red="1" green="0.81568627449999997" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backToPreView:" destination="7Hj-kQ-YiH" eventType="touchUpInside" id="93X-Ar-1nX"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gph-mR-4cd">
+                                        <rect key="frame" x="338" y="52" width="60" height="22"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="mtM-xc-Ps6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="  完 成  ">
+                                            <color key="titleColor" red="1" green="0.81568627449999997" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="editComplete:" destination="7Hj-kQ-YiH" eventType="touchUpInside" id="Cvq-sl-zx7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Zwa-aG-z0t" firstAttribute="top" secondItem="rH6-xC-Rp6" secondAttribute="topMargin" id="2ha-0e-tFO"/>
+                                    <constraint firstAttribute="trailing" secondItem="gph-mR-4cd" secondAttribute="trailing" constant="16" id="Cb6-ep-535"/>
+                                    <constraint firstItem="gph-mR-4cd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rH6-xC-Rp6" secondAttribute="leading" id="SEl-w1-Pyd"/>
+                                    <constraint firstItem="Zwa-aG-z0t" firstAttribute="leading" secondItem="rH6-xC-Rp6" secondAttribute="leading" constant="16" id="lsT-15-TdL"/>
+                                    <constraint firstItem="gph-mR-4cd" firstAttribute="top" secondItem="rH6-xC-Rp6" secondAttribute="topMargin" id="qX3-3Z-X7O"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Zwa-aG-z0t" secondAttribute="trailing" id="rRQ-dB-N3R"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y3e-TS-IeM">
-                                <rect key="frame" x="0.0" y="146" width="414" height="414"/>
+                                <rect key="frame" x="0.0" y="196" width="414" height="414"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nws-y9-tlJ">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
@@ -314,18 +376,20 @@
                             <constraint firstItem="y3e-TS-IeM" firstAttribute="centerX" secondItem="Nq7-1P-thv" secondAttribute="centerX" id="SLm-jf-i9y"/>
                             <constraint firstItem="rH6-xC-Rp6" firstAttribute="top" secondItem="nqw-6F-Rne" secondAttribute="top" id="YUy-Rg-eRy"/>
                             <constraint firstItem="rH6-xC-Rp6" firstAttribute="leading" secondItem="Nq7-1P-thv" secondAttribute="leading" id="i9R-TZ-iZk"/>
-                            <constraint firstItem="y3e-TS-IeM" firstAttribute="centerY" secondItem="Nq7-1P-thv" secondAttribute="centerY" constant="-100" id="t5l-q2-cjA"/>
+                            <constraint firstItem="y3e-TS-IeM" firstAttribute="centerY" secondItem="Nq7-1P-thv" secondAttribute="centerY" constant="-50" id="t5l-q2-cjA"/>
                             <constraint firstItem="Nq7-1P-thv" firstAttribute="trailing" secondItem="rH6-xC-Rp6" secondAttribute="trailing" id="z6f-qB-vyw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Nq7-1P-thv"/>
                     </view>
                     <connections>
+                        <outlet property="backToPreviewBtn" destination="Zwa-aG-z0t" id="WBN-Tz-jwm"/>
                         <outlet property="canvasImageView" destination="Nws-y9-tlJ" id="vII-7R-bDn"/>
+                        <outlet property="editCompleteBtn" destination="gph-mR-4cd" id="QPj-c5-tFk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TH9-e7-QGL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5495" y="22"/>
+            <point key="canvasLocation" x="5494.202898550725" y="21.428571428571427"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eAS-cp-vji">
