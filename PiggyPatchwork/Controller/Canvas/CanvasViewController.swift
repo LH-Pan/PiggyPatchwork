@@ -12,6 +12,8 @@ class CanvasViewController: UIViewController {
     
     @IBOutlet weak var canvasImageView: UIImageView!
     
+    @IBOutlet weak var canvasView: UIView!
+    
     @IBOutlet weak var backToPreviewBtn: UIButton! {
         
         didSet {
@@ -32,10 +34,19 @@ class CanvasViewController: UIViewController {
     
     var storageImage: UIImage?
     
+    let canvas: UIView = Canvas()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         canvasImageView.image = storageImage
+        
+        canvas.backgroundColor = .clear
+        
+        canvas.frame = canvasImageView.frame
+        
+        canvasImageView.addSubview(canvas)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,8 +58,7 @@ class CanvasViewController: UIViewController {
                                     firstColor: CustomColorCode.PigletPink,
                                     secondColor: CustomColorCode.OrchidPink)
     }
-    
-    
+
     @IBAction func backToPreView(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }

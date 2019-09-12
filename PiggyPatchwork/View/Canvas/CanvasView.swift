@@ -10,4 +10,55 @@ import UIKit
 
 class Canvas: UIView {
     
+    override func draw(_ rect: CGRect) {
+        // custom drawing
+        super.draw(rect)
+        
+        guard
+            let context = UIGraphicsGetCurrentContext()
+        else {
+            return
+        }
+        
+//        context.setStrokeColor(UIColor.black.cgColor)
+//        context.setLineWidth(10)
+        
+        lines.forEach { (line) in
+            for (endPoint, startPoint) in line.enumerated() {
+                
+                if endPoint == 0 {
+                    context.move(to: startPoint)
+                    print("startPoint: \(startPoint)")
+                } else {
+                    context.addLine(to: startPoint)
+                }
+            }
+        }
+        context.strokePath()
+    }
+    
+    var lines = [[CGPoint]]()
+    var line = [CGPoint]()
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+        lines.append([CGPoint]())
+    }
+    
+    // track the finger as we move across screen
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        guard
+            let point = touches.first?.location(in: self),
+            var lastLine = lines.popLast()
+        else {
+            return
+        }
+
+        lastLine.append(point)
+
+        lines.append(lastLine)
+        
+        setNeedsDisplay()
+    }
 }

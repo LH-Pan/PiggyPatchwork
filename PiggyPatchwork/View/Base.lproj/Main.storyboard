@@ -355,7 +355,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y3e-TS-IeM">
                                 <rect key="frame" x="0.0" y="196" width="414" height="414"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nws-y9-tlJ">
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nws-y9-tlJ">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
                                     </imageView>
                                 </subviews>
@@ -384,6 +384,7 @@
                     <connections>
                         <outlet property="backToPreviewBtn" destination="Zwa-aG-z0t" id="WBN-Tz-jwm"/>
                         <outlet property="canvasImageView" destination="Nws-y9-tlJ" id="vII-7R-bDn"/>
+                        <outlet property="canvasView" destination="y3e-TS-IeM" id="6hK-la-hf3"/>
                         <outlet property="editCompleteBtn" destination="gph-mR-4cd" id="QPj-c5-tFk"/>
                     </connections>
                 </viewController>
