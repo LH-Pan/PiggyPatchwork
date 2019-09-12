@@ -318,9 +318,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zwa-aG-z0t">
-                                        <rect key="frame" x="16" y="52" width="82" height="22"/>
+                                        <rect key="frame" x="16" y="52" width="68" height="22"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="  回預覽  " image="next_icon_left">
+                                        <state key="normal" title="  取 消  " image="next_icon_left">
                                             <color key="titleColor" red="1" green="0.81568627449999997" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>

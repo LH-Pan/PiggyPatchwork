@@ -101,6 +101,8 @@ class PreviewViewController: UIViewController {
             return
         }
         
+        canvasVC.delegate = self
+        
         canvasVC.storageImage = storageImage
     }
     
@@ -145,5 +147,12 @@ extension PreviewViewController: UINavigationControllerDelegate {
         } else {
             return nil
         }
+    }
+}
+
+extension PreviewViewController: ImageProviderDelegate {
+    
+    func manager(_ viewController: CanvasViewController, didGet image: UIImage?) {
+        previewImageView.image = image
     }
 }

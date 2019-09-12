@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol ImageProviderDelegate: AnyObject {
+    
+    func manager(_ viewController: CanvasViewController, didGet image: UIImage?)
+}
+
 class CanvasViewController: UIViewController {
     
     @IBOutlet weak var canvasImageView: UIImageView!
@@ -18,7 +23,7 @@ class CanvasViewController: UIViewController {
         
         didSet {
             backToPreviewBtn.setTitleColor(.hexStringToUIColor(hex: CustomColorCode.OrchidPink),
-                                     for: .normal)
+                                           for: .normal)
             backToPreviewBtn.layer.cornerRadius = 10
         }
     }
@@ -27,12 +32,14 @@ class CanvasViewController: UIViewController {
         
         didSet {
             editCompleteBtn.setTitleColor(.hexStringToUIColor(hex: CustomColorCode.OrchidPink),
-                                     for: .normal)
+                                          for: .normal)
             editCompleteBtn.layer.cornerRadius = 10
         }
     }
     
     var storageImage: UIImage?
+    
+    weak var delegate: ImageProviderDelegate?
     
     let canvas: UIView = Canvas()
     
@@ -64,6 +71,11 @@ class CanvasViewController: UIViewController {
     }
     
     @IBAction func editComplete(_ sender: Any) {
+        
+        storageImage = canvasView.takeSnapshot()
+        
+        delegate?.manager(self, didGet: storageImage)
+        
         self.navigationController?.popViewController(animated: true)
     }
 }

@@ -28,7 +28,6 @@ class Canvas: UIView {
                 
                 if endPoint == 0 {
                     context.move(to: startPoint)
-                    print("startPoint: \(startPoint)")
                 } else {
                     context.addLine(to: startPoint)
                 }
@@ -38,7 +37,6 @@ class Canvas: UIView {
     }
     
     var lines = [[CGPoint]]()
-    var line = [CGPoint]()
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 
