@@ -10,7 +10,11 @@ import UIKit
 
 class Canvas: UIView {
     
-    var lines = [[CGPoint]]()
+    var lines = [Line]()
+    
+    var strokeColor = UIColor.black
+    
+    var strokeWidth: Float = 1
     
     override func draw(_ rect: CGRect) {
         
@@ -23,11 +27,12 @@ class Canvas: UIView {
             return
         }
         
-//        context.setStrokeColor(UIColor.black.cgColor)
-//        context.setLineWidth(10)
-        
         lines.forEach { (line) in
-            for (endPoint, startPoint) in line.enumerated() {
+            for (endPoint, startPoint) in line.points.enumerated() {
+                
+                context.setStrokeColor(line.color.cgColor)
+                context.setLineWidth(CGFloat(line.strokeWidth))
+                context.setLineCap(.round)
                 
                 if endPoint == 0 {
                     context.move(to: startPoint)
@@ -41,7 +46,9 @@ class Canvas: UIView {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 
-        lines.append([CGPoint]())
+        lines.append(Line.init(color: strokeColor,
+                               strokeWidth: strokeWidth,
+                               points: []))
     }
     
     // track the finger as we move across screen
@@ -54,7 +61,7 @@ class Canvas: UIView {
             return
         }
 
-        lastLine.append(point)
+        lastLine.points.append(point)
 
         lines.append(lastLine)
         
@@ -73,5 +80,15 @@ class Canvas: UIView {
         lines.removeAll()
         
         setNeedsDisplay()
+    }
+    
+    func setStrokeColor(color: UIColor) {
+        
+        strokeColor = color
+    }
+    
+    func setStrokeWidth(width: Float) {
+        
+        strokeWidth = width
     }
 }

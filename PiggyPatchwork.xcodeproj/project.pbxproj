@@ -24,6 +24,7 @@
 		2205CC952328D380000682BE /* CanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2205CC942328D380000682BE /* CanvasViewController.swift */; };
 		2205CC992329057A000682BE /* PopTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2205CC982329057A000682BE /* PopTransition.swift */; };
 		2205CC9C2329F736000682BE /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2205CC9B2329F736000682BE /* CanvasView.swift */; };
+		2205CCC1232A92E2000682BE /* StrokeLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2205CCC0232A92E2000682BE /* StrokeLine.swift */; };
 		2206B7E42318DCC3000B0135 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2206B7E32318DCC3000B0135 /* UIView+Extension.swift */; };
 		22D5268E2315460B00F76354 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D5268D2315460B00F76354 /* AppDelegate.swift */; };
 		22D526902315460B00F76354 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D5268F2315460B00F76354 /* CameraViewController.swift */; };
@@ -59,6 +60,7 @@
 		2205CC942328D380000682BE /* CanvasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasViewController.swift; sourceTree = "<group>"; };
 		2205CC982329057A000682BE /* PopTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopTransition.swift; sourceTree = "<group>"; };
 		2205CC9B2329F736000682BE /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		2205CCC0232A92E2000682BE /* StrokeLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeLine.swift; sourceTree = "<group>"; };
 		2206B7E32318DCC3000B0135 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		22D5268A2315460B00F76354 /* PiggyPatchwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PiggyPatchwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22D5268D2315460B00F76354 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				2205CC9B2329F736000682BE /* CanvasView.swift */,
+				2205CCC0232A92E2000682BE /* StrokeLine.swift */,
 			);
 			path = Canvas;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				2205CC902326A700000682BE /* Gradient.swift in Sources */,
 				2203840023165860003C285B /* UIImage+Extension.swift in Sources */,
 				22D526962315460B00F76354 /* PiggyPatchwork.xcdatamodeld in Sources */,
+				2205CCC1232A92E2000682BE /* StrokeLine.swift in Sources */,
 				220383FE231657E8003C285B /* UIColor+Extension.swift in Sources */,
 				2205CC992329057A000682BE /* PopTransition.swift in Sources */,
 				2205CC8B23250682000682BE /* JonAlertWrapper.swift in Sources */,
