@@ -8,5 +8,6 @@ target 'PiggyPatchwork' do
   # Pods for PiggyPatchwork
 pod 'SwiftLint'
 pod 'JonAlert', '~> 1.0'
+pod 'ColorSlider', '~> 4.4'
 
 end

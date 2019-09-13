@@ -1,20 +1,24 @@
 PODS:
+  - ColorSlider (4.4)
   - JonAlert (1.0.0)
   - SwiftLint (0.34.0)
 
 DEPENDENCIES:
+  - ColorSlider (~> 4.4)
   - JonAlert (~> 1.0)
   - SwiftLint
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - ColorSlider
     - JonAlert
     - SwiftLint
 
 SPEC CHECKSUMS:
+  ColorSlider: 9a888e65b871fa1e6a26fadebf4931c949935681
   JonAlert: a83b374ccbf1a14aeb25537d5a3cbe957aac1c2b
   SwiftLint: 79d48a17c6565dc286c37efb8322c7b450f95c67
 
-PODFILE CHECKSUM: ed687f5600ba9fc89b20a64422db7496d93a6100
+PODFILE CHECKSUM: 6bfdc722091ccbd5a0eb391de216748bf17e14d4
 
 COCOAPODS: 1.7.4

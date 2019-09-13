@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ColorSlider
 
 protocol ImageProviderDelegate: AnyObject {
     
@@ -14,6 +15,8 @@ protocol ImageProviderDelegate: AnyObject {
 }
 
 class CanvasViewController: UIViewController {
+    
+    weak var delegate: ImageProviderDelegate?
     
     @IBOutlet weak var canvasImageView: UIImageView!
     
@@ -43,20 +46,18 @@ class CanvasViewController: UIViewController {
     
     var storageImage: UIImage?
     
-    weak var delegate: ImageProviderDelegate?
-    
     let canvas = Canvas()
+    
+    let colorSlider = ColorSlider(orientation: .horizontal, previewSide: .top)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         canvasImageView.image = storageImage
         
-        canvas.backgroundColor = .clear
+        setupCanvas(canvas: canvas, on: canvasImageView)
         
-        canvas.frame = canvasImageView.frame
-        
-        canvasImageView.addSubview(canvas)
+        setupColorSliderConstraints()
         
     }
     
@@ -68,6 +69,40 @@ class CanvasViewController: UIViewController {
         Gradient.shared.doubleColor(at: view,
                                     firstColor: CustomColorCode.PigletPink,
                                     secondColor: CustomColorCode.OrchidPink)
+    }
+    
+    func setupCanvas(canvas: Canvas, on view: UIView) {
+        
+        canvas.backgroundColor = .clear
+        
+        canvas.frame = view.frame
+        
+        view.addSubview(canvas)
+    }
+    
+    func setupColorSliderConstraints() {
+        
+        view.addSubview(colorSlider)
+        
+        colorSlider.addTarget(self,
+                              action: #selector(changedColor(slider:)),
+                              for: .valueChanged)
+        
+        let inset = CGFloat(25 / 896) * UIScreen.height
+        
+        colorSlider.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            colorSlider.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: inset),
+            colorSlider.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: -inset),
+            colorSlider.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -inset * 1.5),
+            colorSlider.heightAnchor.constraint(equalToConstant: 15)
+            ])
+    }
+    
+    @objc func changedColor(slider: ColorSlider) {
+        
+        canvas.setStrokeColor(color: slider.color)
     }
 
     @IBAction func cancelEdit(_ sender: Any) {

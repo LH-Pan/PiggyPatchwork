@@ -15,32 +15,51 @@
 			dependencies = (
 			);
 			name = SwiftLint;
-			productName = SwiftLint;
 		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		130F391B5C6137C20CBF0EA5625FF5E8 /* Pods-PiggyPatchwork-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE68FB2697E769F88620C2860CC5111 /* Pods-PiggyPatchwork-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		15C0BD4C767ED90EFD40B1CC15F06F39 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		23A3A9CDA09ECD9188CE331518D79102 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		5A299D4B8ECF08520C77E7DDE464C0B8 /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C722065F2438F034D3AA30C429A5EA8A /* UIView+Utils.swift */; };
-		75216E3F9995491B99A277EC17C46F8F /* Pods-PiggyPatchwork-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE368E246E59B8306A45B76CA1D6341 /* Pods-PiggyPatchwork-dummy.m */; };
-		89300EAF50E6DB83D60948C101174516 /* JonAlert-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 103651BE0C7060990CE727297E8FB9A0 /* JonAlert-dummy.m */; };
-		C4956D441803CC8D265CCF7D671EB6EB /* JonAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADF82EAD977B04121AD5793C6016318 /* JonAlert.swift */; };
-		D434E884BEAC5F9A2BA09E48D0CC8E6F /* JonAlert-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DDD11492D7F7535F12AFFB2173D690A9 /* JonAlert-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F7E4FFC1F8B50FE27E90AC6546BAAE9C /* UIColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB991CDBCBF6240CA3C164A82EBC4727 /* UIColor+Utils.swift */; };
-		FA978A25705AC7AEBF3A54FABCD38D85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ACFE82611325D519498D5C570DA3295 /* Assets.xcassets */; };
+		15C0BD4C767ED90EFD40B1CC15F06F39 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762C973A19DDE5A5AD81F317CEA5461F /* Foundation.framework */; };
+		1CC464BE1E583E5160D751E207F3BFE7 /* ColorSliderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969AC2C6CBED318A745A1A565D68C37D /* ColorSliderExtensions.swift */; };
+		2CF597CBC4CFFAA84078C82A033FD471 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762C973A19DDE5A5AD81F317CEA5461F /* Foundation.framework */; };
+		31F570C9F4C083F5A7D4060CEA42435F /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2616F924F9F8D32DDE10FF30FC061F2 /* PreviewView.swift */; };
+		32B0706EF583EC48078886ED3FFA3C8A /* ColorSlider-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D3A1512F47B5A92C91CFB3D45EF36D7 /* ColorSlider-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		39AF1B7D71211DB608677E5E044ACB21 /* ColorSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E39695D6CB8663DCAC3DB5BAFEE75BC /* ColorSlider.swift */; };
+		3D3284D1B236580D227E2AE67BB7204A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A7DACB743F2A39BC0D9C0E317842D5 /* CoreGraphics.framework */; };
+		457E2722877BAC6B250EDAEBE07B179F /* ColorSlider-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCCBAE7A96E6ABA174A2E0B3708A228 /* ColorSlider-dummy.m */; };
+		459BE3EBC968A8DAA67FCE2010442486 /* Pods-PiggyPatchwork-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE368E246E59B8306A45B76CA1D6341 /* Pods-PiggyPatchwork-dummy.m */; };
+		5A299D4B8ECF08520C77E7DDE464C0B8 /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839294441B9AC7E06D7AB7E03B33F426 /* UIView+Utils.swift */; };
+		6608117DFF47DEB3554446BBEFB61589 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438673FC662C554F0E1FAEC291186028 /* GradientView.swift */; };
+		7668E5660E898BD06D80F594D4380C68 /* Pods-PiggyPatchwork-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE68FB2697E769F88620C2860CC5111 /* Pods-PiggyPatchwork-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7B63048690E3EFD4D67EFA53CD786319 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9B86528815F4C81E70D4F6522BB7687 /* QuartzCore.framework */; };
+		89300EAF50E6DB83D60948C101174516 /* JonAlert-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DF381494A3FF595352B2E9B7C735857A /* JonAlert-dummy.m */; };
+		96F9C58704D9774946612F82CEC6A9DD /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71677251D4552B650A5F04194AA73BDC /* Gradient.swift */; };
+		C4956D441803CC8D265CCF7D671EB6EB /* JonAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BE4EE047001413A1157D8D25465F6F /* JonAlert.swift */; };
+		CA5A2B0B83A55942F6CBA31560EEB3C0 /* HSBColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89675F12A66AA61913BC114964D2AC0C /* HSBColor.swift */; };
+		D434E884BEAC5F9A2BA09E48D0CC8E6F /* JonAlert-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CF9217FF16CDD76C9CBAD3A73E79D883 /* JonAlert-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D98F26017BAF92CC7211C077750D942F /* DefaultPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526790B02E9F53F693FF66E0412BD678 /* DefaultPreviewView.swift */; };
+		E2E7C547C9DE21C008E067386A828E01 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56DE6DFF52489DACAF66A82BFD0FE2CA /* UIKit.framework */; };
+		EEEAAD7A83977059AB41FF5FA746A9BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 762C973A19DDE5A5AD81F317CEA5461F /* Foundation.framework */; };
+		F7E4FFC1F8B50FE27E90AC6546BAAE9C /* UIColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6455979C76BA6A8682E9425AB5BE8E51 /* UIColor+Utils.swift */; };
+		FA978A25705AC7AEBF3A54FABCD38D85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65A0B4733A12EA09CA036C7CFD44BA68 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		4473DB17FCC16B881E2897088B3F7791 /* PBXContainerItemProxy */ = {
+		08B1C5E7050EEE2648F7EA13FCC6E885 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 52B60EC2A583F24ACBB69C113F5488B9;
 			remoteInfo = SwiftLint;
 		};
-		92FFB9CEF00EE48D2937ABD155248FA3 /* PBXContainerItemProxy */ = {
+		0933A92E740B9BD7607981E3DD9393F5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1E3469B000FE3C67BAD723C2FB400BCC;
+			remoteInfo = ColorSlider;
+		};
+		F0D24C31269272FEF47E98525167C1AB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -51,29 +70,46 @@
 
 /* Begin PBXFileReference section */
 		057B6D95722ED6C1A0D06CF80515E721 /* Pods-PiggyPatchwork.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PiggyPatchwork.modulemap"; sourceTree = "<group>"; };
-		0ACFE82611325D519498D5C570DA3295 /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = JonAlert/JonAlert/Assets.xcassets; sourceTree = "<group>"; };
-		103651BE0C7060990CE727297E8FB9A0 /* JonAlert-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JonAlert-dummy.m"; sourceTree = "<group>"; };
-		1526E1A5D617EDAE4AE1ECE7FE093CDA /* JonAlert.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JonAlert.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2B6CE4EA149D735E0CFB71887D29D7EE /* JonAlert-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JonAlert-prefix.pch"; sourceTree = "<group>"; };
+		0E76382B9BC50AC3CA1A0B666F757DAF /* SwiftLint.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftLint.xcconfig; sourceTree = "<group>"; };
+		1526E1A5D617EDAE4AE1ECE7FE093CDA /* JonAlert.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JonAlert.framework; path = JonAlert.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C5C2D2B1F75AFEC5723AF7679D1AD42 /* ColorSlider-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ColorSlider-Info.plist"; sourceTree = "<group>"; };
+		20A7DACB743F2A39BC0D9C0E317842D5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		2E7CB2D8AB9EDE142F7008BD2BB94CF0 /* Pods-PiggyPatchwork-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PiggyPatchwork-acknowledgements.markdown"; sourceTree = "<group>"; };
-		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		3E39695D6CB8663DCAC3DB5BAFEE75BC /* ColorSlider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ColorSlider.swift; path = Sources/ColorSlider.swift; sourceTree = "<group>"; };
+		42F9B23E9572C5137711913911462436 /* JonAlert.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = JonAlert.modulemap; sourceTree = "<group>"; };
+		438673FC662C554F0E1FAEC291186028 /* GradientView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GradientView.swift; path = Sources/GradientView.swift; sourceTree = "<group>"; };
 		462B0FBC256293F658AA4CEE8A3166E2 /* Pods-PiggyPatchwork-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PiggyPatchwork-acknowledgements.plist"; sourceTree = "<group>"; };
+		526790B02E9F53F693FF66E0412BD678 /* DefaultPreviewView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DefaultPreviewView.swift; path = Sources/DefaultPreviewView.swift; sourceTree = "<group>"; };
 		5329C1C4E55EDF051FF34D0A762412A6 /* Pods-PiggyPatchwork-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PiggyPatchwork-Info.plist"; sourceTree = "<group>"; };
-		79230A0DB66C3E61BC6222CC945D3D5B /* JonAlert-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "JonAlert-Info.plist"; sourceTree = "<group>"; };
-		8ADF82EAD977B04121AD5793C6016318 /* JonAlert.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JonAlert.swift; path = JonAlert/JonAlert/JonAlert.swift; sourceTree = "<group>"; };
-		91944C9E7C8D87E43958020B961665FF /* SwiftLint.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftLint.xcconfig; sourceTree = "<group>"; };
-		9315736D5968235F43C8AD811C595A50 /* Pods_PiggyPatchwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PiggyPatchwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		56DE6DFF52489DACAF66A82BFD0FE2CA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		5D3A1512F47B5A92C91CFB3D45EF36D7 /* ColorSlider-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ColorSlider-umbrella.h"; sourceTree = "<group>"; };
+		6455979C76BA6A8682E9425AB5BE8E51 /* UIColor+Utils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIColor+Utils.swift"; path = "JonAlert/JonAlert/Extension/UIColor+Utils.swift"; sourceTree = "<group>"; };
+		65A0B4733A12EA09CA036C7CFD44BA68 /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = JonAlert/JonAlert/Assets.xcassets; sourceTree = "<group>"; };
+		6BCCBAE7A96E6ABA174A2E0B3708A228 /* ColorSlider-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ColorSlider-dummy.m"; sourceTree = "<group>"; };
+		71677251D4552B650A5F04194AA73BDC /* Gradient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Gradient.swift; path = Sources/Internal/Gradient.swift; sourceTree = "<group>"; };
+		74CD1237246535CA1181D9892CB1ADBD /* ColorSlider-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ColorSlider-prefix.pch"; sourceTree = "<group>"; };
+		762C973A19DDE5A5AD81F317CEA5461F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		839294441B9AC7E06D7AB7E03B33F426 /* UIView+Utils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Utils.swift"; path = "JonAlert/JonAlert/Extension/UIView+Utils.swift"; sourceTree = "<group>"; };
+		89675F12A66AA61913BC114964D2AC0C /* HSBColor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HSBColor.swift; path = Sources/Internal/HSBColor.swift; sourceTree = "<group>"; };
+		8DB031B06EBCFA0C5D0F42AEB8E20BBE /* ColorSlider.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ColorSlider.modulemap; sourceTree = "<group>"; };
+		9315736D5968235F43C8AD811C595A50 /* Pods_PiggyPatchwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_PiggyPatchwork.framework; path = "Pods-PiggyPatchwork.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		94D88B395CC7E078F49AD33D8782CB26 /* JonAlert-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "JonAlert-Info.plist"; sourceTree = "<group>"; };
+		969AC2C6CBED318A745A1A565D68C37D /* ColorSliderExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ColorSliderExtensions.swift; path = Sources/Internal/ColorSliderExtensions.swift; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A3BE4EE047001413A1157D8D25465F6F /* JonAlert.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JonAlert.swift; path = JonAlert/JonAlert/JonAlert.swift; sourceTree = "<group>"; };
 		A50589638C5BB150879210B5CCA1D8CF /* Pods-PiggyPatchwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PiggyPatchwork.release.xcconfig"; sourceTree = "<group>"; };
-		AE3B044FAE2AC635B9BD789895CCE9A9 /* JonAlert.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = JonAlert.modulemap; sourceTree = "<group>"; };
-		B73DE34D05D001AA7D5CC5D52B59AE5C /* JonAlert.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JonAlert.xcconfig; sourceTree = "<group>"; };
-		BB991CDBCBF6240CA3C164A82EBC4727 /* UIColor+Utils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIColor+Utils.swift"; path = "JonAlert/JonAlert/Extension/UIColor+Utils.swift"; sourceTree = "<group>"; };
-		C722065F2438F034D3AA30C429A5EA8A /* UIView+Utils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Utils.swift"; path = "JonAlert/JonAlert/Extension/UIView+Utils.swift"; sourceTree = "<group>"; };
+		A77BDD4D44222BCB204BE28CB9809722 /* ColorSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ColorSlider.framework; path = ColorSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9B86528815F4C81E70D4F6522BB7687 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		CEE68FB2697E769F88620C2860CC5111 /* Pods-PiggyPatchwork-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PiggyPatchwork-umbrella.h"; sourceTree = "<group>"; };
+		CF9217FF16CDD76C9CBAD3A73E79D883 /* JonAlert-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JonAlert-umbrella.h"; sourceTree = "<group>"; };
 		D7583AC65DC5931FDCFC8AE6D26108D3 /* Pods-PiggyPatchwork-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PiggyPatchwork-frameworks.sh"; sourceTree = "<group>"; };
-		DDD11492D7F7535F12AFFB2173D690A9 /* JonAlert-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JonAlert-umbrella.h"; sourceTree = "<group>"; };
+		DF381494A3FF595352B2E9B7C735857A /* JonAlert-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JonAlert-dummy.m"; sourceTree = "<group>"; };
 		DF8AEE2B01C59CADF6654F3F9727666C /* Pods-PiggyPatchwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PiggyPatchwork.debug.xcconfig"; sourceTree = "<group>"; };
+		E6D64EC1B71A7A77A86154F9AB568FFC /* ColorSlider.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ColorSlider.xcconfig; sourceTree = "<group>"; };
 		EDE368E246E59B8306A45B76CA1D6341 /* Pods-PiggyPatchwork-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PiggyPatchwork-dummy.m"; sourceTree = "<group>"; };
+		F21CE739B856C974172C25EBD413378D /* JonAlert.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JonAlert.xcconfig; sourceTree = "<group>"; };
+		F2616F924F9F8D32DDE10FF30FC061F2 /* PreviewView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PreviewView.swift; path = Sources/PreviewView.swift; sourceTree = "<group>"; };
+		F8C07B6C9EE247BD4D87FAA7906600B5 /* JonAlert-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JonAlert-prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,57 +121,84 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AE22FA5B715A280D9001BFBE2A4CE66D /* Frameworks */ = {
+		35937AA83EF4D2065520B66D48DFDCA4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23A3A9CDA09ECD9188CE331518D79102 /* Foundation.framework in Frameworks */,
+				2CF597CBC4CFFAA84078C82A033FD471 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A7C5F56C326E3A8F4029BFE61CF9D9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D3284D1B236580D227E2AE67BB7204A /* CoreGraphics.framework in Frameworks */,
+				EEEAAD7A83977059AB41FF5FA746A9BF /* Foundation.framework in Frameworks */,
+				7B63048690E3EFD4D67EFA53CD786319 /* QuartzCore.framework in Frameworks */,
+				E2E7C547C9DE21C008E067386A828E01 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0C7092BF58E95D3D90C3DECFC5F9B391 /* SwiftLint */ = {
+		0D5A36F1FE360518620DCEB1B2DD36CF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4FCEC7558875B27CD68E1881549D721A /* Support Files */,
-			);
-			path = SwiftLint;
-			sourceTree = "<group>";
-		};
-		2353FF1C7F27715B6EAAC7323EA99D21 /* JonAlert */ = {
-			isa = PBXGroup;
-			children = (
-				8ADF82EAD977B04121AD5793C6016318 /* JonAlert.swift */,
-				BB991CDBCBF6240CA3C164A82EBC4727 /* UIColor+Utils.swift */,
-				C722065F2438F034D3AA30C429A5EA8A /* UIView+Utils.swift */,
-				4CD25C6EB6D50F7935F4B625C4FC03B0 /* Resources */,
-				8FE833C16ACB9593BAFCE3A81176BCC5 /* Support Files */,
-			);
-			path = JonAlert;
-			sourceTree = "<group>";
-		};
-		4CD25C6EB6D50F7935F4B625C4FC03B0 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				0ACFE82611325D519498D5C570DA3295 /* Assets.xcassets */,
+				65A0B4733A12EA09CA036C7CFD44BA68 /* Assets.xcassets */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		4FCEC7558875B27CD68E1881549D721A /* Support Files */ = {
+		216D11D6253026459814863746CC99A1 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				91944C9E7C8D87E43958020B961665FF /* SwiftLint.xcconfig */,
+				20A7DACB743F2A39BC0D9C0E317842D5 /* CoreGraphics.framework */,
+				762C973A19DDE5A5AD81F317CEA5461F /* Foundation.framework */,
+				B9B86528815F4C81E70D4F6522BB7687 /* QuartzCore.framework */,
+				56DE6DFF52489DACAF66A82BFD0FE2CA /* UIKit.framework */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/SwiftLint";
+			name = iOS;
 			sourceTree = "<group>";
 		};
-		5796427CECA530566DEDE63F712E3E0C /* Products */ = {
+		37CB991CBDF9C02DC206F728F00C95B2 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				8DB031B06EBCFA0C5D0F42AEB8E20BBE /* ColorSlider.modulemap */,
+				E6D64EC1B71A7A77A86154F9AB568FFC /* ColorSlider.xcconfig */,
+				6BCCBAE7A96E6ABA174A2E0B3708A228 /* ColorSlider-dummy.m */,
+				1C5C2D2B1F75AFEC5723AF7679D1AD42 /* ColorSlider-Info.plist */,
+				74CD1237246535CA1181D9892CB1ADBD /* ColorSlider-prefix.pch */,
+				5D3A1512F47B5A92C91CFB3D45EF36D7 /* ColorSlider-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/ColorSlider";
+			sourceTree = "<group>";
+		};
+		5DDFAFF6E1CEA7EE25E9A5A7F1E79F75 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				895F8F54CCC7DBED4B17703015D3AA23 /* ColorSlider */,
+				B7E47AD0151F61DB17A1ED29B3C22B5E /* JonAlert */,
+				6C8452008E391D8AADC6098B24194CD2 /* SwiftLint */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6C8452008E391D8AADC6098B24194CD2 /* SwiftLint */ = {
+			isa = PBXGroup;
+			children = (
+				BAE51E2B7122C3D2AB3B6A6BF4311C53 /* Support Files */,
+			);
+			name = SwiftLint;
+			path = SwiftLint;
+			sourceTree = "<group>";
+		};
+		6F6D226576FAAA2566F5D9494F74E71E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A77BDD4D44222BCB204BE28CB9809722 /* ColorSlider.framework */,
 				1526E1A5D617EDAE4AE1ECE7FE093CDA /* JonAlert.framework */,
 				9315736D5968235F43C8AD811C595A50 /* Pods_PiggyPatchwork.framework */,
 			);
@@ -150,54 +213,75 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		8FE833C16ACB9593BAFCE3A81176BCC5 /* Support Files */ = {
+		895F8F54CCC7DBED4B17703015D3AA23 /* ColorSlider */ = {
 			isa = PBXGroup;
 			children = (
-				AE3B044FAE2AC635B9BD789895CCE9A9 /* JonAlert.modulemap */,
-				B73DE34D05D001AA7D5CC5D52B59AE5C /* JonAlert.xcconfig */,
-				103651BE0C7060990CE727297E8FB9A0 /* JonAlert-dummy.m */,
-				79230A0DB66C3E61BC6222CC945D3D5B /* JonAlert-Info.plist */,
-				2B6CE4EA149D735E0CFB71887D29D7EE /* JonAlert-prefix.pch */,
-				DDD11492D7F7535F12AFFB2173D690A9 /* JonAlert-umbrella.h */,
+				3E39695D6CB8663DCAC3DB5BAFEE75BC /* ColorSlider.swift */,
+				969AC2C6CBED318A745A1A565D68C37D /* ColorSliderExtensions.swift */,
+				526790B02E9F53F693FF66E0412BD678 /* DefaultPreviewView.swift */,
+				71677251D4552B650A5F04194AA73BDC /* Gradient.swift */,
+				438673FC662C554F0E1FAEC291186028 /* GradientView.swift */,
+				89675F12A66AA61913BC114964D2AC0C /* HSBColor.swift */,
+				F2616F924F9F8D32DDE10FF30FC061F2 /* PreviewView.swift */,
+				37CB991CBDF9C02DC206F728F00C95B2 /* Support Files */,
+			);
+			name = ColorSlider;
+			path = ColorSlider;
+			sourceTree = "<group>";
+		};
+		B7E47AD0151F61DB17A1ED29B3C22B5E /* JonAlert */ = {
+			isa = PBXGroup;
+			children = (
+				A3BE4EE047001413A1157D8D25465F6F /* JonAlert.swift */,
+				6455979C76BA6A8682E9425AB5BE8E51 /* UIColor+Utils.swift */,
+				839294441B9AC7E06D7AB7E03B33F426 /* UIView+Utils.swift */,
+				0D5A36F1FE360518620DCEB1B2DD36CF /* Resources */,
+				D05F96A962BE0E88440E6F9EBE0C43AB /* Support Files */,
+			);
+			name = JonAlert;
+			path = JonAlert;
+			sourceTree = "<group>";
+		};
+		BA4F31F07263C99FC76E66D632A59F09 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				216D11D6253026459814863746CC99A1 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BAE51E2B7122C3D2AB3B6A6BF4311C53 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				0E76382B9BC50AC3CA1A0B666F757DAF /* SwiftLint.xcconfig */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/JonAlert";
-			sourceTree = "<group>";
-		};
-		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		CCC75FDE46C5A88C0520C957E44A4C81 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				2353FF1C7F27715B6EAAC7323EA99D21 /* JonAlert */,
-				0C7092BF58E95D3D90C3DECFC5F9B391 /* SwiftLint */,
-			);
-			name = Pods;
+			path = "../Target Support Files/SwiftLint";
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				CCC75FDE46C5A88C0520C957E44A4C81 /* Pods */,
-				5796427CECA530566DEDE63F712E3E0C /* Products */,
+				BA4F31F07263C99FC76E66D632A59F09 /* Frameworks */,
+				5DDFAFF6E1CEA7EE25E9A5A7F1E79F75 /* Pods */,
+				6F6D226576FAAA2566F5D9494F74E71E /* Products */,
 				73020BD0034F9451607EAEA875ABE62A /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+		D05F96A962BE0E88440E6F9EBE0C43AB /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				C0834CEBB1379A84116EF29F93051C60 /* iOS */,
+				42F9B23E9572C5137711913911462436 /* JonAlert.modulemap */,
+				F21CE739B856C974172C25EBD413378D /* JonAlert.xcconfig */,
+				DF381494A3FF595352B2E9B7C735857A /* JonAlert-dummy.m */,
+				94D88B395CC7E078F49AD33D8782CB26 /* JonAlert-Info.plist */,
+				F8C07B6C9EE247BD4D87FAA7906600B5 /* JonAlert-prefix.pch */,
+				CF9217FF16CDD76C9CBAD3A73E79D883 /* JonAlert-umbrella.h */,
 			);
-			name = Frameworks;
+			name = "Support Files";
+			path = "../Target Support Files/JonAlert";
 			sourceTree = "<group>";
 		};
 		DCDF142F1D7661B3E38101ECB76BC158 /* Pods-PiggyPatchwork */ = {
@@ -220,11 +304,11 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		6AE0C44EEE0957147F63D34885E3BF64 /* Headers */ = {
+		55AF1BDFDC1ED96854A0F0B785EEDAE6 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				130F391B5C6137C20CBF0EA5625FF5E8 /* Pods-PiggyPatchwork-umbrella.h in Headers */,
+				32B0706EF583EC48078886ED3FFA3C8A /* ColorSlider-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,9 +320,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AB931724BC1FDFA62803885256DBAF7B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7668E5660E898BD06D80F594D4380C68 /* Pods-PiggyPatchwork-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		1E3469B000FE3C67BAD723C2FB400BCC /* ColorSlider */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 91344CFB134CCE51498476A80CEBA466 /* Build configuration list for PBXNativeTarget "ColorSlider" */;
+			buildPhases = (
+				55AF1BDFDC1ED96854A0F0B785EEDAE6 /* Headers */,
+				368E497EA85258174D43AA64D012AEBD /* Sources */,
+				3A7C5F56C326E3A8F4029BFE61CF9D9A /* Frameworks */,
+				B5804285A13CFE45D068CB7FCBE71BB9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ColorSlider;
+			productName = ColorSlider;
+			productReference = A77BDD4D44222BCB204BE28CB9809722 /* ColorSlider.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		42F960A8F63668C295E98FB30E8297EE /* JonAlert */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 73F48A5879C3A83642A50F61E2CE4A3D /* Build configuration list for PBXNativeTarget "JonAlert" */;
@@ -259,18 +369,19 @@
 		};
 		68E74C1795F90D8F331F709655D2F537 /* Pods-PiggyPatchwork */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 76A74F4812DF72F98D237F1E156BEED1 /* Build configuration list for PBXNativeTarget "Pods-PiggyPatchwork" */;
+			buildConfigurationList = DABF6874F9A1A4BA63765BEFAD4A3BE5 /* Build configuration list for PBXNativeTarget "Pods-PiggyPatchwork" */;
 			buildPhases = (
-				6AE0C44EEE0957147F63D34885E3BF64 /* Headers */,
-				74B9F98F23AEEE4073F2ABBF9A7E9DD2 /* Sources */,
-				AE22FA5B715A280D9001BFBE2A4CE66D /* Frameworks */,
-				C903E85B8280F6960A2E8AC1EFA642AE /* Resources */,
+				AB931724BC1FDFA62803885256DBAF7B /* Headers */,
+				1789D8C13EF685928C47D680CBE58AF8 /* Sources */,
+				35937AA83EF4D2065520B66D48DFDCA4 /* Frameworks */,
+				4158319452BBB4091A339169B01A782F /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				190699D94DC11A6ABF181B0B6873D4B8 /* PBXTargetDependency */,
-				86D0FA1711B58CC33BE4F08DE2F651A8 /* PBXTargetDependency */,
+				7D7AA0079EA12F808FFEC0DC67AE8F4C /* PBXTargetDependency */,
+				3CC903A7CECD5C8297959C1BEB5684CD /* PBXTargetDependency */,
+				960D450839621E5F8318562FDA363F39 /* PBXTargetDependency */,
 			);
 			name = "Pods-PiggyPatchwork";
 			productName = "Pods-PiggyPatchwork";
@@ -285,11 +396,6 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1100;
-				TargetAttributes = {
-					42F960A8F63668C295E98FB30E8297EE = {
-						LastSwiftMigration = 1030;
-					};
-				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 10.0";
@@ -299,10 +405,11 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 5796427CECA530566DEDE63F712E3E0C /* Products */;
+			productRefGroup = 6F6D226576FAAA2566F5D9494F74E71E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				1E3469B000FE3C67BAD723C2FB400BCC /* ColorSlider */,
 				42F960A8F63668C295E98FB30E8297EE /* JonAlert */,
 				68E74C1795F90D8F331F709655D2F537 /* Pods-PiggyPatchwork */,
 				52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */,
@@ -319,7 +426,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C903E85B8280F6960A2E8AC1EFA642AE /* Resources */ = {
+		4158319452BBB4091A339169B01A782F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5804285A13CFE45D068CB7FCBE71BB9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -340,70 +454,53 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		74B9F98F23AEEE4073F2ABBF9A7E9DD2 /* Sources */ = {
+		1789D8C13EF685928C47D680CBE58AF8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75216E3F9995491B99A277EC17C46F8F /* Pods-PiggyPatchwork-dummy.m in Sources */,
+				459BE3EBC968A8DAA67FCE2010442486 /* Pods-PiggyPatchwork-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		368E497EA85258174D43AA64D012AEBD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				457E2722877BAC6B250EDAEBE07B179F /* ColorSlider-dummy.m in Sources */,
+				39AF1B7D71211DB608677E5E044ACB21 /* ColorSlider.swift in Sources */,
+				1CC464BE1E583E5160D751E207F3BFE7 /* ColorSliderExtensions.swift in Sources */,
+				D98F26017BAF92CC7211C077750D942F /* DefaultPreviewView.swift in Sources */,
+				96F9C58704D9774946612F82CEC6A9DD /* Gradient.swift in Sources */,
+				6608117DFF47DEB3554446BBEFB61589 /* GradientView.swift in Sources */,
+				CA5A2B0B83A55942F6CBA31560EEB3C0 /* HSBColor.swift in Sources */,
+				31F570C9F4C083F5A7D4060CEA42435F /* PreviewView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		190699D94DC11A6ABF181B0B6873D4B8 /* PBXTargetDependency */ = {
+		3CC903A7CECD5C8297959C1BEB5684CD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = JonAlert;
 			target = 42F960A8F63668C295E98FB30E8297EE /* JonAlert */;
-			targetProxy = 92FFB9CEF00EE48D2937ABD155248FA3 /* PBXContainerItemProxy */;
+			targetProxy = F0D24C31269272FEF47E98525167C1AB /* PBXContainerItemProxy */;
 		};
-		86D0FA1711B58CC33BE4F08DE2F651A8 /* PBXTargetDependency */ = {
+		7D7AA0079EA12F808FFEC0DC67AE8F4C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ColorSlider;
+			target = 1E3469B000FE3C67BAD723C2FB400BCC /* ColorSlider */;
+			targetProxy = 0933A92E740B9BD7607981E3DD9393F5 /* PBXContainerItemProxy */;
+		};
+		960D450839621E5F8318562FDA363F39 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SwiftLint;
 			target = 52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */;
-			targetProxy = 4473DB17FCC16B881E2897088B3F7791 /* PBXContainerItemProxy */;
+			targetProxy = 08B1C5E7050EEE2648F7EA13FCC6E885 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		165AE16AB26563CA8327BE5B5D7F4765 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DF8AEE2B01C59CADF6654F3F9727666C /* Pods-PiggyPatchwork.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-PiggyPatchwork/Pods-PiggyPatchwork-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-PiggyPatchwork/Pods-PiggyPatchwork.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		204B8AEA4AE90A551A1768B355C2F9F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -468,9 +565,47 @@
 			};
 			name = Debug;
 		};
+		2DF99B3056781579CA5679F3FD91DCFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF8AEE2B01C59CADF6654F3F9727666C /* Pods-PiggyPatchwork.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-PiggyPatchwork/Pods-PiggyPatchwork-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-PiggyPatchwork/Pods-PiggyPatchwork.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		306911A4B67DACC8BF21254AC8205692 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B73DE34D05D001AA7D5CC5D52B59AE5C /* JonAlert.xcconfig */;
+			baseConfigurationReference = F21CE739B856C974172C25EBD413378D /* JonAlert.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -496,7 +631,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -563,24 +698,7 @@
 			};
 			name = Release;
 		};
-		84D7C4574E8F0F3095623F0E06F5B402 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 91944C9E7C8D87E43958020B961665FF /* SwiftLint.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		857A3B4AF2C87D97504DBC4987124C61 /* Release */ = {
+		47864CA1D699CA65CDE83A0840F71E53 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A50589638C5BB150879210B5CCA1D8CF /* Pods-PiggyPatchwork.release.xcconfig */;
 			buildSettings = {
@@ -619,9 +737,26 @@
 			};
 			name = Release;
 		};
+		84D7C4574E8F0F3095623F0E06F5B402 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E76382B9BC50AC3CA1A0B666F757DAF /* SwiftLint.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		93E3BF8E47FEECCB8E717E758C18C45E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B73DE34D05D001AA7D5CC5D52B59AE5C /* JonAlert.xcconfig */;
+			baseConfigurationReference = F21CE739B856C974172C25EBD413378D /* JonAlert.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -647,6 +782,42 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9F8FC56BE88D45264C9F7BB8C02BABBA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6D64EC1B71A7A77A86154F9AB568FFC /* ColorSlider.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ColorSlider/ColorSlider-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ColorSlider/ColorSlider-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/ColorSlider/ColorSlider.modulemap";
+				PRODUCT_MODULE_NAME = ColorSlider;
+				PRODUCT_NAME = ColorSlider;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -657,7 +828,7 @@
 		};
 		DEED47E09AF743F48544C1C4FEADEF47 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 91944C9E7C8D87E43958020B961665FF /* SwiftLint.xcconfig */;
+			baseConfigurationReference = 0E76382B9BC50AC3CA1A0B666F757DAF /* SwiftLint.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -668,6 +839,41 @@
 				);
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FA62E137DEF7F9B449F74E3971D65D90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6D64EC1B71A7A77A86154F9AB568FFC /* ColorSlider.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ColorSlider/ColorSlider-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ColorSlider/ColorSlider-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/ColorSlider/ColorSlider.modulemap";
+				PRODUCT_MODULE_NAME = ColorSlider;
+				PRODUCT_NAME = ColorSlider;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
@@ -692,11 +898,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		76A74F4812DF72F98D237F1E156BEED1 /* Build configuration list for PBXNativeTarget "Pods-PiggyPatchwork" */ = {
+		91344CFB134CCE51498476A80CEBA466 /* Build configuration list for PBXNativeTarget "ColorSlider" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				165AE16AB26563CA8327BE5B5D7F4765 /* Debug */,
-				857A3B4AF2C87D97504DBC4987124C61 /* Release */,
+				FA62E137DEF7F9B449F74E3971D65D90 /* Debug */,
+				9F8FC56BE88D45264C9F7BB8C02BABBA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -706,6 +912,15 @@
 			buildConfigurations = (
 				DEED47E09AF743F48544C1C4FEADEF47 /* Debug */,
 				84D7C4574E8F0F3095623F0E06F5B402 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DABF6874F9A1A4BA63765BEFAD4A3BE5 /* Build configuration list for PBXNativeTarget "Pods-PiggyPatchwork" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2DF99B3056781579CA5679F3FD91DCFE /* Debug */,
+				47864CA1D699CA65CDE83A0840F71E53 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

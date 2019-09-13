@@ -12,7 +12,7 @@ class Canvas: UIView {
     
     var lines = [Line]()
     
-    var strokeColor = UIColor.black
+    var strokeColor = UIColor.red
     
     var strokeWidth: Float = 1
     
@@ -28,20 +28,20 @@ class Canvas: UIView {
         }
         
         lines.forEach { (line) in
+            
+            context.setStrokeColor(line.color.cgColor)
+            context.setLineWidth(CGFloat(line.strokeWidth))
+            context.setLineCap(.round)
+            
             for (endPoint, startPoint) in line.points.enumerated() {
-                
-                context.setStrokeColor(line.color.cgColor)
-                context.setLineWidth(CGFloat(line.strokeWidth))
-                context.setLineCap(.round)
-                
                 if endPoint == 0 {
                     context.move(to: startPoint)
                 } else {
                     context.addLine(to: startPoint)
                 }
             }
+            context.strokePath()
         }
-        context.strokePath()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
