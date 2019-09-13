@@ -50,6 +50,12 @@ class CanvasViewController: UIViewController {
     
     let colorSlider = ColorSlider(orientation: .horizontal, previewSide: .top)
     
+    let widthSlider = UISlider()
+    
+    let palette = UIImageView()
+    
+    let thickness = UIImageView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,8 +63,14 @@ class CanvasViewController: UIViewController {
         
         setupCanvas(canvas: canvas, on: canvasImageView)
         
-        setupColorSliderConstraints()
+        setupColorSlider()
         
+        setupWidthSlider()
+        
+        setupPaletteImage()
+        
+        setupThicknessImage()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -80,29 +92,93 @@ class CanvasViewController: UIViewController {
         view.addSubview(canvas)
     }
     
-    func setupColorSliderConstraints() {
+    func setupColorSlider() {
         
         view.addSubview(colorSlider)
         
         colorSlider.addTarget(self,
-                              action: #selector(changedColor(slider:)),
+                              action: #selector(changedStrokeColor(slider:)),
                               for: .valueChanged)
         
-        let inset = CGFloat(25 / 896) * UIScreen.height
+        let inset = CGFloat(25 / 896 * UIScreen.height)
         
         colorSlider.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            colorSlider.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: inset),
+            colorSlider.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: inset * 1.5),
             colorSlider.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: -inset),
             colorSlider.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -inset * 1.5),
             colorSlider.heightAnchor.constraint(equalToConstant: 15)
             ])
     }
     
-    @objc func changedColor(slider: ColorSlider) {
+    @objc func changedStrokeColor(slider: ColorSlider) {
         
         canvas.setStrokeColor(color: slider.color)
+    }
+    
+    func setupWidthSlider() {
+        
+        view.addSubview(widthSlider)
+        
+        widthSlider.addTarget(self,
+                              action: #selector(changedStrokeWidth(slider:)),
+                              for: .valueChanged)
+        
+        widthSlider.minimumValue = 1
+        widthSlider.maximumValue = 50
+        widthSlider.minimumTrackTintColor = .black
+        widthSlider.maximumTrackTintColor = .black
+        
+        let inset = CGFloat(25 / 896 * UIScreen.height)
+        
+        widthSlider.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            widthSlider.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -inset),
+            widthSlider.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: inset),
+            widthSlider.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -inset * 1.5),
+            widthSlider.heightAnchor.constraint(equalToConstant: 15 / 896 * UIScreen.height)
+            ])
+        
+    }
+    
+    @objc func changedStrokeWidth(slider: UISlider) {
+        
+        canvas.setStrokeWidth(width: slider.value)
+    }
+    
+    func setupPaletteImage() {
+        
+        view.addSubview(palette)
+        
+        palette.image = UIImage.asset(.palette)
+        
+        let inset = CGFloat(10 / 896 * UIScreen.height)
+        
+        palette.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            palette.centerXAnchor.constraint(equalTo: colorSlider.centerXAnchor),
+            palette.bottomAnchor.constraint(equalTo: colorSlider.topAnchor, constant: -inset)
+            ])
+    }
+    
+    func setupThicknessImage() {
+        
+        view.addSubview(thickness)
+        
+        thickness.image = UIImage.asset(.thickness)
+        
+        let inset = CGFloat(10 / 896 * UIScreen.height)
+        
+        thickness.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            thickness.centerXAnchor.constraint(equalTo: widthSlider.centerXAnchor),
+            thickness.bottomAnchor.constraint(equalTo: widthSlider.topAnchor, constant: -inset)
+            ])
+        
     }
 
     @IBAction func cancelEdit(_ sender: Any) {
