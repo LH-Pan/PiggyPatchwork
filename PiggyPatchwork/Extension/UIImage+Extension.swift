@@ -17,7 +17,6 @@ enum ImageAsset: String {
     case next_icon
     case palette
     case thickness
-
 }
 
 // swiftlint:enable identifier_name

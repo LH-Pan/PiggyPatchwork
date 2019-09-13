@@ -156,11 +156,15 @@ class CanvasViewController: UIViewController {
         
         let inset = CGFloat(10 / 896 * UIScreen.height)
         
+        let imageSideLenth = CGFloat(40 / 896 * UIScreen.height)
+        
         palette.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             palette.centerXAnchor.constraint(equalTo: colorSlider.centerXAnchor),
-            palette.bottomAnchor.constraint(equalTo: colorSlider.topAnchor, constant: -inset)
+            palette.bottomAnchor.constraint(equalTo: colorSlider.topAnchor, constant: -inset),
+            palette.widthAnchor.constraint(equalToConstant: imageSideLenth),
+            palette.heightAnchor.constraint(equalToConstant: imageSideLenth)
             ])
     }
     
@@ -169,14 +173,16 @@ class CanvasViewController: UIViewController {
         view.addSubview(thickness)
         
         thickness.image = UIImage.asset(.thickness)
-        
-        let inset = CGFloat(10 / 896 * UIScreen.height)
+
+        let imageSideLenth = CGFloat(30 / 414 * UIScreen.width)
         
         thickness.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             thickness.centerXAnchor.constraint(equalTo: widthSlider.centerXAnchor),
-            thickness.bottomAnchor.constraint(equalTo: widthSlider.topAnchor, constant: -inset)
+            thickness.centerYAnchor.constraint(equalTo: palette.centerYAnchor),
+            thickness.widthAnchor.constraint(equalToConstant: imageSideLenth),
+            thickness.heightAnchor.constraint(equalToConstant: imageSideLenth)
             ])
         
     }
