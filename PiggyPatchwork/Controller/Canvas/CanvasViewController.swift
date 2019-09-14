@@ -138,7 +138,7 @@ class CanvasViewController: UIViewController {
             widthSlider.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -inset),
             widthSlider.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: inset),
             widthSlider.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -inset * 1.5),
-            widthSlider.heightAnchor.constraint(equalToConstant: 15 / 896 * UIScreen.height)
+            widthSlider.centerYAnchor.constraint(equalTo: colorSlider.centerYAnchor)
             ])
         
     }
@@ -169,7 +169,7 @@ class CanvasViewController: UIViewController {
     }
     
     func setupThicknessImage() {
-        
+
         view.addSubview(thickness)
         
         thickness.image = UIImage.asset(.thickness)
