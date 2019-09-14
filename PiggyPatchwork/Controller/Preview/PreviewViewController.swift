@@ -32,13 +32,13 @@ class PreviewViewController: UIViewController {
     
     @IBOutlet weak var savePhotoBtn: UIButton!
     
-    @IBOutlet weak var showAlbumBtn: UIButton!
+    @IBOutlet weak var shareToPlatformBtn: UIButton!
     
     @IBOutlet weak var editView: UIView!
     
     @IBOutlet weak var savePhotoView: UIView!
     
-    @IBOutlet weak var showAlbumView: UIView!
+    @IBOutlet weak var shareToPlatformView: UIView!
     
     var storageImage: UIImage?
     
@@ -68,7 +68,7 @@ class PreviewViewController: UIViewController {
         
         btnAttributes(savePhotoBtn)
         
-        btnAttributes(showAlbumBtn)
+        btnAttributes(shareToPlatformBtn)
     }
     
     func setupView() {
@@ -77,7 +77,7 @@ class PreviewViewController: UIViewController {
         
         viewAttributes(savePhotoView)
         
-        viewAttributes(showAlbumView)
+        viewAttributes(shareToPlatformView)
     }
     
     func btnAttributes(_ button: UIButton) {
@@ -131,7 +131,14 @@ class PreviewViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func showAlbum(_ sender: Any) {
+    @IBAction func shareToPlatform(_ sender: Any) {
+        
+        storageImage = previewView.takeSnapshot()
+        
+        let activityViewController = UIActivityViewController(activityItems: [storageImage!],
+                                                              applicationActivities: nil)
+        
+        self.present(activityViewController, animated: true, completion: nil)
     }
 }
 
