@@ -9,7 +9,7 @@
 import UIKit
 import Vision
 import AVFoundation
-import CoreImage
+import OpalImagePicker
 
 class CollageViewController: UIViewController {
     
@@ -156,8 +156,8 @@ class CollageViewController: UIViewController {
         
         chooseImage = recognizer.view as? UIImageView
         
-        showAlbum(subviews: recognizer.view?.subviews,
-                  sublayers: recognizer.view?.layer.sublayers)
+        showMyAlbum(subviews: recognizer.view?.subviews,
+                    sublayers: recognizer.view?.layer.sublayers)
         
     }
     
@@ -481,7 +481,6 @@ extension CollageViewController: UICollectionViewDataSource,
                 
                 PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.error_mark),
                                              message: "必須先選取照片哦！")
-                
                 return
             }
             
@@ -562,52 +561,42 @@ extension CollageViewController: SelectionViewDelegate,
     }
 }
 
-extension CollageViewController: UIImagePickerControllerDelegate,
-                                   UINavigationControllerDelegate {
-    // 開啟相簿
-    func showAlbum(subviews: [UIView]?,
-                   sublayers: [CALayer]?) {
+extension CollageViewController: OpalImagePickerControllerDelegate {
+    
+    func showMyAlbum(subviews: [UIView]?,
+                     sublayers: [CALayer]?) {
         
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary) {
+        let imagePicker = OpalImagePickerController()
+        
+        imagePicker.imagePickerDelegate = self
+        
+        imagePicker.maximumSelectionsAllowed = 1
+        
+        present(imagePicker, animated: true, completion: {
             
-            let picker: UIImagePickerController = UIImagePickerController()
-            
-            picker.sourceType = UIImagePickerController.SourceType.savedPhotosAlbum
-            
-            picker.delegate = self
-            
-            self.present(picker, animated: true, completion: {
+            if subviews != nil {
                 
-                if subviews != nil {
+                for subview in subviews! {
                     
-                    for subview in subviews! {
-                        
-                        subview.removeFromSuperview()
-                    }
+                    subview.removeFromSuperview()
                 }
+            }
+            
+            if sublayers != nil {
                 
-                if sublayers != nil {
+                for sublayer in sublayers! {
                     
-                    for sublayer in sublayers! {
-                        
-                        sublayer.removeFromSuperlayer()
-                    }
+                    sublayer.removeFromSuperlayer()
                 }
-            })
-            
-        } else {
-            
-            PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.error_mark),
-                                         message: "無法讀取相簿 Σ(ﾟдﾟ)")
-        }
+            }
+        })
     }
     
-    // 選用照片後置入點選的 imageView
-    func imagePickerController(
-        _ picker: UIImagePickerController,
-        didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+    func imagePicker(
+        _ picker: OpalImagePickerController,
+        didFinishPickingImages images: [UIImage]) {
         
-        chooseImage?.image = info[.originalImage] as? UIImage
+        chooseImage?.image = images.first
         
         chooseImage?.layer.borderWidth = 0
         

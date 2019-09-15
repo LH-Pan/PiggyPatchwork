@@ -163,10 +163,12 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/ColorSlider/ColorSlider.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/JonAlert/JonAlert.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/OpalImagePicker/OpalImagePicker.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/ColorSlider/ColorSlider.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/JonAlert/JonAlert.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/OpalImagePicker/OpalImagePicker.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

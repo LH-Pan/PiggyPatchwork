@@ -141,8 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				220384172317A5AC003C285B /* FunctionOption.swift */,
-				22FE5045231CFC7F00C2C1C1 /* PrototypeLayout.swift */,
 				2205CC8F2326A700000682BE /* Gradient.swift */,
+				22FE5045231CFC7F00C2C1C1 /* PrototypeLayout.swift */,
 			);
 			path = PrototypeCollectionView;
 			sourceTree = "<group>";
@@ -223,12 +223,12 @@
 		22D526A5231558CC00F76354 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				22FE1378232E5934002F7F30 /* PhotoMovie */,
-				22FE1377232E58CB002F7F30 /* Lobby */,
+				22D5268F2315460B00F76354 /* CameraViewController.swift */,
+				2205CC932328D365000682BE /* Canvas */,
 				2203840C23166CD6003C285B /* Collage */,
 				2205CC8C23269A4C000682BE /* CollagePreview */,
-				2205CC932328D365000682BE /* Canvas */,
-				22D5268F2315460B00F76354 /* CameraViewController.swift */,
+				22FE1377232E58CB002F7F30 /* Lobby */,
+				22FE1378232E5934002F7F30 /* PhotoMovie */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -236,10 +236,10 @@
 		22D526A62315593100F76354 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2205CC9A2329F71F000682BE /* Canvas */,
+				2203840323165C66003C285B /* Collage */,
 				22FE1376232E58A3002F7F30 /* PhotoMoview */,
 				2203840F23168358003C285B /* SelectionView */,
-				2203840323165C66003C285B /* Collage */,
-				2205CC9A2329F71F000682BE /* Canvas */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -255,13 +255,13 @@
 		22D526A8231559F400F76354 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				220383FB231654A0003C285B /* UIScreen+Extension.swift */,
+				22FE504F231F9A5500C2C1C1 /* CGFloat+Extension.swift */,
+				2203840123165999003C285B /* UICollectionView+Extension.swift */,
 				220383FD231657E8003C285B /* UIColor+Extension.swift */,
 				220383FF23165860003C285B /* UIImage+Extension.swift */,
-				2203840123165999003C285B /* UICollectionView+Extension.swift */,
-				2206B7E32318DCC3000B0135 /* UIView+Extension.swift */,
-				22FE504F231F9A5500C2C1C1 /* CGFloat+Extension.swift */,
+				220383FB231654A0003C285B /* UIScreen+Extension.swift */,
 				22FE1372232E5611002F7F30 /* UIStoryboard+Extension.swift */,
+				2206B7E32318DCC3000B0135 /* UIView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";

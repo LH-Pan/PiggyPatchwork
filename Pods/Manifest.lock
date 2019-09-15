@@ -1,24 +1,28 @@
 PODS:
   - ColorSlider (4.4)
   - JonAlert (1.0.0)
+  - OpalImagePicker (2.1.0)
   - SwiftLint (0.34.0)
 
 DEPENDENCIES:
   - ColorSlider (~> 4.4)
   - JonAlert (~> 1.0)
+  - OpalImagePicker
   - SwiftLint
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - ColorSlider
     - JonAlert
+    - OpalImagePicker
     - SwiftLint
 
 SPEC CHECKSUMS:
   ColorSlider: 9a888e65b871fa1e6a26fadebf4931c949935681
   JonAlert: a83b374ccbf1a14aeb25537d5a3cbe957aac1c2b
+  OpalImagePicker: 40e9d4c27018538a704d8da34b2ff3a2a54a3dc8
   SwiftLint: 79d48a17c6565dc286c37efb8322c7b450f95c67
 
-PODFILE CHECKSUM: 6bfdc722091ccbd5a0eb391de216748bf17e14d4
+PODFILE CHECKSUM: 58db4a2dc1500af89bfd6eb22bb5472ee89eed85
 
 COCOAPODS: 1.7.4

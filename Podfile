@@ -9,5 +9,6 @@ target 'PiggyPatchwork' do
 pod 'SwiftLint'
 pod 'JonAlert', '~> 1.0'
 pod 'ColorSlider', '~> 4.4'
+pod 'OpalImagePicker'
 
 end
