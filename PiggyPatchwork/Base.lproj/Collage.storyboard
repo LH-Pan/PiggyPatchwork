@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="byI-Rm-V1A">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -117,10 +117,10 @@
             </objects>
             <point key="canvasLocation" x="3655.0724637681164" y="20.758928571428569"/>
         </scene>
-        <!--Preview View Controller-->
+        <!--Collage Preview View Controller-->
         <scene sceneID="eZC-Wx-Seo">
             <objects>
-                <viewController storyboardIdentifier="previewVC" id="9gf-z2-M70" customClass="PreviewViewController" customModule="PiggyPatchwork" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="previewVC" id="9gf-z2-M70" customClass="CollagePreviewViewController" customModule="PiggyPatchwork" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G9z-bM-GfL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -476,23 +476,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TH9-e7-QGL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5429" y="21"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="eAS-cp-vji">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="byI-Rm-V1A" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="J5p-em-gnl">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="acu-9i-dkK"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fdC-sA-qd2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2744.9275362318845" y="20.758928571428569"/>
         </scene>
     </scenes>
     <resources>

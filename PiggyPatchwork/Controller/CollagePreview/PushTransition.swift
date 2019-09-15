@@ -17,7 +17,7 @@ class PushTransition: NSObject, UIViewControllerAnimatedTransitioning {
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
         guard
-            let fromVC = transitionContext.viewController(forKey: .from) as? PreviewViewController,
+            let fromVC = transitionContext.viewController(forKey: .from) as? CollagePreviewViewController,
             let toVC = transitionContext.viewController(forKey: .to) as? CanvasViewController
         else {
             return

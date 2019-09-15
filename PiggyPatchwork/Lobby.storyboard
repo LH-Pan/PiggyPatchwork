@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5Va-6K-cF0">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Lobby View Controller-->
+        <scene sceneID="L6M-AZ-YGt">
+            <objects>
+                <viewController id="DZ5-rz-IrC" customClass="LobbyViewController" customModule="PiggyPatchwork" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="usI-8u-HKx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xyl-tU-Gcc">
+                                <rect key="frame" x="176" y="568" width="62" height="30"/>
+                                <state key="normal" title="查看相簿"/>
+                                <connections>
+                                    <action selector="showAlbum:" destination="DZ5-rz-IrC" eventType="touchUpInside" id="SZp-8s-UFQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yWo-rR-piZ">
+                                <rect key="frame" x="161" y="438" width="92" height="30"/>
+                                <state key="normal" title="製作個人影片"/>
+                                <connections>
+                                    <action selector="goToPhotoMovie:" destination="DZ5-rz-IrC" eventType="touchUpInside" id="dPX-DV-yKP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hb0-re-XDQ">
+                                <rect key="frame" x="176" y="308" width="62" height="30"/>
+                                <state key="normal" title="前往拼貼"/>
+                                <connections>
+                                    <action selector="goToCollage:" destination="DZ5-rz-IrC" eventType="touchUpInside" id="xce-CH-JfT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="yWo-rR-piZ" firstAttribute="centerX" secondItem="Xss-BM-v1u" secondAttribute="centerX" id="5MA-vI-CP4"/>
+                            <constraint firstItem="yWo-rR-piZ" firstAttribute="centerY" secondItem="Xss-BM-v1u" secondAttribute="centerY" id="GzT-vs-uId"/>
+                            <constraint firstItem="Xyl-tU-Gcc" firstAttribute="top" secondItem="yWo-rR-piZ" secondAttribute="bottom" constant="100" id="afi-qr-HyO"/>
+                            <constraint firstItem="Hb0-re-XDQ" firstAttribute="centerX" secondItem="Xss-BM-v1u" secondAttribute="centerX" id="x42-X9-uUG"/>
+                            <constraint firstItem="yWo-rR-piZ" firstAttribute="top" secondItem="Hb0-re-XDQ" secondAttribute="bottom" constant="100" id="xQy-wY-O6s"/>
+                            <constraint firstItem="Xyl-tU-Gcc" firstAttribute="centerX" secondItem="Xss-BM-v1u" secondAttribute="centerX" id="ynU-Tv-KtS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Xss-BM-v1u"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="lQ9-Kr-7wb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="auZ-92-r1V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="755.07246376811599" y="45.535714285714285"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hnf-DU-5pa">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="5Va-6K-cF0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BZM-gc-Y90">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="DZ5-rz-IrC" kind="relationship" relationship="rootViewController" id="Jln-ba-s1M"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JNM-WK-ZEH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-155.07246376811597" y="45.535714285714285"/>
+        </scene>
+    </scenes>
+</document>

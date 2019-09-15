@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PreviewViewController: UIViewController {
+class CollagePreviewViewController: UIViewController {
     
     @IBOutlet weak var previewView: UIView! {
         
@@ -128,7 +128,7 @@ class PreviewViewController: UIViewController {
         PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.tick_mark),
                                      message: "照片已儲存至相簿囉 ♥")
         
-        navigationController?.popViewController(animated: true)
+//        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func shareToPlatform(_ sender: Any) {
@@ -142,7 +142,7 @@ class PreviewViewController: UIViewController {
     }
 }
 
-extension PreviewViewController: UINavigationControllerDelegate {
+extension CollagePreviewViewController: UINavigationControllerDelegate {
     
     func navigationController(
         _ navigationController: UINavigationController,
@@ -162,7 +162,7 @@ extension PreviewViewController: UINavigationControllerDelegate {
     }
 }
 
-extension PreviewViewController: ImageProviderDelegate {
+extension CollagePreviewViewController: ImageProviderDelegate {
     
     func manager(_ viewController: CanvasViewController, didGet image: UIImage?) {
         

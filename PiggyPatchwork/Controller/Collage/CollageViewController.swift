@@ -304,7 +304,7 @@ class CollageViewController: UIViewController {
         savedImage = collageView.takeSnapshot()
         
         guard
-            let previewVC = segue.destination as? PreviewViewController
+            let previewVC = segue.destination as? CollagePreviewViewController
         else {
             return
         }
