@@ -314,7 +314,7 @@ class CollageViewController: UIViewController {
 }
     // MARK: UICollectionViewDataSource
 extension CollageViewController: UICollectionViewDataSource,
-                                   UICollectionViewDelegate {
+                                 UICollectionViewDelegate {
     
     func collectionView(
         _ collectionView: UICollectionView,
@@ -525,7 +525,7 @@ extension CollageViewController: UICollectionViewDataSource,
 
     // MARK: SelectionViewDelegate & SelectionViewDataSource
 extension CollageViewController: SelectionViewDelegate,
-                                   SelectionViewDataSource {
+                                 SelectionViewDataSource {
     
     func numberOfSelections(_ selectionView: SelectionView) -> Int {
         return functionOption.count
@@ -566,30 +566,38 @@ extension CollageViewController: OpalImagePickerControllerDelegate {
     func showMyAlbum(subviews: [UIView]?,
                      sublayers: [CALayer]?) {
         
-        let imagePicker = OpalImagePickerController()
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary) {
         
-        imagePicker.imagePickerDelegate = self
-        
-        imagePicker.maximumSelectionsAllowed = 1
-        
-        present(imagePicker, animated: true, completion: {
+            let imagePicker = OpalImagePickerController()
             
-            if subviews != nil {
-                
-                for subview in subviews! {
-                    
-                    subview.removeFromSuperview()
-                }
-            }
+            imagePicker.imagePickerDelegate = self
             
-            if sublayers != nil {
+            imagePicker.maximumSelectionsAllowed = 1
+            
+            present(imagePicker, animated: true, completion: {
                 
-                for sublayer in sublayers! {
+                if subviews != nil {
                     
-                    sublayer.removeFromSuperlayer()
+                    for subview in subviews! {
+                        
+                        subview.removeFromSuperview()
+                    }
                 }
-            }
-        })
+                
+                if sublayers != nil {
+                    
+                    for sublayer in sublayers! {
+                        
+                        sublayer.removeFromSuperlayer()
+                    }
+                }
+            })
+            
+        } else {
+            
+            PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.error_mark),
+                                         message: "無法讀取相簿 Σ(ﾟдﾟ)")
+        }
     }
     
     func imagePicker(

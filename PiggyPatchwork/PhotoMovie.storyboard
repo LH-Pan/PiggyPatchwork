@@ -10,21 +10,48 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Photo Movie View Controller-->
         <scene sceneID="Qhm-Aa-wYz">
             <objects>
-                <viewController id="O0o-0k-QGJ" sceneMemberID="viewController">
+                <viewController id="O0o-0k-QGJ" customClass="PhotoMovieViewController" customModule="PiggyPatchwork" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EXP-SL-jDg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.71714967429999998" green="1" blue="0.72092782860000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ai8-mt-WjQ">
+                                <rect key="frame" x="0.0" y="68" width="414" height="828"/>
+                                <color key="backgroundColor" red="0.71714967429999998" green="1" blue="0.72092782860000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HJi-eG-0eB">
+                                <rect key="frame" x="370" y="44" width="24" height="24"/>
+                                <state key="normal" image="Icons_24px_Add01"/>
+                                <connections>
+                                    <action selector="showAlbum:" destination="O0o-0k-QGJ" eventType="touchUpInside" id="IK0-ax-5nR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="WRd-Db-W2R" firstAttribute="trailing" secondItem="Ai8-mt-WjQ" secondAttribute="trailing" id="6to-wK-nw7"/>
+                            <constraint firstItem="HJi-eG-0eB" firstAttribute="top" secondItem="WRd-Db-W2R" secondAttribute="top" id="8AU-xE-jvn"/>
+                            <constraint firstItem="Ai8-mt-WjQ" firstAttribute="top" secondItem="HJi-eG-0eB" secondAttribute="bottom" id="Lwp-bc-RV6"/>
+                            <constraint firstItem="Ai8-mt-WjQ" firstAttribute="leading" secondItem="WRd-Db-W2R" secondAttribute="leading" id="QJI-2s-Zxp"/>
+                            <constraint firstAttribute="bottom" secondItem="Ai8-mt-WjQ" secondAttribute="bottom" id="Rcr-eX-G0Z"/>
+                            <constraint firstItem="WRd-Db-W2R" firstAttribute="trailing" secondItem="HJi-eG-0eB" secondAttribute="trailing" constant="20" id="hs4-rb-mgB"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="WRd-Db-W2R"/>
                     </view>
                     <navigationItem key="navigationItem" id="njo-fO-mGi"/>
+                    <connections>
+                        <outlet property="photoMovieTableView" destination="Ai8-mt-WjQ" id="Zkd-Lg-fF3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JKq-6Z-crq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-216" y="194"/>
+            <point key="canvasLocation" x="-217.39130434782609" y="193.52678571428569"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Icons_24px_Add01" width="24" height="24"/>
+    </resources>
 </document>

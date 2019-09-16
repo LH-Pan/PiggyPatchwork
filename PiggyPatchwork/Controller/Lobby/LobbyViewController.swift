@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import OpalImagePicker
 
 class LobbyViewController: UIViewController {
     
@@ -29,5 +30,27 @@ class LobbyViewController: UIViewController {
     }
     
     @IBAction func showAlbum(_ sender: Any) {
+        
+        showMyAlbum()
+    }
+}
+
+extension LobbyViewController: OpalImagePickerControllerDelegate {
+    
+    func showMyAlbum() {
+        
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary) {
+            
+            let imagePicker = OpalImagePickerController()
+            
+            imagePicker.imagePickerDelegate = self
+                
+            present(imagePicker, animated: true, completion: nil)
+        
+        } else {
+
+            PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.error_mark),
+                                         message: "無法讀取相簿 Σ(ﾟдﾟ)")
+        }
     }
 }
