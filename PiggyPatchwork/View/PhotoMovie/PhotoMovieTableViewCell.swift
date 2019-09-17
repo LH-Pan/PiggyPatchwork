@@ -8,13 +8,29 @@
 
 import UIKit
 
+protocol PhotoMovieTableViewCellDelegate: AnyObject {
+    
+    func deleteCell(_ cell: PhotoMovieTableViewCell)
+}
+
 class PhotoMovieTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var selectedPhotoImageView: UIImageView!
+    
+    weak var delegate: PhotoMovieTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        selectedPhotoImageView.contentMode = .scaleAspectFill
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
+    }
+    
+    @IBAction func didClickDelete(_ sender: Any) {
+        
+        delegate?.deleteCell(self)
     }
 }

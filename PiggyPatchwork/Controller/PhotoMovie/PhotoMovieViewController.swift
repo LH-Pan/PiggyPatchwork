@@ -20,10 +20,49 @@ class PhotoMovieViewController: UIViewController {
         }
     }
     
-    var choosePhotos: [UIImage] = []
+    var selectedPhotos: [UIImage] = []
+    
+    var cellIndexPath: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        photoMovieTableView.custom_registerCellWithNib(identifier: PhotoMovieTableViewCell.identifier,
+                                                       bundle: nil)
+        
+//        photoMovieTableView.isEditing = true
+    }
+    
+    func didClickDeleteInCell(_ cell: UITableViewCell) {
+        
+        guard
+            let indexPath = photoMovieTableView.indexPath(for: cell)
+        else {
+            return
+        }
+        
+        selectedPhotos.remove(at: indexPath.row)
+        
+        photoMovieTableView.deleteRows(at: [indexPath], with: .left)
+        
+        photoMovieTableView.reloadData()
+    }
+    
+    func didClickMoveUpwardInCell(_ cell: UITableViewCell) {
+        
+        guard
+            let indexPath = photoMovieTableView.indexPath(for: cell)
+        else {
+            return
+        }
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            
+            self.photoMovieTableView.exchangeSubview(at: indexPath.row, withSubviewAt: indexPath.row - 1)
+            
+            self.photoMovieTableView.reloadData()
+        
+        })
     }
     
     @IBAction func showAlbum(_ sender: Any) {
@@ -32,15 +71,102 @@ class PhotoMovieViewController: UIViewController {
     }
 }
 
-extension PhotoMovieViewController: UITableViewDelegate,
-                                    UITableViewDataSource {
+extension PhotoMovieViewController: UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+    func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int
+        ) -> Int {
+        
+        return selectedPhotos.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+        ) -> UITableViewCell {
+        
+        guard
+            let photoMovieCell = tableView.dequeueReusableCell(
+                withIdentifier: PhotoMovieTableViewCell.identifier,
+                for: indexPath) as? PhotoMovieTableViewCell
+        else {
+            return UITableViewCell()
+        }
+        
+        photoMovieCell.delegate = self
+        
+        if selectedPhotos != [] {
+        
+        photoMovieCell.selectedPhotoImageView.image = selectedPhotos[indexPath.row]
+            
+        }
+        
+        return photoMovieCell
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        editingStyleForRowAt indexPath: IndexPath
+        ) -> UITableViewCell.EditingStyle {
+
+        return .none
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        moveRowAt sourceIndexPath: IndexPath,
+        to destinationIndexPath: IndexPath
+        ) {
+
+        let moveObject = self.selectedPhotos[sourceIndexPath.row]
+
+        selectedPhotos.remove(at: sourceIndexPath.row)
+
+        selectedPhotos.insert(moveObject, at: destinationIndexPath.row)
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        editActionsForRowAt indexPath: IndexPath
+        ) -> [UITableViewRowAction]? {
+        
+        let delete = UITableViewRowAction(style: .destructive,
+                                          title: "Delete") { [weak self] (_, indexPath)  in
+                                            
+            self?.selectedPhotos.remove(at: indexPath.row)
+                                                
+            self?.photoMovieTableView.deleteRows(at: [indexPath], with: .left)
+        }
+        
+        return [delete]
+    }
+}
+
+extension PhotoMovieViewController: UITableViewDelegate {
+    
+    func tableView(
+        _ tableView: UITableView,
+        heightForRowAt indexPath: IndexPath
+        ) -> CGFloat {
+        
+        return 207 / 896 * UIScreen.height
+    }
+
+    func tableView(
+        _ tableView: UITableView,
+        canMoveRowAt indexPath: IndexPath
+        ) -> Bool {
+
+        return true
+    }
+
+    func tableView(
+        _ tableView: UITableView,
+        shouldIndentWhileEditingRowAt indexPath: IndexPath
+        ) -> Bool {
+
+        return true
     }
 }
 
@@ -56,6 +182,14 @@ extension PhotoMovieViewController: OpalImagePickerControllerDelegate {
             
             imagePicker.maximumSelectionsAllowed = 10
             
+            let configuration = OpalImagePickerConfiguration()
+            
+            let message = "無法選取超過 \(imagePicker.maximumSelectionsAllowed) 張照片哦！"
+            
+            configuration.maximumSelectionsAllowedMessage = message
+            
+            imagePicker.configuration = configuration
+            
             present(imagePicker, animated: true, completion: nil)
             
         } else {
@@ -65,8 +199,26 @@ extension PhotoMovieViewController: OpalImagePickerControllerDelegate {
         }
     }
     
-    func imagePicker(_ picker: OpalImagePickerController, didFinishPickingImages images: [UIImage]) {
+    func imagePicker(
+        _ picker: OpalImagePickerController,
+        didFinishPickingImages images: [UIImage]
+        ) {
         
-        choosePhotos = images
+        for image in images {
+            
+            selectedPhotos.append(image)
+        }
+        
+        photoMovieTableView.reloadData()
+        
+        dismiss(animated: true, completion: nil)
+    }
+}
+
+extension PhotoMovieViewController: PhotoMovieTableViewCellDelegate {
+   
+    func deleteCell(_ cell: PhotoMovieTableViewCell) {
+
+        didClickDeleteInCell(cell)
     }
 }

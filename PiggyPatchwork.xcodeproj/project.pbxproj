@@ -39,6 +39,7 @@
 		22FE137E232F3F0E002F7F30 /* PhotoMovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE137D232F3F0E002F7F30 /* PhotoMovieTableViewCell.swift */; };
 		22FE1380232F3F68002F7F30 /* PhotoMovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FE137F232F3F68002F7F30 /* PhotoMovieTableViewCell.xib */; };
 		22FE1382232F3F97002F7F30 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE1381232F3F97002F7F30 /* UITableView+Extension.swift */; };
+		22FE13842330BEBD002F7F30 /* testStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE13832330BEBD002F7F30 /* testStruct.swift */; };
 		22FE5042231CE86300C2C1C1 /* BackgroundColorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FE5041231CE86300C2C1C1 /* BackgroundColorCollectionViewCell.xib */; };
 		22FE5044231CE89600C2C1C1 /* BackgroundColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE5043231CE89600C2C1C1 /* BackgroundColorCollectionViewCell.swift */; };
 		22FE5046231CFC7F00C2C1C1 /* PrototypeLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE5045231CFC7F00C2C1C1 /* PrototypeLayout.swift */; };
@@ -84,6 +85,7 @@
 		22FE137D232F3F0E002F7F30 /* PhotoMovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMovieTableViewCell.swift; sourceTree = "<group>"; };
 		22FE137F232F3F68002F7F30 /* PhotoMovieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoMovieTableViewCell.xib; sourceTree = "<group>"; };
 		22FE1381232F3F97002F7F30 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		22FE13832330BEBD002F7F30 /* testStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testStruct.swift; sourceTree = "<group>"; };
 		22FE5041231CE86300C2C1C1 /* BackgroundColorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BackgroundColorCollectionViewCell.xib; sourceTree = "<group>"; };
 		22FE5043231CE89600C2C1C1 /* BackgroundColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		22FE5045231CFC7F00C2C1C1 /* PrototypeLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrototypeLayout.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				220384172317A5AC003C285B /* FunctionOption.swift */,
 				2205CC8F2326A700000682BE /* Gradient.swift */,
 				22FE5045231CFC7F00C2C1C1 /* PrototypeLayout.swift */,
+				22FE13832330BEBD002F7F30 /* testStruct.swift */,
 			);
 			path = PrototypeCollectionView;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				22FE5050231F9A5500C2C1C1 /* CGFloat+Extension.swift in Sources */,
 				22FE137A232E5951002F7F30 /* PhotoMovieViewController.swift in Sources */,
 				2205CC952328D380000682BE /* CanvasViewController.swift in Sources */,
+				22FE13842330BEBD002F7F30 /* testStruct.swift in Sources */,
 				2203840923165D85003C285B /* CollageCollectionViewCell.swift in Sources */,
 				22D5268E2315460B00F76354 /* AppDelegate.swift in Sources */,
 				2205CC8E23269CBB000682BE /* CollagePreviewViewController.swift in Sources */,

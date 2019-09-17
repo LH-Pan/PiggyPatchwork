@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ai8-mt-WjQ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ai8-mt-WjQ">
                                 <rect key="frame" x="0.0" y="68" width="414" height="828"/>
                                 <color key="backgroundColor" red="0.71714967429999998" green="1" blue="0.72092782860000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </tableView>
@@ -29,12 +29,32 @@
                                     <action selector="showAlbum:" destination="O0o-0k-QGJ" eventType="touchUpInside" id="IK0-ax-5nR"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V95-T0-HSu">
+                                <rect key="frame" x="0.0" y="796" width="414" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FYV-L5-zNa">
+                                        <rect key="frame" x="16" y="16" width="382" height="68"/>
+                                        <state key="normal" title="編輯影片"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="FYV-L5-zNa" firstAttribute="top" secondItem="V95-T0-HSu" secondAttribute="top" constant="16" id="E2k-Yg-hab"/>
+                                    <constraint firstAttribute="trailing" secondItem="FYV-L5-zNa" secondAttribute="trailing" constant="16" id="OxQ-CP-mZC"/>
+                                    <constraint firstItem="FYV-L5-zNa" firstAttribute="leading" secondItem="V95-T0-HSu" secondAttribute="leading" constant="16" id="T5b-Kq-UUm"/>
+                                    <constraint firstAttribute="bottom" secondItem="FYV-L5-zNa" secondAttribute="bottom" constant="16" id="gat-4d-38W"/>
+                                    <constraint firstAttribute="height" constant="100" id="vpl-Ng-en1"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="WRd-Db-W2R" firstAttribute="trailing" secondItem="Ai8-mt-WjQ" secondAttribute="trailing" id="6to-wK-nw7"/>
                             <constraint firstItem="HJi-eG-0eB" firstAttribute="top" secondItem="WRd-Db-W2R" secondAttribute="top" id="8AU-xE-jvn"/>
+                            <constraint firstAttribute="bottom" secondItem="V95-T0-HSu" secondAttribute="bottom" id="EJb-lc-VY2"/>
                             <constraint firstItem="Ai8-mt-WjQ" firstAttribute="top" secondItem="HJi-eG-0eB" secondAttribute="bottom" id="Lwp-bc-RV6"/>
+                            <constraint firstItem="WRd-Db-W2R" firstAttribute="trailing" secondItem="V95-T0-HSu" secondAttribute="trailing" id="Owr-h6-wjv"/>
+                            <constraint firstItem="V95-T0-HSu" firstAttribute="leading" secondItem="WRd-Db-W2R" secondAttribute="leading" id="PZb-8X-C5Y"/>
                             <constraint firstItem="Ai8-mt-WjQ" firstAttribute="leading" secondItem="WRd-Db-W2R" secondAttribute="leading" id="QJI-2s-Zxp"/>
                             <constraint firstAttribute="bottom" secondItem="Ai8-mt-WjQ" secondAttribute="bottom" id="Rcr-eX-G0Z"/>
                             <constraint firstItem="WRd-Db-W2R" firstAttribute="trailing" secondItem="HJi-eG-0eB" secondAttribute="trailing" constant="20" id="hs4-rb-mgB"/>

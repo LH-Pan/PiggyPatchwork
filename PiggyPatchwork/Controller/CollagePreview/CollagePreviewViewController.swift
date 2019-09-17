@@ -128,6 +128,7 @@ class CollagePreviewViewController: UIViewController {
         PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.tick_mark),
                                      message: "照片已儲存至相簿囉 ♥")
         
+        navigationController?.popToRootViewController(animated: true)
 //        navigationController?.popViewController(animated: true)
     }
     

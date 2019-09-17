@@ -10,7 +10,10 @@ import UIKit
 
 extension CGFloat {
     
+    // 373 為 collage view 的邊長
+    // 建立一個比例
     static let spaceRatio: CGFloat = 20 / 373
     
+    // 讓比例可以隨著不同大小的機器更動
     static let insetRatio: CGFloat = CGFloat.spaceRatio / 414 * UIScreen.width
 }
