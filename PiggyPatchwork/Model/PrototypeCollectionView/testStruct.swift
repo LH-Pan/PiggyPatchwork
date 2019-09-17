@@ -6,7 +6,6 @@
 //  Copyright © 2019 PanLiHsiang. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class CollageController: NSObject, UICollectionViewDataSource {

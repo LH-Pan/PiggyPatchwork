@@ -323,7 +323,7 @@ extension CollageViewController: UICollectionViewDataSource,
         
         switch selectionView.selectedIndex {
         
-        case 0: return CollageController().collectionView(collectionView, numberOfItemsInSection: section)
+        case 0: return prototypeLayout.count
         case 1: return colorCode.count
         case 2: return cellEmoticon.count
         default: return 0
@@ -336,8 +336,37 @@ extension CollageViewController: UICollectionViewDataSource,
         -> UICollectionViewCell {
         
         if selectionView.selectedIndex == 0 {
+
+            guard
+                let prototypeCell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: CollageCollectionViewCell.identifier,
+                    for: indexPath
+                    ) as? CollageCollectionViewCell
+            else {
+                return UICollectionViewCell()
+            }
             
-            return CollageController().collectionView(collectionView, cellForItemAt: indexPath)
+            memorizeCollection(at: prototypeCell,
+                               in: indexPath,
+                               eqaulTo: ptCellSelectedIndexPath)
+
+            personFaceImage.frame = .zero
+            
+            let frames = self.prototypeLayout[indexPath.row].getFrames(prototypeCell.frame.size)
+            
+            for layout in frames {
+                
+                let subView = UIView()
+                
+                subView.frame = layout
+                
+                subView.backgroundColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SilverGray)
+                
+                prototypeCell.addSubview(subView)
+                
+            }
+            
+            return prototypeCell
             
         } else if selectionView.selectedIndex == 1 {
             
