@@ -35,6 +35,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FYV-L5-zNa">
                                         <rect key="frame" x="16" y="16" width="382" height="68"/>
                                         <state key="normal" title="編輯影片"/>
+                                        <connections>
+                                            <segue destination="Rw4-0u-qCx" kind="show" id="K0w-eF-9lW"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -69,6 +72,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JKq-6Z-crq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-217.39130434782609" y="193.52678571428569"/>
+        </scene>
+        <!--Movie Preview View Controller-->
+        <scene sceneID="Iri-Tl-fY9">
+            <objects>
+                <viewController id="Rw4-0u-qCx" customClass="MoviePreviewViewController" customModule="PiggyPatchwork" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iza-7c-Fuh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8he-oD-2ih">
+                                <rect key="frame" x="0.0" y="44" width="414" height="387"/>
+                                <color key="backgroundColor" red="0.71714967429999998" green="1" blue="0.72092782860000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D2Y-Nf-QBp">
+                                <rect key="frame" x="0.0" y="780" width="414" height="100"/>
+                                <color key="backgroundColor" red="0.23137254900000001" green="0.34901960780000002" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="nKd-U4-JSj"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="儲存影片"/>
+                                <connections>
+                                    <action selector="saveMovie:" destination="Rw4-0u-qCx" eventType="touchUpInside" id="s8r-cc-oR4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Njh-k4-5HJ" firstAttribute="bottom" secondItem="8he-oD-2ih" secondAttribute="bottom" multiplier="2:1" id="8c2-g6-FYW"/>
+                            <constraint firstItem="8he-oD-2ih" firstAttribute="leading" secondItem="Njh-k4-5HJ" secondAttribute="leading" id="MIy-u4-d1q"/>
+                            <constraint firstItem="Njh-k4-5HJ" firstAttribute="trailing" secondItem="D2Y-Nf-QBp" secondAttribute="trailing" id="Q0P-zv-w7q"/>
+                            <constraint firstItem="D2Y-Nf-QBp" firstAttribute="leading" secondItem="Njh-k4-5HJ" secondAttribute="leading" id="Y07-yc-keZ"/>
+                            <constraint firstAttribute="bottom" secondItem="D2Y-Nf-QBp" secondAttribute="bottom" constant="16" id="jz4-XG-Lds"/>
+                            <constraint firstItem="Njh-k4-5HJ" firstAttribute="trailing" secondItem="8he-oD-2ih" secondAttribute="trailing" id="sCs-zy-g9S"/>
+                            <constraint firstItem="8he-oD-2ih" firstAttribute="top" secondItem="Njh-k4-5HJ" secondAttribute="top" id="xyp-Fs-0C7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Njh-k4-5HJ"/>
+                    </view>
+                    <connections>
+                        <outlet property="movieView" destination="8he-oD-2ih" id="Hqh-hf-4Wf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ecc-1n-v1U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="672" y="194"/>
         </scene>
     </scenes>
     <resources>

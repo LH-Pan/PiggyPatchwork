@@ -29,8 +29,7 @@ class PhotoMovieViewController: UIViewController {
         
         photoMovieTableView.custom_registerCellWithNib(identifier: PhotoMovieTableViewCell.identifier,
                                                        bundle: nil)
-        
-//        photoMovieTableView.isEditing = true
+        photoMovieTableView.isEditing = true
     }
     
     func didClickDeleteInCell(_ cell: UITableViewCell) {
@@ -48,21 +47,15 @@ class PhotoMovieViewController: UIViewController {
         photoMovieTableView.reloadData()
     }
     
-    func didClickMoveUpwardInCell(_ cell: UITableViewCell) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         guard
-            let indexPath = photoMovieTableView.indexPath(for: cell)
+            let moviePreviewVC = segue.destination as? MoviePreviewViewController
         else {
             return
         }
         
-        UIView.animate(withDuration: 0.3, animations: {
-            
-            self.photoMovieTableView.exchangeSubview(at: indexPath.row, withSubviewAt: indexPath.row - 1)
-            
-            self.photoMovieTableView.reloadData()
-        
-        })
+        moviePreviewVC.moviePhotos = selectedPhotos
     }
     
     @IBAction func showAlbum(_ sender: Any) {

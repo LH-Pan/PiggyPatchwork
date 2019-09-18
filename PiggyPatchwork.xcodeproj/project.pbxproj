@@ -40,6 +40,8 @@
 		22FE1380232F3F68002F7F30 /* PhotoMovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FE137F232F3F68002F7F30 /* PhotoMovieTableViewCell.xib */; };
 		22FE1382232F3F97002F7F30 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE1381232F3F97002F7F30 /* UITableView+Extension.swift */; };
 		22FE13842330BEBD002F7F30 /* testStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE13832330BEBD002F7F30 /* testStruct.swift */; };
+		22FE13872330EC64002F7F30 /* PhotoMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE13862330EC64002F7F30 /* PhotoMovie.swift */; };
+		22FE138A2332025B002F7F30 /* MoviePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE13892332025B002F7F30 /* MoviePreviewViewController.swift */; };
 		22FE5042231CE86300C2C1C1 /* BackgroundColorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FE5041231CE86300C2C1C1 /* BackgroundColorCollectionViewCell.xib */; };
 		22FE5044231CE89600C2C1C1 /* BackgroundColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE5043231CE89600C2C1C1 /* BackgroundColorCollectionViewCell.swift */; };
 		22FE5046231CFC7F00C2C1C1 /* PrototypeLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE5045231CFC7F00C2C1C1 /* PrototypeLayout.swift */; };
@@ -86,6 +88,8 @@
 		22FE137F232F3F68002F7F30 /* PhotoMovieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoMovieTableViewCell.xib; sourceTree = "<group>"; };
 		22FE1381232F3F97002F7F30 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		22FE13832330BEBD002F7F30 /* testStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testStruct.swift; sourceTree = "<group>"; };
+		22FE13862330EC64002F7F30 /* PhotoMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMovie.swift; sourceTree = "<group>"; };
+		22FE13892332025B002F7F30 /* MoviePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePreviewViewController.swift; sourceTree = "<group>"; };
 		22FE5041231CE86300C2C1C1 /* BackgroundColorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BackgroundColorCollectionViewCell.xib; sourceTree = "<group>"; };
 		22FE5043231CE89600C2C1C1 /* BackgroundColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		22FE5045231CFC7F00C2C1C1 /* PrototypeLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrototypeLayout.swift; sourceTree = "<group>"; };
@@ -222,6 +226,7 @@
 		22D526A4231558BB00F76354 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				22FE13852330EC33002F7F30 /* PhotoMovie */,
 				220384102316A605003C285B /* PrototypeCollectionView */,
 			);
 			path = Model;
@@ -234,6 +239,7 @@
 				2203840C23166CD6003C285B /* Collage */,
 				2205CC8C23269A4C000682BE /* CollagePreview */,
 				22FE1377232E58CB002F7F30 /* Lobby */,
+				22FE138823320229002F7F30 /* MoviePreview */,
 				22FE1378232E5934002F7F30 /* PhotoMovie */,
 			);
 			path = Controller;
@@ -304,6 +310,22 @@
 				22FE1379232E5951002F7F30 /* PhotoMovieViewController.swift */,
 			);
 			path = PhotoMovie;
+			sourceTree = "<group>";
+		};
+		22FE13852330EC33002F7F30 /* PhotoMovie */ = {
+			isa = PBXGroup;
+			children = (
+				22FE13862330EC64002F7F30 /* PhotoMovie.swift */,
+			);
+			path = PhotoMovie;
+			sourceTree = "<group>";
+		};
+		22FE138823320229002F7F30 /* MoviePreview */ = {
+			isa = PBXGroup;
+			children = (
+				22FE13892332025B002F7F30 /* MoviePreviewViewController.swift */,
+			);
+			path = MoviePreview;
 			sourceTree = "<group>";
 		};
 		22FE504B231E78D400C2C1C1 /* Collage */ = {
@@ -506,12 +528,14 @@
 				2203840B231665D6003C285B /* SelectionView.swift in Sources */,
 				22FE1373232E5611002F7F30 /* UIStoryboard+Extension.swift in Sources */,
 				2205CC902326A700000682BE /* Gradient.swift in Sources */,
+				22FE138A2332025B002F7F30 /* MoviePreviewViewController.swift in Sources */,
 				2203840023165860003C285B /* UIImage+Extension.swift in Sources */,
 				22D526962315460B00F76354 /* PiggyPatchwork.xcdatamodeld in Sources */,
 				2205CCC1232A92E2000682BE /* StrokeLine.swift in Sources */,
 				220383FE231657E8003C285B /* UIColor+Extension.swift in Sources */,
 				2205CC992329057A000682BE /* PopTransition.swift in Sources */,
 				2205CC8B23250682000682BE /* JonAlertWrapper.swift in Sources */,
+				22FE13872330EC64002F7F30 /* PhotoMovie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
