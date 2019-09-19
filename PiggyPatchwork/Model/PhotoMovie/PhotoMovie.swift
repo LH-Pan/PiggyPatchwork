@@ -10,6 +10,11 @@ import UIKit
 import AVFoundation
 import AVKit
 
+protocol MovieUrlProviderDelegate: AnyObject {
+    
+    func provider(_ provider: ImageAnimator, didGet url: String)
+}
+
 struct RenderSettings {
     
     var width: CGFloat = 1500
@@ -238,6 +243,10 @@ class ImageAnimator {
     
     var frameNum = 0
     
+    var tempurl = ""
+    
+    weak var delegate: MovieUrlProviderDelegate?
+    
     class func removeFileAtURL(fileURL: NSURL) {
         
         do {
@@ -264,7 +273,9 @@ class ImageAnimator {
             
             let path: String = self.settings.outputURL.path!
             
-            tempurl = path
+            self.tempurl = path
+            
+            self.delegate?.provider(self, didGet: self.tempurl)
             
             completion()
         }

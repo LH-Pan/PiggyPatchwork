@@ -101,11 +101,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Njh-k4-5HJ" firstAttribute="bottom" secondItem="8he-oD-2ih" secondAttribute="bottom" multiplier="2:1" id="8c2-g6-FYW"/>
-                            <constraint firstItem="8he-oD-2ih" firstAttribute="leading" secondItem="Njh-k4-5HJ" secondAttribute="leading" id="MIy-u4-d1q"/>
                             <constraint firstItem="Njh-k4-5HJ" firstAttribute="trailing" secondItem="D2Y-Nf-QBp" secondAttribute="trailing" id="Q0P-zv-w7q"/>
                             <constraint firstItem="D2Y-Nf-QBp" firstAttribute="leading" secondItem="Njh-k4-5HJ" secondAttribute="leading" id="Y07-yc-keZ"/>
                             <constraint firstAttribute="bottom" secondItem="D2Y-Nf-QBp" secondAttribute="bottom" constant="16" id="jz4-XG-Lds"/>
                             <constraint firstItem="Njh-k4-5HJ" firstAttribute="trailing" secondItem="8he-oD-2ih" secondAttribute="trailing" id="sCs-zy-g9S"/>
+                            <constraint firstItem="8he-oD-2ih" firstAttribute="leading" secondItem="Njh-k4-5HJ" secondAttribute="leading" id="sLi-lf-auc"/>
                             <constraint firstItem="8he-oD-2ih" firstAttribute="top" secondItem="Njh-k4-5HJ" secondAttribute="top" id="xyp-Fs-0C7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Njh-k4-5HJ"/>

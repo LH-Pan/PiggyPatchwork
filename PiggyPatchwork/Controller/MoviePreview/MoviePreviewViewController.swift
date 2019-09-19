@@ -11,11 +11,17 @@ import AVFoundation
 import AVKit
 import Photos
 
-var tempurl = ""
-
 class MoviePreviewViewController: UIViewController {
     
     @IBOutlet weak var movieView: UIView!
+    
+    let playerController = AVPlayerViewController()
+    
+    let player = AVPlayer()
+    
+    var looper: AVPlayerLooper?
+    
+    var movieUrl: String = ""
     
     var moviePhotos: [UIImage] = []
     
@@ -27,6 +33,8 @@ class MoviePreviewViewController: UIViewController {
             
             let imageAnimator = ImageAnimator(renderSettings: settings, imagearr: self.moviePhotos)
             
+            imageAnimator.delegate = self
+            
             imageAnimator.render {
                 self.displayVideo()
             }
@@ -35,17 +43,7 @@ class MoviePreviewViewController: UIViewController {
     
     func displayVideo() {
         
-        let myTempUrl: String = tempurl
-        
-        let player = AVPlayer(url: URL(fileURLWithPath: myTempUrl))
-        
-        let playerController = AVPlayerViewController()
-        
-        playerController.player = player
-        
-        self.addChild(playerController)
-
-        movieView.addSubview(playerController.view)
+        let player = AVPlayer(url: URL(fileURLWithPath: movieUrl))
         
         playerController.view.frame.size = movieView.frame.size
 
@@ -55,7 +53,13 @@ class MoviePreviewViewController: UIViewController {
         
         movieView.backgroundColor = .clear
         
-        player.play()
+        self.addChild(playerController)
+        
+        movieView.addSubview(playerController.view)
+        
+            playerController.player = player
+        
+            player.play()
     }
     
     @IBAction func saveMovie(_ sender: Any) {
@@ -64,10 +68,9 @@ class MoviePreviewViewController: UIViewController {
             
             guard status == .authorized else { return }
             
-            let path: String = tempurl
-            
             PHPhotoLibrary.shared().performChanges({
-                PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: URL(fileURLWithPath: path) as URL)
+                PHAssetChangeRequest.creationRequestForAssetFromVideo(
+                    atFileURL: URL(fileURLWithPath: self.movieUrl) as URL)
             }, completionHandler: { (success, error) in
                 
                 if !success {
@@ -77,4 +80,12 @@ class MoviePreviewViewController: UIViewController {
             })
         }
     }
+}
+
+extension MoviePreviewViewController: MovieUrlProviderDelegate {
+    
+    func provider(_ provider: ImageAnimator, didGet url: String) {
+        movieUrl = url
+    }
+    
 }
