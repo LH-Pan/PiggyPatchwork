@@ -20,6 +20,33 @@ class PhotoMovieViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var addPhotoBtn: UIButton! {
+        
+        didSet {
+            addPhotoBtn.layer.cornerRadius = addPhotoBtn.frame.height / 2
+            
+            addPhotoBtn.imageView?.addViewShadow()
+        }
+    }
+    
+    @IBOutlet weak var backToHomeBtn: UIButton! {
+        
+        didSet {
+            backToHomeBtn.setTitleColor(.hexStringToUIColor(hex: CustomColorCode.OrchidPink),
+                                        for: .normal)
+            backToHomeBtn.layer.cornerRadius = 10
+        }
+    }
+    
+    @IBOutlet weak var nextStepBtn: UIButton! {
+        
+        didSet {
+            nextStepBtn.setTitleColor(.hexStringToUIColor(hex: CustomColorCode.OrchidPink),
+                                      for: .normal)
+            nextStepBtn.layer.cornerRadius = 10
+        }
+    }
+    
     var selectedPhotos: [UIImage] = []
     
     var cellIndexPath: IndexPath?
@@ -30,6 +57,10 @@ class PhotoMovieViewController: UIViewController {
         photoMovieTableView.custom_registerCellWithNib(identifier: PhotoMovieTableViewCell.identifier,
                                                        bundle: nil)
         photoMovieTableView.isEditing = true
+        
+        Gradient.shared.doubleColor(at: view,
+                                    firstColor: CustomColorCode.PigletPink,
+                                    secondColor: CustomColorCode.OrchidPink)
     }
     
     func didClickDeleteInCell(_ cell: UITableViewCell) {
@@ -58,9 +89,14 @@ class PhotoMovieViewController: UIViewController {
         moviePreviewVC.moviePhotos = selectedPhotos
     }
     
-    @IBAction func showAlbum(_ sender: Any) {
+    @IBAction func addPhotos(_ sender: Any) {
         
         showMyAlbum()
+    }
+    
+    @IBAction func backToHomePage(_ sender: Any) {
+        
+        navigationController?.popViewController(animated: true)
     }
 }
 
@@ -111,28 +147,13 @@ extension PhotoMovieViewController: UITableViewDataSource {
         moveRowAt sourceIndexPath: IndexPath,
         to destinationIndexPath: IndexPath
         ) {
-
+        
         let moveObject = self.selectedPhotos[sourceIndexPath.row]
 
         selectedPhotos.remove(at: sourceIndexPath.row)
 
         selectedPhotos.insert(moveObject, at: destinationIndexPath.row)
-    }
     
-    func tableView(
-        _ tableView: UITableView,
-        editActionsForRowAt indexPath: IndexPath
-        ) -> [UITableViewRowAction]? {
-        
-        let delete = UITableViewRowAction(style: .destructive,
-                                          title: "Delete") { [weak self] (_, indexPath)  in
-                                            
-            self?.selectedPhotos.remove(at: indexPath.row)
-                                                
-            self?.photoMovieTableView.deleteRows(at: [indexPath], with: .left)
-        }
-        
-        return [delete]
     }
 }
 
@@ -143,7 +164,7 @@ extension PhotoMovieViewController: UITableViewDelegate {
         heightForRowAt indexPath: IndexPath
         ) -> CGFloat {
         
-        return 207 / 896 * UIScreen.height
+        return 220 / 896 * UIScreen.height
     }
 
     func tableView(
@@ -159,7 +180,7 @@ extension PhotoMovieViewController: UITableViewDelegate {
         shouldIndentWhileEditingRowAt indexPath: IndexPath
         ) -> Bool {
 
-        return true
+        return false
     }
 }
 

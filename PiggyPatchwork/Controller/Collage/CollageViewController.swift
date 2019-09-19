@@ -33,12 +33,21 @@ class CollageViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    @IBOutlet weak var nextPageBtn: UIButton! {
+    @IBOutlet weak var nextStepBtn: UIButton! {
         
         didSet {
-            nextPageBtn.setTitleColor(.hexStringToUIColor(hex: CustomColorCode.OrchidPink),
+            nextStepBtn.setTitleColor(.hexStringToUIColor(hex: CustomColorCode.OrchidPink),
                                       for: .normal)
-            nextPageBtn.layer.cornerRadius = 10
+            nextStepBtn.layer.cornerRadius = 10
+        }
+    }
+    
+    @IBOutlet weak var backToHomeBtn: UIButton! {
+        
+        didSet {
+            backToHomeBtn.setTitleColor(.hexStringToUIColor(hex: CustomColorCode.OrchidPink),
+                                        for: .normal)
+            backToHomeBtn.layer.cornerRadius = 10
         }
     }
     
@@ -311,6 +320,12 @@ class CollageViewController: UIViewController {
         
         previewVC.storageImage = savedImage
     }
+    
+    @IBAction func backToHomePage(_ sender: Any) {
+        
+        navigationController?.popViewController(animated: true)
+    }
+    
 }
     // MARK: UICollectionViewDataSource
 extension CollageViewController: UICollectionViewDataSource,

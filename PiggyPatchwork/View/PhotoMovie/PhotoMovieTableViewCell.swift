@@ -16,6 +16,7 @@ protocol PhotoMovieTableViewCellDelegate: AnyObject {
 class PhotoMovieTableViewCell: UITableViewCell {
     
     @IBOutlet weak var selectedPhotoImageView: UIImageView!
+    @IBOutlet weak var cardView: CardView!
     
     weak var delegate: PhotoMovieTableViewCellDelegate?
     
@@ -27,6 +28,11 @@ class PhotoMovieTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        selectedPhotoImageView.layer.maskedCorners = [.layerMinXMaxYCorner,
+                                                      .layerMinXMinYCorner]
+        
+        selectedPhotoImageView.layer.cornerRadius = 8
     }
     
     @IBAction func didClickDelete(_ sender: Any) {

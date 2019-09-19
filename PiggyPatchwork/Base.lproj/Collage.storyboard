@@ -69,6 +69,16 @@
                                             <constraint firstAttribute="height" constant="80" id="cLL-Py-2YP"/>
                                         </constraints>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l90-Uv-VkV">
+                                        <rect key="frame" x="16" y="52" width="82" height="22"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="  回首頁  " image="next_icon_left">
+                                            <color key="titleColor" red="1" green="0.81568627449999997" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backToHomePage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tq5-UC-Dqu"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -80,10 +90,13 @@
                                     <constraint firstItem="HZa-86-RcU" firstAttribute="centerY" secondItem="FE3-Tr-52n" secondAttribute="centerY" id="Y5g-fb-t1e"/>
                                     <constraint firstItem="zbH-t3-vJB" firstAttribute="leading" secondItem="FE3-Tr-52n" secondAttribute="leading" id="bQn-uI-fz0"/>
                                     <constraint firstAttribute="trailing" secondItem="Cz3-0U-EVr" secondAttribute="trailing" id="cKY-RF-Doc"/>
+                                    <constraint firstItem="l90-Uv-VkV" firstAttribute="leading" secondItem="FE3-Tr-52n" secondAttribute="leading" constant="16" id="dIy-2b-ZYA"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HZa-86-RcU" secondAttribute="trailing" constant="20" id="heI-mL-aF8"/>
+                                    <constraint firstItem="l90-Uv-VkV" firstAttribute="top" secondItem="FE3-Tr-52n" secondAttribute="topMargin" id="la0-FD-DOR"/>
                                     <constraint firstItem="uut-hv-bej" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FE3-Tr-52n" secondAttribute="leading" id="mES-P6-VjK"/>
                                     <constraint firstItem="HZa-86-RcU" firstAttribute="top" secondItem="Cz3-0U-EVr" secondAttribute="bottom" constant="-30" id="p2H-vW-TM5"/>
                                     <constraint firstItem="HZa-86-RcU" firstAttribute="centerX" secondItem="FE3-Tr-52n" secondAttribute="centerX" id="shs-cf-3GW"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="l90-Uv-VkV" secondAttribute="trailing" id="vAZ-br-FSn"/>
                                     <constraint firstItem="uut-hv-bej" firstAttribute="top" secondItem="FE3-Tr-52n" secondAttribute="topMargin" id="ybt-fF-79Q"/>
                                 </constraints>
                             </view>
@@ -106,10 +119,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="YBq-UP-S9j"/>
                     <connections>
+                        <outlet property="backToHomeBtn" destination="l90-Uv-VkV" id="QvO-8X-KFa"/>
                         <outlet property="collageView" destination="HZa-86-RcU" id="RRl-pi-6XV"/>
                         <outlet property="collectionView" destination="n6Q-8Q-B6S" id="UqM-k4-PB4"/>
                         <outlet property="gradientView" destination="FE3-Tr-52n" id="vDT-Yf-EXO"/>
-                        <outlet property="nextPageBtn" destination="uut-hv-bej" id="RIE-Qq-a8R"/>
+                        <outlet property="nextStepBtn" destination="uut-hv-bej" id="urB-az-6m4"/>
                         <outlet property="selectionView" destination="WyR-M8-wYU" id="AqP-nH-I7B"/>
                     </connections>
                 </viewController>
