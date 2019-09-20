@@ -47,6 +47,10 @@ class PhotoMovieViewController: UIViewController {
             nextStepBtn.layer.cornerRadius = 10
         }
     }
+
+    @IBOutlet weak var piggyStudioImageView: UIImageView!
+    
+    @IBOutlet weak var remindLabel: UILabel!
     
     @IBOutlet weak var animateArrow: AnimationView!
     
@@ -65,18 +69,19 @@ class PhotoMovieViewController: UIViewController {
                                     firstColor: CustomColorCode.PigletPink,
                                     secondColor: CustomColorCode.OrchidPink)
         
-        setupAnimationView(view: animateArrow, name: Lotties.downArrow)
+        PiggyLottie.setupAnimationView(view: animateArrow,
+                                       name: Lotties.downArrow,
+                                       speed: 2,
+                                       loopMode: .loop)
     }
     
-    func setupAnimationView(view: AnimationView, name: String) {
+    func hideImages(_ hidden: Bool) {
         
-        view.animation = Animation.named(name)
+        animateArrow.isHidden = hidden
         
-        view.animationSpeed = 2
+        remindLabel.isHidden = hidden
         
-        view.loopMode = .loop
-        
-        view.play()
+        piggyStudioImageView.isHidden = hidden
     }
     
     func didClickDeleteInCell(_ cell: UITableViewCell) {
@@ -95,7 +100,7 @@ class PhotoMovieViewController: UIViewController {
         
         if selectedPhotos == [] {
                    
-            animateArrow.isHidden = false
+            hideImages(false)
         }
     }
     
@@ -248,7 +253,7 @@ extension PhotoMovieViewController: OpalImagePickerControllerDelegate {
         
         if selectedPhotos != [] {
             
-            animateArrow.isHidden = true
+            hideImages(true)
         }
         
         dismiss(animated: true, completion: nil)

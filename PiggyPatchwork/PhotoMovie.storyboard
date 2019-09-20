@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O0o-0k-QGJ">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
@@ -16,10 +16,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ai8-mt-WjQ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ai8-mt-WjQ">
                                 <rect key="frame" x="0.0" y="90" width="414" height="726"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="piggy_studio" translatesAutoresizingMaskIntoConstraints="NO" id="BAq-3N-SGY">
+                                <rect key="frame" x="0.0" y="455" width="414" height="361"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="BAq-3N-SGY" secondAttribute="height" multiplier="414:361" id="RKz-b9-zhz"/>
+                                </constraints>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MxZ-Vz-Y29" customClass="AnimationView" customModule="Lottie">
                                 <rect key="frame" x="177" y="736" width="60" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -73,11 +79,18 @@
                                     <action selector="backToHomePage:" destination="O0o-0k-QGJ" eventType="touchUpInside" id="PWU-cO-Von"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="點一下按鈕                               選取欲製成影片的照片哦！" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpD-tm-znX">
+                                <rect key="frame" x="99.666666666666686" y="645.66666666666663" width="207" height="90.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="MxZ-Vz-Y29" firstAttribute="height" secondItem="EXP-SL-jDg" secondAttribute="height" multiplier="60: 896" id="4Kc-dT-zZv"/>
                             <constraint firstItem="WRd-Db-W2R" firstAttribute="trailing" secondItem="Ai8-mt-WjQ" secondAttribute="trailing" id="6to-wK-nw7"/>
+                            <constraint firstItem="MxZ-Vz-Y29" firstAttribute="top" secondItem="cpD-tm-znX" secondAttribute="bottom" id="D0M-9z-vCp"/>
                             <constraint firstAttribute="bottom" secondItem="V95-T0-HSu" secondAttribute="bottom" id="EJb-lc-VY2"/>
                             <constraint firstItem="FYV-L5-zNa" firstAttribute="top" secondItem="MxZ-Vz-Y29" secondAttribute="bottom" id="KJH-Cr-9QR"/>
                             <constraint firstItem="Ai8-mt-WjQ" firstAttribute="top" secondItem="HJi-eG-0eB" secondAttribute="bottom" constant="16" id="Lwp-bc-RV6"/>
@@ -86,11 +99,17 @@
                             <constraint firstItem="Ai8-mt-WjQ" firstAttribute="leading" secondItem="WRd-Db-W2R" secondAttribute="leading" id="QJI-2s-Zxp"/>
                             <constraint firstItem="mOy-tD-sid" firstAttribute="leading" secondItem="WRd-Db-W2R" secondAttribute="leading" constant="16" id="SRS-nh-v1M"/>
                             <constraint firstItem="V95-T0-HSu" firstAttribute="top" secondItem="Ai8-mt-WjQ" secondAttribute="bottom" id="X3P-zw-7jG"/>
+                            <constraint firstItem="cpD-tm-znX" firstAttribute="width" secondItem="BAq-3N-SGY" secondAttribute="width" multiplier="1:2" id="ahF-SH-42K"/>
+                            <constraint firstItem="cpD-tm-znX" firstAttribute="centerX" secondItem="WRd-Db-W2R" secondAttribute="centerX" constant="-4" id="cNz-lN-XXm"/>
                             <constraint firstItem="WRd-Db-W2R" firstAttribute="trailing" secondItem="HJi-eG-0eB" secondAttribute="trailing" constant="16" id="hs4-rb-mgB"/>
                             <constraint firstItem="HJi-eG-0eB" firstAttribute="centerY" secondItem="mOy-tD-sid" secondAttribute="centerY" id="ivw-hQ-Wzj"/>
+                            <constraint firstItem="cpD-tm-znX" firstAttribute="height" secondItem="BAq-3N-SGY" secondAttribute="height" multiplier="1:4" id="kaw-ZN-Lje"/>
                             <constraint firstItem="mOy-tD-sid" firstAttribute="top" secondItem="WRd-Db-W2R" secondAttribute="top" constant="8" id="la8-rl-Ydv"/>
                             <constraint firstItem="V95-T0-HSu" firstAttribute="height" secondItem="EXP-SL-jDg" secondAttribute="height" multiplier="80/896" id="nIZ-cG-t5Z"/>
+                            <constraint firstItem="BAq-3N-SGY" firstAttribute="width" secondItem="WRd-Db-W2R" secondAttribute="width" id="pKT-uo-hib"/>
+                            <constraint firstItem="BAq-3N-SGY" firstAttribute="centerX" secondItem="WRd-Db-W2R" secondAttribute="centerX" id="r12-Rg-q2v"/>
                             <constraint firstItem="MxZ-Vz-Y29" firstAttribute="centerX" secondItem="FYV-L5-zNa" secondAttribute="centerX" id="w1i-lq-IS9"/>
+                            <constraint firstItem="V95-T0-HSu" firstAttribute="top" secondItem="BAq-3N-SGY" secondAttribute="bottom" id="zJl-pt-uHw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WRd-Db-W2R"/>
                     </view>
@@ -101,6 +120,8 @@
                         <outlet property="backToHomeBtn" destination="mOy-tD-sid" id="0D0-Z9-QFC"/>
                         <outlet property="nextStepBtn" destination="HJi-eG-0eB" id="3Kc-Zs-3PO"/>
                         <outlet property="photoMovieTableView" destination="Ai8-mt-WjQ" id="Zkd-Lg-fF3"/>
+                        <outlet property="piggyStudioImageView" destination="BAq-3N-SGY" id="lsq-6Z-1nw"/>
+                        <outlet property="remindLabel" destination="cpD-tm-znX" id="vst-KA-SZg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JKq-6Z-crq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -156,6 +177,7 @@
     <resources>
         <image name="next_icon_left" width="8" height="12"/>
         <image name="next_icon_right" width="8" height="12"/>
+        <image name="piggy_studio" width="414" height="361"/>
         <image name="plus" width="512" height="512"/>
     </resources>
 </document>

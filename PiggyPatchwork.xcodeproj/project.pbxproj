@@ -35,6 +35,7 @@
 		22D526982315460D00F76354 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22D526972315460D00F76354 /* Assets.xcassets */; };
 		22D5269B2315460D00F76354 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22D526992315460D00F76354 /* LaunchScreen.storyboard */; };
 		22D735F52334AAB300AB34F1 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D735F42334AAB300AB34F1 /* Animation.swift */; };
+		22D735F72334BD3A00AB34F1 /* LottieWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D735F62334BD3A00AB34F1 /* LottieWrapper.swift */; };
 		22FE136F232E4205002F7F30 /* Lobby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22FE136E232E4205002F7F30 /* Lobby.storyboard */; };
 		22FE1371232E421C002F7F30 /* PhotoMovie.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22FE1370232E421B002F7F30 /* PhotoMovie.storyboard */; };
 		22FE1373232E5611002F7F30 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE1372232E5611002F7F30 /* UIStoryboard+Extension.swift */; };
@@ -87,6 +88,7 @@
 		22D5269A2315460D00F76354 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22D5269C2315460D00F76354 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22D735F42334AAB300AB34F1 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
+		22D735F62334BD3A00AB34F1 /* LottieWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieWrapper.swift; sourceTree = "<group>"; };
 		22FE136E232E4205002F7F30 /* Lobby.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Lobby.storyboard; sourceTree = "<group>"; };
 		22FE1370232E421B002F7F30 /* PhotoMovie.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhotoMovie.storyboard; sourceTree = "<group>"; };
 		22FE1372232E5611002F7F30 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			children = (
 				22213E4F2333D7E500D24EF0 /* lf30_editor_zyWKdi.json */,
 				22D735F42334AAB300AB34F1 /* Animation.swift */,
+				22D735F62334BD3A00AB34F1 /* LottieWrapper.swift */,
 			);
 			path = LottieAnimation;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 				22FE504A231E78AE00C2C1C1 /* EmoticonCollectionViewCell.swift in Sources */,
 				2205CC922328D24F000682BE /* PushTransition.swift in Sources */,
 				2205CC9C2329F736000682BE /* CanvasView.swift in Sources */,
+				22D735F72334BD3A00AB34F1 /* LottieWrapper.swift in Sources */,
 				2206B7E42318DCC3000B0135 /* UIView+Extension.swift in Sources */,
 				22FE5044231CE89600C2C1C1 /* BackgroundColorCollectionViewCell.swift in Sources */,
 				22FE137E232F3F0E002F7F30 /* PhotoMovieTableViewCell.swift in Sources */,
