@@ -65,7 +65,7 @@ class PhotoMovieViewController: UIViewController {
                                     firstColor: CustomColorCode.PigletPink,
                                     secondColor: CustomColorCode.OrchidPink)
         
-        setupAnimationView(view: animateArrow, name: "lf30_editor_zyWKdi")
+        setupAnimationView(view: animateArrow, name: Lotties.downArrow)
     }
     
     func setupAnimationView(view: AnimationView, name: String) {
@@ -92,6 +92,11 @@ class PhotoMovieViewController: UIViewController {
         photoMovieTableView.deleteRows(at: [indexPath], with: .left)
         
         photoMovieTableView.reloadData()
+        
+        if selectedPhotos == [] {
+                   
+            animateArrow.isHidden = false
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -240,6 +245,11 @@ extension PhotoMovieViewController: OpalImagePickerControllerDelegate {
         }
         
         photoMovieTableView.reloadData()
+        
+        if selectedPhotos != [] {
+            
+            animateArrow.isHidden = true
+        }
         
         dismiss(animated: true, completion: nil)
     }
