@@ -22,6 +22,13 @@
                                 <rect key="frame" x="0.0" y="90" width="414" height="726"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MxZ-Vz-Y29" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="177" y="736" width="60" height="60"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="MxZ-Vz-Y29" secondAttribute="height" multiplier="1:1" id="BgX-af-AOg"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HJi-eG-0eB">
                                 <rect key="frame" x="316" y="52" width="82" height="22"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -69,8 +76,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="MxZ-Vz-Y29" firstAttribute="height" secondItem="EXP-SL-jDg" secondAttribute="height" multiplier="60: 896" id="4Kc-dT-zZv"/>
                             <constraint firstItem="WRd-Db-W2R" firstAttribute="trailing" secondItem="Ai8-mt-WjQ" secondAttribute="trailing" id="6to-wK-nw7"/>
                             <constraint firstAttribute="bottom" secondItem="V95-T0-HSu" secondAttribute="bottom" id="EJb-lc-VY2"/>
+                            <constraint firstItem="FYV-L5-zNa" firstAttribute="top" secondItem="MxZ-Vz-Y29" secondAttribute="bottom" id="KJH-Cr-9QR"/>
                             <constraint firstItem="Ai8-mt-WjQ" firstAttribute="top" secondItem="HJi-eG-0eB" secondAttribute="bottom" constant="16" id="Lwp-bc-RV6"/>
                             <constraint firstItem="WRd-Db-W2R" firstAttribute="trailing" secondItem="V95-T0-HSu" secondAttribute="trailing" id="Owr-h6-wjv"/>
                             <constraint firstItem="V95-T0-HSu" firstAttribute="leading" secondItem="WRd-Db-W2R" secondAttribute="leading" id="PZb-8X-C5Y"/>
@@ -81,12 +90,14 @@
                             <constraint firstItem="HJi-eG-0eB" firstAttribute="centerY" secondItem="mOy-tD-sid" secondAttribute="centerY" id="ivw-hQ-Wzj"/>
                             <constraint firstItem="mOy-tD-sid" firstAttribute="top" secondItem="WRd-Db-W2R" secondAttribute="top" constant="8" id="la8-rl-Ydv"/>
                             <constraint firstItem="V95-T0-HSu" firstAttribute="height" secondItem="EXP-SL-jDg" secondAttribute="height" multiplier="80/896" id="nIZ-cG-t5Z"/>
+                            <constraint firstItem="MxZ-Vz-Y29" firstAttribute="centerX" secondItem="FYV-L5-zNa" secondAttribute="centerX" id="w1i-lq-IS9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WRd-Db-W2R"/>
                     </view>
                     <navigationItem key="navigationItem" id="njo-fO-mGi"/>
                     <connections>
                         <outlet property="addPhotoBtn" destination="FYV-L5-zNa" id="evK-zh-8Np"/>
+                        <outlet property="animateArrow" destination="MxZ-Vz-Y29" id="lkK-OH-8rj"/>
                         <outlet property="backToHomeBtn" destination="mOy-tD-sid" id="0D0-Z9-QFC"/>
                         <outlet property="nextStepBtn" destination="HJi-eG-0eB" id="3Kc-Zs-3PO"/>
                         <outlet property="photoMovieTableView" destination="Ai8-mt-WjQ" id="Zkd-Lg-fF3"/>

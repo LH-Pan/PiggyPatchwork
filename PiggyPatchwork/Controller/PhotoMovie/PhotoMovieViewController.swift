@@ -8,6 +8,7 @@
 
 import UIKit
 import OpalImagePicker
+import Lottie
 
 class PhotoMovieViewController: UIViewController {
     
@@ -47,6 +48,8 @@ class PhotoMovieViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var animateArrow: AnimationView!
+    
     var selectedPhotos: [UIImage] = []
     
     var cellIndexPath: IndexPath?
@@ -61,6 +64,19 @@ class PhotoMovieViewController: UIViewController {
         Gradient.shared.doubleColor(at: view,
                                     firstColor: CustomColorCode.PigletPink,
                                     secondColor: CustomColorCode.OrchidPink)
+        
+        setupAnimationView(view: animateArrow, name: "lf30_editor_zyWKdi")
+    }
+    
+    func setupAnimationView(view: AnimationView, name: String) {
+        
+        view.animation = Animation.named(name)
+        
+        view.animationSpeed = 2
+        
+        view.loopMode = .loop
+        
+        view.play()
     }
     
     func didClickDeleteInCell(_ cell: UITableViewCell) {

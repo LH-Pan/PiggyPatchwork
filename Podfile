@@ -10,5 +10,6 @@ pod 'SwiftLint'
 pod 'JonAlert', '~> 1.0'
 pod 'ColorSlider', '~> 4.4'
 pod 'OpalImagePicker'
+pod 'lottie-ios'
 
 end
