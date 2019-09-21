@@ -15,6 +15,20 @@ class MoviePreviewViewController: UIViewController {
     
     @IBOutlet weak var movieView: UIView!
     
+    @IBOutlet weak var backToPhotoMovieBtn: UIButton! {
+        
+        didSet {
+            
+            backToPhotoMovieBtn.setTitleColor(.hexStringToUIColor(hex: CustomColorCode.OrchidPink),
+                                              for: .normal)
+            backToPhotoMovieBtn.layer.cornerRadius = 10
+        }
+    }
+    
+    @IBOutlet weak var saveMovieView: UIView!
+    
+    @IBOutlet weak var shareToPlatformView: UIView!
+    
     let playerController = AVPlayerViewController()
     
     let player = AVPlayer()
@@ -28,7 +42,12 @@ class MoviePreviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        Gradient.shared.doubleColor(at: view,
+                                    firstColor: CustomColorCode.PigletPink,
+                                    secondColor: CustomColorCode.OrchidPink)
+        
         DispatchQueue.main.async {
+            
             let settings = RenderSettings()
             
             let imageAnimator = ImageAnimator(renderSettings: settings, imagearr: self.moviePhotos)
@@ -36,9 +55,23 @@ class MoviePreviewViewController: UIViewController {
             imageAnimator.delegate = self
             
             imageAnimator.render {
+                
                 self.displayVideo()
             }
         }
+    }
+    
+    func btnAttributes(_ button: UIButton) {
+        
+        button.setTitleColor(.hexStringToUIColor(hex: CustomColorCode.EucalyptusGreen),
+                             for: .normal)
+    }
+    
+    func viewAttributes(_ view: UIView) {
+           
+        view.layer.cornerRadius = 25
+           
+        view.addViewShadow()
     }
     
     func displayVideo() {
@@ -57,9 +90,9 @@ class MoviePreviewViewController: UIViewController {
         
         movieView.addSubview(playerController.view)
         
-            playerController.player = player
+        playerController.player = player
         
-            player.play()
+        player.play()
     }
     
     @IBAction func backToPhotoMovie(_ sender: Any) {

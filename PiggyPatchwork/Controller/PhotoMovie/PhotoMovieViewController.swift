@@ -65,6 +65,11 @@ class PhotoMovieViewController: UIViewController {
                                                        bundle: nil)
         photoMovieTableView.isEditing = true
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         Gradient.shared.doubleColor(at: view,
                                     firstColor: CustomColorCode.PigletPink,
                                     secondColor: CustomColorCode.OrchidPink)
