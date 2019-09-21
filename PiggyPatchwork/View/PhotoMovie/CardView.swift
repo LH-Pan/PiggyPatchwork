@@ -13,7 +13,7 @@ import UIKit
 class CardView: UIView {
     
     override var backgroundColor: UIColor? {
-        
+
         didSet {
             if backgroundColor?.cgColor.alpha == 0 {
                 backgroundColor = oldValue

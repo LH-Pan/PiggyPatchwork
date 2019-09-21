@@ -28,7 +28,9 @@
 		2206B7E42318DCC3000B0135 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2206B7E32318DCC3000B0135 /* UIView+Extension.swift */; };
 		22213E4C2333251A00D24EF0 /* Launching.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22213E4B2333251A00D24EF0 /* Launching.storyboard */; };
 		22213E4E2333604500D24EF0 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22213E4D2333604500D24EF0 /* CardView.swift */; };
-		22213E502333D7E500D24EF0 /* lf30_editor_zyWKdi.json in Resources */ = {isa = PBXBuildFile; fileRef = 22213E4F2333D7E500D24EF0 /* lf30_editor_zyWKdi.json */; };
+		2222166A23350211005F48E1 /* lf30_editor_cv2eEv.json in Resources */ = {isa = PBXBuildFile; fileRef = 2222166923350211005F48E1 /* lf30_editor_cv2eEv.json */; };
+		2222166C23351C8C005F48E1 /* video_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 2222166B23351C8C005F48E1 /* video_animation.json */; };
+		2222F34C2336545A0084FA91 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2222F34B2336545A0084FA91 /* String+Extension.swift */; };
 		22D5268E2315460B00F76354 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D5268D2315460B00F76354 /* AppDelegate.swift */; };
 		22D526932315460B00F76354 /* Collage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22D526912315460B00F76354 /* Collage.storyboard */; };
 		22D526962315460B00F76354 /* PiggyPatchwork.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22D526942315460B00F76354 /* PiggyPatchwork.xcdatamodeld */; };
@@ -79,7 +81,9 @@
 		2206B7E32318DCC3000B0135 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		22213E4B2333251A00D24EF0 /* Launching.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launching.storyboard; sourceTree = "<group>"; };
 		22213E4D2333604500D24EF0 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		22213E4F2333D7E500D24EF0 /* lf30_editor_zyWKdi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lf30_editor_zyWKdi.json; sourceTree = "<group>"; };
+		2222166923350211005F48E1 /* lf30_editor_cv2eEv.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lf30_editor_cv2eEv.json; sourceTree = "<group>"; };
+		2222166B23351C8C005F48E1 /* video_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = video_animation.json; sourceTree = "<group>"; };
+		2222F34B2336545A0084FA91 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		22D5268A2315460B00F76354 /* PiggyPatchwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PiggyPatchwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22D5268D2315460B00F76354 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22D526922315460B00F76354 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Collage.storyboard; sourceTree = "<group>"; };
@@ -198,7 +202,8 @@
 		22213E5323349A2900D24EF0 /* LottieAnimation */ = {
 			isa = PBXGroup;
 			children = (
-				22213E4F2333D7E500D24EF0 /* lf30_editor_zyWKdi.json */,
+				2222166B23351C8C005F48E1 /* video_animation.json */,
+				2222166923350211005F48E1 /* lf30_editor_cv2eEv.json */,
 				22D735F42334AAB300AB34F1 /* Animation.swift */,
 				22D735F62334BD3A00AB34F1 /* LottieWrapper.swift */,
 			);
@@ -297,6 +302,7 @@
 				22FE1372232E5611002F7F30 /* UIStoryboard+Extension.swift */,
 				22FE1381232F3F97002F7F30 /* UITableView+Extension.swift */,
 				2206B7E32318DCC3000B0135 /* UIView+Extension.swift */,
+				2222F34B2336545A0084FA91 /* String+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -448,8 +454,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22213E502333D7E500D24EF0 /* lf30_editor_zyWKdi.json in Resources */,
 				22213E4C2333251A00D24EF0 /* Launching.storyboard in Resources */,
+				2222166C23351C8C005F48E1 /* video_animation.json in Resources */,
 				22FE5048231E77B600C2C1C1 /* EmoticonCollectionViewCell.xib in Resources */,
 				22FE5042231CE86300C2C1C1 /* BackgroundColorCollectionViewCell.xib in Resources */,
 				22D5269B2315460D00F76354 /* LaunchScreen.storyboard in Resources */,
@@ -458,6 +464,7 @@
 				22D526982315460D00F76354 /* Assets.xcassets in Resources */,
 				22FE136F232E4205002F7F30 /* Lobby.storyboard in Resources */,
 				22FE1371232E421C002F7F30 /* PhotoMovie.storyboard in Resources */,
+				2222166A23350211005F48E1 /* lf30_editor_cv2eEv.json in Resources */,
 				22D526932315460B00F76354 /* Collage.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -557,6 +564,7 @@
 				2205CC902326A700000682BE /* Gradient.swift in Sources */,
 				22FE138A2332025B002F7F30 /* MoviePreviewViewController.swift in Sources */,
 				2203840023165860003C285B /* UIImage+Extension.swift in Sources */,
+				2222F34C2336545A0084FA91 /* String+Extension.swift in Sources */,
 				22D526962315460B00F76354 /* PiggyPatchwork.xcdatamodeld in Sources */,
 				2205CCC1232A92E2000682BE /* StrokeLine.swift in Sources */,
 				220383FE231657E8003C285B /* UIColor+Extension.swift in Sources */,
@@ -713,7 +721,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CL27H452FX;
 				INFOPLIST_FILE = PiggyPatchwork/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -733,7 +741,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CL27H452FX;
 				INFOPLIST_FILE = PiggyPatchwork/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -10,5 +10,7 @@ import UIKit
 
 struct Lotties {
     
-    static let downArrow = "lf30_editor_zyWKdi"
+    static let downArrow = "lf30_editor_cv2eEv"
+    
+    static let videoMaking = "video_animation"
 }

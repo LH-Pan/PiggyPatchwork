@@ -104,17 +104,30 @@ class PhotoMovieViewController: UIViewController {
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    @IBAction func nextStep(_ sender: Any) {
         
+        if selectedPhotos == [] {
+                 
+            PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.error_mark),
+                                         message: "目前沒有任何照片！")
+            return
+        }
+            
         guard
-            let moviePreviewVC = segue.destination as? MoviePreviewViewController
+            let moviePreviewVC = storyboard?.instantiateViewController(
+                withIdentifier: "moviePreview"
+        ) as? MoviePreviewViewController
+
         else {
             return
         }
-        
+
         moviePreviewVC.moviePhotos = selectedPhotos
+
+        show(moviePreviewVC, sender: sender)
+        
     }
-    
+
     @IBAction func addPhotos(_ sender: Any) {
         
         showMyAlbum()

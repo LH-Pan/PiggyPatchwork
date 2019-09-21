@@ -589,6 +589,14 @@ extension CollageViewController: OpalImagePickerControllerDelegate {
             
             imagePicker.maximumSelectionsAllowed = 1
             
+            let configuration = OpalImagePickerConfiguration()
+                       
+            let message = "無法選取超過 \(imagePicker.maximumSelectionsAllowed) 張照片哦！"
+                       
+            configuration.maximumSelectionsAllowedMessage = message
+                       
+            imagePicker.configuration = configuration
+            
             present(imagePicker, animated: true, completion: {
                 
                 if subviews != nil {

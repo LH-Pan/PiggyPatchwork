@@ -21,7 +21,7 @@ class MoviePreviewViewController: UIViewController {
     
     var looper: AVPlayerLooper?
     
-    var movieUrl: String = ""
+    var movieUrl: String = .empty
     
     var moviePhotos: [UIImage] = []
     
@@ -60,6 +60,11 @@ class MoviePreviewViewController: UIViewController {
             playerController.player = player
         
             player.play()
+    }
+    
+    @IBAction func backToPhotoMovie(_ sender: Any) {
+        
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func saveMovie(_ sender: Any) {
