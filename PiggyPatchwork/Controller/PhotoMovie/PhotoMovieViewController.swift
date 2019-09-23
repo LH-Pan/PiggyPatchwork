@@ -9,6 +9,7 @@
 import UIKit
 import OpalImagePicker
 import Lottie
+import Photos
 
 class PhotoMovieViewController: UIViewController {
     
@@ -231,29 +232,35 @@ extension PhotoMovieViewController: UITableViewDelegate {
 extension PhotoMovieViewController: OpalImagePickerControllerDelegate {
     
     func showMyAlbum() {
-        
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary) {
             
-            let imagePicker = OpalImagePickerController()
+        PHPhotoLibrary.requestAuthorization { [weak self] (staus) in
             
-            imagePicker.imagePickerDelegate = self
-            
-            imagePicker.maximumSelectionsAllowed = 10
-            
-            let configuration = OpalImagePickerConfiguration()
-            
-            let message = "無法選取超過 \(imagePicker.maximumSelectionsAllowed) 張照片哦！"
-            
-            configuration.maximumSelectionsAllowedMessage = message
-            
-            imagePicker.configuration = configuration
-            
-            present(imagePicker, animated: true, completion: nil)
-            
-        } else {
-            
-            PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.error_mark),
-                                         message: "無法讀取相簿 Σ(ﾟдﾟ)")
+            DispatchQueue.main.async {
+                
+                if staus == .authorized {
+                        
+                    let imagePicker = OpalImagePickerController()
+                        
+                    imagePicker.imagePickerDelegate = self
+                        
+                    imagePicker.maximumSelectionsAllowed = 10
+                    
+                    let configuration = OpalImagePickerConfiguration()
+                        
+                    let message = "無法選取超過 \(imagePicker.maximumSelectionsAllowed) 張照片哦！"
+                        
+                    configuration.maximumSelectionsAllowedMessage = message
+                        
+                    imagePicker.configuration = configuration
+                        
+                    self?.present(imagePicker, animated: true, completion: nil)
+                        
+                } else {
+                        
+                    PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.error_mark),
+                                                 message: "無法讀取相簿 Σ(ﾟдﾟ)，請在「設定」中授與權限")
+                }
+            }
         }
     }
     

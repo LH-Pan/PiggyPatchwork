@@ -10,6 +10,7 @@ import UIKit
 import Vision
 import AVFoundation
 import OpalImagePicker
+import Photos
 
 class CollageViewController: UIViewController {
     
@@ -581,45 +582,50 @@ extension CollageViewController: OpalImagePickerControllerDelegate {
     func showMyAlbum(subviews: [UIView]?,
                      sublayers: [CALayer]?) {
         
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary) {
-        
-            let imagePicker = OpalImagePickerController()
+        PHPhotoLibrary.requestAuthorization { [weak self] (status) in
             
-            imagePicker.imagePickerDelegate = self
-            
-            imagePicker.maximumSelectionsAllowed = 1
-            
-            let configuration = OpalImagePickerConfiguration()
-                       
-            let message = "無法選取超過 \(imagePicker.maximumSelectionsAllowed) 張照片哦！"
-                       
-            configuration.maximumSelectionsAllowedMessage = message
-                       
-            imagePicker.configuration = configuration
-            
-            present(imagePicker, animated: true, completion: {
+            DispatchQueue.main.async {
                 
-                if subviews != nil {
+                if status == .authorized {
                     
-                    for subview in subviews! {
-                        
-                        subview.removeFromSuperview()
-                    }
-                }
-                
-                if sublayers != nil {
+                    let imagePicker = OpalImagePickerController()
                     
-                    for sublayer in sublayers! {
+                    imagePicker.imagePickerDelegate = self
+                    
+                    imagePicker.maximumSelectionsAllowed = 1
+                    
+                    let configuration = OpalImagePickerConfiguration()
+                               
+                    let message = "無法選取超過 \(imagePicker.maximumSelectionsAllowed) 張照片哦！"
+                               
+                    configuration.maximumSelectionsAllowedMessage = message
+                               
+                    imagePicker.configuration = configuration
+                    
+                    self?.present(imagePicker, animated: true, completion: {
                         
-                        sublayer.removeFromSuperlayer()
-                    }
+                        if subviews != nil {
+                            
+                            for subview in subviews! {
+                                
+                                subview.removeFromSuperview()
+                            }
+                        }
+                        
+                        if sublayers != nil {
+                            
+                            for sublayer in sublayers! {
+                                
+                                sublayer.removeFromSuperlayer()
+                            }
+                        }
+                    })
+                } else {
+                    
+                    PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.error_mark),
+                                                 message: "無法讀取相簿 Σ(ﾟдﾟ)，請在「設定」中授與權限")
                 }
-            })
-            
-        } else {
-            
-            PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.error_mark),
-                                         message: "無法讀取相簿 Σ(ﾟдﾟ)")
+            }
         }
     }
     

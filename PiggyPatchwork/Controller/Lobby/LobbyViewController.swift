@@ -8,6 +8,7 @@
 
 import UIKit
 import OpalImagePicker
+import Photos
 
 class LobbyViewController: UIViewController {
     
@@ -39,18 +40,29 @@ extension LobbyViewController: OpalImagePickerControllerDelegate {
     
     func showMyAlbum() {
         
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary) {
+        PHPhotoLibrary.requestAuthorization { [weak self] (status) in
             
-            let imagePicker = OpalImagePickerController()
-            
-            imagePicker.imagePickerDelegate = self
+            DispatchQueue.main.async {
                 
-            present(imagePicker, animated: true, completion: nil)
-        
-        } else {
-
-            PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.error_mark),
-                                         message: "無法讀取相簿 Σ(ﾟдﾟ)")
+                if status == .authorized {
+                    
+                    let imagePicker = OpalImagePickerController()
+                               
+                    imagePicker.imagePickerDelegate = self
+                                   
+                    self?.present(imagePicker, animated: true, completion: nil)
+                    
+                } else {
+                    
+                    PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.error_mark),
+                                                 message: "無法讀取相簿 Σ(ﾟдﾟ)，請在「設定」中授與權限")
+                }
+            }
         }
+    }
+    
+    func imagePicker(_ picker: OpalImagePickerController, didFinishPickingImages images: [UIImage]) {
+        
+        picker.dismiss(animated: true, completion: nil)
     }
 }
