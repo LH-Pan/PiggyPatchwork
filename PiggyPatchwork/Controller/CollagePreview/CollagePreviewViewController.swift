@@ -45,9 +45,7 @@ class CollagePreviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupView()
-        
-        setupButton()
+        setupButtonView()
         
         previewImageView.image = storageImage
     }
@@ -62,28 +60,13 @@ class CollagePreviewViewController: UIViewController {
                                     secondColor: CustomColorCode.OrchidPink)
     }
     
-    func setupButton() {
-        
-        btnAttributes(editBtn)
-        
-        btnAttributes(savePhotoBtn)
-        
-        btnAttributes(shareToPlatformBtn)
-    }
-    
-    func setupView() {
+    func setupButtonView() {
         
         viewAttributes(editView)
         
         viewAttributes(savePhotoView)
         
         viewAttributes(shareToPlatformView)
-    }
-    
-    func btnAttributes(_ button: UIButton) {
-        
-        button.setTitleColor(.hexStringToUIColor(hex: CustomColorCode.EucalyptusGreen),
-                             for: .normal)
     }
     
     func viewAttributes(_ view: UIView) {
@@ -126,7 +109,7 @@ class CollagePreviewViewController: UIViewController {
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
         
         PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.tick_mark),
-                                     message: "照片已儲存至相簿囉 ♥")
+                                     message: "照片已儲存 (*´∀`)~♥")
         
         navigationController?.popToRootViewController(animated: true)
 //        navigationController?.popViewController(animated: true)

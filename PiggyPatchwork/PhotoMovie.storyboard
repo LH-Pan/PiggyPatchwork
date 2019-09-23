@@ -135,7 +135,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="film" translatesAutoresizingMaskIntoConstraints="NO" id="KUQ-ts-IbI">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="film_view" translatesAutoresizingMaskIntoConstraints="NO" id="KUQ-ts-IbI">
                                 <rect key="frame" x="0.0" y="123.66666666666669" width="414" height="357"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="KUQ-ts-IbI" secondAttribute="height" multiplier="138:119" id="8dA-Ba-OKh"/>
@@ -153,6 +153,13 @@
                                     <action selector="backToPhotoMovie:" destination="Rw4-0u-qCx" eventType="touchUpInside" id="ktb-fa-SDY"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DrG-vc-ijB" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="117" y="212" width="180" height="180"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="DrG-vc-ijB" secondAttribute="height" id="KWh-bu-UDs"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8he-oD-2ih">
                                 <rect key="frame" x="32" y="149" width="350" height="306"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -162,16 +169,78 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0cX-Wo-aaT">
                                 <rect key="frame" x="75" y="557.33333333333337" width="264" height="50"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="film" translatesAutoresizingMaskIntoConstraints="NO" id="eLe-P3-iFc">
+                                        <rect key="frame" x="20" y="16" width="18" height="18"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="18" id="1Km-Sp-njV"/>
+                                            <constraint firstAttribute="height" constant="18" id="LiJ-Ei-oX0"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Idz-Nb-29p">
+                                        <rect key="frame" x="53" y="0.0" width="181" height="50"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="儲存影片">
+                                                    <attributes>
+                                                        <color key="NSColor" red="0.52156862745098043" green="0.81176470588235294" blue="0.70588235294117641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <font key="NSFont" size="15" name=".PingFangTC-Regular"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <action selector="saveMovie:" destination="Rw4-0u-qCx" eventType="touchUpInside" id="VlJ-DT-LLb"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="Idz-Nb-29p" firstAttribute="top" secondItem="0cX-Wo-aaT" secondAttribute="top" id="1ZQ-8v-x0k"/>
+                                    <constraint firstItem="eLe-P3-iFc" firstAttribute="leading" secondItem="0cX-Wo-aaT" secondAttribute="leading" constant="20" id="44x-fF-cpw"/>
+                                    <constraint firstItem="eLe-P3-iFc" firstAttribute="centerY" secondItem="0cX-Wo-aaT" secondAttribute="centerY" id="DeK-LL-COo"/>
                                     <constraint firstAttribute="height" constant="50" id="Ecs-Mf-aug"/>
+                                    <constraint firstItem="Idz-Nb-29p" firstAttribute="centerY" secondItem="0cX-Wo-aaT" secondAttribute="centerY" id="NaW-V9-hJa"/>
+                                    <constraint firstAttribute="trailing" secondItem="Idz-Nb-29p" secondAttribute="trailing" constant="30" id="dWg-JB-arD"/>
+                                    <constraint firstItem="Idz-Nb-29p" firstAttribute="leading" secondItem="eLe-P3-iFc" secondAttribute="trailing" constant="15" id="j8n-nZ-oYS"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="noS-IG-kx2">
                                 <rect key="frame" x="75" y="709.66666666666663" width="264" height="50"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share" translatesAutoresizingMaskIntoConstraints="NO" id="jlr-EG-Mig">
+                                        <rect key="frame" x="20" y="16" width="18" height="18"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="18" id="733-pQ-qhZ"/>
+                                            <constraint firstAttribute="width" constant="18" id="SF3-OW-gvR"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NY0-Xo-258">
+                                        <rect key="frame" x="53" y="0.0" width="181" height="50"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="分享至社群">
+                                                    <attributes>
+                                                        <color key="NSColor" red="0.52156862745098043" green="0.81176470588235294" blue="0.70588235294117641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <font key="NSFont" size="15" name=".PingFangTC-Regular"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <action selector="shareToPlatform:" destination="Rw4-0u-qCx" eventType="touchUpInside" id="9zL-B9-hTo"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="NY0-Xo-258" firstAttribute="centerY" secondItem="jlr-EG-Mig" secondAttribute="centerY" id="0il-Uj-7vy"/>
                                     <constraint firstAttribute="height" constant="50" id="9p3-ic-TxD"/>
+                                    <constraint firstItem="NY0-Xo-258" firstAttribute="top" secondItem="noS-IG-kx2" secondAttribute="top" id="DaV-cD-M20"/>
+                                    <constraint firstItem="jlr-EG-Mig" firstAttribute="centerY" secondItem="noS-IG-kx2" secondAttribute="centerY" id="Lob-LN-fbc"/>
+                                    <constraint firstItem="jlr-EG-Mig" firstAttribute="leading" secondItem="noS-IG-kx2" secondAttribute="leading" constant="20" id="N60-Oa-fS9"/>
+                                    <constraint firstAttribute="trailing" secondItem="NY0-Xo-258" secondAttribute="trailing" constant="30" id="XTf-xF-RG3"/>
+                                    <constraint firstItem="NY0-Xo-258" firstAttribute="leading" secondItem="jlr-EG-Mig" secondAttribute="trailing" constant="15" id="yZs-kz-XoS"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4dy-kS-FWE">
@@ -189,6 +258,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.81568627449999997" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="DrG-vc-ijB" firstAttribute="centerY" secondItem="KUQ-ts-IbI" secondAttribute="centerY" id="17Y-CO-0p1"/>
                             <constraint firstItem="FaZ-Bm-RwY" firstAttribute="leading" secondItem="Njh-k4-5HJ" secondAttribute="leading" constant="16" id="2OS-r1-jv0"/>
                             <constraint firstItem="lpF-EB-uL9" firstAttribute="leading" secondItem="Njh-k4-5HJ" secondAttribute="leading" constant="75" id="2Vw-hW-pG0"/>
                             <constraint firstItem="Njh-k4-5HJ" firstAttribute="trailing" secondItem="0cX-Wo-aaT" secondAttribute="trailing" constant="75" id="33z-bO-rkW"/>
@@ -202,9 +272,11 @@
                             <constraint firstItem="KUQ-ts-IbI" firstAttribute="centerX" secondItem="Njh-k4-5HJ" secondAttribute="centerX" id="NsE-DM-5Pr"/>
                             <constraint firstItem="KUQ-ts-IbI" firstAttribute="width" secondItem="Njh-k4-5HJ" secondAttribute="width" id="OFR-YV-jiV"/>
                             <constraint firstItem="4dy-kS-FWE" firstAttribute="centerX" secondItem="Njh-k4-5HJ" secondAttribute="centerX" id="QCg-dQ-ovf"/>
+                            <constraint firstItem="DrG-vc-ijB" firstAttribute="height" secondItem="KUQ-ts-IbI" secondAttribute="height" multiplier="180:357" id="Ufc-1u-Tgy"/>
                             <constraint firstItem="va7-GL-iRY" firstAttribute="top" secondItem="noS-IG-kx2" secondAttribute="bottom" id="aHz-H1-Sa2"/>
                             <constraint firstItem="va7-GL-iRY" firstAttribute="height" secondItem="4dy-kS-FWE" secondAttribute="height" id="avz-XF-aif"/>
                             <constraint firstItem="4dy-kS-FWE" firstAttribute="height" secondItem="lpF-EB-uL9" secondAttribute="height" id="cH6-mg-tJ2"/>
+                            <constraint firstItem="DrG-vc-ijB" firstAttribute="centerX" secondItem="KUQ-ts-IbI" secondAttribute="centerX" id="gny-Ur-tLE"/>
                             <constraint firstItem="Njh-k4-5HJ" firstAttribute="trailing" secondItem="lpF-EB-uL9" secondAttribute="trailing" constant="75" id="iJW-Gt-sXM"/>
                             <constraint firstItem="va7-GL-iRY" firstAttribute="leading" secondItem="Njh-k4-5HJ" secondAttribute="leading" constant="75" id="iNe-zc-8xI"/>
                             <constraint firstItem="Njh-k4-5HJ" firstAttribute="trailing" secondItem="noS-IG-kx2" secondAttribute="trailing" constant="75" id="j5I-cY-Ii4"/>
@@ -221,9 +293,12 @@
                     </view>
                     <connections>
                         <outlet property="backToPhotoMovieBtn" destination="FaZ-Bm-RwY" id="IQh-bG-eU9"/>
+                        <outlet property="loadingView" destination="DrG-vc-ijB" id="m9I-WW-N1M"/>
                         <outlet property="movieView" destination="8he-oD-2ih" id="Hqh-hf-4Wf"/>
+                        <outlet property="saveMovieBtn" destination="Idz-Nb-29p" id="o60-5X-pae"/>
                         <outlet property="saveMovieView" destination="0cX-Wo-aaT" id="W69-0X-UPC"/>
-                        <outlet property="shareToPlatformView" destination="noS-IG-kx2" id="JqU-Hh-R94"/>
+                        <outlet property="shareToPlatformBtn" destination="NY0-Xo-258" id="eDJ-p0-w1B"/>
+                        <outlet property="shareToPlatformView" destination="noS-IG-kx2" id="jS2-y3-Dfm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ecc-1n-v1U" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -232,10 +307,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="film" width="414" height="306"/>
+        <image name="film" width="512" height="512"/>
+        <image name="film_view" width="414" height="306"/>
         <image name="next_icon_left" width="8" height="12"/>
         <image name="next_icon_right" width="8" height="12"/>
         <image name="piggy_studio" width="414" height="361"/>
         <image name="plus" width="512" height="512"/>
+        <image name="share" width="512" height="504"/>
     </resources>
 </document>
