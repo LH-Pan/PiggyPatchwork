@@ -42,7 +42,7 @@ class LobbyViewController: UIViewController {
         semicircleView.layer.cornerRadius = semicircleView.frame.width / 2
   
     }
-    
+
     func setupButtonView() {
         
         viewAttributes(goToCollageView)
@@ -76,6 +76,13 @@ class LobbyViewController: UIViewController {
     @IBAction func showAlbum(_ sender: Any) {
         
         showMyAlbum()
+    }
+    
+    @IBAction func showPravicyPolicy(_ sender: Any) {
+        
+        if let privacyViewController = UIStoryboard.privacy.instantiateInitialViewController() {
+            show(privacyViewController, sender: sender)
+        }
     }
 }
 

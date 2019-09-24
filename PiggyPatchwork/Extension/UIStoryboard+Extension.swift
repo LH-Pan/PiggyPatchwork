@@ -15,6 +15,8 @@ struct StoryboardCategory {
     static let lobby = "Lobby"
     
     static let photoMovie = "PhotoMovie"
+    
+    static let privacy = "Pravicy"
 }
 
 extension UIStoryboard {
@@ -24,6 +26,8 @@ extension UIStoryboard {
     static var lobby: UIStoryboard { return setStoryboard(name: StoryboardCategory.lobby) }
     
     static var photoMovie: UIStoryboard { return setStoryboard(name: StoryboardCategory.photoMovie) }
+    
+    static var privacy: UIStoryboard { return setStoryboard(name: StoryboardCategory.privacy) }
     
     private static func setStoryboard(name: String) -> UIStoryboard {
         

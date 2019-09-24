@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sBu-rA-tBZ">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Privacy View Controller-->
+        <scene sceneID="4K3-Jd-kQP">
+            <objects>
+                <viewController id="sBu-rA-tBZ" customClass="PrivacyViewController" customModule="PiggyPatchwork" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="e8f-gk-LHb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pqy-Rd-mb3">
+                                <rect key="frame" x="0.0" y="82" width="414" height="780"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDJ-Z3-z9s">
+                                <rect key="frame" x="363" y="44" width="31" height="30"/>
+                                <state key="normal" title="關閉">
+                                    <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="backToHomePage:" destination="sBu-rA-tBZ" eventType="touchUpInside" id="Lgu-qu-95o"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="OHv-kw-Uv9">
+                                <rect key="frame" x="188.5" y="453.5" width="37" height="37"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="OHv-kw-Uv9" firstAttribute="centerY" secondItem="Pqy-Rd-mb3" secondAttribute="centerY" id="1Et-8v-7Gq"/>
+                            <constraint firstItem="rCE-5k-N9f" firstAttribute="trailing" secondItem="Pqy-Rd-mb3" secondAttribute="trailing" id="93Q-FP-FGd"/>
+                            <constraint firstItem="rCE-5k-N9f" firstAttribute="bottom" secondItem="Pqy-Rd-mb3" secondAttribute="bottom" id="IWe-hD-9nR"/>
+                            <constraint firstItem="EDJ-Z3-z9s" firstAttribute="top" secondItem="rCE-5k-N9f" secondAttribute="top" id="Pai-Va-Pxd"/>
+                            <constraint firstItem="OHv-kw-Uv9" firstAttribute="centerX" secondItem="Pqy-Rd-mb3" secondAttribute="centerX" id="PiJ-eJ-Ffc"/>
+                            <constraint firstItem="Pqy-Rd-mb3" firstAttribute="top" secondItem="EDJ-Z3-z9s" secondAttribute="bottom" constant="8" id="QjF-cB-rPy"/>
+                            <constraint firstItem="Pqy-Rd-mb3" firstAttribute="leading" secondItem="rCE-5k-N9f" secondAttribute="leading" id="gJS-3T-psa"/>
+                            <constraint firstItem="rCE-5k-N9f" firstAttribute="trailing" secondItem="EDJ-Z3-z9s" secondAttribute="trailing" constant="20" id="h9v-bO-Zn5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rCE-5k-N9f"/>
+                    </view>
+                    <connections>
+                        <outlet property="myActivityIndicatior" destination="OHv-kw-Uv9" id="YNw-cW-T5f"/>
+                        <outlet property="myWebView" destination="Pqy-Rd-mb3" id="dQy-NG-jc2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L0j-AJ-1Eo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-49" y="163"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,12 +1,80 @@
 PODS:
   - ColorSlider (4.4)
+  - Crashlytics (3.14.0):
+    - Fabric (~> 1.10.2)
+  - Fabric (1.10.2)
+  - Firebase/Core (6.6.0):
+    - Firebase/CoreOnly
+    - FirebaseAnalytics (= 6.1.0)
+  - Firebase/CoreOnly (6.6.0):
+    - FirebaseCore (= 6.2.0)
+  - FirebaseAnalytics (6.1.0):
+    - FirebaseCore (~> 6.2)
+    - FirebaseInstanceID (~> 4.2)
+    - GoogleAppMeasurement (= 6.1.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
+    - GoogleUtilities/MethodSwizzler (~> 6.0)
+    - GoogleUtilities/Network (~> 6.0)
+    - "GoogleUtilities/NSData+zlib (~> 6.0)"
+    - nanopb (~> 0.3)
+  - FirebaseCore (6.2.0):
+    - FirebaseCoreDiagnostics (~> 1.0)
+    - FirebaseCoreDiagnosticsInterop (~> 1.0)
+    - GoogleUtilities/Environment (~> 6.2)
+    - GoogleUtilities/Logger (~> 6.2)
+  - FirebaseCoreDiagnostics (1.0.1):
+    - FirebaseCoreDiagnosticsInterop (~> 1.0)
+    - GoogleDataTransportCCTSupport (~> 1.0)
+    - GoogleUtilities/Environment (~> 6.2)
+    - GoogleUtilities/Logger (~> 6.2)
+  - FirebaseCoreDiagnosticsInterop (1.0.0)
+  - FirebaseInstanceID (4.2.3):
+    - FirebaseCore (~> 6.0)
+    - GoogleUtilities/Environment (~> 6.0)
+    - GoogleUtilities/UserDefaults (~> 6.0)
+  - GoogleAppMeasurement (6.1.0):
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
+    - GoogleUtilities/MethodSwizzler (~> 6.0)
+    - GoogleUtilities/Network (~> 6.0)
+    - "GoogleUtilities/NSData+zlib (~> 6.0)"
+    - nanopb (~> 0.3)
+  - GoogleDataTransport (1.1.0)
+  - GoogleDataTransportCCTSupport (1.0.1):
+    - GoogleDataTransport (~> 1.1)
+    - nanopb
+  - GoogleUtilities/AppDelegateSwizzler (6.2.4):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (6.2.4)
+  - GoogleUtilities/Logger (6.2.4):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (6.2.4):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/Network (6.2.4):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (6.2.4)"
+  - GoogleUtilities/Reachability (6.2.4):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/UserDefaults (6.2.4):
+    - GoogleUtilities/Logger
   - JonAlert (1.0.0)
   - lottie-ios (3.1.2)
+  - nanopb (0.3.901):
+    - nanopb/decode (= 0.3.901)
+    - nanopb/encode (= 0.3.901)
+  - nanopb/decode (0.3.901)
+  - nanopb/encode (0.3.901)
   - OpalImagePicker (2.1.0)
   - SwiftLint (0.34.0)
 
 DEPENDENCIES:
   - ColorSlider (~> 4.4)
+  - Crashlytics (~> 3.14.0)
+  - Fabric (~> 1.10.2)
+  - Firebase/Core
   - JonAlert (~> 1.0)
   - lottie-ios
   - OpalImagePicker
@@ -15,18 +83,44 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - ColorSlider
+    - Crashlytics
+    - Fabric
+    - Firebase
+    - FirebaseAnalytics
+    - FirebaseCore
+    - FirebaseCoreDiagnostics
+    - FirebaseCoreDiagnosticsInterop
+    - FirebaseInstanceID
+    - GoogleAppMeasurement
+    - GoogleDataTransport
+    - GoogleDataTransportCCTSupport
+    - GoogleUtilities
     - JonAlert
     - lottie-ios
+    - nanopb
     - OpalImagePicker
     - SwiftLint
 
 SPEC CHECKSUMS:
   ColorSlider: 9a888e65b871fa1e6a26fadebf4931c949935681
+  Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
+  Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
+  Firebase: a2b5951f30ff38fd3b3bdae9c7d340f940fd3c51
+  FirebaseAnalytics: 48414ae5cbf6976d8a2f7177e0466540e5ab33ce
+  FirebaseCore: 8c9e08bce0c72a3affd83927d8184cf244918bc8
+  FirebaseCoreDiagnostics: 4c04ae09d0ab027c30179828c6bb47764df1bd13
+  FirebaseCoreDiagnosticsInterop: 6829da2b8d1fc795ff1bd99df751d3788035d2cb
+  FirebaseInstanceID: 8b42755db950682e7de0d167bc6fb26a57b244af
+  GoogleAppMeasurement: 47285fa897e5a125df56b9ef8750a1d81e4598a8
+  GoogleDataTransport: b0115dbdf1943c998628dca30800ddd263aaa166
+  GoogleDataTransportCCTSupport: 3451e7d8ba19093e533362a6d78d6d9014c6a037
+  GoogleUtilities: 64b5e3982b1b01bda26712affd5c523ef32563cf
   JonAlert: a83b374ccbf1a14aeb25537d5a3cbe957aac1c2b
   lottie-ios: 49cd85b1f24f61a7708ad7ec76a523ab2d0e3100
+  nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   OpalImagePicker: 40e9d4c27018538a704d8da34b2ff3a2a54a3dc8
   SwiftLint: 79d48a17c6565dc286c37efb8322c7b450f95c67
 
-PODFILE CHECKSUM: d5a84563230c483fa43fe91d72f9911d29d965b8
+PODFILE CHECKSUM: f465dcb80489f5e84a342b0d0a1e4c21cb106fa7
 
 COCOAPODS: 1.7.4
