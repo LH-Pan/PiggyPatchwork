@@ -56,8 +56,8 @@ class CollagePreviewViewController: UIViewController {
         self.navigationController?.delegate = self
         
         Gradient.shared.doubleColor(at: view,
-                                    firstColor: CustomColorCode.PigletPink,
-                                    secondColor: CustomColorCode.OrchidPink)
+                                    firstColorCode: CustomColorCode.PigletPink,
+                                    secondColorCode: CustomColorCode.OrchidPink)
     }
     
     func setupButtonView() {
@@ -71,7 +71,7 @@ class CollagePreviewViewController: UIViewController {
     
     func viewAttributes(_ view: UIView) {
         
-        view.layer.cornerRadius = 25
+        view.layer.cornerRadius = 25 / 414 * UIScreen.width
         
         view.addViewShadow()
     }
@@ -112,7 +112,6 @@ class CollagePreviewViewController: UIViewController {
                                      message: "照片已儲存 (*´∀`)~♥")
         
         navigationController?.popToRootViewController(animated: true)
-//        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func shareToPlatform(_ sender: Any) {

@@ -15,13 +15,13 @@ class Gradient {
     let gradientLayer = CAGradientLayer()
     
     func doubleColor(at view: UIView,
-                     firstColor: String,
-                     secondColor: String ) {
+                     firstColorCode: String,
+                     secondColorCode: String ) {
         
         gradientLayer.frame = view.bounds
         
-        gradientLayer.colors = [UIColor.hexStringToUIColor(hex: firstColor).cgColor,
-                                UIColor.hexStringToUIColor(hex: secondColor).cgColor
+        gradientLayer.colors = [UIColor.hexStringToUIColor(hex: firstColorCode).cgColor,
+                                UIColor.hexStringToUIColor(hex: secondColorCode).cgColor
         ]
         
         view.layer.insertSublayer(gradientLayer, at: 0)

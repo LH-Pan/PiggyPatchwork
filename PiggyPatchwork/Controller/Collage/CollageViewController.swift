@@ -105,8 +105,8 @@ class CollageViewController: UIViewController {
         super.viewWillAppear(animated)
         
         Gradient.shared.doubleColor(at: view,
-                                    firstColor: CustomColorCode.PigletPink,
-                                    secondColor: CustomColorCode.OrchidPink)
+                                    firstColorCode: CustomColorCode.PigletPink,
+                                    secondColorCode: CustomColorCode.OrchidPink)
     }
     
     // MARK: Private method
@@ -623,7 +623,7 @@ extension CollageViewController: OpalImagePickerControllerDelegate {
                 } else {
                     
                     PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.error_mark),
-                                                 message: "無法讀取相簿 Σ(ﾟдﾟ)，請在「設定」中授與權限")
+                                                 message: "無法讀取相簿，請在「設定」中授與權限")
                 }
             }
         }

@@ -9,11 +9,54 @@
 import UIKit
 import OpalImagePicker
 import Photos
+import Lottie
 
 class LobbyViewController: UIViewController {
     
+    @IBOutlet weak var semicircleView: UIView!
+    
+    @IBOutlet weak var goToCollageView: UIView!
+    
+    @IBOutlet weak var makeMovieView: UIView!
+    
+    @IBOutlet weak var showAlbumView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupButtonView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        Gradient.shared.doubleColor(at: view,
+                                    firstColorCode: CustomColorCode.PigletPink,
+                                    secondColorCode: CustomColorCode.OrchidPink)
+
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        semicircleView.layer.cornerRadius = semicircleView.frame.width / 2
+  
+    }
+    
+    func setupButtonView() {
+        
+        viewAttributes(goToCollageView)
+        
+        viewAttributes(makeMovieView)
+        
+        viewAttributes(showAlbumView)
+    }
+    
+    func viewAttributes(_ view: UIView) {
+        
+        view.layer.cornerRadius = 25 / 414 * UIScreen.width
+        
+        view.addViewShadow()
     }
     
     @IBAction func goToCollage(_ sender: Any) {
@@ -55,7 +98,7 @@ extension LobbyViewController: OpalImagePickerControllerDelegate {
                 } else {
                     
                     PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.error_mark),
-                                                 message: "無法讀取相簿 Σ(ﾟдﾟ)，請在「設定」中授與權限")
+                                                 message: "無法讀取相簿，請在「設定」中授與權限")
                 }
             }
         }

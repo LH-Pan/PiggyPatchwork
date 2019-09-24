@@ -79,8 +79,8 @@ class CanvasViewController: UIViewController {
         self.navigationController?.delegate = self
         
         Gradient.shared.doubleColor(at: view,
-                                    firstColor: CustomColorCode.PigletPink,
-                                    secondColor: CustomColorCode.OrchidPink)
+                                    firstColorCode: CustomColorCode.PigletPink,
+                                    secondColorCode: CustomColorCode.OrchidPink)
     }
     
     func setupCanvas(canvas: Canvas, on view: UIView) {
