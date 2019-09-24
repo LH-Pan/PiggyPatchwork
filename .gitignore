@@ -1,2 +1,12 @@
 ### Firebase ###
 GoogleService-Info.plist
+
+### Storyboard ###
+xcuserdata/
+
+### CocoaPods ###
+Pods/
+
+### macOS ###
+# General
+.DS_Store
