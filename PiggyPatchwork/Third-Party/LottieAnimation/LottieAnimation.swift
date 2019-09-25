@@ -15,6 +15,4 @@ struct Lotties {
     static let videoMaking = "video_animation"
     
     static let loading = "loading"
-    
-    static let dancingPig = "dancing_pig"
 }

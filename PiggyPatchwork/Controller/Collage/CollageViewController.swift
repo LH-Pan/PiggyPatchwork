@@ -75,7 +75,8 @@ class CollageViewController: UIViewController {
     
     let faceEmoticon: [FaceEmoticon] = [.funny, .doNotThinkSo]
     
-    let prototypeLayout: [Layoutable] = [DoubleVerticle(), DoubleHorizontal()]
+    let prototypeLayout: [Layoutable] = [DoubleVerticle(), DoubleHorizontal(), TripleVertical(),
+                                         TripleHorizontal(), QuadraSquare()]
     
     let faceImageLayout: Layoutable = SingleSquare()
     
@@ -104,9 +105,9 @@ class CollageViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        Gradient.shared.doubleColor(at: view,
-                                    firstColorCode: CustomColorCode.PigletPink,
-                                    secondColorCode: CustomColorCode.OrchidPink)
+        Gradient.doubleColor(at: view,
+                             firstColorCode: CustomColorCode.PigletPink,
+                             secondColorCode: CustomColorCode.OrchidPink)
     }
     
     // MARK: Private method
@@ -368,6 +369,14 @@ extension CollageViewController: UICollectionViewDataSource,
 
             personFaceImage.frame = .zero
             
+            if prototypeCell.collageCellView.subviews != [] {
+                
+                for subview in prototypeCell.collageCellView.subviews {
+                    
+                    subview.removeFromSuperview()
+                }
+            }
+            
             let frames = self.prototypeLayout[indexPath.row].getFrames(prototypeCell.frame.size)
             
             for layout in frames {
@@ -378,8 +387,8 @@ extension CollageViewController: UICollectionViewDataSource,
                 
                 subView.backgroundColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SilverGray)
                 
-                prototypeCell.addSubview(subView)
-                
+                prototypeCell.collageCellView.addSubview(subView)
+            
             }
             
             return prototypeCell
@@ -561,8 +570,6 @@ extension CollageViewController: SelectionViewDelegate,
     
     func enable(_ selectionView: SelectionView, index: Int) -> Bool {
         
-        collectionView.reloadData()
-        
         collageCollectionVoewLayout.selectedIndex = index
 
         switch index {
@@ -572,7 +579,9 @@ extension CollageViewController: SelectionViewDelegate,
                 savedImage = nil
         default: break
         }
-
+    
+        collectionView.reloadData()
+                
         return true
     }
 }

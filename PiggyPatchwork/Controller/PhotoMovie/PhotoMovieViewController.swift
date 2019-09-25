@@ -71,9 +71,9 @@ class PhotoMovieViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        Gradient.shared.doubleColor(at: view,
-                                    firstColorCode: CustomColorCode.PigletPink,
-                                    secondColorCode: CustomColorCode.OrchidPink)
+        Gradient.doubleColor(at: view,
+                             firstColorCode: CustomColorCode.PigletPink,
+                             secondColorCode: CustomColorCode.OrchidPink)
         
         PiggyLottie.setupAnimationView(view: animateArrow,
                                        name: Lotties.downArrow,
