@@ -32,8 +32,8 @@
                                             <attributedString key="attributedTitle">
                                                 <fragment content="圖片拼貼">
                                                     <attributes>
-                                                        <color key="NSColor" red="0.52156862745098043" green="0.81176470588235294" blue="0.70588235294117641" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
-                                                        <font key="NSFont" size="15" name=".PingFangTC-Regular"/>
+                                                        <color key="NSColor" red="0.52156862745098043" green="0.81176470588235294" blue="0.70588235294117641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <font key="NSFont" size="17" name="PingFangTC-Semibold"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
@@ -70,8 +70,8 @@
                                             <attributedString key="attributedTitle">
                                                 <fragment content="相片製影">
                                                     <attributes>
-                                                        <color key="NSColor" red="0.52156862745098043" green="0.81176470588235294" blue="0.70588235294117641" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                        <font key="NSFont" size="15" name=".PingFangTC-Regular"/>
+                                                        <color key="NSColor" red="0.52156862745098043" green="0.81176470588235294" blue="0.70588235294117641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <font key="NSFont" size="17" name="PingFangTC-Semibold"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
@@ -108,8 +108,8 @@
                                             <attributedString key="attributedTitle">
                                                 <fragment content="查看相簿">
                                                     <attributes>
-                                                        <color key="NSColor" red="0.52156862745098043" green="0.81176470588235294" blue="0.70588235294117641" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
-                                                        <font key="NSFont" size="15" name=".PingFangTC-Regular"/>
+                                                        <color key="NSColor" red="0.52156862745098043" green="0.81176470588235294" blue="0.70588235294117641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <font key="NSFont" size="17" name="PingFangTC-Semibold"/>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
@@ -164,7 +164,7 @@
                                     <attributedString key="attributedTitle">
                                         <fragment content="服務與隱私權政策">
                                             <attributes>
-                                                <color key="NSColor" red="0.52156862745098043" green="0.81176470588235294" blue="0.70588235294117641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <font key="NSFont" size="10" name=".PingFangTC-Regular"/>
                                                 <integer key="NSUnderline" value="1"/>
                                             </attributes>

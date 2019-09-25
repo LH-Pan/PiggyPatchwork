@@ -45,7 +45,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uut-hv-bej">
-                                        <rect key="frame" x="305" y="52" width="93" height="22"/>
+                                        <rect key="frame" x="309" y="52" width="89" height="22"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                         <state key="normal" title="下一步  " image="next_icon_right">
@@ -69,7 +69,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l90-Uv-VkV">
-                                        <rect key="frame" x="16" y="52" width="93" height="22"/>
+                                        <rect key="frame" x="16" y="52" width="89" height="22"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                         <state key="normal" title="  回首頁" image="next_icon_left">
@@ -140,7 +140,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sbd-FK-rJV">
-                                <rect key="frame" x="16" y="8" width="93" height="22"/>
+                                <rect key="frame" x="16" y="8" width="89" height="22"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                 <state key="normal" title="  上一步" image="next_icon_left">
@@ -183,7 +183,7 @@
                                                 <fragment content="藝術塗鴉">
                                                     <attributes>
                                                         <color key="NSColor" red="0.52156862745098043" green="0.81176470588235294" blue="0.70588235294117641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <font key="NSFont" size="15" name="PingFangTC-Semibold"/>
+                                                        <font key="NSFont" size="16" name="PingFangTC-Semibold"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
@@ -370,7 +370,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zwa-aG-z0t">
-                                        <rect key="frame" x="16" y="8" width="79" height="22"/>
+                                        <rect key="frame" x="16" y="8" width="75" height="22"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                         <state key="normal" title="  取 消" image="next_icon_left">
@@ -396,29 +396,36 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iWV-GF-qxx">
-                                        <rect key="frame" x="158.5" y="8" width="24" height="22"/>
+                                        <rect key="frame" x="154.5" y="8" width="24" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="iWV-GF-qxx" secondAttribute="height" multiplier="1:1" id="9Si-uN-vk2"/>
+                                            <constraint firstAttribute="width" constant="24" id="zRg-EV-DNl"/>
+                                        </constraints>
                                         <state key="normal" image="undo"/>
                                         <connections>
                                             <action selector="undo:" destination="7Hj-kQ-YiH" eventType="touchUpInside" id="T3f-h0-c49"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcW-3O-auO">
-                                        <rect key="frame" x="237.5" y="8" width="20" height="24"/>
+                                        <rect key="frame" x="233.5" y="8" width="24" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="mcW-3O-auO" secondAttribute="height" multiplier="1:1" id="vJk-Zx-oK2"/>
+                                        </constraints>
                                         <state key="normal" image="clear"/>
                                         <connections>
                                             <action selector="clearAll:" destination="7Hj-kQ-YiH" eventType="touchUpInside" id="abj-Xk-IKa"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gcP-31-I32">
-                                        <rect key="frame" x="103" y="8" width="55.5" height="22"/>
+                                        <rect key="frame" x="99" y="8" width="55.5" height="24"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OjH-h8-oDb">
-                                        <rect key="frame" x="182.5" y="8" width="55" height="22"/>
+                                        <rect key="frame" x="178.5" y="8" width="55" height="24"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vYJ-Fq-IqK">
-                                        <rect key="frame" x="257.5" y="8" width="55.5" height="22"/>
+                                        <rect key="frame" x="257.5" y="8" width="55.5" height="24"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="canvas_top" translatesAutoresizingMaskIntoConstraints="NO" id="w25-d5-4LZ">
@@ -476,6 +483,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="y3e-TS-IeM" firstAttribute="leading" secondItem="Nq7-1P-thv" secondAttribute="leading" constant="10" id="06z-73-dgw"/>
+                            <constraint firstItem="iWV-GF-qxx" firstAttribute="width" secondItem="Nq7-1P-thv" secondAttribute="width" multiplier="24:414" id="0t1-bf-KfK"/>
                             <constraint firstAttribute="bottom" secondItem="rH6-xC-Rp6" secondAttribute="bottom" id="MIP-8w-rqb"/>
                             <constraint firstItem="y3e-TS-IeM" firstAttribute="centerX" secondItem="Nq7-1P-thv" secondAttribute="centerX" id="SLm-jf-i9y"/>
                             <constraint firstItem="rH6-xC-Rp6" firstAttribute="top" secondItem="nqw-6F-Rne" secondAttribute="top" id="YUy-Rg-eRy"/>
@@ -483,6 +491,7 @@
                             <constraint firstItem="Nws-y9-tlJ" firstAttribute="top" secondItem="w25-d5-4LZ" secondAttribute="bottom" id="mHX-x6-4SZ"/>
                             <constraint firstItem="a1a-Ip-6Ja" firstAttribute="top" secondItem="Nws-y9-tlJ" secondAttribute="bottom" id="s3f-YP-zYa"/>
                             <constraint firstItem="y3e-TS-IeM" firstAttribute="centerY" secondItem="Nq7-1P-thv" secondAttribute="centerY" constant="-50" id="t5l-q2-cjA"/>
+                            <constraint firstItem="mcW-3O-auO" firstAttribute="width" secondItem="Nq7-1P-thv" secondAttribute="width" multiplier="24:414" id="t8f-mc-HfE"/>
                             <constraint firstItem="Nq7-1P-thv" firstAttribute="trailing" secondItem="rH6-xC-Rp6" secondAttribute="trailing" id="z6f-qB-vyw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Nq7-1P-thv"/>
@@ -501,18 +510,18 @@
         </scene>
     </scenes>
     <resources>
-        <image name="album" width="512" height="512"/>
+        <image name="album" width="256" height="256"/>
         <image name="canvas_bottom" width="250" height="100"/>
         <image name="canvas_top" width="226" height="42"/>
-        <image name="clear" width="20" height="24"/>
-        <image name="edit" width="512" height="512"/>
+        <image name="clear" width="208.5" height="256"/>
+        <image name="edit" width="256" height="256"/>
         <image name="left_ear" width="44" height="38"/>
-        <image name="next_icon_left" width="8" height="12"/>
-        <image name="next_icon_right" width="8" height="12"/>
+        <image name="next_icon_left" width="4" height="6"/>
+        <image name="next_icon_right" width="4" height="6"/>
         <image name="nose" width="118" height="100"/>
         <image name="paint_hook" width="60" height="67"/>
         <image name="right_ear" width="44" height="38"/>
-        <image name="share" width="512" height="504"/>
-        <image name="undo" width="24" height="22"/>
+        <image name="share" width="256" height="252"/>
+        <image name="undo" width="256" height="232"/>
     </resources>
 </document>
