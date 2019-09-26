@@ -76,15 +76,18 @@ class CollageViewController: UIViewController {
     let faceEmoticon: [FaceEmoticon] = [.funny, .doNotThinkSo]
     
     let prototypeLayout: [Layoutable] = [DoubleVerticle(), DoubleHorizontal(), LeftVerticalWithDoubleSquare(),
-                                         RightVerticalWithDoubleSquare(), TopHorizontalWithDoubleSquare(),
-                                         BottomHorizontalWithDoubleSquare(),
-                                         TripleVertical(), TripleHorizontal(), QuadraSquare()]
+                                         RightVerticalWithDoubleSquare(), HorizontalAboveWithDoubleSquare(),
+                                         HorizontalBelowWithDoubleSquare(), TripleVertical(), TripleHorizontal(),
+                                         QuadraSquare(), TripleLeftWithDoubleRight(), DoubleLeftWithTripleRight(),
+                                         DoubleAboveWithTripleBelow(), TripleAboveWithDoubleBelow()]
     
     let faceImageLayout: Layoutable = SingleSquare()
     
-    let personFaceImage = UIImageView()
+    let personFaceScrollView = UIScrollView()
     
-    var chooseImage: UIImageView?
+    let personFaceImageView = UIImageView()
+    
+    var chosenImageView: UIImageView?
     
     var savedImage: UIImage?
     
@@ -100,7 +103,9 @@ class CollageViewController: UIViewController {
 
         setupCollectionView()
         
-        setupImageView(at: collageView, add: personFaceImage)
+//        setupImageView(at: collageView, add: personFaceImage)
+        
+        setupScrollView(at: collageView, add: personFaceScrollView, with: personFaceImageView)
         
     }
     
@@ -142,19 +147,55 @@ class CollageViewController: UIViewController {
     private func setupImageView(at superView: UIView,
                                 add imageView: UIImageView) {
         
-        imageView.layer.borderColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SilverGray).cgColor
-        
-        imageView.layer.borderWidth = 1
-        
         imageView.contentMode = .scaleAspectFill
-        
-        imageView.clipsToBounds = true
         
         imageView.isUserInteractionEnabled = true
         
         imageView.addGestureRecognizer(self.setupTapGestureRecognizer())
         
         superView.addSubview(imageView)
+    }
+    
+    private func setupScrollView(at superView: UIView,
+                                 add scrollView: UIScrollView,
+                                 with subView: UIImageView) {
+        
+        scrollView.delegate = self
+        
+        scrollView.zoomScale = 1
+                            
+        scrollView.minimumZoomScale = 0.1
+    
+        scrollView.maximumZoomScale = 2.0
+     
+        let minScale = scrollView.minimumZoomScale
+        
+        scrollView.layer.borderColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SilverGray).cgColor
+        
+        scrollView.layer.borderWidth = 1
+        
+        scrollView.contentSize = CGSize(width: superView.frame.width,
+                                        height: superView.frame.height)
+        
+        subView.frame.size = scrollView.contentSize
+        
+        let widthInset = (scrollView.frame.size.width - minScale * subView.frame.size.width) / 2
+        
+        let heightInset = (scrollView.frame.size.height - minScale * subView.frame.size.height) / 2
+        
+        scrollView.contentInset = UIEdgeInsets(top: heightInset,
+                                               left: widthInset,
+                                               bottom: heightInset,
+                                               right: widthInset)
+        
+        scrollView.showsVerticalScrollIndicator = false
+
+        scrollView.showsHorizontalScrollIndicator = false
+        
+        superView.addSubview(scrollView)
+
+        self.setupImageView(at: scrollView, add: subView)
+        
     }
     
     func setupTapGestureRecognizer() -> UITapGestureRecognizer {
@@ -167,7 +208,7 @@ class CollageViewController: UIViewController {
     
     @objc func singleTapping(recognizer: UIGestureRecognizer) {
         
-        chooseImage = recognizer.view as? UIImageView
+        chosenImageView = recognizer.view as? UIImageView
         
         showMyAlbum(subviews: recognizer.view?.subviews,
                     sublayers: recognizer.view?.layer.sublayers)
@@ -241,7 +282,7 @@ class CollageViewController: UIViewController {
     
     func addShapeToFace(forObservations observations: [VNFaceObservation]) {
         
-        if let sublayers = personFaceImage.layer.sublayers {
+        if let sublayers = personFaceImageView.layer.sublayers {
             for layer in sublayers {
                 layer.removeFromSuperlayer()
             }
@@ -301,14 +342,14 @@ class CollageViewController: UIViewController {
         }
         
         for layer in layers {
-            personFaceImage.layer.addSublayer(layer)
+            personFaceImageView.layer.addSublayer(layer)
             
         }
 
         for emoticonFace in emoticonFaces {
             
             emoticonFace.removeFromSuperview()
-            personFaceImage.addSubview(emoticonFace)
+            personFaceImageView.addSubview(emoticonFace)
         }
     }
     
@@ -369,7 +410,7 @@ extension CollageViewController: UICollectionViewDataSource,
                                in: indexPath,
                                eqaulTo: ptCellSelectedIndexPath)
 
-            personFaceImage.frame = .zero
+            personFaceImageView.frame = .zero
             
             if prototypeCell.collageCellView.subviews != [] {
                 
@@ -431,13 +472,15 @@ extension CollageViewController: UICollectionViewDataSource,
             
             for subView in self.collageView.subviews {
                 
-                if subView != personFaceImage {
+                if subView != personFaceScrollView {
                     
                     subView.frame = .zero
                     
                 } else {
                 
-                personFaceImage.frame = faceImageLayout.getFrames(self.collageView.frame.size).first ?? .zero
+                personFaceScrollView.frame = faceImageLayout.getFrames(self.collageView.frame.size).first ?? .zero
+                    
+                personFaceImageView.frame = personFaceScrollView.frame
                     
                 }
             }
@@ -473,7 +516,7 @@ extension CollageViewController: UICollectionViewDataSource,
             
             for subView in collageView.subviews {
                 
-                if subView == personFaceImage {
+                if subView == personFaceImageView {
                     
                     subView.frame = .zero
                 } else {
@@ -486,11 +529,15 @@ extension CollageViewController: UICollectionViewDataSource,
                 
                 for layout in frames {
                     
+                    let scrollView = UIScrollView()
+                    
                     let imageView = UIImageView()
                     
-                    imageView.frame = layout
-      
-                    self.setupImageView(at: self.collageView, add: imageView)
+                    scrollView.frame = layout
+                    
+                    self.setupScrollView(at: self.collageView,
+                                         add: scrollView,
+                                         with: imageView)
                 }
             })
         case 1:
@@ -547,6 +594,11 @@ extension CollageViewController: UICollectionViewDataSource,
                 etCellSelectedIndexPath = indexPath
         default: break
         }
+    }
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        
+        return chosenImageView
     }
 }
 
@@ -644,9 +696,9 @@ extension CollageViewController: OpalImagePickerControllerDelegate {
         _ picker: OpalImagePickerController,
         didFinishPickingImages images: [UIImage]) {
         
-        chooseImage?.image = images.first
+        chosenImageView?.image = images.first
         
-        chooseImage?.layer.borderWidth = 0
+        chosenImageView?.superview?.layer.borderWidth = 0
         
         savedImage = collageView.takeSnapshot()
         

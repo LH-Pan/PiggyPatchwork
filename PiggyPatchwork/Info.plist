@@ -17,13 +17,11 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSCameraUsageDescription</key>
-	<string>將取用您的相機</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>若不允許，你將無法存取照片或影片</string>
+	<string>若不允許，你將無法使用拼貼或製影功能</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>若不允許，你將無法使用拼貼或製影功能</string>
 	<key>UILaunchStoryboardName</key>
