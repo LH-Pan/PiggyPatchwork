@@ -103,8 +103,6 @@ class CollageViewController: UIViewController {
 
         setupCollectionView()
         
-//        setupImageView(at: collageView, add: personFaceImage)
-        
         setupScrollView(at: collageView, add: personFaceScrollView, with: personFaceImageView)
         
     }
@@ -410,7 +408,7 @@ extension CollageViewController: UICollectionViewDataSource,
                                in: indexPath,
                                eqaulTo: ptCellSelectedIndexPath)
 
-            personFaceImageView.frame = .zero
+            personFaceScrollView.frame = .zero
             
             if prototypeCell.collageCellView.subviews != [] {
                 
@@ -478,9 +476,15 @@ extension CollageViewController: UICollectionViewDataSource,
                     
                 } else {
                 
-                personFaceScrollView.frame = faceImageLayout.getFrames(self.collageView.frame.size).first ?? .zero
+                    personFaceScrollView.frame = faceImageLayout.getFrames(self.collageView.frame.size).first ?? .zero
+                        
+                    personFaceImageView.frame = personFaceScrollView.frame
+                        
+                    personFaceScrollView.isScrollEnabled = false
                     
-                personFaceImageView.frame = personFaceScrollView.frame
+                    personFaceScrollView.minimumZoomScale = 1
+                
+                    personFaceScrollView.maximumZoomScale = 1
                     
                 }
             }
@@ -516,7 +520,7 @@ extension CollageViewController: UICollectionViewDataSource,
             
             for subView in collageView.subviews {
                 
-                if subView == personFaceImageView {
+                if subView == personFaceScrollView {
                     
                     subView.frame = .zero
                 } else {
