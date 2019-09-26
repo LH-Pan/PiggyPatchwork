@@ -23,9 +23,9 @@
 	<key>NSCameraUsageDescription</key>
 	<string>將取用您的相機</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>將存取於您的相簿</string>
+	<string>若不允許，你將無法存取照片或影片</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>將取用您的相簿</string>
+	<string>若不允許，你將無法使用拼貼或製影功能</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

@@ -82,6 +82,138 @@ struct DoubleHorizontal: Layoutable {
     }
 }
 
+struct LeftVerticalWithDoubleSquare: Layoutable {
+    
+    func getFrames(_ size: CGSize) -> [CGRect] {
+        
+        let widthInset: CGFloat = CGFloat.insetRatio * size.width
+        
+        let heightInset: CGFloat = CGFloat.insetRatio * size.height
+        
+        let width = (size.width - widthInset * 3) / 2
+        
+        let verticalRetangleHeight = size.height - heightInset * 2
+        
+        let squareHeight = (size.height - heightInset * 3) / 2
+        
+        let retangleCGRect = CGRect(x: widthInset,
+                                    y: heightInset,
+                                    width: width,
+                                    height: verticalRetangleHeight)
+        
+        let firstSquareCGRect = CGRect(x: width + widthInset * 2,
+                                       y: heightInset,
+                                       width: width,
+                                       height: squareHeight)
+        
+        let secondSquareCGRect = CGRect(x: width + widthInset * 2,
+                                        y: squareHeight + heightInset * 2,
+                                        width: width,
+                                        height: squareHeight)
+        
+        return [retangleCGRect, firstSquareCGRect, secondSquareCGRect]
+    }
+}
+
+struct RightVerticalWithDoubleSquare: Layoutable {
+    
+    func getFrames(_ size: CGSize) -> [CGRect] {
+        
+        let widthInset: CGFloat = CGFloat.insetRatio * size.width
+        
+        let heightInset: CGFloat = CGFloat.insetRatio * size.height
+        
+        let width = (size.width - widthInset * 3) / 2
+        
+        let verticalRetangleHeight = size.height - heightInset * 2
+        
+        let squareHeight = (size.height - heightInset * 3) / 2
+        
+        let firstSquareCGRect = CGRect(x: widthInset,
+                                       y: heightInset,
+                                       width: width,
+                                       height: squareHeight)
+        
+        let secondSquareCGRect = CGRect(x: widthInset,
+                                        y: squareHeight + heightInset * 2,
+                                        width: width,
+                                        height: squareHeight)
+        
+        let retangleCGRect = CGRect(x: width + widthInset * 2,
+                                    y: heightInset,
+                                    width: width,
+                                    height: verticalRetangleHeight)
+        
+        return [firstSquareCGRect, secondSquareCGRect, retangleCGRect]
+    }
+}
+
+struct TopHorizontalWithDoubleSquare: Layoutable {
+    
+    func getFrames(_ size: CGSize) -> [CGRect] {
+        
+        let widthInset: CGFloat = CGFloat.insetRatio * size.width
+        
+        let heightInset: CGFloat = CGFloat.insetRatio * size.height
+        
+        let horizontalRetangleWidth = size.width - widthInset * 2
+        
+        let squareWidth = (size.width - widthInset * 3) / 2
+        
+        let height = (size.height - heightInset * 3) / 2
+        
+        let retangleCGRect = CGRect(x: widthInset,
+                                    y: heightInset,
+                                    width: horizontalRetangleWidth,
+                                    height: height)
+        
+        let firstSquareCGRect = CGRect(x: widthInset,
+                                       y: height + heightInset * 2,
+                                       width: squareWidth,
+                                       height: height)
+        
+        let secondSquareCGRect = CGRect(x: squareWidth + widthInset * 2,
+                                        y: height + heightInset * 2,
+                                        width: squareWidth,
+                                        height: height)
+        
+        return [retangleCGRect, firstSquareCGRect, secondSquareCGRect]
+    }
+}
+
+struct BottomHorizontalWithDoubleSquare: Layoutable {
+    
+    func getFrames(_ size: CGSize) -> [CGRect] {
+        
+        let widthInset: CGFloat = CGFloat.insetRatio * size.width
+        
+        let heightInset: CGFloat = CGFloat.insetRatio * size.height
+        
+        let horizontalRetangleWidth = size.width - widthInset * 2
+        
+        let squareWidth = (size.width - widthInset * 3) / 2
+        
+        let height = (size.height - heightInset * 3) / 2
+        
+        let firstSquareCGRect = CGRect(x: widthInset,
+                                       y: heightInset,
+                                       width: squareWidth,
+                                       height: height)
+        
+        let secondSquareCGRect = CGRect(x: squareWidth + widthInset * 2,
+                                        y: heightInset,
+                                        width: squareWidth,
+                                        height: height)
+        
+        let retangleCGRect = CGRect(x: widthInset,
+                                    y: height + heightInset * 2,
+                                    width: horizontalRetangleWidth,
+                                    height: height)
+        
+        return [firstSquareCGRect, secondSquareCGRect, retangleCGRect] 
+    }
+}
+
 struct TripleVertical: Layoutable {
     
     func getFrames(_ size: CGSize) -> [CGRect] {

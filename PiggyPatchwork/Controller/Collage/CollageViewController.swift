@@ -75,8 +75,10 @@ class CollageViewController: UIViewController {
     
     let faceEmoticon: [FaceEmoticon] = [.funny, .doNotThinkSo]
     
-    let prototypeLayout: [Layoutable] = [DoubleVerticle(), DoubleHorizontal(), TripleVertical(),
-                                         TripleHorizontal(), QuadraSquare()]
+    let prototypeLayout: [Layoutable] = [DoubleVerticle(), DoubleHorizontal(), LeftVerticalWithDoubleSquare(),
+                                         RightVerticalWithDoubleSquare(), TopHorizontalWithDoubleSquare(),
+                                         BottomHorizontalWithDoubleSquare(),
+                                         TripleVertical(), TripleHorizontal(), QuadraSquare()]
     
     let faceImageLayout: Layoutable = SingleSquare()
     
