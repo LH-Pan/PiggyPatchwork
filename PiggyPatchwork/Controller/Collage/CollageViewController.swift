@@ -71,9 +71,13 @@ class CollageViewController: UIViewController {
                                   .lilacSkuPurple, .vividPurple, .amethystPurple,
                                   .ashGray, .stoneGray, .black]
     
-    let cellEmoticon: [CellEmoticon] = [.funny, .doNotThinkSo]
+    let cellEmoticon: [CellEmoticon] = [.funny, .doNotThinkSo, .weirdSmile,
+                                        .crazy, .twinkleEyes, .dying,
+                                        .lierFace, .cute, .exciting, .cry]
     
-    let faceEmoticon: [FaceEmoticon] = [.funny, .doNotThinkSo]
+    let faceEmoticon: [FaceEmoticon] = [.funny, .doNotThinkSo, .weirdSmile,
+                                        .crazy, .twinkleEyes, .dying,
+                                        .lierFace, .cute, .exciting, .cry]
     
     let prototypeLayout: [Layoutable] = [DoubleVerticle(), DoubleHorizontal(), LeftVerticalWithDoubleSquare(),
                                          RightVerticalWithDoubleSquare(), HorizontalAboveWithDoubleSquare(),
@@ -312,7 +316,7 @@ class CollageViewController: UIViewController {
             layer.cornerRadius = layer.frame.size.height / 2
             
             layer.position = CGPoint(x: (originX + width / 2) - surplusWidth,
-                                     y: (originY + height / 2) - surplusHeight - 3)
+                                     y: (originY + height / 2) - surplusHeight)
 
             return layer
         }
