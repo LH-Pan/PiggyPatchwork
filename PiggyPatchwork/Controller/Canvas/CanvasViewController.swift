@@ -22,27 +22,9 @@ class CanvasViewController: UIViewController {
     
     @IBOutlet weak var canvasView: UIView!
     
-    @IBOutlet weak var backToPreviewBtn: UIButton! {
-        
-        didSet {
-            
-            backToPreviewBtn.setTitleColor(.hexStringToUIColor(hex: CustomColorCode.OrchidPink),
-                                           for: .normal)
-            
-            backToPreviewBtn.layer.cornerRadius = 10
-        }
-    }
+    @IBOutlet weak var backToPreviewBtn: UIButton! 
     
-    @IBOutlet weak var editCompleteBtn: UIButton! {
-        
-        didSet {
-            
-            editCompleteBtn.setTitleColor(.hexStringToUIColor(hex: CustomColorCode.OrchidPink),
-                                          for: .normal)
-            
-            editCompleteBtn.layer.cornerRadius = 10
-        }
-    }
+    @IBOutlet weak var editCompleteBtn: UIButton!
     
     var storageImage: UIImage?
     
@@ -70,6 +52,8 @@ class CanvasViewController: UIViewController {
         setupPaletteImage()
         
         setupThicknessImage()
+        
+        setupButtons()
 
     }
     
@@ -81,6 +65,21 @@ class CanvasViewController: UIViewController {
         Gradient.doubleColor(at: view,
                              firstColorCode: CustomColorCode.PigletPink,
                              secondColorCode: CustomColorCode.OrchidPink)
+    }
+    
+    func setupButtons() {
+        
+        setupButtonAtrribute(backToPreviewBtn)
+        
+        setupButtonAtrribute(editCompleteBtn)
+    }
+    
+    func setupButtonAtrribute(_ button: UIButton) {
+        
+        button.setTitleColor(.hexStringToUIColor(hex: CustomColorCode.OrchidPink),
+                                                 for: .normal)
+                   
+        button.layer.cornerRadius = 10
     }
     
     func setupCanvas(canvas: Canvas, on view: UIView) {
@@ -100,7 +99,7 @@ class CanvasViewController: UIViewController {
                               action: #selector(changedStrokeColor(slider:)),
                               for: .valueChanged)
         
-        let inset = CGFloat(25 / 896 * UIScreen.height)
+        let inset = CGFloat(25 * UIScreen.screenHeightRatio)
         
         colorSlider.translatesAutoresizingMaskIntoConstraints = false
         
@@ -127,10 +126,11 @@ class CanvasViewController: UIViewController {
         
         widthSlider.minimumValue = 1
         widthSlider.maximumValue = 50
+        
         widthSlider.minimumTrackTintColor = .black
         widthSlider.maximumTrackTintColor = .black
         
-        let inset = CGFloat(25 / 896 * UIScreen.height)
+        let inset = CGFloat(25 * UIScreen.screenHeightRatio)
         
         widthSlider.translatesAutoresizingMaskIntoConstraints = false
         
@@ -154,9 +154,9 @@ class CanvasViewController: UIViewController {
         
         palette.image = UIImage.asset(.palette)
         
-        let inset = CGFloat(10 / 896 * UIScreen.height)
+        let inset = CGFloat(10 * UIScreen.screenHeightRatio)
         
-        let imageSideLenth = CGFloat(40 / 896 * UIScreen.height)
+        let imageSideLenth = CGFloat(40 * UIScreen.screenHeightRatio)
         
         palette.translatesAutoresizingMaskIntoConstraints = false
         
@@ -174,7 +174,7 @@ class CanvasViewController: UIViewController {
         
         thickness.image = UIImage.asset(.thickness)
 
-        let imageSideLenth = CGFloat(30 / 414 * UIScreen.width)
+        let imageSideLenth = CGFloat(30 * UIScreen.screenWidthRatio)
         
         thickness.translatesAutoresizingMaskIntoConstraints = false
         
@@ -219,7 +219,7 @@ extension CanvasViewController: UINavigationControllerDelegate {
         animationControllerFor operation: UINavigationController.Operation,
         from fromVC: UIViewController,
         to toVC: UIViewController
-        ) -> UIViewControllerAnimatedTransitioning? {
+    ) -> UIViewControllerAnimatedTransitioning? {
         
         if operation == .pop {
             

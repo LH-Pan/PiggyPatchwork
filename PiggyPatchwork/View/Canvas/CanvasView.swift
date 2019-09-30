@@ -17,8 +17,6 @@ class Canvas: UIView {
     var strokeWidth: Float = 1
     
     override func draw(_ rect: CGRect) {
-        
-        // custom drawing
         super.draw(rect)
         
         guard

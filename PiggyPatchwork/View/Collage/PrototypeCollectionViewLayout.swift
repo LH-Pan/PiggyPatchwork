@@ -21,15 +21,20 @@ class CollageCollectionViewLayout: UICollectionViewFlowLayout {
         
         if selectedIndex == 2 {
             
-            itemSize = CGSize(width: 100/414 * UIScreen.width, height: 40/414 * UIScreen.width)
+            itemSize = CGSize(width: 100 * UIScreen.screenWidthRatio,
+                              height: 40 * UIScreen.screenWidthRatio)
         } else {
             
-            itemSize = CGSize(width: 80/414 * UIScreen.width, height: 80/414 * UIScreen.width)
+            itemSize = CGSize(width: 80 * UIScreen.screenWidthRatio,
+                              height: 80 * UIScreen.screenWidthRatio)
         }
         
         let inset = ((collectionView?.frame.height ?? CGFloat.zero) - itemSize.height) / 2
         
-        sectionInset = UIEdgeInsets(top: inset, left: 20, bottom: inset, right: 20)
+        sectionInset = UIEdgeInsets(top: inset,
+                                    left: 20,
+                                    bottom: inset,
+                                    right: 20)
         
         minimumLineSpacing = UIScreen.width * CGFloat.insetRatio
         
@@ -45,7 +50,9 @@ class CollageCollectionViewLayout: UICollectionViewFlowLayout {
                       height: collectionView?.bounds.height ?? CGFloat.zero)
     }
     
-    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+    override func shouldInvalidateLayout(
+        forBoundsChange newBounds: CGRect
+    ) -> Bool {
         return true
     }
 }

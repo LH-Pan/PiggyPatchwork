@@ -71,7 +71,7 @@ class CollagePreviewViewController: UIViewController {
     
     func viewAttributes(_ view: UIView) {
         
-        view.layer.cornerRadius = 25 / 414 * UIScreen.width
+        view.layer.cornerRadius = 25 * UIScreen.screenWidthRatio
         
         view.addViewShadow()
     }
@@ -132,7 +132,7 @@ extension CollagePreviewViewController: UINavigationControllerDelegate {
         animationControllerFor operation: UINavigationController.Operation,
         from fromVC: UIViewController,
         to toVC: UIViewController
-        ) -> UIViewControllerAnimatedTransitioning? {
+    ) -> UIViewControllerAnimatedTransitioning? {
         
         if operation == .push {
             

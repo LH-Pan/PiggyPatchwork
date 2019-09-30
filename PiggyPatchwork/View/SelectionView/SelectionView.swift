@@ -37,11 +37,16 @@ class SelectionView: UIView {
             
             button.tag = index
             
-            button.frame = CGRect(x: btnWidth * CGFloat(index), y: 0, width: btnWidth, height: btnHeight)
+            button.frame = CGRect(x: btnWidth * CGFloat(index),
+                                  y: 0,
+                                  width: btnWidth, height: btnHeight)
             
-            button.setTitle(dataSource.textOfSelections(self, index: index), for: .normal)
             
-            button.setTitleColor(dataSource.colorOfSelectionText(self), for: .normal)
+            button.setTitle(dataSource.textOfSelections(self, index: index),
+                            for: .normal)
+            
+            button.setTitleColor(dataSource.colorOfSelectionText(self),
+                                 for: .normal)
             
             button.titleLabel?.font = dataSource.fontOfText(self)
             
@@ -49,11 +54,16 @@ class SelectionView: UIView {
             
             self.addSubview(button)
             
-            button.addTarget(self, action: #selector(moveIndicatorView(_:)), for: .touchUpInside)
+            button.addTarget(self,
+                             action: #selector(moveIndicatorView(_:)),
+                             for: .touchUpInside)
             
             if index == 0 {
                 
-                indicatorView.frame = CGRect(x: 0, y: btnHeight, width: btnWidth * 2 / 3, height: 2)
+                indicatorView.frame = CGRect(x: 0,
+                                             y: btnHeight,
+                                             width: btnWidth * 2 / 3,
+                                             height: 2)
                 
                 indicatorView.center.x = button.center.x
                 

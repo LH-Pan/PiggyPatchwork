@@ -14,11 +14,7 @@ extension CGFloat {
     // 建立一個比例
     static let spaceRatio: CGFloat = 20 / 373
     
-    static let screenWidthRatio: CGFloat = UIScreen.width / 414
-    
-    static let screenHeightRatio: CGFloat = UIScreen.height / 896
-    
     // 讓比例可以隨著不同大小的機器更動
-    static let insetRatio: CGFloat = CGFloat.spaceRatio * CGFloat.screenWidthRatio
+    static let insetRatio: CGFloat = CGFloat.spaceRatio * UIScreen.screenWidthRatio
     
 }

@@ -55,7 +55,7 @@ class LobbyViewController: UIViewController {
     
     func viewAttributes(_ view: UIView) {
         
-        view.layer.cornerRadius = 25 / 414 * UIScreen.width
+        view.layer.cornerRadius = 25 * UIScreen.screenWidthRatio
         
         view.addViewShadow()
     }
@@ -112,7 +112,10 @@ extension LobbyViewController: OpalImagePickerControllerDelegate {
         }
     }
     
-    func imagePicker(_ picker: OpalImagePickerController, didFinishPickingImages images: [UIImage]) {
+    func imagePicker(
+        _ picker: OpalImagePickerController,
+        didFinishPickingImages images: [UIImage]
+    ) {
         
         picker.dismiss(animated: true, completion: nil)
     }

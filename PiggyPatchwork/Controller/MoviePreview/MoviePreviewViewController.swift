@@ -105,12 +105,12 @@ class MoviePreviewViewController: UIViewController {
     
     func setupFilmAnimationView() {
         
-        filmAnimationView.frame.size = CGSize(width: 300 / 414 * UIScreen.width,
-                                              height: 300 / 414 * UIScreen.width)
+        filmAnimationView.frame.size = CGSize(width: 300 * UIScreen.screenWidthRatio,
+                                              height: 300 * UIScreen.screenWidthRatio)
         
         filmAnimationView.center.x = translucentView.center.x
         
-        filmAnimationView.center.y = translucentView.center.y + 50 / 896 * UIScreen.height
+        filmAnimationView.center.y = translucentView.center.y + 50 * UIScreen.screenHeightRatio
         
         filmAnimationView.backgroundColor = .clear
     }
@@ -157,7 +157,7 @@ class MoviePreviewViewController: UIViewController {
             PHPhotoLibrary.shared().performChanges({
                 PHAssetChangeRequest.creationRequestForAssetFromVideo(
                     atFileURL: URL(fileURLWithPath: self.movieUrl) as URL)
-            }, completionHandler: { (success, error) in
+            }, completionHandler: { (success, _) in
 
                 if !success {
                     
@@ -181,6 +181,7 @@ class MoviePreviewViewController: UIViewController {
                        animations: {
 
                         self.filmAnimationView.transform = CGAffineTransform.identity
+                        
         }, completion: { [weak self] (_) in
             
             PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.tick_mark),
@@ -196,16 +197,19 @@ class MoviePreviewViewController: UIViewController {
         
         let activityItems = [videoURL as Any] as [Any]
         
-        let activityController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+        let activityController = UIActivityViewController(activityItems: activityItems,
+                                                          applicationActivities: nil)
 
         self.present(activityController, animated: true, completion: nil)
     }
-    
 }
 
 extension MoviePreviewViewController: MovieUrlProviderDelegate {
     
-    func provider(_ provider: ImageAnimator, didGet url: String) {
+    func provider(
+        _ provider: ImageAnimator,
+        didGet url: String
+    ) {
         movieUrl = url
     }
 }
