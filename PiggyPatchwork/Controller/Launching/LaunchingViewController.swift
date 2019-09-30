@@ -61,34 +61,26 @@ class LaunchingViewController: UIViewController {
     
     func animate(view: UIView, fromPoint start: CGPoint, toPoint end: CGPoint) {
         
-        // The animation
         let animation = CAKeyframeAnimation(keyPath: "position")
 
-        // Animation's path
         let path = UIBezierPath()
 
-        // Move the "cursor" to the start
         path.move(to: start)
 
-        // Calculate the control points
         let firstControlPoint = CGPoint(x: start.x + end.x, y: start.y)
         let secondControlPoint = CGPoint(x: end.x, y: end.y - start.y)
 
-        // Draw a curve towards the end, using control points
         path.addCurve(to: end,
                       controlPoint1: firstControlPoint,
                       controlPoint2: secondControlPoint)
 
-        // Use this path as the animation's path (casted to CGPath)
         animation.path = path.cgPath
 
-        // The other animations properties
         animation.fillMode = CAMediaTimingFillMode.forwards
         animation.isRemovedOnCompletion = false
         animation.duration = 0.6
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
 
-        // Apply it
         view.layer.add(animation, forKey: "trash")
     }
 }
