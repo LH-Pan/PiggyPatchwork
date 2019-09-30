@@ -250,7 +250,9 @@ class CollageViewController: UIViewController {
         
         let detectRequest = VNDetectFaceRectanglesRequest(completionHandler: self.handleFaces)
         
-        let detectRequestHandler = VNImageRequestHandler(cgImage: (savedImage?.cgImage)!,
+        guard let image = savedImage?.cgImage else { return }
+        
+        let detectRequestHandler = VNImageRequestHandler(cgImage: image,
                                                          options: [ : ])
  
         do {
@@ -259,7 +261,6 @@ class CollageViewController: UIViewController {
             
             PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.exclamation_mark),
                                          message: "人臉偵測錯誤 (つд⊂)")
-            print(error)
         }
     }
     
@@ -290,7 +291,7 @@ class CollageViewController: UIViewController {
             }
         }
         
-        let imageRect = AVMakeRect(aspectRatio: savedImage!.size,
+        let imageRect = AVMakeRect(aspectRatio: savedImage?.size ?? CGSize.zero,
                                    insideRect: collageView.bounds)
         
         let surplusWidth = CGFloat.insetRatio * collageView.frame.width
@@ -677,7 +678,7 @@ extension CollageViewController: OpalImagePickerControllerDelegate {
                         
                         if subviews != nil {
                             
-                            for subview in subviews! {
+                            for subview in subviews ?? [] {
                                 
                                 subview.removeFromSuperview()
                             }
@@ -685,7 +686,7 @@ extension CollageViewController: OpalImagePickerControllerDelegate {
                         
                         if sublayers != nil {
                             
-                            for sublayer in sublayers! {
+                            for sublayer in sublayers ?? [] {
                                 
                                 sublayer.removeFromSuperlayer()
                             }

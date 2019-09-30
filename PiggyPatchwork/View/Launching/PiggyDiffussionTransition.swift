@@ -35,8 +35,8 @@ class PiggyDiffusionTransition: NSObject, UIViewControllerAnimatedTransitioning 
         var startFrame = CGRect.zero
         
         if animatedView != nil {
-            startFrame = animatedView!.frame
-            startBackgroundColor = animatedView!.backgroundColor
+            startFrame = animatedView?.frame ?? CGRect.zero
+            startBackgroundColor = animatedView?.backgroundColor
         }
         
         // init animated view for transition
@@ -54,10 +54,10 @@ class PiggyDiffusionTransition: NSObject, UIViewControllerAnimatedTransitioning 
         
         if !isReverse {
             
-            presentedController = transitionContext.viewController(forKey: .to)!
+            presentedController = transitionContext.viewController(forKey: .to) ?? UIViewController()
             presentedController.view.layer.opacity = 0
         } else {
-            presentedController = transitionContext.viewController(forKey: .from)!
+            presentedController = transitionContext.viewController(forKey: .from) ?? UIViewController()
         }
         
         presentedController.view.frame = transitionContext.containerView.bounds

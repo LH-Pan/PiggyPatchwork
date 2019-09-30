@@ -118,7 +118,7 @@ class CollagePreviewViewController: UIViewController {
         
         storageImage = previewView.takeSnapshot()
         
-        let activityViewController = UIActivityViewController(activityItems: [storageImage!],
+        let activityViewController = UIActivityViewController(activityItems: [storageImage ?? UIImage()],
                                                               applicationActivities: nil)
         
         self.present(activityViewController, animated: true, completion: nil)

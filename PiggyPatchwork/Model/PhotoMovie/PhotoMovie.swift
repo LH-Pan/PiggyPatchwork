@@ -96,7 +96,7 @@ class VideoWriter {
                                 space: rgbColorSpace,
                                 bitmapInfo: CGImageAlphaInfo.premultipliedFirst.rawValue)
         
-        context!.clear(CGRect(x: 0,
+        context?.clear(CGRect(x: 0,
                               y: 0,
                               width: size.width,
                               height: size.height))
@@ -113,9 +113,9 @@ class VideoWriter {
         
         let newY = newSize.height < size.height ? (size.height - newSize.height) / 2 : 0
         
-        context!.concatenate(CGAffineTransform.identity)
+        context?.concatenate(CGAffineTransform.identity)
         
-        context!.draw(image.cgImage!,
+        context?.draw(image.cgImage!,
                       in: CGRect(x: newX,
                                  y: newY,
                                  width: newSize.width,

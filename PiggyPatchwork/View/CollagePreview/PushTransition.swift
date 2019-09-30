@@ -32,7 +32,7 @@ class PushTransition: NSObject, UIViewControllerAnimatedTransitioning {
         toVC.canvasImageView.isHidden = true
         
         container.addSubview(toVC.view)
-        container.addSubview(snapView!)
+        container.addSubview(snapView ?? UIView())
         
         UIView.animate(withDuration: 0.5, animations: {
             

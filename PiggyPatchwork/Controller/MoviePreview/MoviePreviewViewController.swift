@@ -160,8 +160,9 @@ class MoviePreviewViewController: UIViewController {
             }, completionHandler: { (success, error) in
 
                 if !success {
-
-                    print("Could not save video to photo library:", error!)
+                    
+                    PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.error_mark),
+                                                 message: "無法存取影片至相簿中！")
                 }
             })
         }
