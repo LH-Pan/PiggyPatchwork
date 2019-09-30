@@ -30,8 +30,10 @@ class PiggyDiffusionTransition: NSObject, UIViewControllerAnimatedTransitioning 
     }
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        
         // get frame and backgroundColor
         var startFrame = CGRect.zero
+        
         if animatedView != nil {
             startFrame = animatedView!.frame
             startBackgroundColor = animatedView!.backgroundColor
@@ -51,6 +53,7 @@ class PiggyDiffusionTransition: NSObject, UIViewControllerAnimatedTransitioning 
         let presentedController: UIViewController
         
         if !isReverse {
+            
             presentedController = transitionContext.viewController(forKey: .to)!
             presentedController.view.layer.opacity = 0
         } else {
@@ -71,7 +74,8 @@ class PiggyDiffusionTransition: NSObject, UIViewControllerAnimatedTransitioning 
                               animations: {
                                 animatedViewForTransition.transform = finalTransform
                                 animatedViewForTransition.center = transitionContext.containerView.center
-                                animatedViewForTransition.backgroundColor = UIColor.hexStringToUIColor(hex: CustomColorCode.OrchidPink)
+                                animatedViewForTransition.backgroundColor = UIColor.hexStringToUIColor(
+                                    hex: CustomColorCode.OrchidPink)
             }, completion: nil)
             
             UIView.animate(withDuration: self.transitionDuration(using: transitionContext) * 0.4,

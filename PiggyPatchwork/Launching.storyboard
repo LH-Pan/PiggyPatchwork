@@ -16,14 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PhH-Cl-yWT">
-                                <rect key="frame" x="172" y="204.5" width="1" height="1"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="1" id="5PW-YL-FZT"/>
-                                    <constraint firstAttribute="height" constant="1" id="Qao-pk-2d7"/>
-                                </constraints>
-                            </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="piggy patchwork_pig" translatesAutoresizingMaskIntoConstraints="NO" id="0mg-Bz-APb">
                                 <rect key="frame" x="32" y="596" width="350" height="350"/>
                                 <constraints>
@@ -134,6 +126,21 @@
                                     <constraint firstAttribute="width" secondItem="7QA-Sh-Xaq" secondAttribute="height" multiplier="19:30" id="AHm-DO-otM"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PhH-Cl-yWT">
+                                <rect key="frame" x="163.5" y="198.5" width="18" height="18"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="18" id="5PW-YL-FZT"/>
+                                    <constraint firstAttribute="height" constant="18" id="Qao-pk-2d7"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="piggy patchwork_i_point" translatesAutoresizingMaskIntoConstraints="NO" id="NMX-Ej-iuK">
+                                <rect key="frame" x="199.5" y="581" width="15" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="NMX-Ej-iuK" secondAttribute="height" multiplier="1:1" id="MHR-Dc-bMf"/>
+                                    <constraint firstAttribute="width" constant="15" id="ze9-s2-U4L"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -142,14 +149,16 @@
                             <constraint firstItem="wie-hu-Yvq" firstAttribute="leading" secondItem="Nhv-Yo-zS4" secondAttribute="trailing" constant="10" id="4Dc-cf-uAF"/>
                             <constraint firstItem="7QA-Sh-Xaq" firstAttribute="width" secondItem="QTf-nQ-lqH" secondAttribute="width" multiplier="38:414" id="9L4-jg-TwF"/>
                             <constraint firstItem="7QA-Sh-Xaq" firstAttribute="leading" secondItem="ORO-q6-eZY" secondAttribute="trailing" constant="10" id="C6r-5q-67b"/>
+                            <constraint firstItem="0mg-Bz-APb" firstAttribute="top" secondItem="NMX-Ej-iuK" secondAttribute="bottom" id="Doz-q9-hyj"/>
                             <constraint firstItem="wie-hu-Yvq" firstAttribute="bottom" secondItem="Nhv-Yo-zS4" secondAttribute="bottom" id="Ez0-EA-54x"/>
                             <constraint firstAttribute="bottom" secondItem="0mg-Bz-APb" secondAttribute="bottom" constant="-50" id="FLB-f2-1nu"/>
                             <constraint firstItem="QTf-nQ-lqH" firstAttribute="leading" secondItem="x6R-Ay-tY6" secondAttribute="leading" id="K0r-fL-bCU"/>
                             <constraint firstItem="wie-hu-Yvq" firstAttribute="width" secondItem="QTf-nQ-lqH" secondAttribute="width" multiplier="30:414" id="KmC-zu-lzy"/>
                             <constraint firstItem="MFH-we-XKV" firstAttribute="leading" secondItem="QTf-nQ-lqH" secondAttribute="leading" constant="16" id="OZJ-r7-zZ2"/>
                             <constraint firstItem="0mg-Bz-APb" firstAttribute="centerX" secondItem="QTf-nQ-lqH" secondAttribute="centerX" id="QiZ-Bs-ifL"/>
+                            <constraint firstItem="NMX-Ej-iuK" firstAttribute="centerX" secondItem="QTf-nQ-lqH" secondAttribute="centerX" id="Vfo-2H-YJa"/>
                             <constraint firstItem="5WS-Kv-phV" firstAttribute="centerX" secondItem="QTf-nQ-lqH" secondAttribute="centerX" multiplier="10:9.6" id="aBL-KZ-soZ"/>
-                            <constraint firstItem="PhH-Cl-yWT" firstAttribute="centerY" secondItem="wie-hu-Yvq" secondAttribute="centerY" multiplier="8.8:10" id="bwM-yn-U8X"/>
+                            <constraint firstItem="PhH-Cl-yWT" firstAttribute="centerY" secondItem="wie-hu-Yvq" secondAttribute="centerY" multiplier="8.9:10" id="bwM-yn-U8X"/>
                             <constraint firstItem="5WS-Kv-phV" firstAttribute="width" secondItem="QTf-nQ-lqH" secondAttribute="width" multiplier="36:414" id="e02-dE-AsK"/>
                             <constraint firstItem="Nhv-Yo-zS4" firstAttribute="width" secondItem="QTf-nQ-lqH" secondAttribute="width" multiplier="60:414" id="gwk-se-mVt"/>
                             <constraint firstItem="MFH-we-XKV" firstAttribute="top" secondItem="x6R-Ay-tY6" secondAttribute="bottom" id="iHM-mN-Rkv"/>
@@ -168,6 +177,7 @@
                         <viewLayoutGuide key="safeArea" id="QTf-nQ-lqH"/>
                     </view>
                     <connections>
+                        <outlet property="pointImageView" destination="NMX-Ej-iuK" id="15i-6a-Hbe"/>
                         <outlet property="transitionView" destination="PhH-Cl-yWT" id="bg0-06-vga"/>
                     </connections>
                 </viewController>
@@ -182,6 +192,7 @@
         <image name="piggy patchwork_g" width="36" height="62.5"/>
         <image name="piggy patchwork_h" width="51.5" height="66"/>
         <image name="piggy patchwork_i" width="30" height="64"/>
+        <image name="piggy patchwork_i_point" width="25.5" height="25"/>
         <image name="piggy patchwork_k" width="51.5" height="66"/>
         <image name="piggy patchwork_o" width="41" height="43"/>
         <image name="piggy patchwork_p" width="64" height="64"/>

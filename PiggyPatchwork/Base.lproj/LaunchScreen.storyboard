@@ -126,6 +126,14 @@
                                     <constraint firstAttribute="width" secondItem="pSq-gs-LNA" secondAttribute="height" multiplier="19:30" id="p6t-df-Hwd"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zdN-XI-HfT">
+                                <rect key="frame" x="163.66666666666666" y="198.33333333333334" width="18" height="18"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="18" id="b2I-0Y-K9q"/>
+                                    <constraint firstAttribute="height" constant="18" id="nGR-xq-vie"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -146,12 +154,14 @@
                             <constraint firstItem="2dR-Wx-GjC" firstAttribute="top" secondItem="AhL-s3-CaY" secondAttribute="top" id="PvS-QE-RuB"/>
                             <constraint firstItem="JYB-L0-Iry" firstAttribute="leading" secondItem="RPY-Xi-YST" secondAttribute="trailing" constant="10" id="RR6-Lu-G58"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="centerY" secondItem="E1W-SL-CPh" secondAttribute="bottom" id="TAM-Ge-0OZ"/>
+                            <constraint firstItem="zdN-XI-HfT" firstAttribute="centerX" secondItem="JYB-L0-Iry" secondAttribute="centerX" id="VnC-p4-8I5"/>
                             <constraint firstItem="pSq-gs-LNA" firstAttribute="top" secondItem="2dR-Wx-GjC" secondAttribute="top" multiplier="10:9.7" id="ZOm-Hy-x6y"/>
                             <constraint firstItem="2dR-Wx-GjC" firstAttribute="leading" secondItem="AhL-s3-CaY" secondAttribute="trailing" constant="10" id="aJy-eE-Elb"/>
                             <constraint firstItem="JYB-L0-Iry" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="30:414" id="bmp-4d-x5j"/>
                             <constraint firstItem="AhL-s3-CaY" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" multiplier="10:9.6" id="cgi-zn-WfS"/>
                             <constraint firstItem="RHW-nh-P1z" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="exa-3S-fVy"/>
                             <constraint firstItem="JYB-L0-Iry" firstAttribute="bottom" secondItem="RPY-Xi-YST" secondAttribute="bottom" id="fWH-Vg-qfU"/>
+                            <constraint firstItem="zdN-XI-HfT" firstAttribute="centerY" secondItem="JYB-L0-Iry" secondAttribute="centerY" multiplier="8.9:10" id="fpn-ch-Or9"/>
                             <constraint firstItem="oaV-Ms-xvo" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="1:6" id="oWt-CS-ZzW"/>
                             <constraint firstItem="AhL-s3-CaY" firstAttribute="leading" secondItem="JYB-L0-Iry" secondAttribute="trailing" constant="10" id="rGH-sJ-wdy"/>
                         </constraints>

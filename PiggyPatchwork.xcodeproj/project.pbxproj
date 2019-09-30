@@ -44,7 +44,7 @@
 		22D735F52334AAB300AB34F1 /* LottieAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D735F42334AAB300AB34F1 /* LottieAnimation.swift */; };
 		22D735F72334BD3A00AB34F1 /* LottieWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D735F62334BD3A00AB34F1 /* LottieWrapper.swift */; };
 		22FAD713233E172C001062D7 /* LaunchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FAD712233E172C001062D7 /* LaunchingViewController.swift */; };
-		22FAD7172340BD66001062D7 /* DiffussionTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FAD7162340BD66001062D7 /* DiffussionTransition.swift */; };
+		22FAD7172340BD66001062D7 /* PiggyDiffussionTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FAD7162340BD66001062D7 /* PiggyDiffussionTransition.swift */; };
 		22FE136F232E4205002F7F30 /* Lobby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22FE136E232E4205002F7F30 /* Lobby.storyboard */; };
 		22FE1371232E421C002F7F30 /* PhotoMovie.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22FE1370232E421B002F7F30 /* PhotoMovie.storyboard */; };
 		22FE1373232E5611002F7F30 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE1372232E5611002F7F30 /* UIStoryboard+Extension.swift */; };
@@ -106,7 +106,7 @@
 		22D735F42334AAB300AB34F1 /* LottieAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimation.swift; sourceTree = "<group>"; };
 		22D735F62334BD3A00AB34F1 /* LottieWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieWrapper.swift; sourceTree = "<group>"; };
 		22FAD712233E172C001062D7 /* LaunchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchingViewController.swift; sourceTree = "<group>"; };
-		22FAD7162340BD66001062D7 /* DiffussionTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffussionTransition.swift; sourceTree = "<group>"; };
+		22FAD7162340BD66001062D7 /* PiggyDiffussionTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiggyDiffussionTransition.swift; sourceTree = "<group>"; };
 		22FE136E232E4205002F7F30 /* Lobby.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Lobby.storyboard; sourceTree = "<group>"; };
 		22FE1370232E421B002F7F30 /* PhotoMovie.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhotoMovie.storyboard; sourceTree = "<group>"; };
 		22FE1372232E5611002F7F30 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
@@ -372,7 +372,7 @@
 		22FAD7152340BD36001062D7 /* Launching */ = {
 			isa = PBXGroup;
 			children = (
-				22FAD7162340BD66001062D7 /* DiffussionTransition.swift */,
+				22FAD7162340BD66001062D7 /* PiggyDiffussionTransition.swift */,
 			);
 			path = Launching;
 			sourceTree = "<group>";
@@ -627,7 +627,7 @@
 				2234F5F5233A3594008B0303 /* PrivacyViewController.swift in Sources */,
 				2206B7E42318DCC3000B0135 /* UIView+Extension.swift in Sources */,
 				22FAD713233E172C001062D7 /* LaunchingViewController.swift in Sources */,
-				22FAD7172340BD66001062D7 /* DiffussionTransition.swift in Sources */,
+				22FAD7172340BD66001062D7 /* PiggyDiffussionTransition.swift in Sources */,
 				22FE5044231CE89600C2C1C1 /* BackgroundColorCollectionViewCell.swift in Sources */,
 				22FE137E232F3F0E002F7F30 /* PhotoMovieTableViewCell.swift in Sources */,
 				2203840223165999003C285B /* UICollectionView+Extension.swift in Sources */,
