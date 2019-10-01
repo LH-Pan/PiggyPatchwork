@@ -16,6 +16,7 @@ protocol PhotoMovieTableViewCellDelegate: AnyObject {
 class PhotoMovieTableViewCell: UITableViewCell {
     
     @IBOutlet weak var selectedPhotoImageView: UIImageView!
+    
     @IBOutlet weak var cardView: CardView!
     
     weak var delegate: PhotoMovieTableViewCellDelegate?

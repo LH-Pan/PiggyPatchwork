@@ -24,7 +24,7 @@ class LobbyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .black
+        view.backgroundColor = UIColor.hexStringToUIColor(hex: CustomColorCode.OrchidPink)
         
         setupButtonView()
     }

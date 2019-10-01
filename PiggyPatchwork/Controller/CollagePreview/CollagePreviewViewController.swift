@@ -62,14 +62,14 @@ class CollagePreviewViewController: UIViewController {
     
     func setupButtonView() {
         
-        viewAttributes(editView)
+        setupViewAttributes(editView)
         
-        viewAttributes(savePhotoView)
+        setupViewAttributes(savePhotoView)
         
-        viewAttributes(shareToPlatformView)
+        setupViewAttributes(shareToPlatformView)
     }
     
-    func viewAttributes(_ view: UIView) {
+    func setupViewAttributes(_ view: UIView) {
         
         view.layer.cornerRadius = 25 * UIScreen.screenWidthRatio
         
