@@ -68,8 +68,6 @@ class CollageController: NSObject, UICollectionViewDataSource {
                            in: indexPath,
                            eqaulTo: ptCellSelectedIndexPath)
         
-//        personFaceImage.frame = .zero
-        
         let frames = self.prototypeLayout[indexPath.row].getFrames(prototypeCell.frame.size)
         
         for layout in frames {

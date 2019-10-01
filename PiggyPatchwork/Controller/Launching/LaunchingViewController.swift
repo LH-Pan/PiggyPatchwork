@@ -34,7 +34,7 @@ class LaunchingViewController: UIViewController {
         UIView.animate(withDuration: 0.3,
                        animations: {
             
-            self.pointImageView.alpha = 1
+                        self.pointImageView.alpha = 1
         }, completion: {(_) in
             
             UIView.animate(withDuration: 1,

@@ -23,7 +23,10 @@ class PiggyDiffusionTransition: NSObject, UIViewControllerAnimatedTransitioning 
         self.animatedView = animatedView
     }
     
-    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+    func transitionDuration(
+        using transitionContext: UIViewControllerContextTransitioning?
+    ) -> TimeInterval {
+        
         return transitionDuration
     }
 

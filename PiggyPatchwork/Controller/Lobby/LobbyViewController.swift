@@ -49,7 +49,7 @@ class LobbyViewController: UIViewController {
     }
     
     func setupLabel() {
-        versionLabel.text = "v \(UIApplication.appVersion ?? String.empty)"
+        versionLabel.text = "v" + String.space + (UIApplication.appVersion ?? String.empty)
     }
 
     func setupButtonView() {

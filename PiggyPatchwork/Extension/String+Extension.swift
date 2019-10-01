@@ -11,4 +11,6 @@ import UIKit
 extension String {
     
     static let empty = ""
+    
+    static let space = " "
 }
