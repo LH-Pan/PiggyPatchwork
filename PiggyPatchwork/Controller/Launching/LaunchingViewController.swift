@@ -36,32 +36,18 @@ class LaunchingViewController: UIViewController {
             
                         self.pointImageView.alpha = 1
         }, completion: {(_) in
-            
-            UIView.animate(withDuration: 1,
-                           animations: {
-                            
-                            self.transitionView.transform = CGAffineTransform.identity
-                            
-                            self.animate(view: self.pointImageView,
-                                         fromPoint: self.pointImageView.center,
-                                         toPoint: self.transitionView.center)
-            }, completion: {(_) in
-                
-                 if let lobbyVC = UIStoryboard.lobby.instantiateInitialViewController() {
-
-                     lobbyVC.modalPresentationStyle = .custom
-
-                     lobbyVC.transitioningDelegate = self.diffusionTransition
-
-                     self.present(lobbyVC, animated: true, completion: nil)
-                 }
-            })
+                        
+                        self.animate(view: self.pointImageView,
+                                     fromPoint: self.pointImageView.center,
+                                     toPoint: self.transitionView.center)
         })
     }
     
     func animate(view: UIView, fromPoint start: CGPoint, toPoint end: CGPoint) {
         
         let animation = CAKeyframeAnimation(keyPath: "position")
+        
+        animation.delegate = self
 
         let path = UIBezierPath()
 
@@ -83,6 +69,28 @@ class LaunchingViewController: UIViewController {
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
 
         view.layer.add(animation, forKey: nil)
+    }
+    
+    func goToLobbyTransition() {
         
+        if let lobbyVC = UIStoryboard.lobby.instantiateInitialViewController() {
+
+            lobbyVC.modalPresentationStyle = .custom
+
+            lobbyVC.transitioningDelegate = self.diffusionTransition
+
+            self.present(lobbyVC, animated: true, completion: nil)
+        }
+    }
+}
+
+extension LaunchingViewController: CAAnimationDelegate {
+    
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        
+        if flag {
+            
+            self.goToLobbyTransition()
+        }
     }
 }

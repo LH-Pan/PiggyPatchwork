@@ -172,25 +172,19 @@ class MoviePreviewViewController: UIViewController {
         
         PiggyLottie.setupAnimationView(view: filmAnimationView,
                                        name: Lotties.videoMaking,
-                                       speed: 1.5,
-                                       loopMode: .loop)
+                                       speed: 2,
+                                       loopMode: .playOnce)
         
-        let transform = CGAffineTransform(scaleX: 0.99, y: 0.99)
-
-        filmAnimationView.transform = transform
-
-        UIView.animate(withDuration: 3,
-                       animations: {
-
-                        self.filmAnimationView.transform = CGAffineTransform.identity
-                        
-        }, completion: { [weak self] (_) in
+        filmAnimationView.play { [weak self] (finished) in
             
-            PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.tick_mark),
-            message: "影片已儲存 d(＇∀＇)")
-
-            self?.navigationController?.popToRootViewController(animated: true)
-        })
+            if finished {
+                
+                PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.tick_mark),
+                                             message: "影片已儲存 d(＇∀＇)")
+                
+                self?.navigationController?.popToRootViewController(animated: true)
+            }
+        }
     }
     
     @IBAction func shareToPlatform(_ sender: Any) {
