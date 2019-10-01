@@ -3,6 +3,7 @@ GoogleService-Info.plist
 
 ### Storyboard ###
 xcuserdata/
+*.xcuserstate
 
 ### CocoaPods ###
 Pods/
