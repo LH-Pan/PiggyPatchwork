@@ -21,12 +21,16 @@ class LobbyViewController: UIViewController {
     
     @IBOutlet weak var showAlbumView: UIView!
     
+    @IBOutlet weak var versionLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = CustomColor.OrchidPink
         
         setupButtonView()
+        
+        setupLabel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,6 +46,10 @@ class LobbyViewController: UIViewController {
         
         semicircleView.layer.cornerRadius = semicircleView.frame.width / 2
   
+    }
+    
+    func setupLabel() {
+        versionLabel.text = "v \(UIApplication.appVersion ?? String.empty)"
     }
 
     func setupButtonView() {
