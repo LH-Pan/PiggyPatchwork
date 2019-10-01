@@ -20,7 +20,7 @@ class MoviePreviewViewController: UIViewController {
         
         didSet {
             
-            backToPhotoMovieBtn.setTitleColor(.hexStringToUIColor(hex: CustomColorCode.OrchidPink),
+            backToPhotoMovieBtn.setTitleColor(CustomColor.OrchidPink,
                                               for: .normal)
             backToPhotoMovieBtn.layer.cornerRadius = 10
         }
@@ -38,7 +38,7 @@ class MoviePreviewViewController: UIViewController {
     
     let playerController = AVPlayerViewController()
     
-    let player = AVPlayer()
+    var player = AVPlayer()
     
     var looper: AVPlayerLooper?
     
@@ -56,8 +56,8 @@ class MoviePreviewViewController: UIViewController {
         setupView()
         
         Gradient.doubleColor(at: view,
-                             firstColorCode: CustomColorCode.PigletPink,
-                             secondColorCode: CustomColorCode.OrchidPink)
+                             firstColor: CustomColor.PigletPink,
+                             secondColor: CustomColor.OrchidPink)
         
         PiggyLottie.setupAnimationView(view: loadingView,
                                        name: Lotties.loading,
@@ -94,7 +94,7 @@ class MoviePreviewViewController: UIViewController {
         
         translucentView.frame = view.frame
         
-        translucentView.backgroundColor = UIColor.black.withAlphaComponent(0.2)
+        translucentView.backgroundColor = UIColor.white.withAlphaComponent(0.8)
         
         translucentView.isHidden = true
         
@@ -105,12 +105,12 @@ class MoviePreviewViewController: UIViewController {
     
     func setupFilmAnimationView() {
         
-        filmAnimationView.frame.size = CGSize(width: 300 / 414 * UIScreen.width,
-                                              height: 300 / 414 * UIScreen.width)
+        filmAnimationView.frame.size = CGSize(width: 300 * UIScreen.screenWidthRatio,
+                                              height: 300 * UIScreen.screenWidthRatio)
         
         filmAnimationView.center.x = translucentView.center.x
         
-        filmAnimationView.center.y = translucentView.center.y + 50 / 896 * UIScreen.height
+        filmAnimationView.center.y = translucentView.center.y
         
         filmAnimationView.backgroundColor = .clear
     }
@@ -124,7 +124,7 @@ class MoviePreviewViewController: UIViewController {
     
     func displayVideo() {
         
-        let player = AVPlayer(url: URL(fileURLWithPath: movieUrl))
+        player = AVPlayer(url: URL(fileURLWithPath: movieUrl))
         
         playerController.view.frame.size = movieView.frame.size
 
@@ -150,6 +150,8 @@ class MoviePreviewViewController: UIViewController {
     
     @IBAction func saveMovie(_ sender: Any) {
         
+        player.pause()
+        
         PHPhotoLibrary.requestAuthorization { status in
 
             guard status == .authorized else { return }
@@ -157,11 +159,12 @@ class MoviePreviewViewController: UIViewController {
             PHPhotoLibrary.shared().performChanges({
                 PHAssetChangeRequest.creationRequestForAssetFromVideo(
                     atFileURL: URL(fileURLWithPath: self.movieUrl) as URL)
-            }, completionHandler: { (success, error) in
+            }, completionHandler: { (success, _) in
 
                 if !success {
-
-                    print("Could not save video to photo library:", error!)
+                    
+                    PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.error_mark),
+                                                 message: "無法存取影片至相簿中！")
                 }
             })
         }
@@ -180,6 +183,7 @@ class MoviePreviewViewController: UIViewController {
                        animations: {
 
                         self.filmAnimationView.transform = CGAffineTransform.identity
+                        
         }, completion: { [weak self] (_) in
             
             PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.tick_mark),
@@ -193,18 +197,21 @@ class MoviePreviewViewController: UIViewController {
         
         let videoURL = URL(fileURLWithPath: movieUrl)
         
-        let activityItems = [videoURL as Any] as [Any]
+        let activityItem = [videoURL as Any] as [Any]
         
-        let activityController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+        let activityController = UIActivityViewController(activityItems: activityItem,
+                                                          applicationActivities: nil)
 
         self.present(activityController, animated: true, completion: nil)
     }
-    
 }
 
 extension MoviePreviewViewController: MovieUrlProviderDelegate {
     
-    func provider(_ provider: ImageAnimator, didGet url: String) {
+    func provider(
+        _ provider: ImageAnimator,
+        didGet url: String
+    ) {
         movieUrl = url
     }
 }

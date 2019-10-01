@@ -10,11 +10,15 @@ import UIKit
 
 class PushTransition: NSObject, UIViewControllerAnimatedTransitioning {
     
-    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+    func transitionDuration(
+        using transitionContext: UIViewControllerContextTransitioning?
+    ) -> TimeInterval {
         return 0.5
     }
     
-    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+    func animateTransition(
+        using transitionContext: UIViewControllerContextTransitioning
+    ) {
         
         guard
             let fromVC = transitionContext.viewController(forKey: .from) as? CollagePreviewViewController,
@@ -32,7 +36,7 @@ class PushTransition: NSObject, UIViewControllerAnimatedTransitioning {
         toVC.canvasImageView.isHidden = true
         
         container.addSubview(toVC.view)
-        container.addSubview(snapView!)
+        container.addSubview(snapView ?? UIView())
         
         UIView.animate(withDuration: 0.5, animations: {
             

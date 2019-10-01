@@ -19,6 +19,6 @@ class CollageCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        self.makeCellSquareShadow()
+        makeCellSquareShadow()
     }
 }

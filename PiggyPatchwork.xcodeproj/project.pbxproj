@@ -45,6 +45,7 @@
 		22D735F72334BD3A00AB34F1 /* LottieWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D735F62334BD3A00AB34F1 /* LottieWrapper.swift */; };
 		22FAD713233E172C001062D7 /* LaunchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FAD712233E172C001062D7 /* LaunchingViewController.swift */; };
 		22FAD7172340BD66001062D7 /* PiggyDiffussionTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FAD7162340BD66001062D7 /* PiggyDiffussionTransition.swift */; };
+		22FAD71923434A96001062D7 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FAD71823434A96001062D7 /* UIApplication+Extension.swift */; };
 		22FE136F232E4205002F7F30 /* Lobby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22FE136E232E4205002F7F30 /* Lobby.storyboard */; };
 		22FE1371232E421C002F7F30 /* PhotoMovie.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22FE1370232E421B002F7F30 /* PhotoMovie.storyboard */; };
 		22FE1373232E5611002F7F30 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE1372232E5611002F7F30 /* UIStoryboard+Extension.swift */; };
@@ -107,6 +108,7 @@
 		22D735F62334BD3A00AB34F1 /* LottieWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieWrapper.swift; sourceTree = "<group>"; };
 		22FAD712233E172C001062D7 /* LaunchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchingViewController.swift; sourceTree = "<group>"; };
 		22FAD7162340BD66001062D7 /* PiggyDiffussionTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiggyDiffussionTransition.swift; sourceTree = "<group>"; };
+		22FAD71823434A96001062D7 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		22FE136E232E4205002F7F30 /* Lobby.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Lobby.storyboard; sourceTree = "<group>"; };
 		22FE1370232E421B002F7F30 /* PhotoMovie.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhotoMovie.storyboard; sourceTree = "<group>"; };
 		22FE1372232E5611002F7F30 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 				22FE1381232F3F97002F7F30 /* UITableView+Extension.swift */,
 				2206B7E32318DCC3000B0135 /* UIView+Extension.swift */,
 				2222F34B2336545A0084FA91 /* String+Extension.swift */,
+				22FAD71823434A96001062D7 /* UIApplication+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -638,6 +641,7 @@
 				2205CC952328D380000682BE /* CanvasViewController.swift in Sources */,
 				22FE13842330BEBD002F7F30 /* testStruct.swift in Sources */,
 				2203840923165D85003C285B /* CollageCollectionViewCell.swift in Sources */,
+				22FAD71923434A96001062D7 /* UIApplication+Extension.swift in Sources */,
 				22D5268E2315460B00F76354 /* AppDelegate.swift in Sources */,
 				2205CC8E23269CBB000682BE /* CollagePreviewViewController.swift in Sources */,
 				220384182317A5AC003C285B /* FunctionOption.swift in Sources */,
@@ -806,7 +810,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = CL27H452FX;
 				INFOPLIST_FILE = PiggyPatchwork/Info.plist;
@@ -829,7 +833,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = CL27H452FX;
 				INFOPLIST_FILE = PiggyPatchwork/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;

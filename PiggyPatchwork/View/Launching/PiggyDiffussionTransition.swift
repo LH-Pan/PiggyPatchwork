@@ -14,8 +14,6 @@ class PiggyDiffusionTransition: NSObject, UIViewControllerAnimatedTransitioning 
     
     var startBackgroundColor: UIColor?
     
-    var isReverse = false
-    
     var transitionDuration: TimeInterval = 0.5
     
     private override init() { super.init() }
@@ -35,8 +33,8 @@ class PiggyDiffusionTransition: NSObject, UIViewControllerAnimatedTransitioning 
         var startFrame = CGRect.zero
         
         if animatedView != nil {
-            startFrame = animatedView!.frame
-            startBackgroundColor = animatedView!.backgroundColor
+            startFrame = animatedView?.frame ?? CGRect.zero
+            startBackgroundColor = animatedView?.backgroundColor
         }
         
         // init animated view for transition
@@ -52,15 +50,10 @@ class PiggyDiffusionTransition: NSObject, UIViewControllerAnimatedTransitioning 
         // set presentedController
         let presentedController: UIViewController
         
-        if !isReverse {
-            
-            presentedController = transitionContext.viewController(forKey: .to)!
-            presentedController.view.layer.opacity = 0
-        } else {
-            presentedController = transitionContext.viewController(forKey: .from)!
-        }
-        
+        presentedController = transitionContext.viewController(forKey: .to) ?? UIViewController()
+        presentedController.view.layer.opacity = 0
         presentedController.view.frame = transitionContext.containerView.bounds
+        
         transitionContext.containerView.addSubview(presentedController.view)
         
         let size = max(transitionContext.containerView.frame.height,
@@ -74,8 +67,7 @@ class PiggyDiffusionTransition: NSObject, UIViewControllerAnimatedTransitioning 
                               animations: {
                                 animatedViewForTransition.transform = finalTransform
                                 animatedViewForTransition.center = transitionContext.containerView.center
-                                animatedViewForTransition.backgroundColor = UIColor.hexStringToUIColor(
-                                    hex: CustomColorCode.OrchidPink)
+                                animatedViewForTransition.backgroundColor = CustomColor.OrchidPink
             }, completion: nil)
             
             UIView.animate(withDuration: self.transitionDuration(using: transitionContext) * 0.4,
@@ -97,7 +89,6 @@ extension PiggyDiffusionTransition: UIViewControllerTransitioningDelegate {
         source: UIViewController
     ) -> UIViewControllerAnimatedTransitioning? {
         
-        isReverse = false
         return self
     }
 }

@@ -68,6 +68,7 @@ class LaunchingViewController: UIViewController {
         path.move(to: start)
 
         let firstControlPoint = CGPoint(x: start.x + end.x, y: start.y)
+        
         let secondControlPoint = CGPoint(x: end.x, y: end.y - start.y)
 
         path.addCurve(to: end,
@@ -81,6 +82,7 @@ class LaunchingViewController: UIViewController {
         animation.duration = 0.6
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
 
-        view.layer.add(animation, forKey: "trash")
+        view.layer.add(animation, forKey: nil)
+        
     }
 }

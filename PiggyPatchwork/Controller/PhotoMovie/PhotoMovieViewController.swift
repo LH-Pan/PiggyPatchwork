@@ -13,14 +13,7 @@ import Photos
 
 class PhotoMovieViewController: UIViewController {
     
-    @IBOutlet weak var photoMovieTableView: UITableView! {
-        
-        didSet {
-            photoMovieTableView.delegate = self
-            
-            photoMovieTableView.dataSource = self
-        }
-    }
+    @IBOutlet weak var photoMovieTableView: UITableView!
     
     @IBOutlet weak var addPhotoBtn: UIButton! {
         
@@ -34,7 +27,7 @@ class PhotoMovieViewController: UIViewController {
     @IBOutlet weak var backToHomeBtn: UIButton! {
         
         didSet {
-            backToHomeBtn.setTitleColor(.hexStringToUIColor(hex: CustomColorCode.OrchidPink),
+            backToHomeBtn.setTitleColor(CustomColor.OrchidPink,
                                         for: .normal)
             backToHomeBtn.layer.cornerRadius = 10
         }
@@ -43,7 +36,7 @@ class PhotoMovieViewController: UIViewController {
     @IBOutlet weak var nextStepBtn: UIButton! {
         
         didSet {
-            nextStepBtn.setTitleColor(.hexStringToUIColor(hex: CustomColorCode.OrchidPink),
+            nextStepBtn.setTitleColor(CustomColor.OrchidPink,
                                       for: .normal)
             nextStepBtn.layer.cornerRadius = 10
         }
@@ -62,9 +55,7 @@ class PhotoMovieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        photoMovieTableView.custom_registerCellWithNib(identifier: PhotoMovieTableViewCell.identifier,
-                                                       bundle: nil)
-        photoMovieTableView.isEditing = true
+       setupTableView()
         
     }
     
@@ -72,13 +63,24 @@ class PhotoMovieViewController: UIViewController {
         super.viewWillAppear(animated)
         
         Gradient.doubleColor(at: view,
-                             firstColorCode: CustomColorCode.PigletPink,
-                             secondColorCode: CustomColorCode.OrchidPink)
+                             firstColor: CustomColor.PigletPink,
+                             secondColor: CustomColor.OrchidPink)
         
         PiggyLottie.setupAnimationView(view: animateArrow,
                                        name: Lotties.downArrow,
                                        speed: 2,
                                        loopMode: .loop)
+    }
+    
+    func setupTableView() {
+        
+        photoMovieTableView.delegate = self
+        
+        photoMovieTableView.dataSource = self
+        
+        photoMovieTableView.custom_registerCellWithNib(identifier: PhotoMovieTableViewCell.identifier,
+                                                       bundle: nil)
+        photoMovieTableView.isEditing = true
     }
     
     func hideImages(_ hidden: Bool) {
@@ -150,7 +152,7 @@ extension PhotoMovieViewController: UITableViewDataSource {
     func tableView(
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
-        ) -> Int {
+    ) -> Int {
         
         return selectedPhotos.count
     }
@@ -158,7 +160,7 @@ extension PhotoMovieViewController: UITableViewDataSource {
     func tableView(
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
-        ) -> UITableViewCell {
+    ) -> UITableViewCell {
         
         guard
             let photoMovieCell = tableView.dequeueReusableCell(
@@ -182,7 +184,7 @@ extension PhotoMovieViewController: UITableViewDataSource {
     func tableView(
         _ tableView: UITableView,
         editingStyleForRowAt indexPath: IndexPath
-        ) -> UITableViewCell.EditingStyle {
+    ) -> UITableViewCell.EditingStyle {
 
         return .none
     }
@@ -191,7 +193,7 @@ extension PhotoMovieViewController: UITableViewDataSource {
         _ tableView: UITableView,
         moveRowAt sourceIndexPath: IndexPath,
         to destinationIndexPath: IndexPath
-        ) {
+    ) {
         
         let moveObject = self.selectedPhotos[sourceIndexPath.row]
 
@@ -207,15 +209,15 @@ extension PhotoMovieViewController: UITableViewDelegate {
     func tableView(
         _ tableView: UITableView,
         heightForRowAt indexPath: IndexPath
-        ) -> CGFloat {
+    ) -> CGFloat {
         
-        return 220 / 896 * UIScreen.height
+        return 220 * UIScreen.screenHeightRatio
     }
 
     func tableView(
         _ tableView: UITableView,
         canMoveRowAt indexPath: IndexPath
-        ) -> Bool {
+    ) -> Bool {
 
         return true
     }
@@ -223,7 +225,7 @@ extension PhotoMovieViewController: UITableViewDelegate {
     func tableView(
         _ tableView: UITableView,
         shouldIndentWhileEditingRowAt indexPath: IndexPath
-        ) -> Bool {
+    ) -> Bool {
 
         return false
     }
@@ -267,11 +269,13 @@ extension PhotoMovieViewController: OpalImagePickerControllerDelegate {
     func imagePicker(
         _ picker: OpalImagePickerController,
         didFinishPickingImages images: [UIImage]
-        ) {
+    ) {
         
         for image in images {
             
-            selectedPhotos.append(image)
+            let fixedImage: UIImage = image.fixOrientation()
+            
+            selectedPhotos.append(fixedImage)
         }
         
         photoMovieTableView.reloadData()

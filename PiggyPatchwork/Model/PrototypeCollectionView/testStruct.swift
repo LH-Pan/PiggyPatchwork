@@ -78,7 +78,7 @@ class CollageController: NSObject, UICollectionViewDataSource {
             
             subView.frame = layout
             
-            subView.backgroundColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SilverGray)
+            subView.backgroundColor = CustomColor.SilverGray
             
             prototypeCell.addSubview(subView)
             

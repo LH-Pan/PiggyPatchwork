@@ -11,7 +11,12 @@ import Lottie
 
 class PiggyLottie {
     
-    static func setupAnimationView(view: AnimationView, name: String, speed: CGFloat, loopMode: LottieLoopMode) {
+    static func setupAnimationView(
+        view: AnimationView,
+        name: String,
+        speed: CGFloat,
+        loopMode: LottieLoopMode
+    ) {
         
         view.animation = Animation.named(name)
         

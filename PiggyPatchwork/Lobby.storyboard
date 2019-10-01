@@ -119,7 +119,7 @@
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="myAlbum" translatesAutoresizingMaskIntoConstraints="NO" id="tcA-F7-7JM">
-                                        <rect key="frame" x="30" y="27.5" width="20" height="20"/>
+                                        <rect key="frame" x="30" y="27.5" width="20" height="20.000000000000028"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="tcA-F7-7JM" secondAttribute="height" id="ULz-ye-wLH"/>
                                             <constraint firstAttribute="width" constant="20" id="xWG-ct-hMS"/>
@@ -175,6 +175,18 @@
                                     <action selector="showPravicyPolicy:" destination="DZ5-rz-IrC" eventType="touchUpInside" id="UMN-xO-Ynm"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FoI-QD-bPM">
+                                <rect key="frame" x="363.5" y="845" width="30.5" height="17"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Label">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="12" name="PingFangTC-Regular"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -200,6 +212,7 @@
                             <constraint firstItem="cJ9-dY-uj4" firstAttribute="height" secondItem="Xss-BM-v1u" secondAttribute="height" id="cM2-6p-jTs"/>
                             <constraint firstItem="41A-pt-9bT" firstAttribute="height" secondItem="3TV-pX-SSY" secondAttribute="height" id="cTk-5Y-iOE"/>
                             <constraint firstItem="4LY-GX-Hsg" firstAttribute="top" secondItem="41A-pt-9bT" secondAttribute="bottom" id="ehh-5Y-5cb"/>
+                            <constraint firstItem="FoI-QD-bPM" firstAttribute="bottom" secondItem="Dil-6p-foN" secondAttribute="bottom" id="ei4-g8-UoO"/>
                             <constraint firstItem="cJ9-dY-uj4" firstAttribute="centerX" secondItem="Xss-BM-v1u" secondAttribute="centerX" id="gX1-1b-eG9"/>
                             <constraint firstItem="41A-pt-9bT" firstAttribute="leading" secondItem="Xss-BM-v1u" secondAttribute="leading" constant="75" id="gcg-6L-Fph"/>
                             <constraint firstItem="Dil-6p-foN" firstAttribute="centerX" secondItem="Xss-BM-v1u" secondAttribute="centerX" id="iXW-zd-j2t"/>
@@ -208,6 +221,7 @@
                             <constraint firstItem="4LY-GX-Hsg" firstAttribute="height" secondItem="zh1-hw-ReA" secondAttribute="height" id="mZE-Ec-LoQ"/>
                             <constraint firstItem="odE-S4-OQJ" firstAttribute="height" secondItem="3TV-pX-SSY" secondAttribute="height" id="nD6-g0-5QI"/>
                             <constraint firstItem="HKx-RA-N6q" firstAttribute="top" secondItem="4AW-Np-gyX" secondAttribute="bottom" id="pR8-wl-Jwb"/>
+                            <constraint firstItem="Xss-BM-v1u" firstAttribute="trailing" secondItem="FoI-QD-bPM" secondAttribute="trailing" constant="20" id="pzj-tb-MeJ"/>
                             <constraint firstItem="9iU-8H-YRh" firstAttribute="centerX" secondItem="Xss-BM-v1u" secondAttribute="centerX" id="tYc-Pa-Bdk"/>
                             <constraint firstItem="41A-pt-9bT" firstAttribute="centerX" secondItem="Xss-BM-v1u" secondAttribute="centerX" id="ufZ-bi-9vA"/>
                             <constraint firstItem="HKx-RA-N6q" firstAttribute="leading" secondItem="Xss-BM-v1u" secondAttribute="leading" constant="75" id="vdt-z9-OcV"/>
@@ -223,6 +237,7 @@
                         <outlet property="makeMovieView" destination="4LY-GX-Hsg" id="WNN-zE-FqI"/>
                         <outlet property="semicircleView" destination="cJ9-dY-uj4" id="cmh-O2-r0v"/>
                         <outlet property="showAlbumView" destination="4AW-Np-gyX" id="Kam-o7-UP4"/>
+                        <outlet property="versionLabel" destination="FoI-QD-bPM" id="9cp-S9-ZdO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="auZ-92-r1V" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -22,7 +22,7 @@ class CollagePreviewViewController: UIViewController {
     @IBOutlet weak var goLastPage: UIButton! {
         
         didSet {
-            goLastPage.setTitleColor(.hexStringToUIColor(hex: CustomColorCode.OrchidPink),
+            goLastPage.setTitleColor(CustomColor.OrchidPink,
                                      for: .normal)
             goLastPage.layer.cornerRadius = 10
         }
@@ -56,22 +56,22 @@ class CollagePreviewViewController: UIViewController {
         self.navigationController?.delegate = self
         
         Gradient.doubleColor(at: view,
-                             firstColorCode: CustomColorCode.PigletPink,
-                             secondColorCode: CustomColorCode.OrchidPink)
+                             firstColor: CustomColor.PigletPink,
+                             secondColor: CustomColor.OrchidPink)
     }
     
     func setupButtonView() {
         
-        viewAttributes(editView)
+        setupViewAttributes(editView)
         
-        viewAttributes(savePhotoView)
+        setupViewAttributes(savePhotoView)
         
-        viewAttributes(shareToPlatformView)
+        setupViewAttributes(shareToPlatformView)
     }
     
-    func viewAttributes(_ view: UIView) {
+    func setupViewAttributes(_ view: UIView) {
         
-        view.layer.cornerRadius = 25 / 414 * UIScreen.width
+        view.layer.cornerRadius = 25 * UIScreen.screenWidthRatio
         
         view.addViewShadow()
     }
@@ -118,7 +118,7 @@ class CollagePreviewViewController: UIViewController {
         
         storageImage = previewView.takeSnapshot()
         
-        let activityViewController = UIActivityViewController(activityItems: [storageImage!],
+        let activityViewController = UIActivityViewController(activityItems: [storageImage ?? UIImage()],
                                                               applicationActivities: nil)
         
         self.present(activityViewController, animated: true, completion: nil)
@@ -132,7 +132,7 @@ extension CollagePreviewViewController: UINavigationControllerDelegate {
         animationControllerFor operation: UINavigationController.Operation,
         from fromVC: UIViewController,
         to toVC: UIViewController
-        ) -> UIViewControllerAnimatedTransitioning? {
+    ) -> UIViewControllerAnimatedTransitioning? {
         
         if operation == .push {
             

@@ -37,7 +37,7 @@ class CollageViewController: UIViewController {
     @IBOutlet weak var nextStepBtn: UIButton! {
         
         didSet {
-            nextStepBtn.setTitleColor(.hexStringToUIColor(hex: CustomColorCode.OrchidPink),
+            nextStepBtn.setTitleColor(CustomColor.OrchidPink,
                                       for: .normal)
             nextStepBtn.layer.cornerRadius = 10
         }
@@ -46,7 +46,7 @@ class CollageViewController: UIViewController {
     @IBOutlet weak var backToHomeBtn: UIButton! {
         
         didSet {
-            backToHomeBtn.setTitleColor(.hexStringToUIColor(hex: CustomColorCode.OrchidPink),
+            backToHomeBtn.setTitleColor(CustomColor.OrchidPink,
                                         for: .normal)
             backToHomeBtn.layer.cornerRadius = 10
         }
@@ -115,8 +115,8 @@ class CollageViewController: UIViewController {
         super.viewWillAppear(animated)
         
         Gradient.doubleColor(at: view,
-                             firstColorCode: CustomColorCode.PigletPink,
-                             secondColorCode: CustomColorCode.OrchidPink)
+                             firstColor: CustomColor.PigletPink,
+                             secondColor: CustomColor.OrchidPink)
     }
     
     // MARK: Private method
@@ -172,7 +172,7 @@ class CollageViewController: UIViewController {
      
         let minScale = scrollView.minimumZoomScale
         
-        scrollView.layer.borderColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SilverGray).cgColor
+        scrollView.layer.borderColor = CustomColor.SilverGray.cgColor
         
         scrollView.layer.borderWidth = 1
         
@@ -250,7 +250,9 @@ class CollageViewController: UIViewController {
         
         let detectRequest = VNDetectFaceRectanglesRequest(completionHandler: self.handleFaces)
         
-        let detectRequestHandler = VNImageRequestHandler(cgImage: (savedImage?.cgImage)!,
+        guard let image = savedImage?.cgImage else { return }
+        
+        let detectRequestHandler = VNImageRequestHandler(cgImage: image,
                                                          options: [ : ])
  
         do {
@@ -259,7 +261,6 @@ class CollageViewController: UIViewController {
             
             PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.exclamation_mark),
                                          message: "人臉偵測錯誤 (つд⊂)")
-            print(error)
         }
     }
     
@@ -290,7 +291,7 @@ class CollageViewController: UIViewController {
             }
         }
         
-        let imageRect = AVMakeRect(aspectRatio: savedImage!.size,
+        let imageRect = AVMakeRect(aspectRatio: savedImage?.size ?? CGSize.zero,
                                    insideRect: collageView.bounds)
         
         let surplusWidth = CGFloat.insetRatio * collageView.frame.width
@@ -311,7 +312,7 @@ class CollageViewController: UIViewController {
                                  width: width * 5 / 7,
                                  height: height * 4 / 5)
             
-            layer.backgroundColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SkinOrange).cgColor
+            layer.backgroundColor = CustomColor.SkinOrange.cgColor
             
             layer.cornerRadius = layer.frame.size.height / 2
             
@@ -381,7 +382,7 @@ extension CollageViewController: UICollectionViewDataSource,
     func collectionView(
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
-        ) -> Int {
+    ) -> Int {
         
         switch selectionView.selectedIndex {
         
@@ -394,8 +395,8 @@ extension CollageViewController: UICollectionViewDataSource,
     
     func collectionView(
         _ collectionView: UICollectionView,
-        cellForItemAt indexPath: IndexPath)
-        -> UICollectionViewCell {
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         
         if selectionView.selectedIndex == 0 {
 
@@ -403,7 +404,7 @@ extension CollageViewController: UICollectionViewDataSource,
                 let prototypeCell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: CollageCollectionViewCell.identifier,
                     for: indexPath
-                    ) as? CollageCollectionViewCell
+                ) as? CollageCollectionViewCell
             else {
                 return UICollectionViewCell()
             }
@@ -430,7 +431,7 @@ extension CollageViewController: UICollectionViewDataSource,
                 
                 subView.frame = layout
                 
-                subView.backgroundColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SilverGray)
+                subView.backgroundColor = CustomColor.SilverGray
                 
                 prototypeCell.collageCellView.addSubview(subView)
             
@@ -444,7 +445,7 @@ extension CollageViewController: UICollectionViewDataSource,
                 let bakcgroundCell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: BackgroundColorCollectionViewCell.identifier,
                     for: indexPath
-                    ) as? BackgroundColorCollectionViewCell
+                ) as? BackgroundColorCollectionViewCell
             else {
                 return UICollectionViewCell()
             }
@@ -463,7 +464,7 @@ extension CollageViewController: UICollectionViewDataSource,
                 let emoticonCell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: EmoticonCollectionViewCell.identifier,
                     for: indexPath
-                    ) as? EmoticonCollectionViewCell
+                ) as? EmoticonCollectionViewCell
             else {
                 return UICollectionViewCell()
             }
@@ -489,7 +490,6 @@ extension CollageViewController: UICollectionViewDataSource,
                     personFaceScrollView.minimumZoomScale = 1
                 
                     personFaceScrollView.maximumZoomScale = 1
-                    
                 }
             }
         
@@ -501,13 +501,14 @@ extension CollageViewController: UICollectionViewDataSource,
     
     func collectionView(
         _ collectionView: UICollectionView,
-        didSelectItemAt indexPath: IndexPath) {
+        didSelectItemAt indexPath: IndexPath
+    ) {
         
         guard
             let
                 cell = collectionView.cellForItem(at: indexPath)
-            else {
-                return
+        else {
+            return
         }
         
         switch selectionView.selectedIndex {
@@ -584,7 +585,8 @@ extension CollageViewController: UICollectionViewDataSource,
     
     func collectionView(
         _ collectionView: UICollectionView,
-        didDeselectItemAt indexPath: IndexPath) {
+        didDeselectItemAt indexPath: IndexPath
+    ) {
 
         guard
             let cell = collectionView.cellForItem(at: indexPath)
@@ -623,11 +625,11 @@ extension CollageViewController: SelectionViewDelegate,
     }
     
     func colorOfIndicatorView(_ selectionView: SelectionView) -> UIColor {
-        return UIColor.hexStringToUIColor(hex: CustomColorCode.LemonadeYellow)
+        return CustomColor.LemonadeYellow
     }
     
     func colorOfSelectionText(_ selectionView: SelectionView) -> UIColor {
-        return UIColor.hexStringToUIColor(hex: CustomColorCode.EucalyptusGreen)
+        return CustomColor.EucalyptusGreen
     }
     
     func enable(_ selectionView: SelectionView, index: Int) -> Bool {
@@ -650,8 +652,10 @@ extension CollageViewController: SelectionViewDelegate,
 
 extension CollageViewController: OpalImagePickerControllerDelegate {
     
-    func showMyAlbum(subviews: [UIView]?,
-                     sublayers: [CALayer]?) {
+    func showMyAlbum(
+        subviews: [UIView]?,
+        sublayers: [CALayer]?
+    ) {
         
         PHPhotoLibrary.requestAuthorization { [weak self] (status) in
             
@@ -677,7 +681,7 @@ extension CollageViewController: OpalImagePickerControllerDelegate {
                         
                         if subviews != nil {
                             
-                            for subview in subviews! {
+                            for subview in subviews ?? [] {
                                 
                                 subview.removeFromSuperview()
                             }
@@ -685,7 +689,7 @@ extension CollageViewController: OpalImagePickerControllerDelegate {
                         
                         if sublayers != nil {
                             
-                            for sublayer in sublayers! {
+                            for sublayer in sublayers ?? [] {
                                 
                                 sublayer.removeFromSuperlayer()
                             }
@@ -702,7 +706,8 @@ extension CollageViewController: OpalImagePickerControllerDelegate {
     
     func imagePicker(
         _ picker: OpalImagePickerController,
-        didFinishPickingImages images: [UIImage]) {
+        didFinishPickingImages images: [UIImage]
+    ) {
         
         chosenImageView?.image = images.first
         
