@@ -8,32 +8,32 @@
 
 import UIKit
 
-struct CustomColorCode {
+struct CustomColor {
     
     //Red Color
-    static let PigletPink = "#FBEAF0"
-    static let PastelPink = "#FFD0D6"
-    static let OrchidPink = "#EF95AC"
+    static let PigletPink = UIColor.hexStringToUIColor(hex: "#FBEAF0")
+    static let PastelPink = UIColor.hexStringToUIColor(hex: "#FFD0D6")
+    static let OrchidPink = UIColor.hexStringToUIColor(hex: "#EF95AC")
     
     //Orange Color
-    static let MelonOrange = "#E5A46E"
-    static let SalamanderOrange = "#F15A22"
-    static let SkinOrange = "#FCE6C9"
+    static let MelonOrange = UIColor.hexStringToUIColor(hex: "#EF95AC")
+    static let SalamanderOrange = UIColor.hexStringToUIColor(hex: "#F15A22")
+    static let SkinOrange = UIColor.hexStringToUIColor(hex: "#FCE6C9")
     
     //Yellow Color
-    static let LemonadeYellow = "#FEE19F"
+    static let LemonadeYellow = UIColor.hexStringToUIColor(hex: "#FEE19F")
     
     //Green Color
-    static let EucalyptusGreen = "#85CFB4"
-    static let ZigguartGreen = "#B7DDE0"
+    static let EucalyptusGreen = UIColor.hexStringToUIColor(hex: "#85CFB4")
+    static let ZigguartGreen = UIColor.hexStringToUIColor(hex: "#B7DDE0")
     
     //Blue Color
-    static let TurquoiseBlue = "#85B8CB"
-    static let AquaBlue = "BEE2E4"
+    static let TurquoiseBlue = UIColor.hexStringToUIColor(hex: "#85B8CB")
+    static let AquaBlue = UIColor.hexStringToUIColor(hex: "#BEE2E4")
     
     //Gray Color
-    static let StoneGray = "#877D7C#"
-    static let SilverGray = "#CED7D4"
+    static let StoneGray = UIColor.hexStringToUIColor(hex: "#877D7C#")
+    static let SilverGray = UIColor.hexStringToUIColor(hex: "#CED7D4")
     
 }
 

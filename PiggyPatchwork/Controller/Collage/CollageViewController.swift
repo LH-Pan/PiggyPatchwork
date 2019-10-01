@@ -37,7 +37,7 @@ class CollageViewController: UIViewController {
     @IBOutlet weak var nextStepBtn: UIButton! {
         
         didSet {
-            nextStepBtn.setTitleColor(.hexStringToUIColor(hex: CustomColorCode.OrchidPink),
+            nextStepBtn.setTitleColor(CustomColor.OrchidPink,
                                       for: .normal)
             nextStepBtn.layer.cornerRadius = 10
         }
@@ -46,7 +46,7 @@ class CollageViewController: UIViewController {
     @IBOutlet weak var backToHomeBtn: UIButton! {
         
         didSet {
-            backToHomeBtn.setTitleColor(.hexStringToUIColor(hex: CustomColorCode.OrchidPink),
+            backToHomeBtn.setTitleColor(CustomColor.OrchidPink,
                                         for: .normal)
             backToHomeBtn.layer.cornerRadius = 10
         }
@@ -115,8 +115,8 @@ class CollageViewController: UIViewController {
         super.viewWillAppear(animated)
         
         Gradient.doubleColor(at: view,
-                             firstColorCode: CustomColorCode.PigletPink,
-                             secondColorCode: CustomColorCode.OrchidPink)
+                             firstColorCode: CustomColor.PigletPink,
+                             secondColorCode: CustomColor.OrchidPink)
     }
     
     // MARK: Private method
@@ -172,7 +172,7 @@ class CollageViewController: UIViewController {
      
         let minScale = scrollView.minimumZoomScale
         
-        scrollView.layer.borderColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SilverGray).cgColor
+        scrollView.layer.borderColor = CustomColor.SilverGray.cgColor
         
         scrollView.layer.borderWidth = 1
         
@@ -312,7 +312,7 @@ class CollageViewController: UIViewController {
                                  width: width * 5 / 7,
                                  height: height * 4 / 5)
             
-            layer.backgroundColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SkinOrange).cgColor
+            layer.backgroundColor = CustomColor.SkinOrange.cgColor
             
             layer.cornerRadius = layer.frame.size.height / 2
             
@@ -431,7 +431,7 @@ extension CollageViewController: UICollectionViewDataSource,
                 
                 subView.frame = layout
                 
-                subView.backgroundColor = UIColor.hexStringToUIColor(hex: CustomColorCode.SilverGray)
+                subView.backgroundColor = CustomColor.SilverGray
                 
                 prototypeCell.collageCellView.addSubview(subView)
             
@@ -624,11 +624,11 @@ extension CollageViewController: SelectionViewDelegate,
     }
     
     func colorOfIndicatorView(_ selectionView: SelectionView) -> UIColor {
-        return UIColor.hexStringToUIColor(hex: CustomColorCode.LemonadeYellow)
+        return CustomColor.LemonadeYellow
     }
     
     func colorOfSelectionText(_ selectionView: SelectionView) -> UIColor {
-        return UIColor.hexStringToUIColor(hex: CustomColorCode.EucalyptusGreen)
+        return CustomColor.EucalyptusGreen
     }
     
     func enable(_ selectionView: SelectionView, index: Int) -> Bool {

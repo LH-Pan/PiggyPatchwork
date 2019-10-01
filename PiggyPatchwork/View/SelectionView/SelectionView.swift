@@ -41,7 +41,6 @@ class SelectionView: UIView {
                                   y: 0,
                                   width: btnWidth, height: btnHeight)
             
-            
             button.setTitle(dataSource.textOfSelections(self, index: index),
                             for: .normal)
             
@@ -121,7 +120,7 @@ extension SelectionViewDataSource {
     }
     
     func colorOfIndicatorView(_ selectionView: SelectionView) -> UIColor {
-        return UIColor.hexStringToUIColor(hex: CustomColorCode.LemonadeYellow)
+        return CustomColor.LemonadeYellow
     }
     
     func colorOfSelectionText(_ selectionView: SelectionView) -> UIColor {

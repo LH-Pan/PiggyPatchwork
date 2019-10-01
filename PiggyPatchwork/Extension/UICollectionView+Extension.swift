@@ -43,7 +43,7 @@ extension UICollectionViewCell {
         shadowInfo()
     
         layer.shadowPath = UIBezierPath(roundedRect: bounds,
-                                        cornerRadius: contentView.layer.bounds.width / 2 ).cgPath
+                                        cornerRadius: contentView.layer.bounds.width / 2).cgPath
     }
     
     func makeCellSquareShadow() {
@@ -51,7 +51,7 @@ extension UICollectionViewCell {
         shadowInfo()
     
         layer.shadowPath = UIBezierPath(roundedRect: bounds,
-                                        cornerRadius: 0 ).cgPath
+                                        cornerRadius: 0).cgPath
     }
     
     func makeCellOvalShadow() {

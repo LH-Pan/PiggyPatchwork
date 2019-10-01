@@ -22,7 +22,7 @@ class CollagePreviewViewController: UIViewController {
     @IBOutlet weak var goLastPage: UIButton! {
         
         didSet {
-            goLastPage.setTitleColor(.hexStringToUIColor(hex: CustomColorCode.OrchidPink),
+            goLastPage.setTitleColor(CustomColor.OrchidPink,
                                      for: .normal)
             goLastPage.layer.cornerRadius = 10
         }
@@ -56,8 +56,8 @@ class CollagePreviewViewController: UIViewController {
         self.navigationController?.delegate = self
         
         Gradient.doubleColor(at: view,
-                             firstColorCode: CustomColorCode.PigletPink,
-                             secondColorCode: CustomColorCode.OrchidPink)
+                             firstColorCode: CustomColor.PigletPink,
+                             secondColorCode: CustomColor.OrchidPink)
     }
     
     func setupButtonView() {

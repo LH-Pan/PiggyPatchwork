@@ -20,7 +20,7 @@ class MoviePreviewViewController: UIViewController {
         
         didSet {
             
-            backToPhotoMovieBtn.setTitleColor(.hexStringToUIColor(hex: CustomColorCode.OrchidPink),
+            backToPhotoMovieBtn.setTitleColor(CustomColor.OrchidPink,
                                               for: .normal)
             backToPhotoMovieBtn.layer.cornerRadius = 10
         }
@@ -38,7 +38,7 @@ class MoviePreviewViewController: UIViewController {
     
     let playerController = AVPlayerViewController()
     
-    let player = AVPlayer()
+    var player = AVPlayer()
     
     var looper: AVPlayerLooper?
     
@@ -56,8 +56,8 @@ class MoviePreviewViewController: UIViewController {
         setupView()
         
         Gradient.doubleColor(at: view,
-                             firstColorCode: CustomColorCode.PigletPink,
-                             secondColorCode: CustomColorCode.OrchidPink)
+                             firstColorCode: CustomColor.PigletPink,
+                             secondColorCode: CustomColor.OrchidPink)
         
         PiggyLottie.setupAnimationView(view: loadingView,
                                        name: Lotties.loading,
@@ -94,7 +94,7 @@ class MoviePreviewViewController: UIViewController {
         
         translucentView.frame = view.frame
         
-        translucentView.backgroundColor = UIColor.black.withAlphaComponent(0.2)
+        translucentView.backgroundColor = UIColor.white.withAlphaComponent(0.8)
         
         translucentView.isHidden = true
         
@@ -110,7 +110,7 @@ class MoviePreviewViewController: UIViewController {
         
         filmAnimationView.center.x = translucentView.center.x
         
-        filmAnimationView.center.y = translucentView.center.y + 50 * UIScreen.screenHeightRatio
+        filmAnimationView.center.y = translucentView.center.y
         
         filmAnimationView.backgroundColor = .clear
     }
@@ -124,7 +124,7 @@ class MoviePreviewViewController: UIViewController {
     
     func displayVideo() {
         
-        let player = AVPlayer(url: URL(fileURLWithPath: movieUrl))
+        player = AVPlayer(url: URL(fileURLWithPath: movieUrl))
         
         playerController.view.frame.size = movieView.frame.size
 
@@ -149,6 +149,8 @@ class MoviePreviewViewController: UIViewController {
     }
     
     @IBAction func saveMovie(_ sender: Any) {
+        
+        player.pause()
         
         PHPhotoLibrary.requestAuthorization { status in
 
@@ -195,9 +197,9 @@ class MoviePreviewViewController: UIViewController {
         
         let videoURL = URL(fileURLWithPath: movieUrl)
         
-        let activityItems = [videoURL as Any] as [Any]
+        let activityItem = [videoURL as Any] as [Any]
         
-        let activityController = UIActivityViewController(activityItems: activityItems,
+        let activityController = UIActivityViewController(activityItems: activityItem,
                                                           applicationActivities: nil)
 
         self.present(activityController, animated: true, completion: nil)

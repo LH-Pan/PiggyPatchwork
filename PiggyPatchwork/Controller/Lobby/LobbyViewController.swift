@@ -24,7 +24,7 @@ class LobbyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.hexStringToUIColor(hex: CustomColorCode.OrchidPink)
+        view.backgroundColor = CustomColor.OrchidPink
         
         setupButtonView()
     }
@@ -33,8 +33,8 @@ class LobbyViewController: UIViewController {
         super.viewWillAppear(animated)
         
         Gradient.doubleColor(at: view,
-                             firstColorCode: CustomColorCode.PigletPink,
-                             secondColorCode: CustomColorCode.OrchidPink)
+                             firstColorCode: CustomColor.PigletPink,
+                             secondColorCode: CustomColor.OrchidPink)
     }
     
     override func viewWillLayoutSubviews() {

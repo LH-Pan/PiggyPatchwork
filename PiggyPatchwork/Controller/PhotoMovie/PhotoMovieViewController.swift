@@ -27,7 +27,7 @@ class PhotoMovieViewController: UIViewController {
     @IBOutlet weak var backToHomeBtn: UIButton! {
         
         didSet {
-            backToHomeBtn.setTitleColor(.hexStringToUIColor(hex: CustomColorCode.OrchidPink),
+            backToHomeBtn.setTitleColor(CustomColor.OrchidPink,
                                         for: .normal)
             backToHomeBtn.layer.cornerRadius = 10
         }
@@ -36,7 +36,7 @@ class PhotoMovieViewController: UIViewController {
     @IBOutlet weak var nextStepBtn: UIButton! {
         
         didSet {
-            nextStepBtn.setTitleColor(.hexStringToUIColor(hex: CustomColorCode.OrchidPink),
+            nextStepBtn.setTitleColor(CustomColor.OrchidPink,
                                       for: .normal)
             nextStepBtn.layer.cornerRadius = 10
         }
@@ -63,8 +63,8 @@ class PhotoMovieViewController: UIViewController {
         super.viewWillAppear(animated)
         
         Gradient.doubleColor(at: view,
-                             firstColorCode: CustomColorCode.PigletPink,
-                             secondColorCode: CustomColorCode.OrchidPink)
+                             firstColorCode: CustomColor.PigletPink,
+                             secondColorCode: CustomColor.OrchidPink)
         
         PiggyLottie.setupAnimationView(view: animateArrow,
                                        name: Lotties.downArrow,

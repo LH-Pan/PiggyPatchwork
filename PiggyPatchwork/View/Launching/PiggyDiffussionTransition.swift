@@ -74,8 +74,7 @@ class PiggyDiffusionTransition: NSObject, UIViewControllerAnimatedTransitioning 
                               animations: {
                                 animatedViewForTransition.transform = finalTransform
                                 animatedViewForTransition.center = transitionContext.containerView.center
-                                animatedViewForTransition.backgroundColor = UIColor.hexStringToUIColor(
-                                    hex: CustomColorCode.OrchidPink)
+                                animatedViewForTransition.backgroundColor = CustomColor.OrchidPink
             }, completion: nil)
             
             UIView.animate(withDuration: self.transitionDuration(using: transitionContext) * 0.4,

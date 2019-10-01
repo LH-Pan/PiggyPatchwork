@@ -63,8 +63,8 @@ class CanvasViewController: UIViewController {
         self.navigationController?.delegate = self
         
         Gradient.doubleColor(at: view,
-                             firstColorCode: CustomColorCode.PigletPink,
-                             secondColorCode: CustomColorCode.OrchidPink)
+                             firstColorCode: CustomColor.PigletPink,
+                             secondColorCode: CustomColor.OrchidPink)
     }
     
     func setupButtons() {
@@ -76,8 +76,8 @@ class CanvasViewController: UIViewController {
     
     func setupButtonAtrribute(_ button: UIButton) {
         
-        button.setTitleColor(.hexStringToUIColor(hex: CustomColorCode.OrchidPink),
-                                                 for: .normal)
+        button.setTitleColor(CustomColor.OrchidPink,
+                             for: .normal)
                    
         button.layer.cornerRadius = 10
     }
@@ -140,7 +140,6 @@ class CanvasViewController: UIViewController {
             widthSlider.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -inset * 1.5),
             widthSlider.centerYAnchor.constraint(equalTo: colorSlider.centerYAnchor)
             ])
-        
     }
     
     @objc func changedStrokeWidth(slider: UISlider) {
