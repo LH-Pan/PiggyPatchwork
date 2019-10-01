@@ -33,8 +33,8 @@ class LobbyViewController: UIViewController {
         super.viewWillAppear(animated)
         
         Gradient.doubleColor(at: view,
-                             firstColorCode: CustomColor.PigletPink,
-                             secondColorCode: CustomColor.OrchidPink)
+                             firstColor: CustomColor.PigletPink,
+                             secondColor: CustomColor.OrchidPink)
     }
     
     override func viewWillLayoutSubviews() {

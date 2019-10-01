@@ -14,8 +14,6 @@ class PiggyDiffusionTransition: NSObject, UIViewControllerAnimatedTransitioning 
     
     var startBackgroundColor: UIColor?
     
-    var isReverse = false
-    
     var transitionDuration: TimeInterval = 0.5
     
     private override init() { super.init() }
@@ -52,15 +50,10 @@ class PiggyDiffusionTransition: NSObject, UIViewControllerAnimatedTransitioning 
         // set presentedController
         let presentedController: UIViewController
         
-        if !isReverse {
-            
-            presentedController = transitionContext.viewController(forKey: .to) ?? UIViewController()
-            presentedController.view.layer.opacity = 0
-        } else {
-            presentedController = transitionContext.viewController(forKey: .from) ?? UIViewController()
-        }
-        
+        presentedController = transitionContext.viewController(forKey: .to) ?? UIViewController()
+        presentedController.view.layer.opacity = 0
         presentedController.view.frame = transitionContext.containerView.bounds
+        
         transitionContext.containerView.addSubview(presentedController.view)
         
         let size = max(transitionContext.containerView.frame.height,
@@ -96,7 +89,6 @@ extension PiggyDiffusionTransition: UIViewControllerTransitioningDelegate {
         source: UIViewController
     ) -> UIViewControllerAnimatedTransitioning? {
         
-        isReverse = false
         return self
     }
 }

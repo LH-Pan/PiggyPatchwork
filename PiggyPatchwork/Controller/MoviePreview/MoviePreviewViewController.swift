@@ -56,8 +56,8 @@ class MoviePreviewViewController: UIViewController {
         setupView()
         
         Gradient.doubleColor(at: view,
-                             firstColorCode: CustomColor.PigletPink,
-                             secondColorCode: CustomColor.OrchidPink)
+                             firstColor: CustomColor.PigletPink,
+                             secondColor: CustomColor.OrchidPink)
         
         PiggyLottie.setupAnimationView(view: loadingView,
                                        name: Lotties.loading,

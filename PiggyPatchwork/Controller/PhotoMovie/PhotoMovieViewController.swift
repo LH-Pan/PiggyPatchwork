@@ -63,8 +63,8 @@ class PhotoMovieViewController: UIViewController {
         super.viewWillAppear(animated)
         
         Gradient.doubleColor(at: view,
-                             firstColorCode: CustomColor.PigletPink,
-                             secondColorCode: CustomColor.OrchidPink)
+                             firstColor: CustomColor.PigletPink,
+                             secondColor: CustomColor.OrchidPink)
         
         PiggyLottie.setupAnimationView(view: animateArrow,
                                        name: Lotties.downArrow,
@@ -273,7 +273,9 @@ extension PhotoMovieViewController: OpalImagePickerControllerDelegate {
         
         for image in images {
             
-            selectedPhotos.append(image)
+            let fixedImage: UIImage = image.fixOrientation()
+            
+            selectedPhotos.append(fixedImage)
         }
         
         photoMovieTableView.reloadData()

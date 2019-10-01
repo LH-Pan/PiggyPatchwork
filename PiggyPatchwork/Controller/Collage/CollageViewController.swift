@@ -115,8 +115,8 @@ class CollageViewController: UIViewController {
         super.viewWillAppear(animated)
         
         Gradient.doubleColor(at: view,
-                             firstColorCode: CustomColor.PigletPink,
-                             secondColorCode: CustomColor.OrchidPink)
+                             firstColor: CustomColor.PigletPink,
+                             secondColor: CustomColor.OrchidPink)
     }
     
     // MARK: Private method
@@ -382,7 +382,7 @@ extension CollageViewController: UICollectionViewDataSource,
     func collectionView(
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
-        ) -> Int {
+    ) -> Int {
         
         switch selectionView.selectedIndex {
         
@@ -395,8 +395,8 @@ extension CollageViewController: UICollectionViewDataSource,
     
     func collectionView(
         _ collectionView: UICollectionView,
-        cellForItemAt indexPath: IndexPath)
-        -> UICollectionViewCell {
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         
         if selectionView.selectedIndex == 0 {
 
@@ -404,7 +404,7 @@ extension CollageViewController: UICollectionViewDataSource,
                 let prototypeCell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: CollageCollectionViewCell.identifier,
                     for: indexPath
-                    ) as? CollageCollectionViewCell
+                ) as? CollageCollectionViewCell
             else {
                 return UICollectionViewCell()
             }
@@ -445,7 +445,7 @@ extension CollageViewController: UICollectionViewDataSource,
                 let bakcgroundCell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: BackgroundColorCollectionViewCell.identifier,
                     for: indexPath
-                    ) as? BackgroundColorCollectionViewCell
+                ) as? BackgroundColorCollectionViewCell
             else {
                 return UICollectionViewCell()
             }
@@ -464,7 +464,7 @@ extension CollageViewController: UICollectionViewDataSource,
                 let emoticonCell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: EmoticonCollectionViewCell.identifier,
                     for: indexPath
-                    ) as? EmoticonCollectionViewCell
+                ) as? EmoticonCollectionViewCell
             else {
                 return UICollectionViewCell()
             }
@@ -490,7 +490,6 @@ extension CollageViewController: UICollectionViewDataSource,
                     personFaceScrollView.minimumZoomScale = 1
                 
                     personFaceScrollView.maximumZoomScale = 1
-                    
                 }
             }
         
@@ -502,13 +501,14 @@ extension CollageViewController: UICollectionViewDataSource,
     
     func collectionView(
         _ collectionView: UICollectionView,
-        didSelectItemAt indexPath: IndexPath) {
+        didSelectItemAt indexPath: IndexPath
+    ) {
         
         guard
             let
                 cell = collectionView.cellForItem(at: indexPath)
-            else {
-                return
+        else {
+            return
         }
         
         switch selectionView.selectedIndex {
@@ -585,7 +585,8 @@ extension CollageViewController: UICollectionViewDataSource,
     
     func collectionView(
         _ collectionView: UICollectionView,
-        didDeselectItemAt indexPath: IndexPath) {
+        didDeselectItemAt indexPath: IndexPath
+    ) {
 
         guard
             let cell = collectionView.cellForItem(at: indexPath)
@@ -651,8 +652,10 @@ extension CollageViewController: SelectionViewDelegate,
 
 extension CollageViewController: OpalImagePickerControllerDelegate {
     
-    func showMyAlbum(subviews: [UIView]?,
-                     sublayers: [CALayer]?) {
+    func showMyAlbum(
+        subviews: [UIView]?,
+        sublayers: [CALayer]?
+    ) {
         
         PHPhotoLibrary.requestAuthorization { [weak self] (status) in
             
@@ -703,7 +706,8 @@ extension CollageViewController: OpalImagePickerControllerDelegate {
     
     func imagePicker(
         _ picker: OpalImagePickerController,
-        didFinishPickingImages images: [UIImage]) {
+        didFinishPickingImages images: [UIImage]
+    ) {
         
         chosenImageView?.image = images.first
         

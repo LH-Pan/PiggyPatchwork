@@ -56,8 +56,8 @@ class CollagePreviewViewController: UIViewController {
         self.navigationController?.delegate = self
         
         Gradient.doubleColor(at: view,
-                             firstColorCode: CustomColor.PigletPink,
-                             secondColorCode: CustomColor.OrchidPink)
+                             firstColor: CustomColor.PigletPink,
+                             secondColor: CustomColor.OrchidPink)
     }
     
     func setupButtonView() {
