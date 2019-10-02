@@ -9,8 +9,6 @@
 import UIKit
 import Vision
 import AVFoundation
-import OpalImagePicker
-import Photos
 
 class CollageViewController: UIViewController {
     
@@ -61,6 +59,8 @@ class CollageViewController: UIViewController {
         return layoutObject
     }()
     
+    let imagePicker = PiggyOpalImagePicker()
+    
     let functionOption: [FunctionOption] = [.prototypeFrame, .background, .emoticon]
     
     let colorCode: [ColorCode] = [.white, .petalPink, .waterMelonRed, .roseRed,
@@ -108,6 +108,8 @@ class CollageViewController: UIViewController {
         setupCollectionView()
         
         setupScrollView(at: collageView, add: personFaceScrollView, with: personFaceImageView)
+        
+        imagePicker.delegate = self
         
     }
     
@@ -206,15 +208,41 @@ class CollageViewController: UIViewController {
                                                action: #selector(singleTapping(recognizer:)))
         
         return singleTap
-    } 
+    }
+    
+    func removeSubViews(subviews: [UIView]?,
+                        sublayers: [CALayer]?
+    ) {
+        
+        if subviews != nil {
+        
+            for subview in subviews ?? [] {
+
+                subview.removeFromSuperview()
+            }
+        }
+
+        if sublayers != nil {
+
+            for sublayer in sublayers ?? [] {
+
+                sublayer.removeFromSuperlayer()
+            }
+        }
+        
+    }
     
     @objc func singleTapping(recognizer: UIGestureRecognizer) {
         
         chosenImageView = recognizer.view as? UIImageView
         
-        showMyAlbum(subviews: recognizer.view?.subviews,
-                    sublayers: recognizer.view?.layer.sublayers)
-        
+        imagePicker.showAlbum(
+            presenter: self,
+            maximumAllowed: 1,
+            completion: {
+                self.removeSubViews(subviews: recognizer.view?.subviews,
+                                    sublayers: recognizer.view?.layer.sublayers)
+        })
     }
     
     func memorizeCollection(at cell: UICollectionViewCell,
@@ -650,71 +678,17 @@ extension CollageViewController: SelectionViewDelegate,
     }
 }
 
-extension CollageViewController: OpalImagePickerControllerDelegate {
+extension CollageViewController: PiggyImagePickerDelegate {
     
-    func showMyAlbum(
-        subviews: [UIView]?,
-        sublayers: [CALayer]?
-    ) {
-        
-        PHPhotoLibrary.requestAuthorization { [weak self] (status) in
-            
-            DispatchQueue.main.async {
-                
-                if status == .authorized {
-                    
-                    let imagePicker = OpalImagePickerController()
-                    
-                    imagePicker.imagePickerDelegate = self
-                    
-                    imagePicker.maximumSelectionsAllowed = 1
-                    
-                    let configuration = OpalImagePickerConfiguration()
-                               
-                    let message = "無法選取超過 \(imagePicker.maximumSelectionsAllowed) 張照片哦！"
-                               
-                    configuration.maximumSelectionsAllowedMessage = message
-                               
-                    imagePicker.configuration = configuration
-                    
-                    self?.present(imagePicker, animated: true, completion: {
-                        
-                        if subviews != nil {
-                            
-                            for subview in subviews ?? [] {
-                                
-                                subview.removeFromSuperview()
-                            }
-                        }
-                        
-                        if sublayers != nil {
-                            
-                            for sublayer in sublayers ?? [] {
-                                
-                                sublayer.removeFromSuperlayer()
-                            }
-                        }
-                    })
-                } else {
-                    
-                    PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.error_mark),
-                                                 message: "無法讀取相簿，請在「設定」中授與權限")
-                }
-            }
-        }
-    }
-    
-    func imagePicker(
-        _ picker: OpalImagePickerController,
-        didFinishPickingImages images: [UIImage]
+    func imagesProvider(
+        _ provider: PiggyOpalImagePicker,
+        didGet images: [UIImage]
     ) {
         
         chosenImageView?.image = images.first
-        
+
         chosenImageView?.superview?.layer.borderWidth = 0
-        
+
         savedImage = collageView.takeSnapshot()
-        
-        picker.dismiss(animated: true, completion: nil)
     }
 }

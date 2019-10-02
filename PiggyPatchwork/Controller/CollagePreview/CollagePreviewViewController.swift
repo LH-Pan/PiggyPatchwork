@@ -147,7 +147,10 @@ extension CollagePreviewViewController: UINavigationControllerDelegate {
 
 extension CollagePreviewViewController: ImageProviderDelegate {
     
-    func manager(_ viewController: CanvasViewController, didGet image: UIImage?) {
+    func manager(
+        _ viewController: CanvasViewController,
+        didGet image: UIImage?
+    ) {
         
         previewImageView.image = image
     }

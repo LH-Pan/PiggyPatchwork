@@ -7,9 +7,7 @@
 //
 
 import UIKit
-import OpalImagePicker
 import Lottie
-import Photos
 
 class PhotoMovieViewController: UIViewController {
     
@@ -48,6 +46,8 @@ class PhotoMovieViewController: UIViewController {
     
     @IBOutlet weak var animateArrow: AnimationView!
     
+    let imagePicker = PiggyOpalImagePicker()
+    
     var selectedPhotos: [UIImage] = []
     
     var cellIndexPath: IndexPath?
@@ -55,8 +55,9 @@ class PhotoMovieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       setupTableView()
+        setupTableView()
         
+        imagePicker.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -130,7 +131,7 @@ class PhotoMovieViewController: UIViewController {
             return
         }
 
-        moviePreviewVC.moviePhotos = selectedPhotos
+        moviePreviewVC.makeMoviePhotos = selectedPhotos
 
         show(moviePreviewVC, sender: sender)
         
@@ -138,7 +139,9 @@ class PhotoMovieViewController: UIViewController {
 
     @IBAction func addPhotos(_ sender: Any) {
         
-        showMyAlbum()
+        imagePicker.showAlbum(presenter: self,
+                              maximumAllowed: 10,
+                              completion: nil)
     }
     
     @IBAction func backToHomePage(_ sender: Any) {
@@ -231,61 +234,26 @@ extension PhotoMovieViewController: UITableViewDelegate {
     }
 }
 
-extension PhotoMovieViewController: OpalImagePickerControllerDelegate {
+extension PhotoMovieViewController: PiggyImagePickerDelegate {
     
-    func showMyAlbum() {
-            
-        PHPhotoLibrary.requestAuthorization { [weak self] (staus) in
-            
-            DispatchQueue.main.async {
-                
-                if staus == .authorized {
-                        
-                    let imagePicker = OpalImagePickerController()
-                        
-                    imagePicker.imagePickerDelegate = self
-                        
-                    imagePicker.maximumSelectionsAllowed = 10
-                    
-                    let configuration = OpalImagePickerConfiguration()
-                        
-                    let message = "無法選取超過 \(imagePicker.maximumSelectionsAllowed) 張照片哦！"
-                        
-                    configuration.maximumSelectionsAllowedMessage = message
-                        
-                    imagePicker.configuration = configuration
-                        
-                    self?.present(imagePicker, animated: true, completion: nil)
-                        
-                } else {
-                        
-                    PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.error_mark),
-                                                 message: "無法讀取相簿，請在「設定」中授與權限")
-                }
-            }
-        }
-    }
-    
-    func imagePicker(
-        _ picker: OpalImagePickerController,
-        didFinishPickingImages images: [UIImage]
+    func imagesProvider(
+        _ provider: PiggyOpalImagePicker,
+        didGet images: [UIImage]
     ) {
         
         for image in images {
-            
+
             let fixedImage: UIImage = image.fixOrientation()
-            
+
             selectedPhotos.append(fixedImage)
         }
-        
+
         photoMovieTableView.reloadData()
-        
+
         if selectedPhotos != [] {
-            
+
             hideImages(true)
         }
-        
-        dismiss(animated: true, completion: nil)
     }
 }
 

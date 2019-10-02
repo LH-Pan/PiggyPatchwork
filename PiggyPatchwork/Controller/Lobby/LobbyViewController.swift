@@ -23,6 +23,8 @@ class LobbyViewController: UIViewController {
     
     @IBOutlet weak var versionLabel: UILabel!
     
+    let imagePicker = PiggyOpalImagePicker()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -84,7 +86,9 @@ class LobbyViewController: UIViewController {
     
     @IBAction func showAlbum(_ sender: Any) {
         
-        showMyAlbum()
+        imagePicker.showAlbum(presenter: self,
+                              maximumAllowed: 1,
+                              completion: nil)
     }
     
     @IBAction func showPravicyPolicy(_ sender: Any) {
@@ -92,39 +96,5 @@ class LobbyViewController: UIViewController {
         if let privacyViewController = UIStoryboard.privacy.instantiateInitialViewController() {
             show(privacyViewController, sender: sender)
         }
-    }
-}
-
-extension LobbyViewController: OpalImagePickerControllerDelegate {
-    
-    func showMyAlbum() {
-        
-        PHPhotoLibrary.requestAuthorization { [weak self] (status) in
-            
-            DispatchQueue.main.async {
-                
-                if status == .authorized {
-                    
-                    let imagePicker = OpalImagePickerController()
-                               
-                    imagePicker.imagePickerDelegate = self
-                                   
-                    self?.present(imagePicker, animated: true, completion: nil)
-                    
-                } else {
-                    
-                    PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.error_mark),
-                                                 message: "無法讀取相簿，請在「設定」中授與權限")
-                }
-            }
-        }
-    }
-    
-    func imagePicker(
-        _ picker: OpalImagePickerController,
-        didFinishPickingImages images: [UIImage]
-    ) {
-        
-        picker.dismiss(animated: true, completion: nil)
     }
 }

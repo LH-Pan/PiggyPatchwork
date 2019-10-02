@@ -46,6 +46,7 @@
 		22FAD713233E172C001062D7 /* LaunchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FAD712233E172C001062D7 /* LaunchingViewController.swift */; };
 		22FAD7172340BD66001062D7 /* PiggyDiffussionTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FAD7162340BD66001062D7 /* PiggyDiffussionTransition.swift */; };
 		22FAD71923434A96001062D7 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FAD71823434A96001062D7 /* UIApplication+Extension.swift */; };
+		22FAD71C23442E8D001062D7 /* OpalImagePickerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FAD71B23442E8D001062D7 /* OpalImagePickerWrapper.swift */; };
 		22FE136F232E4205002F7F30 /* Lobby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22FE136E232E4205002F7F30 /* Lobby.storyboard */; };
 		22FE1371232E421C002F7F30 /* PhotoMovie.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22FE1370232E421B002F7F30 /* PhotoMovie.storyboard */; };
 		22FE1373232E5611002F7F30 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE1372232E5611002F7F30 /* UIStoryboard+Extension.swift */; };
@@ -109,6 +110,7 @@
 		22FAD712233E172C001062D7 /* LaunchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchingViewController.swift; sourceTree = "<group>"; };
 		22FAD7162340BD66001062D7 /* PiggyDiffussionTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiggyDiffussionTransition.swift; sourceTree = "<group>"; };
 		22FAD71823434A96001062D7 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
+		22FAD71B23442E8D001062D7 /* OpalImagePickerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpalImagePickerWrapper.swift; sourceTree = "<group>"; };
 		22FE136E232E4205002F7F30 /* Lobby.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Lobby.storyboard; sourceTree = "<group>"; };
 		22FE1370232E421B002F7F30 /* PhotoMovie.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhotoMovie.storyboard; sourceTree = "<group>"; };
 		22FE1372232E5611002F7F30 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				2205CC8D23269CBB000682BE /* CollagePreviewViewController.swift */,
+				2205CC912328D24F000682BE /* PushTransition.swift */,
 			);
 			path = CollagePreview;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				2205CC942328D380000682BE /* CanvasViewController.swift */,
+				2205CC982329057A000682BE /* PopTransition.swift */,
 			);
 			path = Canvas;
 			sourceTree = "<group>";
@@ -209,7 +213,6 @@
 		2205CC9A2329F71F000682BE /* Canvas */ = {
 			isa = PBXGroup;
 			children = (
-				2205CC982329057A000682BE /* PopTransition.swift */,
 				2205CC9B2329F736000682BE /* CanvasView.swift */,
 			);
 			path = Canvas;
@@ -314,7 +317,6 @@
 			children = (
 				2205CC9A2329F71F000682BE /* Canvas */,
 				2203840323165C66003C285B /* Collage */,
-				22FAD7142340BD16001062D7 /* CollagePreview */,
 				22FAD7152340BD36001062D7 /* Launching */,
 				22FE1376232E58A3002F7F30 /* PhotoMovie */,
 				2203840F23168358003C285B /* SelectionView */,
@@ -327,6 +329,7 @@
 			children = (
 				22213E5323349A2900D24EF0 /* LottieAnimation */,
 				2205CC8A23250682000682BE /* JonAlertWrapper.swift */,
+				22FAD71B23442E8D001062D7 /* OpalImagePickerWrapper.swift */,
 			);
 			path = "Third-Party";
 			sourceTree = "<group>";
@@ -362,14 +365,6 @@
 				22FAD712233E172C001062D7 /* LaunchingViewController.swift */,
 			);
 			path = Launching;
-			sourceTree = "<group>";
-		};
-		22FAD7142340BD16001062D7 /* CollagePreview */ = {
-			isa = PBXGroup;
-			children = (
-				2205CC912328D24F000682BE /* PushTransition.swift */,
-			);
-			path = CollagePreview;
 			sourceTree = "<group>";
 		};
 		22FAD7152340BD36001062D7 /* Launching */ = {
@@ -644,6 +639,7 @@
 				22FAD71923434A96001062D7 /* UIApplication+Extension.swift in Sources */,
 				22D5268E2315460B00F76354 /* AppDelegate.swift in Sources */,
 				2205CC8E23269CBB000682BE /* CollagePreviewViewController.swift in Sources */,
+				22FAD71C23442E8D001062D7 /* OpalImagePickerWrapper.swift in Sources */,
 				220384182317A5AC003C285B /* FunctionOption.swift in Sources */,
 				22FE1375232E585A002F7F30 /* LobbyViewController.swift in Sources */,
 				22FE5046231CFC7F00C2C1C1 /* PrototypeLayout.swift in Sources */,

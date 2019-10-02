@@ -294,7 +294,7 @@
                     </view>
                     <connections>
                         <outlet property="backToPhotoMovieBtn" destination="FaZ-Bm-RwY" id="IQh-bG-eU9"/>
-                        <outlet property="loadingView" destination="DrG-vc-ijB" id="m9I-WW-N1M"/>
+                        <outlet property="loadingAnimationView" destination="DrG-vc-ijB" id="jmB-Se-kQ1"/>
                         <outlet property="movieView" destination="8he-oD-2ih" id="Hqh-hf-4Wf"/>
                         <outlet property="saveMovieBtn" destination="Idz-Nb-29p" id="o60-5X-pae"/>
                         <outlet property="saveMovieView" destination="0cX-Wo-aaT" id="W69-0X-UPC"/>

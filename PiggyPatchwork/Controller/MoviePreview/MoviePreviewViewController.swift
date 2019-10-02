@@ -34,17 +34,15 @@ class MoviePreviewViewController: UIViewController {
     
     @IBOutlet weak var shareToPlatformBtn: UIButton!
     
-    @IBOutlet weak var loadingView: AnimationView!
+    @IBOutlet weak var loadingAnimationView: AnimationView!
     
     let playerController = AVPlayerViewController()
     
     var player = AVPlayer()
     
-    var looper: AVPlayerLooper?
-    
     var movieUrl: String = .empty
     
-    var moviePhotos: [UIImage] = []
+    var makeMoviePhotos: [UIImage] = []
     
     let translucentView = UIView()
     
@@ -59,7 +57,7 @@ class MoviePreviewViewController: UIViewController {
                              firstColor: CustomColor.PigletPink,
                              secondColor: CustomColor.OrchidPink)
         
-        PiggyLottie.setupAnimationView(view: loadingView,
+        PiggyLottie.setupAnimationView(view: loadingAnimationView,
                                        name: Lotties.loading,
                                        speed: 1,
                                        loopMode: .loop)
@@ -72,7 +70,8 @@ class MoviePreviewViewController: UIViewController {
             
             let settings = RenderSettings()
             
-            let imageAnimator = ImageAnimator(renderSettings: settings, imagearr: self.moviePhotos)
+            let imageAnimator = ImageAnimator(renderSettings: settings,
+                                              imagearr: self.makeMoviePhotos)
             
             imageAnimator.delegate = self
             
