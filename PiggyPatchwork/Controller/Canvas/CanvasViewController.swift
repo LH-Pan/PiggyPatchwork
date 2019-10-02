@@ -67,6 +67,7 @@ class CanvasViewController: UIViewController {
                              secondColor: CustomColor.OrchidPink)
     }
     
+    
     func setupButtons() {
         
         backToPreviewBtn.setupNavigationBtn()
