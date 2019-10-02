@@ -69,17 +69,10 @@ class CanvasViewController: UIViewController {
     
     func setupButtons() {
         
-        setupButtonAtrribute(backToPreviewBtn)
+        backToPreviewBtn.setupNavigationBtn()
         
-        setupButtonAtrribute(editCompleteBtn)
-    }
-    
-    func setupButtonAtrribute(_ button: UIButton) {
+        editCompleteBtn.setupNavigationBtn()
         
-        button.setTitleColor(CustomColor.OrchidPink,
-                             for: .normal)
-                   
-        button.layer.cornerRadius = 10
     }
     
     func setupCanvas(canvas: Canvas, on view: UIView) {

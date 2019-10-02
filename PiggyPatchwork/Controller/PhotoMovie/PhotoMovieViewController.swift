@@ -22,23 +22,9 @@ class PhotoMovieViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var backToHomeBtn: UIButton! {
-        
-        didSet {
-            backToHomeBtn.setTitleColor(CustomColor.OrchidPink,
-                                        for: .normal)
-            backToHomeBtn.layer.cornerRadius = 10
-        }
-    }
+    @IBOutlet weak var backToHomeBtn: UIButton! 
     
-    @IBOutlet weak var nextStepBtn: UIButton! {
-        
-        didSet {
-            nextStepBtn.setTitleColor(CustomColor.OrchidPink,
-                                      for: .normal)
-            nextStepBtn.layer.cornerRadius = 10
-        }
-    }
+    @IBOutlet weak var nextStepBtn: UIButton!
 
     @IBOutlet weak var piggyStudioImageView: UIImageView!
     
@@ -54,6 +40,8 @@ class PhotoMovieViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupButton()
         
         setupTableView()
         
@@ -71,6 +59,13 @@ class PhotoMovieViewController: UIViewController {
                                        name: Lotties.downArrow,
                                        speed: 2,
                                        loopMode: .loop)
+    }
+    
+    func setupButton() {
+        
+        nextStepBtn.setupNavigationBtn()
+        
+        backToHomeBtn.setupNavigationBtn()
     }
     
     func setupTableView() {

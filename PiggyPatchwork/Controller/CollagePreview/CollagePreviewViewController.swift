@@ -22,9 +22,8 @@ class CollagePreviewViewController: UIViewController {
     @IBOutlet weak var goLastPage: UIButton! {
         
         didSet {
-            goLastPage.setTitleColor(CustomColor.OrchidPink,
-                                     for: .normal)
-            goLastPage.layer.cornerRadius = 10
+           
+            goLastPage.setupNavigationBtn()
         }
     }
     

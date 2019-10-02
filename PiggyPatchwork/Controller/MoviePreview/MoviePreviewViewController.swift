@@ -20,9 +20,7 @@ class MoviePreviewViewController: UIViewController {
         
         didSet {
             
-            backToPhotoMovieBtn.setTitleColor(CustomColor.OrchidPink,
-                                              for: .normal)
-            backToPhotoMovieBtn.layer.cornerRadius = 10
+            backToPhotoMovieBtn.setupNavigationBtn()
         }
     }
     

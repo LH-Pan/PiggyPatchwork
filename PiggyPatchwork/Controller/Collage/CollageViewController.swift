@@ -32,23 +32,9 @@ class CollageViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    @IBOutlet weak var nextStepBtn: UIButton! {
-        
-        didSet {
-            nextStepBtn.setTitleColor(CustomColor.OrchidPink,
-                                      for: .normal)
-            nextStepBtn.layer.cornerRadius = 10
-        }
-    }
+    @IBOutlet weak var nextStepBtn: UIButton!
     
-    @IBOutlet weak var backToHomeBtn: UIButton! {
-        
-        didSet {
-            backToHomeBtn.setTitleColor(CustomColor.OrchidPink,
-                                        for: .normal)
-            backToHomeBtn.layer.cornerRadius = 10
-        }
-    }
+    @IBOutlet weak var backToHomeBtn: UIButton!
     
     lazy var collageCollectionVoewLayout: CollageCollectionViewLayout = {
         
@@ -64,12 +50,11 @@ class CollageViewController: UIViewController {
     let functionOption: [FunctionOption] = [.prototypeFrame, .background, .emoticon]
     
     let colorCode: [ColorCode] = [.white, .petalPink, .waterMelonRed, .roseRed,
-                                  .carrotOrange, .sunOrange,
-                                  .pineappleYellow, .tigerYellow,
-                                  .chartreuseGreen, .olivineGreen, .zucchiniGreen,
-                                  .babyBlue, .clearSkyBlue, .prussianBlue,
-                                  .lilacSkuPurple, .vividPurple, .amethystPurple,
-                                  .ashGray, .stoneGray, .black]
+                                  .carrotOrange, .sunOrange, .pineappleYellow,
+                                  .tigerYellow, .chartreuseGreen, .olivineGreen,
+                                  .zucchiniGreen, .babyBlue, .clearSkyBlue,
+                                  .prussianBlue, .lilacSkuPurple, .vividPurple,
+                                  .amethystPurple, .ashGray, .stoneGray, .black]
     
     let cellEmoticon: [CellEmoticon] = [.funny, .doNotThinkSo, .weirdSmile,
                                         .crazy, .twinkleEyes, .dying,
@@ -104,10 +89,14 @@ class CollageViewController: UIViewController {
     // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupButton()
 
         setupCollectionView()
         
-        setupScrollView(at: collageView, add: personFaceScrollView, with: personFaceImageView)
+        setupScrollView(at: collageView,
+                        add: personFaceScrollView,
+                        with: personFaceImageView)
         
         imagePicker.delegate = self
         
@@ -126,9 +115,9 @@ class CollageViewController: UIViewController {
     
     private func setupCollectionView() {
         
-        self.collectionView.delegate = self
+        collectionView.delegate = self
         
-        self.collectionView.dataSource = self
+        collectionView.dataSource = self
         
         collectionView.custom_registerCellWithNib(identifier: CollageCollectionViewCell.identifier,
                                                   bundle: nil)
@@ -198,16 +187,15 @@ class CollageViewController: UIViewController {
         
         superView.addSubview(scrollView)
 
-        self.setupImageView(at: scrollView, add: subView)
+        setupImageView(at: scrollView, add: subView)
         
     }
     
-    func setupTapGestureRecognizer() -> UITapGestureRecognizer {
+    private func setupButton() {
         
-        let singleTap = UITapGestureRecognizer(target: self,
-                                               action: #selector(singleTapping(recognizer:)))
+        nextStepBtn.setupNavigationBtn()
         
-        return singleTap
+        backToHomeBtn.setupNavigationBtn()
     }
     
     func removeSubViews(subviews: [UIView]?,
@@ -229,19 +217,25 @@ class CollageViewController: UIViewController {
                 sublayer.removeFromSuperlayer()
             }
         }
+    }
+    
+    func setupTapGestureRecognizer() -> UITapGestureRecognizer {
         
+        let singleTap = UITapGestureRecognizer(target: self,
+                                               action: #selector(singleTapping(recognizer:)))
+        
+        return singleTap
     }
     
     @objc func singleTapping(recognizer: UIGestureRecognizer) {
         
         chosenImageView = recognizer.view as? UIImageView
         
-        imagePicker.showAlbum(
-            presenter: self,
-            maximumAllowed: 1,
-            completion: {
-                self.removeSubViews(subviews: recognizer.view?.subviews,
-                                    sublayers: recognizer.view?.layer.sublayers)
+        imagePicker.showAlbum(presenter: self,
+                              maximumAllowed: 1,
+                              completion: {
+                                self.removeSubViews(subviews: recognizer.view?.subviews,
+                                                    sublayers: recognizer.view?.layer.sublayers)
         })
     }
     
@@ -338,7 +332,7 @@ class CollageViewController: UIViewController {
             layer.frame = CGRect(x: originX,
                                  y: originY ,
                                  width: width * 5 / 7,
-                                 height: height * 4 / 5)
+                                 height: height * 6 / 7)
             
             layer.backgroundColor = CustomColor.SkinOrange.cgColor
             
@@ -518,6 +512,8 @@ extension CollageViewController: UICollectionViewDataSource,
                     personFaceScrollView.minimumZoomScale = 1
                 
                     personFaceScrollView.maximumZoomScale = 1
+                    
+                    personFaceScrollView.layer.borderWidth = 1
                 }
             }
         
@@ -665,10 +661,17 @@ extension CollageViewController: SelectionViewDelegate,
         collageCollectionVoewLayout.selectedIndex = index
 
         switch index {
-        case 0: collageCollectionVoewLayout.itemCount = CGFloat(self.prototypeLayout.count)
-        case 1: collageCollectionVoewLayout.itemCount = CGFloat(self.colorCode.count)
-        case 2: collageCollectionVoewLayout.itemCount = CGFloat(self.cellEmoticon.count)
-                savedImage = nil
+        case 0:
+            collageCollectionVoewLayout.itemCount = CGFloat(self.prototypeLayout.count)
+        case 1:
+            collageCollectionVoewLayout.itemCount = CGFloat(self.colorCode.count)
+        case 2:
+            collageCollectionVoewLayout.itemCount = CGFloat(self.cellEmoticon.count)
+            savedImage = nil
+            personFaceImageView.image = nil
+            removeSubViews(subviews: personFaceImageView.subviews,
+                           sublayers: personFaceImageView.layer.sublayers)
+            
         default: break
         }
     
