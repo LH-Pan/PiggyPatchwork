@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import OpalImagePicker
-import Photos
 import Lottie
 
 class LobbyViewController: UIViewController {
@@ -51,6 +49,7 @@ class LobbyViewController: UIViewController {
     }
     
     func setupLabel() {
+        
         versionLabel.text = "v" + String.space + (UIApplication.appVersion ?? String.empty)
     }
 
@@ -73,6 +72,7 @@ class LobbyViewController: UIViewController {
     @IBAction func goToCollage(_ sender: Any) {
         
         if let collageViewController = UIStoryboard.collage.instantiateInitialViewController() {
+            
             show(collageViewController, sender: sender)
         }
     }
@@ -80,6 +80,7 @@ class LobbyViewController: UIViewController {
     @IBAction func goToPhotoMovie(_ sender: Any) {
         
         if let photoMovieViewController = UIStoryboard.photoMovie.instantiateInitialViewController() {
+            
             show(photoMovieViewController, sender: sender)
         }
     }
@@ -94,6 +95,7 @@ class LobbyViewController: UIViewController {
     @IBAction func showPravicyPolicy(_ sender: Any) {
         
         if let privacyViewController = UIStoryboard.privacy.instantiateInitialViewController() {
+            
             show(privacyViewController, sender: sender)
         }
     }

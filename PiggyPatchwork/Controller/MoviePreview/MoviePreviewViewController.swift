@@ -154,8 +154,11 @@ class MoviePreviewViewController: UIViewController {
             guard status == .authorized else { return }
 
             PHPhotoLibrary.shared().performChanges({
+                
                 PHAssetChangeRequest.creationRequestForAssetFromVideo(
-                    atFileURL: URL(fileURLWithPath: self.movieUrl) as URL)
+                    atFileURL: URL(fileURLWithPath: self.movieUrl) as URL
+                )
+                
             }, completionHandler: { (success, _) in
 
                 if !success {
@@ -165,6 +168,7 @@ class MoviePreviewViewController: UIViewController {
                 }
             })
         }
+        
         translucentView.isHidden = false
         
         PiggyLottie.setupAnimationView(view: filmAnimationView,
@@ -203,6 +207,7 @@ extension MoviePreviewViewController: MovieUrlProviderDelegate {
         _ provider: ImageAnimator,
         didGet url: String
     ) {
+        
         movieUrl = url
     }
 }

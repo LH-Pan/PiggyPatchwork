@@ -67,7 +67,6 @@ class CanvasViewController: UIViewController {
                              secondColor: CustomColor.OrchidPink)
     }
     
-    
     func setupButtons() {
         
         backToPreviewBtn.setupNavigationBtn()
@@ -102,7 +101,7 @@ class CanvasViewController: UIViewController {
             strokeColorSlider.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: -inset),
             strokeColorSlider.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -inset * 1.5),
             strokeColorSlider.heightAnchor.constraint(equalToConstant: 15)
-            ])
+        ])
     }
     
     @objc func changedStrokeColor(slider: ColorSlider) {
@@ -133,7 +132,7 @@ class CanvasViewController: UIViewController {
             strokeWidthSlider.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: inset),
             strokeWidthSlider.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -inset * 1.5),
             strokeWidthSlider.centerYAnchor.constraint(equalTo: strokeColorSlider.centerYAnchor)
-            ])
+        ])
     }
     
     @objc func changedStrokeWidth(slider: UISlider) {

@@ -48,6 +48,7 @@
 		22FAD71923434A96001062D7 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FAD71823434A96001062D7 /* UIApplication+Extension.swift */; };
 		22FAD71C23442E8D001062D7 /* OpalImagePickerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FAD71B23442E8D001062D7 /* OpalImagePickerWrapper.swift */; };
 		22FAD71E2344AF2D001062D7 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FAD71D2344AF2D001062D7 /* UIButton+Extension.swift */; };
+		22FAD7212344E57D001062D7 /* FaceDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FAD7202344E57D001062D7 /* FaceDetection.swift */; };
 		22FE136F232E4205002F7F30 /* Lobby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22FE136E232E4205002F7F30 /* Lobby.storyboard */; };
 		22FE1371232E421C002F7F30 /* PhotoMovie.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22FE1370232E421B002F7F30 /* PhotoMovie.storyboard */; };
 		22FE1373232E5611002F7F30 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE1372232E5611002F7F30 /* UIStoryboard+Extension.swift */; };
@@ -113,6 +114,7 @@
 		22FAD71823434A96001062D7 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		22FAD71B23442E8D001062D7 /* OpalImagePickerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpalImagePickerWrapper.swift; sourceTree = "<group>"; };
 		22FAD71D2344AF2D001062D7 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		22FAD7202344E57D001062D7 /* FaceDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetection.swift; sourceTree = "<group>"; };
 		22FE136E232E4205002F7F30 /* Lobby.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Lobby.storyboard; sourceTree = "<group>"; };
 		22FE1370232E421B002F7F30 /* PhotoMovie.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhotoMovie.storyboard; sourceTree = "<group>"; };
 		22FE1372232E5611002F7F30 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 		22D526A4231558BB00F76354 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				22FAD71F2344E557001062D7 /* FaceDetection */,
 				2239EEAF233B50D6001DAD12 /* Canvas */,
 				22FE13852330EC33002F7F30 /* PhotoMovie */,
 				220384102316A605003C285B /* PrototypeCollectionView */,
@@ -376,6 +379,14 @@
 				22FAD7162340BD66001062D7 /* PiggyDiffussionTransition.swift */,
 			);
 			path = Launching;
+			sourceTree = "<group>";
+		};
+		22FAD71F2344E557001062D7 /* FaceDetection */ = {
+			isa = PBXGroup;
+			children = (
+				22FAD7202344E57D001062D7 /* FaceDetection.swift */,
+			);
+			path = FaceDetection;
 			sourceTree = "<group>";
 		};
 		22FE1376232E58A3002F7F30 /* PhotoMovie */ = {
@@ -645,6 +656,7 @@
 				22FAD71C23442E8D001062D7 /* OpalImagePickerWrapper.swift in Sources */,
 				220384182317A5AC003C285B /* FunctionOption.swift in Sources */,
 				22FE1375232E585A002F7F30 /* LobbyViewController.swift in Sources */,
+				22FAD7212344E57D001062D7 /* FaceDetection.swift in Sources */,
 				22FE5046231CFC7F00C2C1C1 /* PrototypeLayout.swift in Sources */,
 				2203840E23166CF2003C285B /* CollageViewController.swift in Sources */,
 				22D735F52334AAB300AB34F1 /* LottieAnimation.swift in Sources */,

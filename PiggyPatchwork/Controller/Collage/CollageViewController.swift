@@ -112,7 +112,6 @@ class CollageViewController: UIViewController {
     
     // MARK: Private method
     // 建立 collection view
-    
     private func setupCollectionView() {
         
         collectionView.delegate = self
@@ -137,8 +136,10 @@ class CollageViewController: UIViewController {
         collectionView.collectionViewLayout = collageCollectionVoewLayout
     }
     
-    private func setupImageView(at superView: UIView,
-                                add imageView: UIImageView) {
+    private func setupImageView(
+        at superView: UIView,
+        add imageView: UIImageView
+    ) {
         
         imageView.contentMode = .scaleAspectFill
         
@@ -149,19 +150,17 @@ class CollageViewController: UIViewController {
         superView.addSubview(imageView)
     }
     
-    private func setupScrollView(at superView: UIView,
-                                 add scrollView: UIScrollView,
-                                 with subView: UIImageView) {
+    private func setupScrollView(
+        at superView: UIView,
+        add scrollView: UIScrollView,
+        with subView: UIImageView
+    ) {
         
         scrollView.delegate = self
-        
-        scrollView.zoomScale = 1
                             
         scrollView.minimumZoomScale = 0.1
     
         scrollView.maximumZoomScale = 2.0
-     
-        let minScale = scrollView.minimumZoomScale
         
         scrollView.layer.borderColor = CustomColor.SilverGray.cgColor
         
@@ -170,7 +169,13 @@ class CollageViewController: UIViewController {
         scrollView.contentSize = CGSize(width: superView.frame.width,
                                         height: superView.frame.height)
         
+        scrollView.showsVerticalScrollIndicator = false
+
+        scrollView.showsHorizontalScrollIndicator = false
+        
         subView.frame.size = scrollView.contentSize
+        
+        let minScale = scrollView.minimumZoomScale
         
         let widthInset = (scrollView.frame.size.width - minScale * subView.frame.size.width) / 2
         
@@ -181,25 +186,22 @@ class CollageViewController: UIViewController {
                                                bottom: heightInset,
                                                right: widthInset)
         
-        scrollView.showsVerticalScrollIndicator = false
-
-        scrollView.showsHorizontalScrollIndicator = false
-        
         superView.addSubview(scrollView)
 
         setupImageView(at: scrollView, add: subView)
         
     }
     
-    private func setupButton() {
+    func setupButton() {
         
         nextStepBtn.setupNavigationBtn()
         
         backToHomeBtn.setupNavigationBtn()
     }
     
-    func removeSubViews(subviews: [UIView]?,
-                        sublayers: [CALayer]?
+    func removeSubViews(
+        subviews: [UIView]?,
+        sublayers: [CALayer]?
     ) {
         
         if subviews != nil {
@@ -239,28 +241,36 @@ class CollageViewController: UIViewController {
         })
     }
     
-    func memorizeCollection(at cell: UICollectionViewCell,
-                            in currentIndexPath: IndexPath,
-                            eqaulTo lastIndexPath: IndexPath?) {
-        
+    func memorizeCollection(
+        at cell: UICollectionViewCell,
+        in currentIndexPath: IndexPath,
+        eqaulTo lastIndexPath: IndexPath?
+    ) {
+    
         if currentIndexPath == lastIndexPath {
             
             cell.layer.borderWidth = 2
             
             cell.layer.borderColor = UIColor.brown.cgColor
+            
         } else {
             
             cell.layer.borderWidth = 0
         }
     }
     
-    func radioCollection(at collectionView: UICollectionView,
-                         in currentIndexPath: IndexPath,
-                         eqaulTo lastIndexPath: IndexPath?) {
-        
+    func radioCollection(
+        at collectionView: UICollectionView,
+        in currentIndexPath: IndexPath,
+        eqaulTo lastIndexPath: IndexPath?
+    ) {
+    
         if currentIndexPath != lastIndexPath {
+            
             if let lastSelectedIndexPath = lastIndexPath {
+                
                 if let cell = collectionView.cellForItem(at: lastSelectedIndexPath) {
+                    
                     cell.layer.borderWidth = 0
                 }
             }
@@ -268,47 +278,13 @@ class CollageViewController: UIViewController {
     }
     
     // MARK: - 人臉辨識
-    func faceDetection() {
-        
-        let detectRequest = VNDetectFaceRectanglesRequest(completionHandler: self.handleFaces)
-        
-        guard let image = savedImage?.cgImage else { return }
-        
-        let detectRequestHandler = VNImageRequestHandler(cgImage: image,
-                                                         options: [ : ])
- 
-        do {
-            try detectRequestHandler.perform([detectRequest])
-        } catch {
-            
-            PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.exclamation_mark),
-                                         message: "人臉偵測錯誤 (つд⊂)")
-        }
-    }
-    
-    func handleFaces(request: VNRequest,
-                     error: Error?) {
-        
-        guard
-            let faceDetectResults = request.results as? [VNFaceObservation]
-        else {
-            fatalError("Unexpected result type from VNDetectFaceRetanglesRequest.")
-        }
-        
-        if faceDetectResults.count == 0 {
-            
-            PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.exclamation_mark),
-                                         message: "這張照片偵測不到人臉 இдஇ")
-            return
-        }
-        
-        self.addShapeToFace(forObservations: faceDetectResults)
-    }
-    
+
     func addShapeToFace(forObservations observations: [VNFaceObservation]) {
         
         if let sublayers = personFaceImageView.layer.sublayers {
+            
             for layer in sublayers {
+                
                 layer.removeFromSuperlayer()
             }
         }
@@ -316,10 +292,24 @@ class CollageViewController: UIViewController {
         let imageRect = AVMakeRect(aspectRatio: savedImage?.size ?? CGSize.zero,
                                    insideRect: collageView.bounds)
         
-        let surplusWidth = CGFloat.insetRatio * collageView.frame.width
+        addSublayers(forObservations: observations,
+                     withAVMakeRect: imageRect,
+                     onView: personFaceImageView)
         
-        let surplusHeight = CGFloat.insetRatio * collageView.frame.height
+        addSubViews(forObservations: observations,
+                    withAVMakeRect: imageRect,
+                    onView: personFaceImageView)
+    }
     
+    func addSublayers(
+        forObservations observations: [VNFaceObservation],
+        withAVMakeRect imageRect: CGRect,
+        onView view: UIView
+    ) {
+        let widthDeviation = CGFloat.insetRatio * collageView.frame.width
+        
+        let heightDeviation = CGFloat.insetRatio * collageView.frame.height
+        
         let layers: [CAShapeLayer] = observations.map { observation in
             
             let width = observation.boundingBox.size.width * imageRect.width
@@ -338,11 +328,26 @@ class CollageViewController: UIViewController {
             
             layer.cornerRadius = layer.frame.size.height / 2
             
-            layer.position = CGPoint(x: (originX + width / 2) - surplusWidth,
-                                     y: (originY + height / 2) - surplusHeight)
+            layer.position =  CGPoint(x: (originX + width / 2) - widthDeviation,
+                                      y: (originY + height / 2) - heightDeviation)
 
             return layer
         }
+        
+        for layer in layers {
+                   
+            view.layer.addSublayer(layer)
+        }
+    }
+    
+    func addSubViews(
+        forObservations observations: [VNFaceObservation],
+        withAVMakeRect imageRect: CGRect,
+        onView view: UIView
+    ) {
+        let widthDeviation = CGFloat.insetRatio * collageView.frame.width
+        
+        let heightDeviation = CGFloat.insetRatio * collageView.frame.height
         
         let emoticonFaces: [UIImageView] = observations.map { observation in
 
@@ -358,23 +363,19 @@ class CollageViewController: UIViewController {
                                         width: width * 100 / 414 * 3,
                                         height: height * 70 / 414 * 3)
 
-            emoticonFace.center = CGPoint(x: (originX + width / 2) - surplusWidth ,
-                                          y: (originY + height / 2) - surplusHeight)
+            emoticonFace.center = CGPoint(x: (originX + width / 2) - widthDeviation ,
+                                          y: (originY + height / 2) - heightDeviation)
 
             emoticonFace.image = UIImage(named: faceEmoticon[etCellSelectedIndexPath?.row ?? 0].rawValue)
             
             return emoticonFace
         }
         
-        for layer in layers {
-            personFaceImageView.layer.addSublayer(layer)
-            
-        }
-
         for emoticonFace in emoticonFaces {
             
             emoticonFace.removeFromSuperview()
-            personFaceImageView.addSubview(emoticonFace)
+            
+            view.addSubview(emoticonFace)
         }
     }
     
@@ -395,7 +396,6 @@ class CollageViewController: UIViewController {
         
         navigationController?.popViewController(animated: true)
     }
-    
 }
     // MARK: UICollectionViewDataSource
 extension CollageViewController: UICollectionViewDataSource,
@@ -407,7 +407,6 @@ extension CollageViewController: UICollectionViewDataSource,
     ) -> Int {
         
         switch selectionView.selectedIndex {
-        
         case 0: return prototypeLayout.count
         case 1: return colorCode.count
         case 2: return cellEmoticon.count
@@ -552,6 +551,7 @@ extension CollageViewController: UICollectionViewDataSource,
                 if subView == personFaceScrollView {
                     
                     subView.frame = .zero
+                    
                 } else {
                     
                     subView.removeFromSuperview()
@@ -597,7 +597,11 @@ extension CollageViewController: UICollectionViewDataSource,
             
             etCellSelectedIndexPath = indexPath
             
-            faceDetection()
+            let faceDetecter = FaceDetection()
+            
+            faceDetecter.delegate = self
+            
+            faceDetecter.faceDetection(detect: savedImage)
             
         default: break
         }
@@ -624,8 +628,9 @@ extension CollageViewController: UICollectionViewDataSource,
             
         case 0: ptCellSelectedIndexPath = indexPath
         case 1: bgCellSelectedIndexPath = indexPath
-        case 2: if savedImage == nil { return }
-                etCellSelectedIndexPath = indexPath
+        case 2:
+            if savedImage == nil { return }
+            etCellSelectedIndexPath = indexPath
         default: break
         }
     }
@@ -661,23 +666,30 @@ extension CollageViewController: SelectionViewDelegate,
         collageCollectionVoewLayout.selectedIndex = index
 
         switch index {
-        case 0:
-            collageCollectionVoewLayout.itemCount = CGFloat(self.prototypeLayout.count)
-        case 1:
-            collageCollectionVoewLayout.itemCount = CGFloat(self.colorCode.count)
+        case 0: collageCollectionVoewLayout.itemCount = CGFloat(self.prototypeLayout.count)
+        case 1: collageCollectionVoewLayout.itemCount = CGFloat(self.colorCode.count)
         case 2:
             collageCollectionVoewLayout.itemCount = CGFloat(self.cellEmoticon.count)
             savedImage = nil
             personFaceImageView.image = nil
             removeSubViews(subviews: personFaceImageView.subviews,
                            sublayers: personFaceImageView.layer.sublayers)
-            
         default: break
         }
     
         collectionView.reloadData()
                 
         return true
+    }
+}
+
+extension CollageViewController: FaceDetectionDelegate {
+    
+    func faceDetecter(
+        _ detecter: FaceDetection,
+        didGet frames: [VNFaceObservation]
+    ) {
+        addShapeToFace(forObservations: frames)
     }
 }
 

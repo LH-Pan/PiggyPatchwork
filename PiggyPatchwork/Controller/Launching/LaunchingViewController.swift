@@ -27,14 +27,11 @@ class LaunchingViewController: UIViewController {
         
         diffusionTransition = PiggyDiffusionTransition(animatedView: transitionView)
         
-        let transform = CGAffineTransform(scaleX: 0.99, y: 0.99)
-
-        transitionView.transform = transform
-        
         UIView.animate(withDuration: 0.3,
                        animations: {
             
                         self.pointImageView.alpha = 1
+                        
         }, completion: {(_) in
                         
                         self.animate(view: self.pointImageView,
@@ -64,8 +61,11 @@ class LaunchingViewController: UIViewController {
         animation.path = path.cgPath
 
         animation.fillMode = CAMediaTimingFillMode.forwards
+        
         animation.isRemovedOnCompletion = false
+        
         animation.duration = 0.6
+        
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
 
         view.layer.add(animation, forKey: nil)

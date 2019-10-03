@@ -198,7 +198,6 @@ extension PhotoMovieViewController: UITableViewDataSource {
         selectedPhotos.remove(at: sourceIndexPath.row)
 
         selectedPhotos.insert(moveObject, at: destinationIndexPath.row)
-    
     }
 }
 
