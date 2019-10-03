@@ -12,11 +12,17 @@ enum ImageAsset: String {
 
 // swiftlint:disable identifier_name
     case exclamation_mark
+    
     case error_mark
+    
     case tick_mark
+    
     case next_icon
+    
     case palette
+    
     case thickness
+    
     case Icons_24px_Close
 }
 
@@ -41,14 +47,19 @@ extension UIImage {
         
         if widthRatio > heightRatio {
             
-            newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
+            newSize = CGSize(width: size.width * heightRatio,
+                             height: size.height * heightRatio)
             
         } else {
             
-            newSize = CGSize(width: size.width * widthRatio, height: size.height * widthRatio)
+            newSize = CGSize(width: size.width * widthRatio,
+                             height: size.height * widthRatio)
         }
         
-        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+        let rect = CGRect(x: 0,
+                          y: 0,
+                          width: newSize.width,
+                          height: newSize.height)
         
         UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
         
@@ -65,6 +76,7 @@ extension UIImage {
     func fixOrientation() -> UIImage {
         
         if self.imageOrientation == UIImage.Orientation.up {
+            
             return self
         }
         

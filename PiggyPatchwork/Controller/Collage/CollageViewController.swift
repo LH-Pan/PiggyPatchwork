@@ -17,6 +17,7 @@ class CollageViewController: UIViewController {
     @IBOutlet weak var selectionView: SelectionView! {
         
         didSet {
+            
             selectionView.dataSource = self
             
             selectionView.delegate = self
@@ -26,6 +27,7 @@ class CollageViewController: UIViewController {
     @IBOutlet weak var collageView: UIView! {
         
         didSet {
+            
             collageView.addViewShadow()
         }
     }
