@@ -16,6 +16,23 @@ extension UICollectionView {
         
         register(nib, forCellWithReuseIdentifier: identifier)
     }
+    
+    func radioCollection(
+        inIndexPath currentIndexPath: IndexPath,
+        eqaulTo lastIndexPath: IndexPath?
+    ) {
+
+        if currentIndexPath != lastIndexPath {
+            
+            if let lastSelectedIndexPath = lastIndexPath {
+                
+                if let cell = cellForItem(at: lastSelectedIndexPath) {
+                    
+                    cell.layer.borderWidth = 0
+                }
+            }
+        }
+    }
 }
 
 extension UICollectionViewCell {
@@ -61,4 +78,25 @@ extension UICollectionViewCell {
         layer.shadowPath = UIBezierPath(roundedRect: bounds,
                                         cornerRadius: 20).cgPath
     }
+    
+    func selectedCollection(
+        inIndexPath currentIndexPath: IndexPath,
+        eqaulTo lastIndexPath: IndexPath?
+    ) {
+
+        if currentIndexPath == lastIndexPath {
+            
+            layer.borderWidth = 2
+            
+            layer.borderColor = UIColor.brown.cgColor
+            
+        } else {
+            
+            layer.borderWidth = 0
+        }
+    }
 }
+
+
+
+

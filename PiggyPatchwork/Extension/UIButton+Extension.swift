@@ -17,7 +17,7 @@ extension UIButton {
         makeRadius()
     }
     
-    func setTitleColorPink () {
+    func setTitleColorPink() {
         
         setTitleColor(CustomColor.OrchidPink,
                       for: .normal)

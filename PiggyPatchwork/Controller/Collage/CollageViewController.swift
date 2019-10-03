@@ -99,7 +99,6 @@ class CollageViewController: UIViewController {
                         with: personFaceImageView)
         
         imagePicker.delegate = self
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -128,7 +127,6 @@ class CollageViewController: UIViewController {
                                                   bundle: nil)
         
         setupCollectionViewLayout()
-        
     }
     
     private func setupCollectionViewLayout() {
@@ -189,7 +187,6 @@ class CollageViewController: UIViewController {
         superView.addSubview(scrollView)
 
         setupImageView(at: scrollView, add: subView)
-        
     }
     
     func setupButton() {
@@ -239,42 +236,6 @@ class CollageViewController: UIViewController {
                                 self.removeSubViews(subviews: recognizer.view?.subviews,
                                                     sublayers: recognizer.view?.layer.sublayers)
         })
-    }
-    
-    func memorizeCollection(
-        at cell: UICollectionViewCell,
-        in currentIndexPath: IndexPath,
-        eqaulTo lastIndexPath: IndexPath?
-    ) {
-    
-        if currentIndexPath == lastIndexPath {
-            
-            cell.layer.borderWidth = 2
-            
-            cell.layer.borderColor = UIColor.brown.cgColor
-            
-        } else {
-            
-            cell.layer.borderWidth = 0
-        }
-    }
-    
-    func radioCollection(
-        at collectionView: UICollectionView,
-        in currentIndexPath: IndexPath,
-        eqaulTo lastIndexPath: IndexPath?
-    ) {
-    
-        if currentIndexPath != lastIndexPath {
-            
-            if let lastSelectedIndexPath = lastIndexPath {
-                
-                if let cell = collectionView.cellForItem(at: lastSelectedIndexPath) {
-                    
-                    cell.layer.borderWidth = 0
-                }
-            }
-        }
     }
     
     // MARK: - 人臉辨識
@@ -430,9 +391,8 @@ extension CollageViewController: UICollectionViewDataSource,
                 return UICollectionViewCell()
             }
             
-            memorizeCollection(at: prototypeCell,
-                               in: indexPath,
-                               eqaulTo: ptCellSelectedIndexPath)
+            prototypeCell.selectedCollection(inIndexPath: indexPath,
+                                             eqaulTo: ptCellSelectedIndexPath)
 
             personFaceScrollView.frame = .zero
             
@@ -471,9 +431,8 @@ extension CollageViewController: UICollectionViewDataSource,
                 return UICollectionViewCell()
             }
             
-            memorizeCollection(at: bakcgroundCell,
-                               in: indexPath,
-                               eqaulTo: bgCellSelectedIndexPath)
+            bakcgroundCell.selectedCollection(inIndexPath: indexPath,
+                                              eqaulTo: bgCellSelectedIndexPath)
         
             bakcgroundCell.backgroundColor = UIColor.hexStringToUIColor(hex: self.colorCode[indexPath.row].rawValue)
         
@@ -490,9 +449,8 @@ extension CollageViewController: UICollectionViewDataSource,
                 return UICollectionViewCell()
             }
             
-            memorizeCollection(at: emoticonCell,
-                               in: indexPath,
-                               eqaulTo: etCellSelectedIndexPath)
+            emoticonCell.selectedCollection(inIndexPath: indexPath,
+                                            eqaulTo: etCellSelectedIndexPath)
             
             for subView in self.collageView.subviews {
                 
@@ -538,9 +496,8 @@ extension CollageViewController: UICollectionViewDataSource,
             
         case 0:
             
-            radioCollection(at: collectionView,
-                            in: indexPath,
-                            eqaulTo: ptCellSelectedIndexPath)
+            collectionView.radioCollection(inIndexPath: indexPath,
+                                           eqaulTo: ptCellSelectedIndexPath)
             
             ptCellSelectedIndexPath = indexPath
             
@@ -575,9 +532,8 @@ extension CollageViewController: UICollectionViewDataSource,
             })
         case 1:
             
-            radioCollection(at: collectionView,
-                            in: indexPath,
-                            eqaulTo: bgCellSelectedIndexPath)
+            collectionView.radioCollection(inIndexPath: indexPath,
+                                           eqaulTo: bgCellSelectedIndexPath)
             
             bgCellSelectedIndexPath = indexPath
             
@@ -591,9 +547,8 @@ extension CollageViewController: UICollectionViewDataSource,
                 return
             }
             
-            radioCollection(at: collectionView,
-                            in: indexPath,
-                            eqaulTo: etCellSelectedIndexPath)
+            collectionView.radioCollection(inIndexPath: indexPath,
+                                           eqaulTo: etCellSelectedIndexPath)
             
             etCellSelectedIndexPath = indexPath
             
@@ -602,7 +557,6 @@ extension CollageViewController: UICollectionViewDataSource,
             faceDetecter.delegate = self
             
             faceDetecter.faceDetection(detect: savedImage)
-            
         default: break
         }
         
@@ -619,7 +573,7 @@ extension CollageViewController: UICollectionViewDataSource,
         guard
             let cell = collectionView.cellForItem(at: indexPath)
         else {
-                return
+            return
         }
         
         cell.layer.borderWidth = 0
@@ -628,9 +582,8 @@ extension CollageViewController: UICollectionViewDataSource,
             
         case 0: ptCellSelectedIndexPath = indexPath
         case 1: bgCellSelectedIndexPath = indexPath
-        case 2:
-            if savedImage == nil { return }
-            etCellSelectedIndexPath = indexPath
+        case 2: if savedImage == nil { return }
+                etCellSelectedIndexPath = indexPath
         default: break
         }
     }
@@ -668,12 +621,11 @@ extension CollageViewController: SelectionViewDelegate,
         switch index {
         case 0: collageCollectionVoewLayout.itemCount = CGFloat(self.prototypeLayout.count)
         case 1: collageCollectionVoewLayout.itemCount = CGFloat(self.colorCode.count)
-        case 2:
-            collageCollectionVoewLayout.itemCount = CGFloat(self.cellEmoticon.count)
-            savedImage = nil
-            personFaceImageView.image = nil
-            removeSubViews(subviews: personFaceImageView.subviews,
-                           sublayers: personFaceImageView.layer.sublayers)
+        case 2: collageCollectionVoewLayout.itemCount = CGFloat(self.cellEmoticon.count)
+                savedImage = nil
+                personFaceImageView.image = nil
+                removeSubViews(subviews: personFaceImageView.subviews,
+                               sublayers: personFaceImageView.layer.sublayers)
         default: break
         }
     

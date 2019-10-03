@@ -30,24 +30,32 @@ extension UIImage {
     }
     
     func resizeImage(targetSize: CGSize) -> UIImage {
+        
         let size = self.size
         
         let widthRatio  = targetSize.width  / size.width
+        
         let heightRatio = targetSize.height / size.height
         
         var newSize: CGSize
         
         if widthRatio > heightRatio {
+            
             newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
+            
         } else {
+            
             newSize = CGSize(width: size.width * widthRatio, height: size.height * widthRatio)
         }
         
         let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
         
         UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        
         self.draw(in: rect)
+        
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        
         UIGraphicsEndImageContext()
         
         return newImage!
@@ -99,7 +107,7 @@ extension UIImage {
             bitmapInfo: UInt32(self.cgImage!.bitmapInfo.rawValue)
         )
         
-        ctx!.concatenate(transform)
+        ctx?.concatenate(transform)
         
         switch self.imageOrientation {
         case .left, .leftMirrored, .right, .rightMirrored:
@@ -110,6 +118,7 @@ extension UIImage {
         
         // And now we just create a new UIImage from the drawing context
         let cgimg = ctx!.makeImage()
+        
         let img = UIImage(cgImage: cgimg!)
         
         return img
