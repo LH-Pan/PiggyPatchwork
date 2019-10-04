@@ -18,7 +18,7 @@ class BackgroundColorController: NSObject, CollageMatchable {
                                          .carrotOrange, .sunOrange, .pineappleYellow,
                                          .tigerYellow, .chartreuseGreen, .olivineGreen,
                                          .zucchiniGreen, .babyBlue, .clearSkyBlue,
-                                         .prussianBlue, .lilacSkuPurple, .vividPurple,
+                                         .prussianBlue, .lilacSkyPurple, .vividPurple,
                                          .amethystPurple, .ashGray, .stoneGray, .black]
     
     func collectionView(
@@ -44,7 +44,7 @@ class BackgroundColorController: NSObject, CollageMatchable {
         }
         
         bakcgroundCell.selectedCollection(inIndexPath: indexPath,
-                                          eqaulTo: bgCellSelectedIndexPath)
+                                          equalTo: bgCellSelectedIndexPath)
         
         let backgroundColorCode = colorCode[indexPath.row].rawValue
         

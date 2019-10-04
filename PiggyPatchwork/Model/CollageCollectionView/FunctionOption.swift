@@ -47,7 +47,7 @@ enum ColorCode: String {
     
     case prussianBlue = "#013B63"
     
-    case lilacSkuPurple = "#D5C5E9"
+    case lilacSkyPurple = "#D5C5E9"
     
     case vividPurple = "#8A54A2"
     

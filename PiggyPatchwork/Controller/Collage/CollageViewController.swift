@@ -38,7 +38,7 @@ class CollageViewController: UIViewController {
     
     @IBOutlet weak var backToHomeBtn: UIButton!
     
-    lazy var collageCollectionVoewLayout: CollageCollectionViewLayout = {
+    lazy var collageCollectionViewLayout: CollageCollectionViewLayout = {
         
         let layoutObject = CollageCollectionViewLayout()
         
@@ -135,7 +135,7 @@ class CollageViewController: UIViewController {
     
     private func setupCollectionViewLayout() {
         
-        collectionView.collectionViewLayout = collageCollectionVoewLayout
+        collectionView.collectionViewLayout = collageCollectionViewLayout
     }
     
     private func setupImageView(
@@ -375,13 +375,6 @@ extension CollageViewController: UICollectionViewDataSource,
         
         return collageMatches[selectionView.selectedIndex].collectionView(collectionView,
                                                                           numberOfItemsInSection: section)
-        
-//        switch selectionView.selectedIndex {
-//        case 0: return prototypeLayout.count
-//        case 1: return colorCode.count
-//        case 2: return cellEmoticon.count
-//        default: return 0
-//        }
     }
     
     func collectionView(
@@ -389,106 +382,8 @@ extension CollageViewController: UICollectionViewDataSource,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
         
-        if selectionView.selectedIndex == 0 {
-
-//            guard
-//                let prototypeCell = collectionView.dequeueReusableCell(
-//                    withReuseIdentifier: CollageCollectionViewCell.identifier,
-//                    for: indexPath
-//                ) as? CollageCollectionViewCell
-//            else {
-//                return UICollectionViewCell()
-//            }
-//
-//            prototypeCell.selectedCollection(inIndexPath: indexPath,
-//                                             eqaulTo: ptCellSelectedIndexPath)
-//
-            personFaceScrollView.frame = .zero
-//
-//            if prototypeCell.collageCellView.subviews != [] {
-//
-//                for subview in prototypeCell.collageCellView.subviews {
-//
-//                    subview.removeFromSuperview()
-//                }
-//            }
-//
-//            let frames = self.prototypeLayout[indexPath.row].getFrames(prototypeCell.frame.size)
-//
-//            for layout in frames {
-//
-//                let subView = UIView()
-//
-//                subView.frame = layout
-//
-//                subView.backgroundColor = CustomColor.SilverGray
-//
-//                prototypeCell.collageCellView.addSubview(subView)
-//
-//            }
-//
-//            return prototypeCell
-            return CollageController().collectionView(collectionView, cellForItemAt: indexPath)
-            
-        } else if selectionView.selectedIndex == 1 {
-            
-//            guard
-//                let bakcgroundCell = collectionView.dequeueReusableCell(
-//                    withReuseIdentifier: BackgroundColorCollectionViewCell.identifier,
-//                    for: indexPath
-//                ) as? BackgroundColorCollectionViewCell
-//            else {
-//                return UICollectionViewCell()
-//            }
-//            
-//            bakcgroundCell.selectedCollection(inIndexPath: indexPath,
-//                                              eqaulTo: bgCellSelectedIndexPath)
-//        
-//            bakcgroundCell.backgroundColor = UIColor.hexStringToUIColor(hex: self.colorCode[indexPath.row].rawValue)
-//        
-//            return bakcgroundCell
-            return BackgroundColorController().collectionView(collectionView, cellForItemAt: indexPath)
-            
-        } else {
-            
-//            guard
-//                let emoticonCell = collectionView.dequeueReusableCell(
-//                    withReuseIdentifier: EmoticonCollectionViewCell.identifier,
-//                    for: indexPath
-//                ) as? EmoticonCollectionViewCell
-//            else {
-//                return UICollectionViewCell()
-//            }
-//            
-//            emoticonCell.selectedCollection(inIndexPath: indexPath,
-//                                            eqaulTo: etCellSelectedIndexPath)
-            
-            for subView in self.collageView.subviews {
-                
-                if subView != personFaceScrollView {
-                    
-                    subView.frame = .zero
-                    
-                } else {
-                
-                    personFaceScrollView.frame = faceImageLayout.getFrames(self.collageView.frame.size).first ?? .zero
-                        
-                    personFaceImageView.frame = personFaceScrollView.frame
-                        
-                    personFaceScrollView.isScrollEnabled = false
-                    
-                    personFaceScrollView.minimumZoomScale = 1
-                
-                    personFaceScrollView.maximumZoomScale = 1
-                    
-                    personFaceScrollView.layer.borderWidth = 1
-                }
-            }
-        
-//            emoticonCell.emoticonImageView.image = UIImage(named: cellEmoticon[indexPath.row].rawValue)
-            
-            return collageMatches[selectionView.selectedIndex].collectionView(collectionView, cellForItemAt: indexPath)
-        }
+        return collageMatches[selectionView.selectedIndex].collectionView(collectionView,
+                                                                          cellForItemAt: indexPath)
     }
     
     func collectionView(
@@ -508,7 +403,7 @@ extension CollageViewController: UICollectionViewDataSource,
         case 0:
             
             collectionView.radioCollection(inIndexPath: indexPath,
-                                           eqaulTo: ptCellSelectedIndexPath)
+                                           equalTo: ptCellSelectedIndexPath)
 
             ptCellSelectedIndexPath = indexPath
             
@@ -544,7 +439,7 @@ extension CollageViewController: UICollectionViewDataSource,
         case 1:
             
             collectionView.radioCollection(inIndexPath: indexPath,
-                                           eqaulTo: bgCellSelectedIndexPath)
+                                           equalTo: bgCellSelectedIndexPath)
 
             bgCellSelectedIndexPath = indexPath
             
@@ -559,7 +454,7 @@ extension CollageViewController: UICollectionViewDataSource,
             }
             
             collectionView.radioCollection(inIndexPath: indexPath,
-                                           eqaulTo: etCellSelectedIndexPath)
+                                           equalTo: etCellSelectedIndexPath)
 
             etCellSelectedIndexPath = indexPath
             
@@ -611,12 +506,10 @@ extension CollageViewController: SelectionViewDelegate,
     
     func numberOfSelections(_ selectionView: SelectionView) -> Int {
         return collageMatches.count
-//        return functionOption.count
     }
     
     func textOfSelections(_ selectionView: SelectionView, index: Int) -> String {
         return collageMatches[index].title.rawValue
-//        return functionOption[index].rawValue
     }
     
     func colorOfIndicatorView(_ selectionView: SelectionView) -> UIColor {
@@ -629,16 +522,51 @@ extension CollageViewController: SelectionViewDelegate,
     
     func enable(_ selectionView: SelectionView, index: Int) -> Bool {
         
-        collageCollectionVoewLayout.selectedIndex = index
+        collageCollectionViewLayout.selectedIndex = index
 
         switch index {
-        case 0: collageCollectionVoewLayout.itemCount = CGFloat(CollageController().prototypeLayout.count)
-        case 1: collageCollectionVoewLayout.itemCount = CGFloat(BackgroundColorController().colorCode.count)
-        case 2: collageCollectionVoewLayout.itemCount = CGFloat(EmoticonController().cellEmoticon.count)
-                savedImage = nil
-                personFaceImageView.image = nil
-                removeSubViews(subviews: personFaceImageView.subviews,
-                               sublayers: personFaceImageView.layer.sublayers)
+        case 0:
+            
+            collageCollectionViewLayout.itemCount = CGFloat(CollageController().prototypeLayout.count)
+            
+            personFaceScrollView.frame = .zero
+            
+        case 1:
+            
+            collageCollectionViewLayout.itemCount = CGFloat(BackgroundColorController().colorCode.count)
+            
+        case 2:
+            
+            collageCollectionViewLayout.itemCount = CGFloat(EmoticonController().cellEmoticon.count)
+            
+            savedImage = nil
+            
+            personFaceImageView.image = nil
+            
+            removeSubViews(subviews: personFaceImageView.subviews,
+                           sublayers: personFaceImageView.layer.sublayers)
+            
+            for subView in self.collageView.subviews {
+                
+                if subView != personFaceScrollView {
+                    
+                    subView.frame = .zero
+                    
+                } else {
+                
+                    personFaceScrollView.frame = faceImageLayout.getFrames(self.collageView.frame.size).first ?? .zero
+                        
+                    personFaceImageView.frame = personFaceScrollView.frame
+                        
+                    personFaceScrollView.isScrollEnabled = false
+                    
+                    personFaceScrollView.minimumZoomScale = 1
+                
+                    personFaceScrollView.maximumZoomScale = 1
+                    
+                    personFaceScrollView.layer.borderWidth = 1
+                }
+            }
         default: break
         }
     

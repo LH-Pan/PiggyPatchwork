@@ -92,7 +92,7 @@ class LobbyViewController: UIViewController {
                               completion: nil)
     }
     
-    @IBAction func showPravicyPolicy(_ sender: Any) {
+    @IBAction func showPrivacyPolicy(_ sender: Any) {
         
         if let privacyViewController = UIStoryboard.privacy.instantiateInitialViewController() {
             

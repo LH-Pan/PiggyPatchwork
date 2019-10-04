@@ -30,7 +30,7 @@ struct SingleSquare: Layoutable {
     }
 }
 
-struct DoubleVerticle: Layoutable {
+struct DoubleVertical: Layoutable {
 
     func getFrames(_ size: CGSize) -> [CGRect] {
         
@@ -92,14 +92,14 @@ struct LeftVerticalWithDoubleSquare: Layoutable {
         
         let width = (size.width - widthInset * 3) / 2
         
-        let verticalRetangleHeight = size.height - heightInset * 2
+        let verticalRectangleHeight = size.height - heightInset * 2
         
         let squareHeight = (size.height - heightInset * 3) / 2
         
-        let retangleCGRect = CGRect(x: widthInset,
-                                    y: heightInset,
-                                    width: width,
-                                    height: verticalRetangleHeight)
+        let rectangleCGRect = CGRect(x: widthInset,
+                                     y: heightInset,
+                                     width: width,
+                                     height: verticalRectangleHeight)
         
         let firstSquareCGRect = CGRect(x: width + widthInset * 2,
                                        y: heightInset,
@@ -111,7 +111,7 @@ struct LeftVerticalWithDoubleSquare: Layoutable {
                                         width: width,
                                         height: squareHeight)
         
-        return [retangleCGRect, firstSquareCGRect, secondSquareCGRect]
+        return [rectangleCGRect, firstSquareCGRect, secondSquareCGRect]
     }
 }
 
@@ -125,7 +125,7 @@ struct RightVerticalWithDoubleSquare: Layoutable {
         
         let width = (size.width - widthInset * 3) / 2
         
-        let verticalRetangleHeight = size.height - heightInset * 2
+        let verticalRectangleHeight = size.height - heightInset * 2
         
         let squareHeight = (size.height - heightInset * 3) / 2
         
@@ -139,12 +139,12 @@ struct RightVerticalWithDoubleSquare: Layoutable {
                                         width: width,
                                         height: squareHeight)
         
-        let retangleCGRect = CGRect(x: width + widthInset * 2,
-                                    y: heightInset,
-                                    width: width,
-                                    height: verticalRetangleHeight)
+        let rectangleCGRect = CGRect(x: width + widthInset * 2,
+                                     y: heightInset,
+                                     width: width,
+                                     height: verticalRectangleHeight)
         
-        return [firstSquareCGRect, secondSquareCGRect, retangleCGRect]
+        return [firstSquareCGRect, secondSquareCGRect, rectangleCGRect]
     }
 }
 
@@ -156,16 +156,16 @@ struct HorizontalAboveWithDoubleSquare: Layoutable {
         
         let heightInset: CGFloat = CGFloat.insetRatio * size.height
         
-        let horizontalRetangleWidth = size.width - widthInset * 2
+        let horizontalRectangleWidth = size.width - widthInset * 2
         
         let squareWidth = (size.width - widthInset * 3) / 2
         
         let height = (size.height - heightInset * 3) / 2
         
-        let retangleCGRect = CGRect(x: widthInset,
-                                    y: heightInset,
-                                    width: horizontalRetangleWidth,
-                                    height: height)
+        let rectangleCGRect = CGRect(x: widthInset,
+                                     y: heightInset,
+                                     width: horizontalRectangleWidth,
+                                     height: height)
         
         let firstSquareCGRect = CGRect(x: widthInset,
                                        y: height + heightInset * 2,
@@ -177,7 +177,7 @@ struct HorizontalAboveWithDoubleSquare: Layoutable {
                                         width: squareWidth,
                                         height: height)
         
-        return [retangleCGRect, firstSquareCGRect, secondSquareCGRect]
+        return [rectangleCGRect, firstSquareCGRect, secondSquareCGRect]
     }
 }
 
@@ -189,7 +189,7 @@ struct HorizontalBelowWithDoubleSquare: Layoutable {
         
         let heightInset: CGFloat = CGFloat.insetRatio * size.height
         
-        let horizontalRetangleWidth = size.width - widthInset * 2
+        let horizontalRectangleWidth = size.width - widthInset * 2
         
         let squareWidth = (size.width - widthInset * 3) / 2
         
@@ -205,12 +205,12 @@ struct HorizontalBelowWithDoubleSquare: Layoutable {
                                         width: squareWidth,
                                         height: height)
         
-        let retangleCGRect = CGRect(x: widthInset,
-                                    y: height + heightInset * 2,
-                                    width: horizontalRetangleWidth,
-                                    height: height)
+        let rectangleCGRect = CGRect(x: widthInset,
+                                     y: height + heightInset * 2,
+                                     width: horizontalRectangleWidth,
+                                     height: height)
         
-        return [firstSquareCGRect, secondSquareCGRect, retangleCGRect] 
+        return [firstSquareCGRect, secondSquareCGRect, rectangleCGRect]
     }
 }
 
@@ -324,7 +324,7 @@ struct DoubleLeftWithTripleRight: Layoutable {
         
         let squareHeight = (size.height - heightInset * 3) / 2
         
-        let retangleHeight = (size.height - heightInset * 4) / 3
+        let rectangleHeight = (size.height - heightInset * 4) / 3
         
         let firstSquareCGRect = CGRect(x: widthInset,
                                        y: heightInset,
@@ -336,23 +336,23 @@ struct DoubleLeftWithTripleRight: Layoutable {
                                         width: width,
                                         height: squareHeight)
         
-        let firstRetangleCGRect = CGRect(x: width + widthInset * 2,
+        let firstRectangleCGRect = CGRect(x: width + widthInset * 2,
                                          y: heightInset,
                                          width: width,
-                                         height: retangleHeight)
+                                         height: rectangleHeight)
         
-        let secondRetangleCGRect = CGRect(x: width + widthInset * 2,
-                                          y: retangleHeight + heightInset * 2,
+        let secondRectangleCGRect = CGRect(x: width + widthInset * 2,
+                                           y: rectangleHeight + heightInset * 2,
+                                           width: width,
+                                           height: rectangleHeight)
+        
+        let thirdRectangleCGRect = CGRect(x: width + widthInset * 2,
+                                          y: rectangleHeight * 2 + heightInset * 3,
                                           width: width,
-                                          height: retangleHeight)
+                                          height: rectangleHeight)
         
-        let thirdRetangleCGRect = CGRect(x: width + widthInset * 2,
-                                         y: retangleHeight * 2 + heightInset * 3,
-                                         width: width,
-                                         height: retangleHeight)
-        
-        return [firstSquareCGRect, secondSquareCGRect, firstRetangleCGRect,
-                secondRetangleCGRect, thirdRetangleCGRect]
+        return [firstSquareCGRect, secondSquareCGRect, firstRectangleCGRect,
+                secondRectangleCGRect, thirdRectangleCGRect]
     }
 }
 
@@ -368,7 +368,7 @@ struct TripleLeftWithDoubleRight: Layoutable {
         
         let squareHeight = (size.height - heightInset * 3) / 2
         
-        let retangleHeight = (size.height - heightInset * 4) / 3
+        let rectangleHeight = (size.height - heightInset * 4) / 3
         
         let firstSquareCGRect = CGRect(x: width + widthInset * 2,
                                        y: heightInset,
@@ -380,23 +380,23 @@ struct TripleLeftWithDoubleRight: Layoutable {
                                         width: width,
                                         height: squareHeight)
         
-        let firstRetangleCGRect = CGRect(x: widthInset,
-                                         y: heightInset,
-                                         width: width,
-                                         height: retangleHeight)
-        
-        let secondRetangleCGRect = CGRect(x: widthInset,
-                                          y: retangleHeight + heightInset * 2,
+        let firstRectangleCGRect = CGRect(x: widthInset,
+                                          y: heightInset,
                                           width: width,
-                                          height: retangleHeight)
+                                          height: rectangleHeight)
         
-        let thirdRetangleCGRect = CGRect(x: widthInset,
-                                         y: retangleHeight * 2 + heightInset * 3,
-                                         width: width,
-                                         height: retangleHeight)
+        let secondRectangleCGRect = CGRect(x: widthInset,
+                                           y: rectangleHeight + heightInset * 2,
+                                           width: width,
+                                           height: rectangleHeight)
         
-        return [firstSquareCGRect, secondSquareCGRect, firstRetangleCGRect,
-                secondRetangleCGRect, thirdRetangleCGRect]
+        let thirdRectangleCGRect = CGRect(x: widthInset,
+                                          y: rectangleHeight * 2 + heightInset * 3,
+                                          width: width,
+                                          height: rectangleHeight)
+        
+        return [firstSquareCGRect, secondSquareCGRect, firstRectangleCGRect,
+                secondRectangleCGRect, thirdRectangleCGRect]
     }
 }
 
@@ -410,7 +410,7 @@ struct DoubleAboveWithTripleBelow: Layoutable {
     
         let squareWidth = (size.width - widthInset * 3) / 2
         
-        let retangleWidth = (size.width - widthInset * 4) / 3
+        let rectangleWidth = (size.width - widthInset * 4) / 3
         
         let height = (size.width - widthInset * 3) / 2
         
@@ -424,23 +424,23 @@ struct DoubleAboveWithTripleBelow: Layoutable {
                                        width: squareWidth,
                                        height: height)
             
-        let leftRetangleCGRect = CGRect(x: widthInset,
-                                        y: height + heightInset * 2,
-                                        width: retangleWidth,
-                                        height: height)
-        
-        let middleRetangleCGRect = CGRect(x: retangleWidth + widthInset * 2,
-                                          y: height + heightInset * 2,
-                                          width: retangleWidth,
-                                          height: height)
-        
-        let rightRetangleCGRect = CGRect(x: retangleWidth * 2 + widthInset * 3,
+        let leftRectangleCGRect = CGRect(x: widthInset,
                                          y: height + heightInset * 2,
-                                         width: retangleWidth,
+                                         width: rectangleWidth,
                                          height: height)
         
-        return [leftSquareCGRect, rightSquareCGRect, leftRetangleCGRect,
-                middleRetangleCGRect, rightRetangleCGRect]
+        let middleRectangleCGRect = CGRect(x: rectangleWidth + widthInset * 2,
+                                           y: height + heightInset * 2,
+                                           width: rectangleWidth,
+                                           height: height)
+        
+        let rightRectangleCGRect = CGRect(x: rectangleWidth * 2 + widthInset * 3,
+                                          y: height + heightInset * 2,
+                                          width: rectangleWidth,
+                                          height: height)
+        
+        return [leftSquareCGRect, rightSquareCGRect, leftRectangleCGRect,
+                middleRectangleCGRect, rightRectangleCGRect]
     }
 }
 
@@ -454,7 +454,7 @@ struct TripleAboveWithDoubleBelow: Layoutable {
     
         let squareWidth = (size.width - widthInset * 3) / 2
         
-        let retangleWidth = (size.width - widthInset * 4) / 3
+        let rectangleWidth = (size.width - widthInset * 4) / 3
         
         let height = (size.width - widthInset * 3) / 2
         
@@ -468,22 +468,22 @@ struct TripleAboveWithDoubleBelow: Layoutable {
                                        width: squareWidth,
                                        height: height)
             
-        let leftRetangleCGRect = CGRect(x: widthInset,
-                                        y: heightInset,
-                                        width: retangleWidth,
-                                        height: height)
-        
-        let middleRetangleCGRect = CGRect(x: retangleWidth + widthInset * 2,
-                                          y: heightInset,
-                                          width: retangleWidth,
-                                          height: height)
-        
-        let rightRetangleCGRect = CGRect(x: retangleWidth * 2 + widthInset * 3,
+        let leftRectangleCGRect = CGRect(x: widthInset,
                                          y: heightInset,
-                                         width: retangleWidth,
+                                         width: rectangleWidth,
                                          height: height)
         
-        return [leftSquareCGRect, rightSquareCGRect, leftRetangleCGRect,
-                middleRetangleCGRect, rightRetangleCGRect]
+        let middleRectangleCGRect = CGRect(x: rectangleWidth + widthInset * 2,
+                                           y: heightInset,
+                                           width: rectangleWidth,
+                                           height: height)
+        
+        let rightRectangleCGRect = CGRect(x: rectangleWidth * 2 + widthInset * 3,
+                                          y: heightInset,
+                                          width: rectangleWidth,
+                                          height: height)
+        
+        return [leftSquareCGRect, rightSquareCGRect, leftRectangleCGRect,
+                middleRectangleCGRect, rightRectangleCGRect]
     }
 }

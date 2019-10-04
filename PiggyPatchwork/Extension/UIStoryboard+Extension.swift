@@ -16,7 +16,7 @@ struct StoryboardCategory {
     
     static let photoMovie = "PhotoMovie"
     
-    static let privacy = "Pravicy"
+    static let privacy = "Privacy"
 }
 
 extension UIStoryboard {

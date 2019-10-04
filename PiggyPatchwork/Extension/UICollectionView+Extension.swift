@@ -25,7 +25,7 @@ extension UICollectionView {
     
     func radioCollection(
         inIndexPath currentIndexPath: IndexPath,
-        eqaulTo lastIndexPath: IndexPath?
+        equalTo lastIndexPath: IndexPath?
     ) {
 
         if currentIndexPath != lastIndexPath {
@@ -87,7 +87,7 @@ extension UICollectionViewCell {
     
     func selectedCollection(
         inIndexPath currentIndexPath: IndexPath,
-        eqaulTo lastIndexPath: IndexPath?
+        equalTo lastIndexPath: IndexPath?
     ) {
 
         if currentIndexPath == lastIndexPath {

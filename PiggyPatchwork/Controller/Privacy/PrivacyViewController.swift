@@ -13,7 +13,7 @@ class PrivacyViewController: UIViewController, WKNavigationDelegate {
     
     @IBOutlet weak var myWebView: WKWebView!
     
-    @IBOutlet weak var myActivityIndicatior: UIActivityIndicatorView!
+    @IBOutlet weak var myActivityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +49,7 @@ class PrivacyViewController: UIViewController, WKNavigationDelegate {
         didStartProvisionalNavigation navigation: WKNavigation!
     ) {
         
-        myActivityIndicatior.startAnimating()
+        myActivityIndicator.startAnimating()
     }
     
     func webView(
@@ -57,6 +57,6 @@ class PrivacyViewController: UIViewController, WKNavigationDelegate {
         didFinish navigation: WKNavigation!
     ) {
         
-        myActivityIndicatior.stopAnimating()
+        myActivityIndicator.stopAnimating()
     }
 }

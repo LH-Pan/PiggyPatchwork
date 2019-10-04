@@ -14,7 +14,7 @@ class CollageController: NSObject, CollageMatchable {
     
     var ptCellSelectedIndexPath: IndexPath?
     
-    let prototypeLayout: [Layoutable] = [DoubleVerticle(), DoubleHorizontal(), LeftVerticalWithDoubleSquare(),
+    let prototypeLayout: [Layoutable] = [DoubleVertical(), DoubleHorizontal(), LeftVerticalWithDoubleSquare(),
                                          RightVerticalWithDoubleSquare(), HorizontalAboveWithDoubleSquare(),
                                          HorizontalBelowWithDoubleSquare(), TripleVertical(),
                                          TripleHorizontal(), QuadraSquare(), TripleLeftWithDoubleRight(),
@@ -44,7 +44,7 @@ class CollageController: NSObject, CollageMatchable {
         }
         
         prototypeCell.selectedCollection(inIndexPath: indexPath,
-                                         eqaulTo: ptCellSelectedIndexPath)
+                                         equalTo: ptCellSelectedIndexPath)
         
         if prototypeCell.collageCellView.subviews != [] {
 

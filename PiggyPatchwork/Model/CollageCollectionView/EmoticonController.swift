@@ -45,7 +45,7 @@ class EmoticonController: NSObject, CollageMatchable {
         }
         
         emoticonCell.selectedCollection(inIndexPath: indexPath,
-                                        eqaulTo: etCellSelectedIndexPath)
+                                        equalTo: etCellSelectedIndexPath)
         
         emoticonCell.emoticonImageView.image = UIImage(named: cellEmoticon[indexPath.row].rawValue)
         

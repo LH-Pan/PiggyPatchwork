@@ -36,7 +36,9 @@ class PiggyDiffusionTransition: NSObject, UIViewControllerAnimatedTransitioning 
         var startFrame = CGRect.zero
         
         if animatedView != nil {
+            
             startFrame = animatedView?.frame ?? CGRect.zero
+            
             startBackgroundColor = animatedView?.backgroundColor
         }
         
@@ -44,7 +46,9 @@ class PiggyDiffusionTransition: NSObject, UIViewControllerAnimatedTransitioning 
         let animatedViewForTransition = UIView(frame: startFrame)
         
         animatedViewForTransition.clipsToBounds = true
+        
         animatedViewForTransition.layer.cornerRadius = animatedViewForTransition.frame.height / 2.0
+        
         animatedViewForTransition.backgroundColor = self.startBackgroundColor
         
         // add animated view on transitionContext's containerView
@@ -54,14 +58,18 @@ class PiggyDiffusionTransition: NSObject, UIViewControllerAnimatedTransitioning 
         let presentedController: UIViewController
         
         presentedController = transitionContext.viewController(forKey: .to) ?? UIViewController()
+        
         presentedController.view.layer.opacity = 0
+        
         presentedController.view.frame = transitionContext.containerView.bounds
         
         transitionContext.containerView.addSubview(presentedController.view)
         
         let size = max(transitionContext.containerView.frame.height,
                        transitionContext.containerView.frame.width) * 1.2
+        
         let scaleFactor = size / animatedViewForTransition.frame.height
+        
         let finalTransform = CGAffineTransform(scaleX: scaleFactor, y: scaleFactor)
         
             UIView.transition(with: animatedViewForTransition,
