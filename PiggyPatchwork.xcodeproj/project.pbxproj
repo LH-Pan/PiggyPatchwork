@@ -49,6 +49,8 @@
 		22FAD71C23442E8D001062D7 /* OpalImagePickerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FAD71B23442E8D001062D7 /* OpalImagePickerWrapper.swift */; };
 		22FAD71E2344AF2D001062D7 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FAD71D2344AF2D001062D7 /* UIButton+Extension.swift */; };
 		22FAD7212344E57D001062D7 /* FaceDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FAD7202344E57D001062D7 /* FaceDetection.swift */; };
+		22FAD7232346355A001062D7 /* BackgroundColorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FAD7222346355A001062D7 /* BackgroundColorController.swift */; };
+		22FAD72523463574001062D7 /* EmoticonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FAD72423463574001062D7 /* EmoticonController.swift */; };
 		22FE136F232E4205002F7F30 /* Lobby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22FE136E232E4205002F7F30 /* Lobby.storyboard */; };
 		22FE1371232E421C002F7F30 /* PhotoMovie.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22FE1370232E421B002F7F30 /* PhotoMovie.storyboard */; };
 		22FE1373232E5611002F7F30 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE1372232E5611002F7F30 /* UIStoryboard+Extension.swift */; };
@@ -57,7 +59,7 @@
 		22FE137E232F3F0E002F7F30 /* PhotoMovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE137D232F3F0E002F7F30 /* PhotoMovieTableViewCell.swift */; };
 		22FE1380232F3F68002F7F30 /* PhotoMovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FE137F232F3F68002F7F30 /* PhotoMovieTableViewCell.xib */; };
 		22FE1382232F3F97002F7F30 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE1381232F3F97002F7F30 /* UITableView+Extension.swift */; };
-		22FE13842330BEBD002F7F30 /* testStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE13832330BEBD002F7F30 /* testStruct.swift */; };
+		22FE13842330BEBD002F7F30 /* CollageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE13832330BEBD002F7F30 /* CollageController.swift */; };
 		22FE13872330EC64002F7F30 /* PhotoMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE13862330EC64002F7F30 /* PhotoMovie.swift */; };
 		22FE138A2332025B002F7F30 /* MoviePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE13892332025B002F7F30 /* MoviePreviewViewController.swift */; };
 		22FE5042231CE86300C2C1C1 /* BackgroundColorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FE5041231CE86300C2C1C1 /* BackgroundColorCollectionViewCell.xib */; };
@@ -115,6 +117,8 @@
 		22FAD71B23442E8D001062D7 /* OpalImagePickerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpalImagePickerWrapper.swift; sourceTree = "<group>"; };
 		22FAD71D2344AF2D001062D7 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		22FAD7202344E57D001062D7 /* FaceDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetection.swift; sourceTree = "<group>"; };
+		22FAD7222346355A001062D7 /* BackgroundColorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColorController.swift; sourceTree = "<group>"; };
+		22FAD72423463574001062D7 /* EmoticonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoticonController.swift; sourceTree = "<group>"; };
 		22FE136E232E4205002F7F30 /* Lobby.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Lobby.storyboard; sourceTree = "<group>"; };
 		22FE1370232E421B002F7F30 /* PhotoMovie.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhotoMovie.storyboard; sourceTree = "<group>"; };
 		22FE1372232E5611002F7F30 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
@@ -123,7 +127,7 @@
 		22FE137D232F3F0E002F7F30 /* PhotoMovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMovieTableViewCell.swift; sourceTree = "<group>"; };
 		22FE137F232F3F68002F7F30 /* PhotoMovieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoMovieTableViewCell.xib; sourceTree = "<group>"; };
 		22FE1381232F3F97002F7F30 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
-		22FE13832330BEBD002F7F30 /* testStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testStruct.swift; sourceTree = "<group>"; };
+		22FE13832330BEBD002F7F30 /* CollageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollageController.swift; sourceTree = "<group>"; };
 		22FE13862330EC64002F7F30 /* PhotoMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMovie.swift; sourceTree = "<group>"; };
 		22FE13892332025B002F7F30 /* MoviePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePreviewViewController.swift; sourceTree = "<group>"; };
 		22FE5041231CE86300C2C1C1 /* BackgroundColorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BackgroundColorCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -185,15 +189,17 @@
 			path = SelectionView;
 			sourceTree = "<group>";
 		};
-		220384102316A605003C285B /* PrototypeCollectionView */ = {
+		220384102316A605003C285B /* CollageCollectionView */ = {
 			isa = PBXGroup;
 			children = (
 				220384172317A5AC003C285B /* FunctionOption.swift */,
 				2205CC8F2326A700000682BE /* Gradient.swift */,
 				22FE5045231CFC7F00C2C1C1 /* PrototypeLayout.swift */,
-				22FE13832330BEBD002F7F30 /* testStruct.swift */,
+				22FE13832330BEBD002F7F30 /* CollageController.swift */,
+				22FAD7222346355A001062D7 /* BackgroundColorController.swift */,
+				22FAD72423463574001062D7 /* EmoticonController.swift */,
 			);
-			path = PrototypeCollectionView;
+			path = CollageCollectionView;
 			sourceTree = "<group>";
 		};
 		2205CC8C23269A4C000682BE /* CollagePreview */ = {
@@ -297,7 +303,7 @@
 				22FAD71F2344E557001062D7 /* FaceDetection */,
 				2239EEAF233B50D6001DAD12 /* Canvas */,
 				22FE13852330EC33002F7F30 /* PhotoMovie */,
-				220384102316A605003C285B /* PrototypeCollectionView */,
+				220384102316A605003C285B /* CollageCollectionView */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -637,6 +643,7 @@
 				2205CC9C2329F736000682BE /* CanvasView.swift in Sources */,
 				22D735F72334BD3A00AB34F1 /* LottieWrapper.swift in Sources */,
 				2234F5F5233A3594008B0303 /* PrivacyViewController.swift in Sources */,
+				22FAD7232346355A001062D7 /* BackgroundColorController.swift in Sources */,
 				2206B7E42318DCC3000B0135 /* UIView+Extension.swift in Sources */,
 				22FAD713233E172C001062D7 /* LaunchingViewController.swift in Sources */,
 				22FAD7172340BD66001062D7 /* PiggyDiffussionTransition.swift in Sources */,
@@ -645,10 +652,11 @@
 				2203840223165999003C285B /* UICollectionView+Extension.swift in Sources */,
 				220383FC231654A0003C285B /* UIScreen+Extension.swift in Sources */,
 				220384122316A633003C285B /* PrototypeCollectionViewLayout.swift in Sources */,
+				22FAD72523463574001062D7 /* EmoticonController.swift in Sources */,
 				22FE5050231F9A5500C2C1C1 /* CGFloat+Extension.swift in Sources */,
 				22FE137A232E5951002F7F30 /* PhotoMovieViewController.swift in Sources */,
 				2205CC952328D380000682BE /* CanvasViewController.swift in Sources */,
-				22FE13842330BEBD002F7F30 /* testStruct.swift in Sources */,
+				22FE13842330BEBD002F7F30 /* CollageController.swift in Sources */,
 				2203840923165D85003C285B /* CollageCollectionViewCell.swift in Sources */,
 				22FAD71923434A96001062D7 /* UIApplication+Extension.swift in Sources */,
 				22D5268E2315460B00F76354 /* AppDelegate.swift in Sources */,
@@ -751,7 +759,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -806,7 +814,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

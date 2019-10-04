@@ -8,6 +8,12 @@
 
 import UIKit
 
+protocol CollageMatchable: UICollectionViewDelegate,
+                           UICollectionViewDataSource {
+    
+    var title: FunctionOption { get }
+}
+
 extension UICollectionView {
     
     func custom_registerCellWithNib(identifier: String, bundle: Bundle?) {
@@ -96,7 +102,3 @@ extension UICollectionViewCell {
         }
     }
 }
-
-
-
-
