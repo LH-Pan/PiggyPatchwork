@@ -145,12 +145,12 @@ class CollageViewController: UIViewController {
         
         scrollView.layer.borderWidth = 1
         
-        scrollView.contentSize = CGSize(width: superView.frame.width,
-                                        height: superView.frame.height)
-        
         scrollView.showsVerticalScrollIndicator = false
 
         scrollView.showsHorizontalScrollIndicator = false
+        
+        scrollView.contentSize = CGSize(width: superView.frame.width,
+                                        height: superView.frame.height)
         
         subView.frame.size = scrollView.contentSize
         
@@ -485,14 +485,6 @@ extension CollageViewController: SelectionViewDelegate,
     
     func textOfSelections(_ selectionView: SelectionView, index: Int) -> String {
         return collageMatches[index].title.rawValue
-    }
-    
-    func colorOfIndicatorView(_ selectionView: SelectionView) -> UIColor {
-        return CustomColor.LemonadeYellow
-    }
-    
-    func colorOfSelectionText(_ selectionView: SelectionView) -> UIColor {
-        return CustomColor.EucalyptusGreen
     }
     
     func enable(_ selectionView: SelectionView, index: Int) -> Bool {
