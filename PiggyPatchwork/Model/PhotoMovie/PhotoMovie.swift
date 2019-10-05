@@ -156,11 +156,15 @@ class VideoWriter {
         
         func createAssetWriter(outputURL: NSURL) -> AVAssetWriter {
             
-            guard let assetWriter = try? AVAssetWriter(outputURL: outputURL as URL, fileType: AVFileType.mp4) else {
+            guard
+                let assetWriter = try? AVAssetWriter(outputURL: outputURL as URL, fileType: AVFileType.mp4)
+            else {
                 fatalError("AVAssetWriter() failed")
             }
             
-            guard assetWriter.canApply(outputSettings: avOutputSettings, forMediaType: AVMediaType.video) else {
+            guard
+                assetWriter.canApply(outputSettings: avOutputSettings, forMediaType: AVMediaType.video)
+            else {
                 fatalError("canApplyOutputSettings() failed")
             }
             
@@ -212,9 +216,7 @@ class VideoWriter {
                         completion()
                     }
                 }
-            } else {
-                
-            }
+            } 
         }
     }
     

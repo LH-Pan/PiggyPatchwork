@@ -39,8 +39,8 @@ class CollageController: NSObject, CollageMatchable {
                 withReuseIdentifier: CollageCollectionViewCell.identifier,
                 for: indexPath
                 ) as? CollageCollectionViewCell
-            else {
-                return UICollectionViewCell()
+        else {
+            return UICollectionViewCell()
         }
         
         prototypeCell.selectedCollection(inIndexPath: indexPath,

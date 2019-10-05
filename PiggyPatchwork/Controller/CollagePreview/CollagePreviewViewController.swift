@@ -77,11 +77,7 @@ class CollagePreviewViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        guard
-            let canvasVC = segue.destination as? CanvasViewController
-        else {
-            return
-        }
+        guard let canvasVC = segue.destination as? CanvasViewController else { return }
         
         canvasVC.delegate = self
         
@@ -99,11 +95,7 @@ class CollagePreviewViewController: UIViewController {
         
         storageImage = previewView.takeSnapshot()
         
-        guard
-            let image = storageImage
-        else {
-            return
-        }
+        guard let image = storageImage else { return }
         
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
         

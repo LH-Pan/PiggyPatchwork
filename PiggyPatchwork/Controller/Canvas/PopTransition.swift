@@ -23,9 +23,7 @@ class PopTransition: NSObject, UIViewControllerAnimatedTransitioning {
         guard
             let fromVC = transitionContext.viewController(forKey: .from) as? CanvasViewController,
             let toVC = transitionContext.viewController(forKey: .to) as? CollagePreviewViewController
-        else {
-            return
-        }
+        else { return }
         
         let container = transitionContext.containerView
         

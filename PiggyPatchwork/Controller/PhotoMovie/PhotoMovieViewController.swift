@@ -90,11 +90,7 @@ class PhotoMovieViewController: UIViewController {
     
     func didClickDeleteInCell(_ cell: UITableViewCell) {
         
-        guard
-            let indexPath = photoMovieTableView.indexPath(for: cell)
-        else {
-            return
-        }
+        guard let indexPath = photoMovieTableView.indexPath(for: cell) else { return }
         
         selectedPhotos.remove(at: indexPath.row)
         
@@ -121,10 +117,7 @@ class PhotoMovieViewController: UIViewController {
             let moviePreviewVC = storyboard?.instantiateViewController(
                 withIdentifier: "moviePreview"
         ) as? MoviePreviewViewController
-
-        else {
-            return
-        }
+        else { return }
 
         moviePreviewVC.makeMoviePhotos = selectedPhotos
 

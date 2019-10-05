@@ -28,7 +28,9 @@ class FaceDetection {
                                                          options: [ : ])
         
         do {
+            
             try detectRequestHandler.perform([detectRequest])
+            
         } catch {
             
             PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.exclamation_mark),
@@ -40,8 +42,8 @@ class FaceDetection {
         
         guard
             let faceDetectResults = request.results as? [VNFaceObservation]
-            else {
-                fatalError("Unexpected result type from VNDetectFaceRetanglesRequest.")
+        else {
+            fatalError("Unexpected result type from VNDetectFaceRetanglesRequest.")
         }
         
         if faceDetectResults.count == 0 {

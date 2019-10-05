@@ -65,11 +65,11 @@ extension EmoticonController {
 //        selectedIndexPath = indexPath
     }
     
-//    func collectionView(
-//        _ collectionView: UICollectionView,
-//        didDeselectItemAt indexPath: IndexPath
-//    ) {
-//
-//        selectedIndexPath = indexPath
-//    }
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didDeselectItemAt indexPath: IndexPath
+    ) {
+
+        selectedIndexPath = indexPath
+    }
 }

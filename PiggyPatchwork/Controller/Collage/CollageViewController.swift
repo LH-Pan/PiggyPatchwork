@@ -335,11 +335,7 @@ class CollageViewController: UIViewController {
         
         savedImage = collageView.takeSnapshot()
         
-        guard
-            let previewVC = segue.destination as? CollagePreviewViewController
-        else {
-            return
-        }
+        guard let previewVC = segue.destination as? CollagePreviewViewController else { return }
         
         previewVC.storageImage = savedImage
     }
@@ -376,11 +372,7 @@ extension CollageViewController: UICollectionViewDataSource,
         didSelectItemAt indexPath: IndexPath
     ) {
         
-        guard
-            let cell = collectionView.cellForItem(at: indexPath)
-        else {
-            return
-        }
+        guard let cell = collectionView.cellForItem(at: indexPath) else { return }
         
         switch selectionView.selectedIndex {
 
@@ -388,9 +380,7 @@ extension CollageViewController: UICollectionViewDataSource,
              
             guard
                 let collageController = collageMatches[selectionView.selectedIndex] as? CollageController
-            else {
-                return
-            }
+            else { return }
             
             let frames = collageController.collageLayout[indexPath.row].getFrames(self.collageView.frame.size)
             
@@ -426,9 +416,7 @@ extension CollageViewController: UICollectionViewDataSource,
             
             guard
                 let backgroundController = collageMatches[selectionView.selectedIndex] as? BackgroundColorController
-            else {
-                return
-            }
+            else { return }
             
             let colorCode = backgroundController.colorCode[indexPath.row].rawValue
             
@@ -467,25 +455,14 @@ extension CollageViewController: UICollectionViewDataSource,
         didDeselectItemAt indexPath: IndexPath
     ) {
 
-        guard
-            let cell = collectionView.cellForItem(at: indexPath)
-        else {
-            return
-        }
+        guard let cell = collectionView.cellForItem(at: indexPath) else { return }
         
         cell.layer.borderWidth = 0
         
         if selectionView.selectedIndex == 2 {
             
-//            guard
-//                let emoticonController = collageMatches[selectionView.selectedIndex] as? EmoticonController
-//            else {
-//                return
-//            }
-            
             if savedImage == nil { return }
             
-//            emoticonController.selectedIndexPath = indexPath
         }
 
         collageMatches[selectionView.selectedIndex].collectionView?(collectionView,
@@ -526,7 +503,11 @@ extension CollageViewController: SelectionViewDelegate,
             
         case 0:
             
-            guard let collageController = collageMatches[index] as? CollageController else { return false }
+            guard
+                let collageController = collageMatches[index] as? CollageController
+            else {
+                return false
+            }
             
             collageCollectionViewLayout.itemCount = CGFloat(collageController.collageLayout.count)
             
@@ -541,13 +522,21 @@ extension CollageViewController: SelectionViewDelegate,
         
         case 1:
             
-            guard let backgroundController = collageMatches[index] as? BackgroundColorController else { return false }
+            guard
+                let backgroundController = collageMatches[index] as? BackgroundColorController
+            else {
+                return false
+            }
             
             collageCollectionViewLayout.itemCount = CGFloat(backgroundController.colorCode.count)
             
         case 2:
             
-            guard let emoticonController = collageMatches[index] as? EmoticonController else { return false }
+            guard
+                let emoticonController = collageMatches[index] as? EmoticonController
+            else {
+                return false
+            }
             
             collageCollectionViewLayout.itemCount = CGFloat(emoticonController.cellEmoticon.count)
             

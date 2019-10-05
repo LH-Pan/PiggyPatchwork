@@ -19,11 +19,7 @@ class Canvas: UIView {
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         
-        guard
-            let context = UIGraphicsGetCurrentContext()
-        else {
-            return
-        }
+        guard let context = UIGraphicsGetCurrentContext() else { return }
         
         lines.forEach { (line) in
             
@@ -55,9 +51,7 @@ class Canvas: UIView {
         guard
             let point = touches.first?.location(in: self),
             var lastLine = lines.popLast()
-        else {
-            return
-        }
+        else { return }
 
         lastLine.points.append(point)
 
