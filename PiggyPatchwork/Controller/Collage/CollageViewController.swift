@@ -377,9 +377,7 @@ extension CollageViewController: UICollectionViewDataSource,
     ) {
         
         guard
-            let cell = collectionView.cellForItem(at: indexPath),
-            let controller = collageMatches[selectionView.selectedIndex].collectionView?(collectionView,
-                                                                                         didSelectItemAt: indexPath)
+            let cell = collectionView.cellForItem(at: indexPath)
         else {
             return
         }
@@ -460,7 +458,8 @@ extension CollageViewController: UICollectionViewDataSource,
         
         cell.layer.borderWidth = 2
         
-        return controller
+        collageMatches[selectionView.selectedIndex].collectionView?(collectionView,
+                                                                    didSelectItemAt: indexPath)
     }
     
     func collectionView(
@@ -469,9 +468,7 @@ extension CollageViewController: UICollectionViewDataSource,
     ) {
 
         guard
-            let cell = collectionView.cellForItem(at: indexPath),
-            let controller = collageMatches[selectionView.selectedIndex].collectionView?(collectionView,
-                                                                                         didDeselectItemAt: indexPath)
+            let cell = collectionView.cellForItem(at: indexPath)
         else {
             return
         }
@@ -480,18 +477,19 @@ extension CollageViewController: UICollectionViewDataSource,
         
         if selectionView.selectedIndex == 2 {
             
-            guard
-                let emoticonController = collageMatches[selectionView.selectedIndex] as? EmoticonController
-            else {
-                return
-            }
+//            guard
+//                let emoticonController = collageMatches[selectionView.selectedIndex] as? EmoticonController
+//            else {
+//                return
+//            }
             
             if savedImage == nil { return }
             
-            emoticonController.selectedIndexPath = indexPath
+//            emoticonController.selectedIndexPath = indexPath
         }
 
-        return controller
+        collageMatches[selectionView.selectedIndex].collectionView?(collectionView,
+                                                                    didDeselectItemAt: indexPath)
     }
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
@@ -533,6 +531,13 @@ extension CollageViewController: SelectionViewDelegate,
             collageCollectionViewLayout.itemCount = CGFloat(collageController.collageLayout.count)
             
             personFaceScrollView.frame = .zero
+            
+            savedImage = nil
+            
+            personFaceImageView.image = nil
+            
+            removeSubViews(subviews: personFaceImageView.subviews,
+                           sublayers: personFaceImageView.layer.sublayers)
         
         case 1:
             
@@ -545,13 +550,6 @@ extension CollageViewController: SelectionViewDelegate,
             guard let emoticonController = collageMatches[index] as? EmoticonController else { return false }
             
             collageCollectionViewLayout.itemCount = CGFloat(emoticonController.cellEmoticon.count)
-            
-            savedImage = nil
-            
-            personFaceImageView.image = nil
-            
-            removeSubViews(subviews: personFaceImageView.subviews,
-                           sublayers: personFaceImageView.layer.sublayers)
             
             for subView in self.collageView.subviews {
                 

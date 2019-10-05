@@ -70,6 +70,6 @@ extension EmoticonController {
 //        didDeselectItemAt indexPath: IndexPath
 //    ) {
 //
-//        etCellSelectedIndexPath = indexPath
+//        selectedIndexPath = indexPath
 //    }
 }
