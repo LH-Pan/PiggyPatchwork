@@ -119,7 +119,7 @@ class CollageViewController: UIViewController {
         at superView: UIView,
         add imageView: UIImageView
     ) {
-        
+
         imageView.contentMode = .scaleAspectFill
         
         imageView.isUserInteractionEnabled = true
@@ -314,9 +314,7 @@ class CollageViewController: UIViewController {
                 return emoticonFace
             }
             
-            let imageString = emoticonController.faceEmoticon[
-                emoticonController.selectedIndexPath?.row ?? 0
-            ].rawValue
+            let imageString = emoticonController.faceEmoticon[emoticonController.selectedIndexPath?.row ?? 0].rawValue
 
             emoticonFace.image = UIImage(named: imageString)
             
@@ -462,7 +460,6 @@ extension CollageViewController: UICollectionViewDataSource,
         if selectionView.selectedIndex == 2 {
             
             if savedImage == nil { return }
-            
         }
 
         collageMatches[selectionView.selectedIndex].collectionView?(collectionView,

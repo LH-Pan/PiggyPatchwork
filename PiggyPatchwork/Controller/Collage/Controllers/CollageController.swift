@@ -35,26 +35,26 @@ class CollageController: NSObject, CollageMatchable {
     ) -> UICollectionViewCell {
         
         guard
-            let prototypeCell = collectionView.dequeueReusableCell(
+            let collageCell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: CollageCollectionViewCell.identifier,
                 for: indexPath
-                ) as? CollageCollectionViewCell
+            ) as? CollageCollectionViewCell
         else {
             return UICollectionViewCell()
         }
         
-        prototypeCell.selectedCollection(inIndexPath: indexPath,
+        collageCell.selectedCollection(inIndexPath: indexPath,
                                          equalTo: selectedIndexPath)
         
-        if prototypeCell.collageCellView.subviews != [] {
+        if collageCell.collageCellView.subviews != [] {
 
-            for subview in prototypeCell.collageCellView.subviews {
+            for subview in collageCell.collageCellView.subviews {
 
                 subview.removeFromSuperview()
             }
         }
         
-        let frames = collageLayout[indexPath.row].getFrames(prototypeCell.frame.size)
+        let frames = collageLayout[indexPath.row].getFrames(collageCell.frame.size)
         
         for layout in frames {
             
@@ -64,11 +64,11 @@ class CollageController: NSObject, CollageMatchable {
             
             subView.backgroundColor = CustomColor.SilverGray
             
-            prototypeCell.collageCellView.addSubview(subView)
+            collageCell.collageCellView.addSubview(subView)
             
         }
         
-        return prototypeCell
+        return collageCell
     }
 }
 

@@ -38,7 +38,7 @@ class BackgroundColorController: NSObject, CollageMatchable {
             let backgroundCell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: BackgroundColorCollectionViewCell.identifier,
                 for: indexPath
-            ) as? BackgroundColorCollectionViewCell
+                ) as? BackgroundColorCollectionViewCell
         else {
             return UICollectionViewCell()
         }

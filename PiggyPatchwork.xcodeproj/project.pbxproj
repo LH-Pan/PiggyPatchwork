@@ -177,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				2203840D23166CF2003C285B /* CollageViewController.swift */,
+				22FEE04223488F4A00F9F2A2 /* Controllers */,
 			);
 			path = Collage;
 			sourceTree = "<group>";
@@ -195,9 +196,6 @@
 				220384172317A5AC003C285B /* FunctionOption.swift */,
 				2205CC8F2326A700000682BE /* Gradient.swift */,
 				22FE5045231CFC7F00C2C1C1 /* PrototypeLayout.swift */,
-				22FE13832330BEBD002F7F30 /* CollageController.swift */,
-				22FAD7222346355A001062D7 /* BackgroundColorController.swift */,
-				22FAD72423463574001062D7 /* EmoticonController.swift */,
 			);
 			path = CollageCollectionView;
 			sourceTree = "<group>";
@@ -462,6 +460,16 @@
 				22FE5047231E77B600C2C1C1 /* EmoticonCollectionViewCell.xib */,
 			);
 			path = Emoticon;
+			sourceTree = "<group>";
+		};
+		22FEE04223488F4A00F9F2A2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				22FE13832330BEBD002F7F30 /* CollageController.swift */,
+				22FAD72423463574001062D7 /* EmoticonController.swift */,
+				22FAD7222346355A001062D7 /* BackgroundColorController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		F20B23BCCE0EA2967217A4D6 /* Pods */ = {
