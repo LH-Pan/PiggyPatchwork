@@ -243,23 +243,25 @@ class ImageAnimator {
     
     var frameNum = 0
     
-    var tempurl = ""
+    var tempUrl = ""
     
     weak var delegate: MovieUrlProviderDelegate?
     
     class func removeFileAtURL(fileURL: NSURL) {
         
         do {
+            
             try FileManager.default.removeItem(atPath: fileURL.path!)
+            
         } catch _ as NSError {
             //
         }
     }
     
-    init(renderSettings: RenderSettings, imagearr: [UIImage]) {
+    init(renderSettings: RenderSettings, imageArray: [UIImage]) {
         settings = renderSettings
         videoWriter = VideoWriter(renderSettings: settings)
-        images = imagearr
+        images = imageArray
     }
     
     func render(completion: @escaping () -> Void) {
@@ -273,9 +275,9 @@ class ImageAnimator {
             
             let path: String = self.settings.outputURL.path!
             
-            self.tempurl = path
+            self.tempUrl = path
             
-            self.delegate?.provider(self, didGet: self.tempurl)
+            self.delegate?.provider(self, didGet: self.tempUrl)
             
             completion()
         }
@@ -301,6 +303,7 @@ class ImageAnimator {
             let success = videoWriter.addImage(image: image, withPresentationTime: presentationTime)
             
             if success == false {
+                
                 fatalError("addImage() failed")
             }
             

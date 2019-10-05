@@ -12,7 +12,7 @@ class EmoticonController: NSObject, CollageMatchable {
     
     let title: FunctionOption = .emoticon
     
-    var etCellSelectedIndexPath: IndexPath?
+    var selectedIndexPath: IndexPath?
     
     let cellEmoticon: [CellEmoticon] = [.funny, .doNotThinkSo, .weirdSmile,
                                         .crazy, .twinkleEyes, .dying,
@@ -45,7 +45,7 @@ class EmoticonController: NSObject, CollageMatchable {
         }
         
         emoticonCell.selectedCollection(inIndexPath: indexPath,
-                                        equalTo: etCellSelectedIndexPath)
+                                        equalTo: selectedIndexPath)
         
         emoticonCell.emoticonImageView.image = UIImage(named: cellEmoticon[indexPath.row].rawValue)
         
@@ -53,23 +53,23 @@ class EmoticonController: NSObject, CollageMatchable {
     }
 }
 
-//extension EmoticonController {
-//    
-//    func collectionView(
-//        _ collectionView: UICollectionView,
-//        didSelectItemAt indexPath: IndexPath
-//    ) {
-//        collectionView.radioCollection(inIndexPath: indexPath,
-//                                       eqaulTo: etCellSelectedIndexPath)
-//                   
-//        etCellSelectedIndexPath = indexPath
-//    }
-//    
+extension EmoticonController {
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
+        collectionView.radioCollection(inIndexPath: indexPath,
+                                       notEqualTo: selectedIndexPath)
+                   
+//        selectedIndexPath = indexPath
+    }
+    
 //    func collectionView(
 //        _ collectionView: UICollectionView,
 //        didDeselectItemAt indexPath: IndexPath
 //    ) {
-//        
+//
 //        etCellSelectedIndexPath = indexPath
 //    }
-//}
+}

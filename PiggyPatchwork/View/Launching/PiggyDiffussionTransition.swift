@@ -76,17 +76,25 @@ class PiggyDiffusionTransition: NSObject, UIViewControllerAnimatedTransitioning 
                               duration: self.transitionDuration(using: transitionContext) * 0.7,
                               options: [],
                               animations: {
+                                
                                 animatedViewForTransition.transform = finalTransform
+                                
                                 animatedViewForTransition.center = transitionContext.containerView.center
+                                
                                 animatedViewForTransition.backgroundColor = CustomColor.OrchidPink
+                                
             }, completion: nil)
             
             UIView.animate(withDuration: self.transitionDuration(using: transitionContext) * 0.4,
                            delay: self.transitionDuration(using: transitionContext) * 0.6,
                            animations: {
+                            
                             presentedController.view.layer.opacity = 1
+                            
             }, completion: { (_) in
+                
                 animatedViewForTransition.removeFromSuperview()
+                
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
             })
     }

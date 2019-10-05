@@ -12,6 +12,8 @@ protocol CollageMatchable: UICollectionViewDelegate,
                            UICollectionViewDataSource {
     
     var title: FunctionOption { get }
+    
+    var selectedIndexPath: IndexPath? { get set }
 }
 
 extension UICollectionView {
@@ -25,7 +27,7 @@ extension UICollectionView {
     
     func radioCollection(
         inIndexPath currentIndexPath: IndexPath,
-        equalTo lastIndexPath: IndexPath?
+        notEqualTo lastIndexPath: IndexPath?
     ) {
 
         if currentIndexPath != lastIndexPath {

@@ -69,7 +69,7 @@ class MoviePreviewViewController: UIViewController {
             let settings = RenderSettings()
             
             let imageAnimator = ImageAnimator(renderSettings: settings,
-                                              imagearr: self.makeMoviePhotos)
+                                              imageArray: self.makeMoviePhotos)
             
             imageAnimator.delegate = self
             

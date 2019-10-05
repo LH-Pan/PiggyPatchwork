@@ -12,14 +12,14 @@ class BackgroundColorController: NSObject, CollageMatchable {
     
     let title: FunctionOption = .background
     
-    var bgCellSelectedIndexPath: IndexPath?
+    var selectedIndexPath: IndexPath?
     
     let colorCode: [ColorCode] = [.white, .petalPink, .waterMelonRed, .roseRed,
-                                         .carrotOrange, .sunOrange, .pineappleYellow,
-                                         .tigerYellow, .chartreuseGreen, .olivineGreen,
-                                         .zucchiniGreen, .babyBlue, .clearSkyBlue,
-                                         .prussianBlue, .lilacSkyPurple, .vividPurple,
-                                         .amethystPurple, .ashGray, .stoneGray, .black]
+                                  .carrotOrange, .sunOrange, .pineappleYellow,
+                                  .tigerYellow, .chartreuseGreen, .olivineGreen,
+                                  .zucchiniGreen, .babyBlue, .clearSkyBlue,
+                                  .prussianBlue, .lilacSkyPurple, .vividPurple,
+                                  .amethystPurple, .ashGray, .stoneGray, .black]
     
     func collectionView(
         _ collectionView: UICollectionView,
@@ -35,7 +35,7 @@ class BackgroundColorController: NSObject, CollageMatchable {
     ) -> UICollectionViewCell {
         
         guard
-            let bakcgroundCell = collectionView.dequeueReusableCell(
+            let backgroundCell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: BackgroundColorCollectionViewCell.identifier,
                 for: indexPath
             ) as? BackgroundColorCollectionViewCell
@@ -43,35 +43,35 @@ class BackgroundColorController: NSObject, CollageMatchable {
             return UICollectionViewCell()
         }
         
-        bakcgroundCell.selectedCollection(inIndexPath: indexPath,
-                                          equalTo: bgCellSelectedIndexPath)
+        backgroundCell.selectedCollection(inIndexPath: indexPath,
+                                          equalTo: selectedIndexPath)
         
         let backgroundColorCode = colorCode[indexPath.row].rawValue
         
-        bakcgroundCell.backgroundColor = UIColor.hexStringToUIColor(hex: backgroundColorCode)
+        backgroundCell.backgroundColor = UIColor.hexStringToUIColor(hex: backgroundColorCode)
         
-        return bakcgroundCell
+        return backgroundCell
     }
 }
 
-//extension BackgroundColorController {
-//    
-//    func collectionView(
-//        _ collectionView: UICollectionView,
-//        didSelectItemAt indexPath: IndexPath
-//    ) {
-//        
-//        collectionView.radioCollection(inIndexPath: indexPath,
-//                                       eqaulTo: bgCellSelectedIndexPath)
-//        
-//        bgCellSelectedIndexPath = indexPath
-//    }
-//    
-//    func collectionView(
-//        _ collectionView: UICollectionView,
-//        didDeselectItemAt indexPath: IndexPath
-//    ) {
-//        
-//        bgCellSelectedIndexPath = indexPath
-//    }
-//}
+extension BackgroundColorController {
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
+        
+        collectionView.radioCollection(inIndexPath: indexPath,
+                                       notEqualTo: selectedIndexPath)
+        
+        selectedIndexPath = indexPath
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didDeselectItemAt indexPath: IndexPath
+    ) {
+        
+        selectedIndexPath = indexPath
+    }
+}

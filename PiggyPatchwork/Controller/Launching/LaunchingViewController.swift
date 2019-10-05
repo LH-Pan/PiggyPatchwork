@@ -32,11 +32,11 @@ class LaunchingViewController: UIViewController {
             
                         self.pointImageView.alpha = 1
                         
-        }, completion: {(_) in
+        }, completion: { [weak self] (_) in
                         
-                        self.animate(view: self.pointImageView,
-                                     fromPoint: self.pointImageView.center,
-                                     toPoint: self.transitionView.center)
+            self?.animate(view: self?.pointImageView ?? UIImageView(),
+                          fromPoint: self?.pointImageView?.center ?? CGPoint.zero,
+                          toPoint: self?.transitionView?.center ?? CGPoint.zero)
         })
     }
     

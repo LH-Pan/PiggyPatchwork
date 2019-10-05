@@ -42,37 +42,20 @@ class CollageViewController: UIViewController {
         
         let layoutObject = CollageCollectionViewLayout()
         
-        layoutObject.itemCount = CGFloat(CollageController().prototypeLayout.count)
+        guard
+            let collageController = collageMatches[selectionView.selectedIndex] as? CollageController
+        else {
+            return layoutObject
+        }
+        
+        layoutObject.itemCount = CGFloat(collageController.collageLayout.count)
         
         return layoutObject
     }()
     
     let imagePicker = PiggyOpalImagePicker()
     
-//    let functionOption: [FunctionOption] = [.prototypeFrame, .background, .emoticon]
-    
     let collageMatches: [CollageMatchable] = [CollageController(), BackgroundColorController(), EmoticonController()]
-    
-//    let colorCode: [ColorCode] = [.white, .petalPink, .waterMelonRed, .roseRed,
-//                                  .carrotOrange, .sunOrange, .pineappleYellow,
-//                                  .tigerYellow, .chartreuseGreen, .olivineGreen,
-//                                  .zucchiniGreen, .babyBlue, .clearSkyBlue,
-//                                  .prussianBlue, .lilacSkuPurple, .vividPurple,
-//                                  .amethystPurple, .ashGray, .stoneGray, .black]
-//
-//    let cellEmoticon: [CellEmoticon] = [.funny, .doNotThinkSo, .weirdSmile,
-//                                        .crazy, .twinkleEyes, .dying,
-//                                        .lierFace, .cute, .exciting, .cry]
-//
-//    let faceEmoticon: [FaceEmoticon] = [.funny, .doNotThinkSo, .weirdSmile,
-//                                        .crazy, .twinkleEyes, .dying,
-//                                        .lierFace, .cute, .exciting, .cry]
-//
-//    let prototypeLayout: [Layoutable] = [DoubleVerticle(), DoubleHorizontal(), LeftVerticalWithDoubleSquare(),
-//                                         RightVerticalWithDoubleSquare(), HorizontalAboveWithDoubleSquare(),
-//                                         HorizontalBelowWithDoubleSquare(), TripleVertical(), TripleHorizontal(),
-//                                         QuadraSquare(), TripleLeftWithDoubleRight(), DoubleLeftWithTripleRight(),
-//                                         DoubleAboveWithTripleBelow(), TripleAboveWithDoubleBelow()]
     
     let faceImageLayout: Layoutable = SingleSquare()
     
@@ -83,12 +66,6 @@ class CollageViewController: UIViewController {
     var chosenImageView: UIImageView?
     
     var savedImage: UIImage?
-    
-    var ptCellSelectedIndexPath: IndexPath?
-
-    var bgCellSelectedIndexPath: IndexPath?
-
-    var etCellSelectedIndexPath: IndexPath?
 
     // MARK: View Life Cycle
     override func viewDidLoad() {
@@ -236,9 +213,9 @@ class CollageViewController: UIViewController {
         
         imagePicker.showAlbum(presenter: self,
                               maximumAllowed: 1,
-                              completion: {
-                                self.removeSubViews(subviews: recognizer.view?.subviews,
-                                                    sublayers: recognizer.view?.layer.sublayers)
+                              completion: { [weak self] in
+                                self?.removeSubViews(subviews: recognizer.view?.subviews,
+                                                     sublayers: recognizer.view?.layer.sublayers)
         })
     }
     
@@ -331,7 +308,15 @@ class CollageViewController: UIViewController {
             emoticonFace.center = CGPoint(x: (originX + width / 2) - widthDeviation ,
                                           y: (originY + height / 2) - heightDeviation)
             
-            let imageString = EmoticonController().faceEmoticon[etCellSelectedIndexPath?.row ?? 0].rawValue
+            guard
+                let emoticonController = collageMatches[selectionView.selectedIndex] as? EmoticonController
+            else {
+                return emoticonFace
+            }
+            
+            let imageString = emoticonController.faceEmoticon[
+                emoticonController.selectedIndexPath?.row ?? 0
+            ].rawValue
 
             emoticonFace.image = UIImage(named: imageString)
             
@@ -392,22 +377,24 @@ extension CollageViewController: UICollectionViewDataSource,
     ) {
         
         guard
-            let
-                cell = collectionView.cellForItem(at: indexPath)
+            let cell = collectionView.cellForItem(at: indexPath),
+            let controller = collageMatches[selectionView.selectedIndex].collectionView?(collectionView,
+                                                                                         didSelectItemAt: indexPath)
         else {
             return
         }
         
         switch selectionView.selectedIndex {
-            
-        case 0:
-            
-            collectionView.radioCollection(inIndexPath: indexPath,
-                                           equalTo: ptCellSelectedIndexPath)
 
-            ptCellSelectedIndexPath = indexPath
+        case 0:
+             
+            guard
+                let collageController = collageMatches[selectionView.selectedIndex] as? CollageController
+            else {
+                return
+            }
             
-            let frames = CollageController().prototypeLayout[indexPath.row].getFrames(self.collageView.frame.size)
+            let frames = collageController.collageLayout[indexPath.row].getFrames(self.collageView.frame.size)
             
             for subView in collageView.subviews {
                 
@@ -436,14 +423,19 @@ extension CollageViewController: UICollectionViewDataSource,
                                          with: imageView)
                 }
             })
+            
         case 1:
             
-            collectionView.radioCollection(inIndexPath: indexPath,
-                                           equalTo: bgCellSelectedIndexPath)
-
-            bgCellSelectedIndexPath = indexPath
+            guard
+                let backgroundController = collageMatches[selectionView.selectedIndex] as? BackgroundColorController
+            else {
+                return
+            }
             
-            collageView.backgroundColor = UIColor.hexStringToUIColor(hex: BackgroundColorController().colorCode[indexPath.row].rawValue)
+            let colorCode = backgroundController.colorCode[indexPath.row].rawValue
+            
+            collageView.backgroundColor = UIColor.hexStringToUIColor(hex: colorCode)
+            
         case 2:
             
             if savedImage == nil {
@@ -453,22 +445,22 @@ extension CollageViewController: UICollectionViewDataSource,
                 return
             }
             
-            collectionView.radioCollection(inIndexPath: indexPath,
-                                           equalTo: etCellSelectedIndexPath)
-
-            etCellSelectedIndexPath = indexPath
+            collageMatches[selectionView.selectedIndex].selectedIndexPath = indexPath
             
             let faceDetecter = FaceDetection()
             
             faceDetecter.delegate = self
             
             faceDetecter.faceDetection(detect: savedImage)
+            
         default: break
         }
         
         cell.layer.borderColor = UIColor.brown.cgColor
         
         cell.layer.borderWidth = 2
+        
+        return controller
     }
     
     func collectionView(
@@ -477,21 +469,29 @@ extension CollageViewController: UICollectionViewDataSource,
     ) {
 
         guard
-            let cell = collectionView.cellForItem(at: indexPath)
+            let cell = collectionView.cellForItem(at: indexPath),
+            let controller = collageMatches[selectionView.selectedIndex].collectionView?(collectionView,
+                                                                                         didDeselectItemAt: indexPath)
         else {
             return
         }
         
         cell.layer.borderWidth = 0
         
-        switch selectionView.selectedIndex {
-
-        case 0: ptCellSelectedIndexPath = indexPath
-        case 1: bgCellSelectedIndexPath = indexPath
-        case 2: if savedImage == nil { return }
-                etCellSelectedIndexPath = indexPath
-        default: break
+        if selectionView.selectedIndex == 2 {
+            
+            guard
+                let emoticonController = collageMatches[selectionView.selectedIndex] as? EmoticonController
+            else {
+                return
+            }
+            
+            if savedImage == nil { return }
+            
+            emoticonController.selectedIndexPath = indexPath
         }
+
+        return controller
     }
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
@@ -525,19 +525,26 @@ extension CollageViewController: SelectionViewDelegate,
         collageCollectionViewLayout.selectedIndex = index
 
         switch index {
+            
         case 0:
             
-            collageCollectionViewLayout.itemCount = CGFloat(CollageController().prototypeLayout.count)
+            guard let collageController = collageMatches[index] as? CollageController else { return false }
+            
+            collageCollectionViewLayout.itemCount = CGFloat(collageController.collageLayout.count)
             
             personFaceScrollView.frame = .zero
-            
+        
         case 1:
             
-            collageCollectionViewLayout.itemCount = CGFloat(BackgroundColorController().colorCode.count)
+            guard let backgroundController = collageMatches[index] as? BackgroundColorController else { return false }
+            
+            collageCollectionViewLayout.itemCount = CGFloat(backgroundController.colorCode.count)
             
         case 2:
             
-            collageCollectionViewLayout.itemCount = CGFloat(EmoticonController().cellEmoticon.count)
+            guard let emoticonController = collageMatches[index] as? EmoticonController else { return false }
+            
+            collageCollectionViewLayout.itemCount = CGFloat(emoticonController.cellEmoticon.count)
             
             savedImage = nil
             
@@ -561,7 +568,7 @@ extension CollageViewController: SelectionViewDelegate,
                     personFaceScrollView.isScrollEnabled = false
                     
                     personFaceScrollView.minimumZoomScale = 1
-                
+
                     personFaceScrollView.maximumZoomScale = 1
                     
                     personFaceScrollView.layer.borderWidth = 1

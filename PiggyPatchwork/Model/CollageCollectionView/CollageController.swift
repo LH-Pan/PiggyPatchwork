@@ -12,21 +12,21 @@ class CollageController: NSObject, CollageMatchable {
     
     let title: FunctionOption = .prototypeFrame
     
-    var ptCellSelectedIndexPath: IndexPath?
+    var selectedIndexPath: IndexPath?
     
-    let prototypeLayout: [Layoutable] = [DoubleVertical(), DoubleHorizontal(), LeftVerticalWithDoubleSquare(),
-                                         RightVerticalWithDoubleSquare(), HorizontalAboveWithDoubleSquare(),
-                                         HorizontalBelowWithDoubleSquare(), TripleVertical(),
-                                         TripleHorizontal(), QuadraSquare(), TripleLeftWithDoubleRight(),
-                                         DoubleLeftWithTripleRight(), DoubleAboveWithTripleBelow(),
-                                         TripleAboveWithDoubleBelow()]
+    let collageLayout: [Layoutable] = [DoubleVertical(), DoubleHorizontal(), LeftVerticalWithDoubleSquare(),
+                                       RightVerticalWithDoubleSquare(), HorizontalAboveWithDoubleSquare(),
+                                       HorizontalBelowWithDoubleSquare(), TripleVertical(),
+                                       TripleHorizontal(), QuadraSquare(), TripleLeftWithDoubleRight(),
+                                       DoubleLeftWithTripleRight(), DoubleAboveWithTripleBelow(),
+                                       TripleAboveWithDoubleBelow()]
     
     func collectionView(
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
         
-        return prototypeLayout.count
+        return collageLayout.count
     }
     
     func collectionView(
@@ -44,7 +44,7 @@ class CollageController: NSObject, CollageMatchable {
         }
         
         prototypeCell.selectedCollection(inIndexPath: indexPath,
-                                         equalTo: ptCellSelectedIndexPath)
+                                         equalTo: selectedIndexPath)
         
         if prototypeCell.collageCellView.subviews != [] {
 
@@ -54,7 +54,7 @@ class CollageController: NSObject, CollageMatchable {
             }
         }
         
-        let frames = prototypeLayout[indexPath.row].getFrames(prototypeCell.frame.size)
+        let frames = collageLayout[indexPath.row].getFrames(prototypeCell.frame.size)
         
         for layout in frames {
             
@@ -72,24 +72,24 @@ class CollageController: NSObject, CollageMatchable {
     }
 }
 
-//extension CollageController {
-//
-//    func collectionView(
-//        _ collectionView: UICollectionView,
-//        didSelectItemAt indexPath: IndexPath
-//    ) {
-//
-//        collectionView.radioCollection(inIndexPath: indexPath,
-//                                       eqaulTo: ptCellSelectedIndexPath)
-//
-//        ptCellSelectedIndexPath = indexPath
-//    }
-//
-//    func collectionView(
-//        _ collectionView: UICollectionView,
-//        didDeselectItemAt indexPath: IndexPath
-//    ) {
-//
-//        ptCellSelectedIndexPath = indexPath
-//    }
-//}
+extension CollageController {
+
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
+
+        collectionView.radioCollection(inIndexPath: indexPath,
+                                       notEqualTo: selectedIndexPath)
+
+        selectedIndexPath = indexPath
+    }
+
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didDeselectItemAt indexPath: IndexPath
+    ) {
+
+        selectedIndexPath = indexPath
+    }
+}
