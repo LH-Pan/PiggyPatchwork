@@ -123,7 +123,7 @@ class PhotoMoviePreviewViewController: UIViewController {
             filmAnimationView.heightAnchor.constraint(equalToConstant: 300 * UIScreen.screenWidthRatio),
             filmAnimationView.centerXAnchor.constraint(equalTo: translucentView.centerXAnchor),
             filmAnimationView.bottomAnchor.constraint(equalTo: translucentView.centerYAnchor,
-                                                      constant: 85 * UIScreen.screenHeightRatio)
+                                                      constant: 115 * UIScreen.screenHeightRatio)
         ])
     }
     
@@ -135,7 +135,7 @@ class PhotoMoviePreviewViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             progressingBar.centerXAnchor.constraint(equalTo: translucentView.centerXAnchor),
-            progressingBar.topAnchor.constraint(equalTo: filmAnimationView.bottomAnchor),
+            progressingBar.topAnchor.constraint(equalTo: filmAnimationView.bottomAnchor, constant: -30),
             progressingBar.widthAnchor.constraint(equalTo: filmAnimationView.widthAnchor),
             progressingBar.heightAnchor.constraint(equalToConstant: 25 * UIScreen.screenHeightRatio)
         ])
