@@ -63,18 +63,11 @@ class CollagePreviewViewController: UIViewController {
     // MARK: - Private Method
     private func setupButtonView() {
         
-        setupViewAttributes(editView)
+        editView.setupFeatureView()
         
-        setupViewAttributes(savePhotoView)
+        savePhotoView.setupFeatureView()
         
-        setupViewAttributes(shareToPlatformView)
-    }
-    
-    private func setupViewAttributes(_ view: UIView) {
-        
-        view.layer.cornerRadius = 25 * UIScreen.screenWidthRatio
-        
-        view.addViewShadow()
+        shareToPlatformView.setupFeatureView()
     }
     
     // MARK: - IBAction

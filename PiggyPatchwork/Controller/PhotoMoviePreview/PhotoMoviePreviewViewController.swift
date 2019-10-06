@@ -54,15 +54,6 @@ class PhotoMoviePreviewViewController: UIViewController {
         
         setupView()
         
-        Gradient.doubleColor(at: view,
-                             firstColor: CustomColor.PigletPink,
-                             secondColor: CustomColor.OrchidPink)
-        
-        PiggyLottie.setupAnimationView(view: loadingAnimationView,
-                                       name: Lotties.loading,
-                                       speed: 1,
-                                       loopMode: .loop)
-        
         setupTranslucentView()
         
         setupFilmAnimationView()
@@ -78,19 +69,32 @@ class PhotoMoviePreviewViewController: UIViewController {
             
             imageAnimator.delegate = self
             
-            imageAnimator.render {
+            imageAnimator.render { [weak self] in
                 
-                self.displayVideo()
+                self?.displayVideo()
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        Gradient.doubleColor(at: view,
+                             firstColor: CustomColor.PigletPink,
+                             secondColor: CustomColor.OrchidPink)
+               
+        PiggyLottie.setupAnimationView(view: loadingAnimationView,
+                                       name: Lotties.loading,
+                                       speed: 1,
+                                       loopMode: .loop)
     }
     
     // MARK: - Private Method
     private func setupView() {
         
-        setupViewAttributes(saveMovieView)
+        saveMovieView.setupFeatureView()
         
-        setupViewAttributes(shareToPlatformView)
+        shareToPlatformView.setupFeatureView()
     }
     
     private func setupTranslucentView() {
@@ -135,13 +139,6 @@ class PhotoMoviePreviewViewController: UIViewController {
             progressingBar.widthAnchor.constraint(equalTo: filmAnimationView.widthAnchor),
             progressingBar.heightAnchor.constraint(equalToConstant: 25 * UIScreen.screenHeightRatio)
         ])
-    }
-    
-    private func setupViewAttributes(_ view: UIView) {
-           
-        view.layer.cornerRadius = 25
-           
-        view.addViewShadow()
     }
     
     private func setupAnimationViews() {
