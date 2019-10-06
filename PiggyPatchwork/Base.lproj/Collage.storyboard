@@ -45,7 +45,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uut-hv-bej">
-                                        <rect key="frame" x="309" y="52" width="89" height="22"/>
+                                        <rect key="frame" x="305" y="52" width="93" height="22"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                         <state key="normal" title="下一步  " image="next_icon_right">
@@ -56,10 +56,10 @@
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left_ear" translatesAutoresizingMaskIntoConstraints="NO" id="zbH-t3-vJB">
-                                        <rect key="frame" x="0.0" y="173" width="44" height="38"/>
+                                        <rect key="frame" x="0.0" y="135" width="88" height="76"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right_ear" translatesAutoresizingMaskIntoConstraints="NO" id="Cz3-0U-EVr">
-                                        <rect key="frame" x="370" y="173" width="44" height="38"/>
+                                        <rect key="frame" x="326" y="135" width="88" height="76"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nose" translatesAutoresizingMaskIntoConstraints="NO" id="hU7-jB-AsP">
                                         <rect key="frame" x="167" y="525" width="80" height="80"/>
@@ -69,7 +69,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l90-Uv-VkV">
-                                        <rect key="frame" x="16" y="52" width="89" height="22"/>
+                                        <rect key="frame" x="16" y="52" width="93" height="22"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                         <state key="normal" title="  回首頁" image="next_icon_left">
@@ -140,7 +140,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sbd-FK-rJV">
-                                <rect key="frame" x="16" y="8" width="89" height="22"/>
+                                <rect key="frame" x="16" y="8" width="93" height="22"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                 <state key="normal" title="  上一步" image="next_icon_left">
@@ -299,7 +299,7 @@
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paint_hook" translatesAutoresizingMaskIntoConstraints="NO" id="m3D-wS-WRj">
-                                <rect key="frame" x="177" y="120" width="60" height="67"/>
+                                <rect key="frame" x="147" y="53" width="120" height="134"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.81568627449999997" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

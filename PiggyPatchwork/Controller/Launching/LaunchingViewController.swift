@@ -19,49 +19,34 @@ class LaunchingViewController: UIViewController {
     }
     
     @IBOutlet weak var transitionView: UIView!
-    
+        
     var diffusionTransition: PiggyDiffusionTransition?
-    
+
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         diffusionTransition = PiggyDiffusionTransition(animatedView: transitionView)
         
-        let transform = CGAffineTransform(scaleX: 0.99, y: 0.99)
-
-        transitionView.transform = transform
-        
         UIView.animate(withDuration: 0.3,
                        animations: {
             
-            self.pointImageView.alpha = 1
-        }, completion: {(_) in
-            
-            UIView.animate(withDuration: 1,
-                           animations: {
-                            
-                            self.transitionView.transform = CGAffineTransform.identity
-                            
-                            self.animate(view: self.pointImageView,
-                                         fromPoint: self.pointImageView.center,
-                                         toPoint: self.transitionView.center)
-            }, completion: {(_) in
-                
-                 if let lobbyVC = UIStoryboard.lobby.instantiateInitialViewController() {
-
-                     lobbyVC.modalPresentationStyle = .custom
-
-                     lobbyVC.transitioningDelegate = self.diffusionTransition
-
-                     self.present(lobbyVC, animated: true, completion: nil)
-                 }
-            })
+                        self.pointImageView.alpha = 1
+                        
+        }, completion: { [weak self] (_) in
+                        
+            self?.animate(view: self?.pointImageView ?? UIImageView(),
+                          fromPoint: self?.pointImageView?.center ?? CGPoint.zero,
+                          toPoint: self?.transitionView?.center ?? CGPoint.zero)
         })
     }
     
+    // MARK: - Launching Animation
     func animate(view: UIView, fromPoint start: CGPoint, toPoint end: CGPoint) {
         
         let animation = CAKeyframeAnimation(keyPath: "position")
+    
+        animation.delegate = self
 
         let path = UIBezierPath()
 
@@ -78,11 +63,37 @@ class LaunchingViewController: UIViewController {
         animation.path = path.cgPath
 
         animation.fillMode = CAMediaTimingFillMode.forwards
+        
         animation.isRemovedOnCompletion = false
+        
         animation.duration = 0.6
+        
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
 
         view.layer.add(animation, forKey: nil)
+    }
+    
+    // MARK: - Transition Animation
+    func goToLobbyTransition() {
         
+        if let lobbyVC = UIStoryboard.lobby.instantiateInitialViewController() {
+
+            lobbyVC.modalPresentationStyle = .custom
+
+            lobbyVC.transitioningDelegate = self.diffusionTransition
+
+            self.present(lobbyVC, animated: true, completion: nil)
+        }
+    }
+}
+    // 判斷 Launching Animation 結束後才進行 Transition Animation
+extension LaunchingViewController: CAAnimationDelegate {
+    
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        
+        if flag {
+            
+            self.goToLobbyTransition()
+        }
     }
 }

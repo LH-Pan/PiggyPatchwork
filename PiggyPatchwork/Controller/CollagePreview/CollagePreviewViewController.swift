@@ -22,9 +22,8 @@ class CollagePreviewViewController: UIViewController {
     @IBOutlet weak var goLastPage: UIButton! {
         
         didSet {
-            goLastPage.setTitleColor(CustomColor.OrchidPink,
-                                     for: .normal)
-            goLastPage.layer.cornerRadius = 10
+           
+            goLastPage.setupNavigationBtn()
         }
     }
     
@@ -42,6 +41,7 @@ class CollagePreviewViewController: UIViewController {
     
     var storageImage: UIImage?
     
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -60,29 +60,20 @@ class CollagePreviewViewController: UIViewController {
                              secondColor: CustomColor.OrchidPink)
     }
     
-    func setupButtonView() {
+    // MARK: - Private Method
+    private func setupButtonView() {
         
-        setupViewAttributes(editView)
+        editView.setupFeatureView()
         
-        setupViewAttributes(savePhotoView)
+        savePhotoView.setupFeatureView()
         
-        setupViewAttributes(shareToPlatformView)
+        shareToPlatformView.setupFeatureView()
     }
     
-    func setupViewAttributes(_ view: UIView) {
-        
-        view.layer.cornerRadius = 25 * UIScreen.screenWidthRatio
-        
-        view.addViewShadow()
-    }
-    
+    // MARK: - IBAction
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        guard
-            let canvasVC = segue.destination as? CanvasViewController
-        else {
-            return
-        }
+        guard let canvasVC = segue.destination as? CanvasViewController else { return }
         
         canvasVC.delegate = self
         
@@ -100,11 +91,7 @@ class CollagePreviewViewController: UIViewController {
         
         storageImage = previewView.takeSnapshot()
         
-        guard
-            let image = storageImage
-        else {
-            return
-        }
+        guard let image = storageImage else { return }
         
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
         
@@ -124,7 +111,7 @@ class CollagePreviewViewController: UIViewController {
         self.present(activityViewController, animated: true, completion: nil)
     }
 }
-
+    // MARK: - Transition Animation
 extension CollagePreviewViewController: UINavigationControllerDelegate {
     
     func navigationController(
@@ -144,10 +131,14 @@ extension CollagePreviewViewController: UINavigationControllerDelegate {
         }
     }
 }
-
+    
+    // MARK: - Get edit complete image from CanvasViewController
 extension CollagePreviewViewController: ImageProviderDelegate {
     
-    func manager(_ viewController: CanvasViewController, didGet image: UIImage?) {
+    func manager(
+        _ viewController: CanvasViewController,
+        didGet image: UIImage?
+    ) {
         
         previewImageView.image = image
     }

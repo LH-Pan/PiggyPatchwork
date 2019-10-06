@@ -12,12 +12,16 @@ struct CustomColor {
     
     //Red Color
     static let PigletPink = UIColor.hexStringToUIColor(hex: "#FBEAF0")
+    
     static let PastelPink = UIColor.hexStringToUIColor(hex: "#FFD0D6")
+    
     static let OrchidPink = UIColor.hexStringToUIColor(hex: "#EF95AC")
     
     //Orange Color
     static let MelonOrange = UIColor.hexStringToUIColor(hex: "#EF95AC")
+    
     static let SalamanderOrange = UIColor.hexStringToUIColor(hex: "#F15A22")
+    
     static let SkinOrange = UIColor.hexStringToUIColor(hex: "#FCE6C9")
     
     //Yellow Color
@@ -25,14 +29,17 @@ struct CustomColor {
     
     //Green Color
     static let EucalyptusGreen = UIColor.hexStringToUIColor(hex: "#85CFB4")
+    
     static let ZigguartGreen = UIColor.hexStringToUIColor(hex: "#B7DDE0")
     
     //Blue Color
     static let TurquoiseBlue = UIColor.hexStringToUIColor(hex: "#85B8CB")
+    
     static let AquaBlue = UIColor.hexStringToUIColor(hex: "#BEE2E4")
     
     //Gray Color
     static let StoneGray = UIColor.hexStringToUIColor(hex: "#877D7C#")
+    
     static let SilverGray = UIColor.hexStringToUIColor(hex: "#CED7D4")
     
 }
@@ -45,14 +52,17 @@ extension UIColor {
         var cString: String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         
         if cString.hasPrefix("#") {
+            
             cString.remove(at: cString.startIndex)
         }
         
         if (cString.count) != 6 {
+            
             return UIColor.gray
         }
         
         var rgbValue: UInt64 = 0
+        
         Scanner(string: cString).scanHexInt64(&rgbValue)
         
         return UIColor(

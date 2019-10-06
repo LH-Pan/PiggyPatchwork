@@ -33,7 +33,7 @@
 		2222F34C2336545A0084FA91 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2222F34B2336545A0084FA91 /* String+Extension.swift */; };
 		2222F35023367E920084FA91 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 2222F34F23367E920084FA91 /* loading.json */; };
 		2234F5F5233A3594008B0303 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2234F5F4233A3594008B0303 /* PrivacyViewController.swift */; };
-		2234F5F7233A3C3B008B0303 /* Pravicy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2234F5F6233A3C3B008B0303 /* Pravicy.storyboard */; };
+		2234F5F7233A3C3B008B0303 /* Privacy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2234F5F6233A3C3B008B0303 /* Privacy.storyboard */; };
 		2234F5F9233A5A63008B0303 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2234F5F8233A5A63008B0303 /* WebKit.framework */; };
 		2234F5FB233B2486008B0303 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2234F5FA233B2485008B0303 /* GoogleService-Info.plist */; };
 		22D5268E2315460B00F76354 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D5268D2315460B00F76354 /* AppDelegate.swift */; };
@@ -46,6 +46,11 @@
 		22FAD713233E172C001062D7 /* LaunchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FAD712233E172C001062D7 /* LaunchingViewController.swift */; };
 		22FAD7172340BD66001062D7 /* PiggyDiffussionTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FAD7162340BD66001062D7 /* PiggyDiffussionTransition.swift */; };
 		22FAD71923434A96001062D7 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FAD71823434A96001062D7 /* UIApplication+Extension.swift */; };
+		22FAD71C23442E8D001062D7 /* OpalImagePickerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FAD71B23442E8D001062D7 /* OpalImagePickerWrapper.swift */; };
+		22FAD71E2344AF2D001062D7 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FAD71D2344AF2D001062D7 /* UIButton+Extension.swift */; };
+		22FAD7212344E57D001062D7 /* FaceDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FAD7202344E57D001062D7 /* FaceDetection.swift */; };
+		22FAD7232346355A001062D7 /* BackgroundColorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FAD7222346355A001062D7 /* BackgroundColorController.swift */; };
+		22FAD72523463574001062D7 /* EmoticonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FAD72423463574001062D7 /* EmoticonController.swift */; };
 		22FE136F232E4205002F7F30 /* Lobby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22FE136E232E4205002F7F30 /* Lobby.storyboard */; };
 		22FE1371232E421C002F7F30 /* PhotoMovie.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22FE1370232E421B002F7F30 /* PhotoMovie.storyboard */; };
 		22FE1373232E5611002F7F30 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE1372232E5611002F7F30 /* UIStoryboard+Extension.swift */; };
@@ -54,15 +59,16 @@
 		22FE137E232F3F0E002F7F30 /* PhotoMovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE137D232F3F0E002F7F30 /* PhotoMovieTableViewCell.swift */; };
 		22FE1380232F3F68002F7F30 /* PhotoMovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FE137F232F3F68002F7F30 /* PhotoMovieTableViewCell.xib */; };
 		22FE1382232F3F97002F7F30 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE1381232F3F97002F7F30 /* UITableView+Extension.swift */; };
-		22FE13842330BEBD002F7F30 /* testStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE13832330BEBD002F7F30 /* testStruct.swift */; };
+		22FE13842330BEBD002F7F30 /* CollageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE13832330BEBD002F7F30 /* CollageController.swift */; };
 		22FE13872330EC64002F7F30 /* PhotoMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE13862330EC64002F7F30 /* PhotoMovie.swift */; };
-		22FE138A2332025B002F7F30 /* MoviePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE13892332025B002F7F30 /* MoviePreviewViewController.swift */; };
+		22FE138A2332025B002F7F30 /* PhotoMoviePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE13892332025B002F7F30 /* PhotoMoviePreviewViewController.swift */; };
 		22FE5042231CE86300C2C1C1 /* BackgroundColorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FE5041231CE86300C2C1C1 /* BackgroundColorCollectionViewCell.xib */; };
 		22FE5044231CE89600C2C1C1 /* BackgroundColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE5043231CE89600C2C1C1 /* BackgroundColorCollectionViewCell.swift */; };
 		22FE5046231CFC7F00C2C1C1 /* PrototypeLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE5045231CFC7F00C2C1C1 /* PrototypeLayout.swift */; };
 		22FE5048231E77B600C2C1C1 /* EmoticonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FE5047231E77B600C2C1C1 /* EmoticonCollectionViewCell.xib */; };
 		22FE504A231E78AE00C2C1C1 /* EmoticonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE5049231E78AE00C2C1C1 /* EmoticonCollectionViewCell.swift */; };
 		22FE5050231F9A5500C2C1C1 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE504F231F9A5500C2C1C1 /* CGFloat+Extension.swift */; };
+		22FEE0442349F30400F9F2A2 /* progressBar.json in Resources */ = {isa = PBXBuildFile; fileRef = 22FEE0432349F30400F9F2A2 /* progressBar.json */; };
 		252133BE3CDEF6C3528CA833 /* Pods_PiggyPatchwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05D3706CE9AF71A0B1261D49 /* Pods_PiggyPatchwork.framework */; };
 /* End PBXBuildFile section */
 
@@ -94,7 +100,7 @@
 		2222F34B2336545A0084FA91 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		2222F34F23367E920084FA91 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		2234F5F4233A3594008B0303 /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
-		2234F5F6233A3C3B008B0303 /* Pravicy.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Pravicy.storyboard; sourceTree = "<group>"; };
+		2234F5F6233A3C3B008B0303 /* Privacy.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Privacy.storyboard; sourceTree = "<group>"; };
 		2234F5F8233A5A63008B0303 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		2234F5FA233B2485008B0303 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		22D5268A2315460B00F76354 /* PiggyPatchwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PiggyPatchwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +115,11 @@
 		22FAD712233E172C001062D7 /* LaunchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchingViewController.swift; sourceTree = "<group>"; };
 		22FAD7162340BD66001062D7 /* PiggyDiffussionTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiggyDiffussionTransition.swift; sourceTree = "<group>"; };
 		22FAD71823434A96001062D7 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
+		22FAD71B23442E8D001062D7 /* OpalImagePickerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpalImagePickerWrapper.swift; sourceTree = "<group>"; };
+		22FAD71D2344AF2D001062D7 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		22FAD7202344E57D001062D7 /* FaceDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetection.swift; sourceTree = "<group>"; };
+		22FAD7222346355A001062D7 /* BackgroundColorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColorController.swift; sourceTree = "<group>"; };
+		22FAD72423463574001062D7 /* EmoticonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoticonController.swift; sourceTree = "<group>"; };
 		22FE136E232E4205002F7F30 /* Lobby.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Lobby.storyboard; sourceTree = "<group>"; };
 		22FE1370232E421B002F7F30 /* PhotoMovie.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhotoMovie.storyboard; sourceTree = "<group>"; };
 		22FE1372232E5611002F7F30 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
@@ -117,15 +128,16 @@
 		22FE137D232F3F0E002F7F30 /* PhotoMovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMovieTableViewCell.swift; sourceTree = "<group>"; };
 		22FE137F232F3F68002F7F30 /* PhotoMovieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoMovieTableViewCell.xib; sourceTree = "<group>"; };
 		22FE1381232F3F97002F7F30 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
-		22FE13832330BEBD002F7F30 /* testStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testStruct.swift; sourceTree = "<group>"; };
+		22FE13832330BEBD002F7F30 /* CollageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollageController.swift; sourceTree = "<group>"; };
 		22FE13862330EC64002F7F30 /* PhotoMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMovie.swift; sourceTree = "<group>"; };
-		22FE13892332025B002F7F30 /* MoviePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePreviewViewController.swift; sourceTree = "<group>"; };
+		22FE13892332025B002F7F30 /* PhotoMoviePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMoviePreviewViewController.swift; sourceTree = "<group>"; };
 		22FE5041231CE86300C2C1C1 /* BackgroundColorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BackgroundColorCollectionViewCell.xib; sourceTree = "<group>"; };
 		22FE5043231CE89600C2C1C1 /* BackgroundColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		22FE5045231CFC7F00C2C1C1 /* PrototypeLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrototypeLayout.swift; sourceTree = "<group>"; };
 		22FE5047231E77B600C2C1C1 /* EmoticonCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmoticonCollectionViewCell.xib; sourceTree = "<group>"; };
 		22FE5049231E78AE00C2C1C1 /* EmoticonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoticonCollectionViewCell.swift; sourceTree = "<group>"; };
 		22FE504F231F9A5500C2C1C1 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
+		22FEE0432349F30400F9F2A2 /* progressBar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = progressBar.json; sourceTree = "<group>"; };
 		86A91C2890B62BF2078CC51D /* Pods-PiggyPatchwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PiggyPatchwork.debug.xcconfig"; path = "Target Support Files/Pods-PiggyPatchwork/Pods-PiggyPatchwork.debug.xcconfig"; sourceTree = "<group>"; };
 		A10A8CAE55D2F84AFD8E0D3C /* Pods-PiggyPatchwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PiggyPatchwork.release.xcconfig"; path = "Target Support Files/Pods-PiggyPatchwork/Pods-PiggyPatchwork.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				2203840D23166CF2003C285B /* CollageViewController.swift */,
+				22FEE04223488F4A00F9F2A2 /* Controllers */,
 			);
 			path = Collage;
 			sourceTree = "<group>";
@@ -179,21 +192,21 @@
 			path = SelectionView;
 			sourceTree = "<group>";
 		};
-		220384102316A605003C285B /* PrototypeCollectionView */ = {
+		220384102316A605003C285B /* CollageCollectionView */ = {
 			isa = PBXGroup;
 			children = (
 				220384172317A5AC003C285B /* FunctionOption.swift */,
 				2205CC8F2326A700000682BE /* Gradient.swift */,
 				22FE5045231CFC7F00C2C1C1 /* PrototypeLayout.swift */,
-				22FE13832330BEBD002F7F30 /* testStruct.swift */,
 			);
-			path = PrototypeCollectionView;
+			path = CollageCollectionView;
 			sourceTree = "<group>";
 		};
 		2205CC8C23269A4C000682BE /* CollagePreview */ = {
 			isa = PBXGroup;
 			children = (
 				2205CC8D23269CBB000682BE /* CollagePreviewViewController.swift */,
+				2205CC912328D24F000682BE /* PushTransition.swift */,
 			);
 			path = CollagePreview;
 			sourceTree = "<group>";
@@ -202,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				2205CC942328D380000682BE /* CanvasViewController.swift */,
+				2205CC982329057A000682BE /* PopTransition.swift */,
 			);
 			path = Canvas;
 			sourceTree = "<group>";
@@ -209,7 +223,6 @@
 		2205CC9A2329F71F000682BE /* Canvas */ = {
 			isa = PBXGroup;
 			children = (
-				2205CC982329057A000682BE /* PopTransition.swift */,
 				2205CC9B2329F736000682BE /* CanvasView.swift */,
 			);
 			path = Canvas;
@@ -218,6 +231,7 @@
 		22213E5323349A2900D24EF0 /* LottieAnimation */ = {
 			isa = PBXGroup;
 			children = (
+				22FEE0432349F30400F9F2A2 /* progressBar.json */,
 				2222F34F23367E920084FA91 /* loading.json */,
 				2222166B23351C8C005F48E1 /* video_animation.json */,
 				2222166923350211005F48E1 /* downArrow.json */,
@@ -271,7 +285,7 @@
 				22D526A5231558CC00F76354 /* Controller */,
 				22D526A62315593100F76354 /* View */,
 				22213E4B2333251A00D24EF0 /* Launching.storyboard */,
-				2234F5F6233A3C3B008B0303 /* Pravicy.storyboard */,
+				2234F5F6233A3C3B008B0303 /* Privacy.storyboard */,
 				22D526992315460D00F76354 /* LaunchScreen.storyboard */,
 				22D526912315460B00F76354 /* Collage.storyboard */,
 				22FE136E232E4205002F7F30 /* Lobby.storyboard */,
@@ -287,9 +301,10 @@
 		22D526A4231558BB00F76354 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				22FAD71F2344E557001062D7 /* FaceDetection */,
 				2239EEAF233B50D6001DAD12 /* Canvas */,
 				22FE13852330EC33002F7F30 /* PhotoMovie */,
-				220384102316A605003C285B /* PrototypeCollectionView */,
+				220384102316A605003C285B /* CollageCollectionView */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -297,13 +312,13 @@
 		22D526A5231558CC00F76354 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				22FAD711233E1703001062D7 /* Launching */,
 				2205CC932328D365000682BE /* Canvas */,
 				2203840C23166CD6003C285B /* Collage */,
 				2205CC8C23269A4C000682BE /* CollagePreview */,
+				22FAD711233E1703001062D7 /* Launching */,
 				22FE1377232E58CB002F7F30 /* Lobby */,
-				22FE138823320229002F7F30 /* MoviePreview */,
 				22FE1378232E5934002F7F30 /* PhotoMovie */,
+				22FE138823320229002F7F30 /* PhotoMoviePreview */,
 				2234F5F3233A3581008B0303 /* Privacy */,
 			);
 			path = Controller;
@@ -312,10 +327,9 @@
 		22D526A62315593100F76354 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				22FAD7152340BD36001062D7 /* Launching */,
-				22FAD7142340BD16001062D7 /* CollagePreview */,
 				2205CC9A2329F71F000682BE /* Canvas */,
 				2203840323165C66003C285B /* Collage */,
+				22FAD7152340BD36001062D7 /* Launching */,
 				22FE1376232E58A3002F7F30 /* PhotoMovie */,
 				2203840F23168358003C285B /* SelectionView */,
 			);
@@ -327,6 +341,7 @@
 			children = (
 				22213E5323349A2900D24EF0 /* LottieAnimation */,
 				2205CC8A23250682000682BE /* JonAlertWrapper.swift */,
+				22FAD71B23442E8D001062D7 /* OpalImagePickerWrapper.swift */,
 			);
 			path = "Third-Party";
 			sourceTree = "<group>";
@@ -335,6 +350,8 @@
 			isa = PBXGroup;
 			children = (
 				22FE504F231F9A5500C2C1C1 /* CGFloat+Extension.swift */,
+				2222F34B2336545A0084FA91 /* String+Extension.swift */,
+				22FAD71823434A96001062D7 /* UIApplication+Extension.swift */,
 				2203840123165999003C285B /* UICollectionView+Extension.swift */,
 				220383FD231657E8003C285B /* UIColor+Extension.swift */,
 				220383FF23165860003C285B /* UIImage+Extension.swift */,
@@ -342,8 +359,7 @@
 				22FE1372232E5611002F7F30 /* UIStoryboard+Extension.swift */,
 				22FE1381232F3F97002F7F30 /* UITableView+Extension.swift */,
 				2206B7E32318DCC3000B0135 /* UIView+Extension.swift */,
-				2222F34B2336545A0084FA91 /* String+Extension.swift */,
-				22FAD71823434A96001062D7 /* UIApplication+Extension.swift */,
+				22FAD71D2344AF2D001062D7 /* UIButton+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -364,20 +380,20 @@
 			path = Launching;
 			sourceTree = "<group>";
 		};
-		22FAD7142340BD16001062D7 /* CollagePreview */ = {
-			isa = PBXGroup;
-			children = (
-				2205CC912328D24F000682BE /* PushTransition.swift */,
-			);
-			path = CollagePreview;
-			sourceTree = "<group>";
-		};
 		22FAD7152340BD36001062D7 /* Launching */ = {
 			isa = PBXGroup;
 			children = (
 				22FAD7162340BD66001062D7 /* PiggyDiffussionTransition.swift */,
 			);
 			path = Launching;
+			sourceTree = "<group>";
+		};
+		22FAD71F2344E557001062D7 /* FaceDetection */ = {
+			isa = PBXGroup;
+			children = (
+				22FAD7202344E57D001062D7 /* FaceDetection.swift */,
+			);
+			path = FaceDetection;
 			sourceTree = "<group>";
 		};
 		22FE1376232E58A3002F7F30 /* PhotoMovie */ = {
@@ -414,12 +430,12 @@
 			path = PhotoMovie;
 			sourceTree = "<group>";
 		};
-		22FE138823320229002F7F30 /* MoviePreview */ = {
+		22FE138823320229002F7F30 /* PhotoMoviePreview */ = {
 			isa = PBXGroup;
 			children = (
-				22FE13892332025B002F7F30 /* MoviePreviewViewController.swift */,
+				22FE13892332025B002F7F30 /* PhotoMoviePreviewViewController.swift */,
 			);
-			path = MoviePreview;
+			path = PhotoMoviePreview;
 			sourceTree = "<group>";
 		};
 		22FE504B231E78D400C2C1C1 /* Collage */ = {
@@ -447,6 +463,16 @@
 				22FE5047231E77B600C2C1C1 /* EmoticonCollectionViewCell.xib */,
 			);
 			path = Emoticon;
+			sourceTree = "<group>";
+		};
+		22FEE04223488F4A00F9F2A2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				22FE13832330BEBD002F7F30 /* CollageController.swift */,
+				22FAD7222346355A001062D7 /* BackgroundColorController.swift */,
+				22FAD72423463574001062D7 /* EmoticonController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		F20B23BCCE0EA2967217A4D6 /* Pods */ = {
@@ -522,11 +548,12 @@
 			files = (
 				22213E4C2333251A00D24EF0 /* Launching.storyboard in Resources */,
 				2222166C23351C8C005F48E1 /* video_animation.json in Resources */,
+				22FEE0442349F30400F9F2A2 /* progressBar.json in Resources */,
 				22FE5048231E77B600C2C1C1 /* EmoticonCollectionViewCell.xib in Resources */,
 				22FE5042231CE86300C2C1C1 /* BackgroundColorCollectionViewCell.xib in Resources */,
 				22D5269B2315460D00F76354 /* LaunchScreen.storyboard in Resources */,
 				22FE1380232F3F68002F7F30 /* PhotoMovieTableViewCell.xib in Resources */,
-				2234F5F7233A3C3B008B0303 /* Pravicy.storyboard in Resources */,
+				2234F5F7233A3C3B008B0303 /* Privacy.storyboard in Resources */,
 				2222F35023367E920084FA91 /* loading.json in Resources */,
 				2203840523165CA6003C285B /* CollageCollectionViewCell.xib in Resources */,
 				2234F5FB233B2486008B0303 /* GoogleService-Info.plist in Resources */,
@@ -628,6 +655,7 @@
 				2205CC9C2329F736000682BE /* CanvasView.swift in Sources */,
 				22D735F72334BD3A00AB34F1 /* LottieWrapper.swift in Sources */,
 				2234F5F5233A3594008B0303 /* PrivacyViewController.swift in Sources */,
+				22FAD7232346355A001062D7 /* BackgroundColorController.swift in Sources */,
 				2206B7E42318DCC3000B0135 /* UIView+Extension.swift in Sources */,
 				22FAD713233E172C001062D7 /* LaunchingViewController.swift in Sources */,
 				22FAD7172340BD66001062D7 /* PiggyDiffussionTransition.swift in Sources */,
@@ -636,16 +664,19 @@
 				2203840223165999003C285B /* UICollectionView+Extension.swift in Sources */,
 				220383FC231654A0003C285B /* UIScreen+Extension.swift in Sources */,
 				220384122316A633003C285B /* PrototypeCollectionViewLayout.swift in Sources */,
+				22FAD72523463574001062D7 /* EmoticonController.swift in Sources */,
 				22FE5050231F9A5500C2C1C1 /* CGFloat+Extension.swift in Sources */,
 				22FE137A232E5951002F7F30 /* PhotoMovieViewController.swift in Sources */,
 				2205CC952328D380000682BE /* CanvasViewController.swift in Sources */,
-				22FE13842330BEBD002F7F30 /* testStruct.swift in Sources */,
+				22FE13842330BEBD002F7F30 /* CollageController.swift in Sources */,
 				2203840923165D85003C285B /* CollageCollectionViewCell.swift in Sources */,
 				22FAD71923434A96001062D7 /* UIApplication+Extension.swift in Sources */,
 				22D5268E2315460B00F76354 /* AppDelegate.swift in Sources */,
 				2205CC8E23269CBB000682BE /* CollagePreviewViewController.swift in Sources */,
+				22FAD71C23442E8D001062D7 /* OpalImagePickerWrapper.swift in Sources */,
 				220384182317A5AC003C285B /* FunctionOption.swift in Sources */,
 				22FE1375232E585A002F7F30 /* LobbyViewController.swift in Sources */,
+				22FAD7212344E57D001062D7 /* FaceDetection.swift in Sources */,
 				22FE5046231CFC7F00C2C1C1 /* PrototypeLayout.swift in Sources */,
 				2203840E23166CF2003C285B /* CollageViewController.swift in Sources */,
 				22D735F52334AAB300AB34F1 /* LottieAnimation.swift in Sources */,
@@ -653,7 +684,7 @@
 				2203840B231665D6003C285B /* SelectionView.swift in Sources */,
 				22FE1373232E5611002F7F30 /* UIStoryboard+Extension.swift in Sources */,
 				2205CC902326A700000682BE /* Gradient.swift in Sources */,
-				22FE138A2332025B002F7F30 /* MoviePreviewViewController.swift in Sources */,
+				22FE138A2332025B002F7F30 /* PhotoMoviePreviewViewController.swift in Sources */,
 				2203840023165860003C285B /* UIImage+Extension.swift in Sources */,
 				2222F34C2336545A0084FA91 /* String+Extension.swift in Sources */,
 				22D526962315460B00F76354 /* PiggyPatchwork.xcdatamodeld in Sources */,
@@ -663,6 +694,7 @@
 				2205CC8B23250682000682BE /* JonAlertWrapper.swift in Sources */,
 				22213E4E2333604500D24EF0 /* CardView.swift in Sources */,
 				22FE13872330EC64002F7F30 /* PhotoMovie.swift in Sources */,
+				22FAD71E2344AF2D001062D7 /* UIButton+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -739,7 +771,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -794,7 +826,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -810,7 +842,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = CL27H452FX;
 				INFOPLIST_FILE = PiggyPatchwork/Info.plist;
@@ -819,7 +851,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.PersonalProject.PiggyPatchwork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -833,7 +865,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = CL27H452FX;
 				INFOPLIST_FILE = PiggyPatchwork/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -841,7 +873,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.PersonalProject.PiggyPatchwork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

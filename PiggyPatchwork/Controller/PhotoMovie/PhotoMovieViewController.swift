@@ -7,9 +7,7 @@
 //
 
 import UIKit
-import OpalImagePicker
 import Lottie
-import Photos
 
 class PhotoMovieViewController: UIViewController {
     
@@ -18,29 +16,14 @@ class PhotoMovieViewController: UIViewController {
     @IBOutlet weak var addPhotoBtn: UIButton! {
         
         didSet {
-            addPhotoBtn.layer.cornerRadius = addPhotoBtn.frame.height / 2
             
             addPhotoBtn.imageView?.addViewShadow()
         }
     }
     
-    @IBOutlet weak var backToHomeBtn: UIButton! {
-        
-        didSet {
-            backToHomeBtn.setTitleColor(CustomColor.OrchidPink,
-                                        for: .normal)
-            backToHomeBtn.layer.cornerRadius = 10
-        }
-    }
+    @IBOutlet weak var backToHomeBtn: UIButton! 
     
-    @IBOutlet weak var nextStepBtn: UIButton! {
-        
-        didSet {
-            nextStepBtn.setTitleColor(CustomColor.OrchidPink,
-                                      for: .normal)
-            nextStepBtn.layer.cornerRadius = 10
-        }
-    }
+    @IBOutlet weak var nextStepBtn: UIButton!
 
     @IBOutlet weak var piggyStudioImageView: UIImageView!
     
@@ -48,15 +31,21 @@ class PhotoMovieViewController: UIViewController {
     
     @IBOutlet weak var animateArrow: AnimationView!
     
+    let imagePicker = PiggyOpalImagePicker()
+    
     var selectedPhotos: [UIImage] = []
     
     var cellIndexPath: IndexPath?
     
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       setupTableView()
+        setupButton()
         
+        setupTableView()
+        
+        imagePicker.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,7 +61,21 @@ class PhotoMovieViewController: UIViewController {
                                        loopMode: .loop)
     }
     
-    func setupTableView() {
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        addPhotoBtn.layer.cornerRadius = addPhotoBtn.frame.height / 2
+    }
+    
+    // MARK: - Private Method
+    private func setupButton() {
+        
+        nextStepBtn.setupNavigationBtn()
+        
+        backToHomeBtn.setupNavigationBtn()
+    }
+    
+    private func setupTableView() {
         
         photoMovieTableView.delegate = self
         
@@ -83,7 +86,7 @@ class PhotoMovieViewController: UIViewController {
         photoMovieTableView.isEditing = true
     }
     
-    func hideImages(_ hidden: Bool) {
+    private func hideImages(_ hidden: Bool) {
         
         animateArrow.isHidden = hidden
         
@@ -92,13 +95,9 @@ class PhotoMovieViewController: UIViewController {
         piggyStudioImageView.isHidden = hidden
     }
     
-    func didClickDeleteInCell(_ cell: UITableViewCell) {
+    private func didClickDeleteInCell(_ cell: UITableViewCell) {
         
-        guard
-            let indexPath = photoMovieTableView.indexPath(for: cell)
-        else {
-            return
-        }
+        guard let indexPath = photoMovieTableView.indexPath(for: cell) else { return }
         
         selectedPhotos.remove(at: indexPath.row)
         
@@ -112,6 +111,7 @@ class PhotoMovieViewController: UIViewController {
         }
     }
     
+    // MARK: - IBAction
     @IBAction func nextStep(_ sender: Any) {
         
         if selectedPhotos == [] {
@@ -123,14 +123,11 @@ class PhotoMovieViewController: UIViewController {
             
         guard
             let moviePreviewVC = storyboard?.instantiateViewController(
-                withIdentifier: "moviePreview"
-        ) as? MoviePreviewViewController
+                withIdentifier: "photoMoviePreview"
+        ) as? PhotoMoviePreviewViewController
+        else { return }
 
-        else {
-            return
-        }
-
-        moviePreviewVC.moviePhotos = selectedPhotos
+        moviePreviewVC.makeMoviePhotos = selectedPhotos
 
         show(moviePreviewVC, sender: sender)
         
@@ -138,7 +135,9 @@ class PhotoMovieViewController: UIViewController {
 
     @IBAction func addPhotos(_ sender: Any) {
         
-        showMyAlbum()
+        imagePicker.showAlbum(presenter: self,
+                              maximumAllowed: 10,
+                              completion: nil)
     }
     
     @IBAction func backToHomePage(_ sender: Any) {
@@ -146,7 +145,7 @@ class PhotoMovieViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 }
-
+    // MARK: - UITableViewDataSource
 extension PhotoMovieViewController: UITableViewDataSource {
     
     func tableView(
@@ -174,7 +173,7 @@ extension PhotoMovieViewController: UITableViewDataSource {
         
         if selectedPhotos != [] {
         
-        photoMovieCell.selectedPhotoImageView.image = selectedPhotos[indexPath.row]
+            photoMovieCell.selectedPhotoImageView.image = selectedPhotos[indexPath.row]
             
         }
         
@@ -200,10 +199,10 @@ extension PhotoMovieViewController: UITableViewDataSource {
         selectedPhotos.remove(at: sourceIndexPath.row)
 
         selectedPhotos.insert(moveObject, at: destinationIndexPath.row)
-    
     }
 }
 
+    // MARK: - UITableViewDelegate
 extension PhotoMovieViewController: UITableViewDelegate {
     
     func tableView(
@@ -230,65 +229,31 @@ extension PhotoMovieViewController: UITableViewDelegate {
         return false
     }
 }
-
-extension PhotoMovieViewController: OpalImagePickerControllerDelegate {
+    // MARK: - Get image from third-party image picker
+extension PhotoMovieViewController: PiggyImagePickerDelegate {
     
-    func showMyAlbum() {
-            
-        PHPhotoLibrary.requestAuthorization { [weak self] (staus) in
-            
-            DispatchQueue.main.async {
-                
-                if staus == .authorized {
-                        
-                    let imagePicker = OpalImagePickerController()
-                        
-                    imagePicker.imagePickerDelegate = self
-                        
-                    imagePicker.maximumSelectionsAllowed = 10
-                    
-                    let configuration = OpalImagePickerConfiguration()
-                        
-                    let message = "無法選取超過 \(imagePicker.maximumSelectionsAllowed) 張照片哦！"
-                        
-                    configuration.maximumSelectionsAllowedMessage = message
-                        
-                    imagePicker.configuration = configuration
-                        
-                    self?.present(imagePicker, animated: true, completion: nil)
-                        
-                } else {
-                        
-                    PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.error_mark),
-                                                 message: "無法讀取相簿，請在「設定」中授與權限")
-                }
-            }
-        }
-    }
-    
-    func imagePicker(
-        _ picker: OpalImagePickerController,
-        didFinishPickingImages images: [UIImage]
+    func imagesProvider(
+        _ provider: PiggyOpalImagePicker,
+        didGet images: [UIImage]
     ) {
         
         for image in images {
-            
+
             let fixedImage: UIImage = image.fixOrientation()
-            
+
             selectedPhotos.append(fixedImage)
         }
-        
+
         photoMovieTableView.reloadData()
-        
+
         if selectedPhotos != [] {
-            
+
             hideImages(true)
         }
-        
-        dismiss(animated: true, completion: nil)
     }
 }
-
+    
+    // MARK: - Make TableViewCell delete
 extension PhotoMovieViewController: PhotoMovieTableViewCellDelegate {
    
     func deleteCell(_ cell: PhotoMovieTableViewCell) {

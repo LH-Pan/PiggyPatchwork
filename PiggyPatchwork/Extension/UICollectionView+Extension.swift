@@ -8,6 +8,14 @@
 
 import UIKit
 
+protocol CollageMatchable: UICollectionViewDelegate,
+                           UICollectionViewDataSource {
+    
+    var title: FunctionOption { get }
+    
+    var selectedIndexPath: IndexPath? { get set }
+}
+
 extension UICollectionView {
     
     func custom_registerCellWithNib(identifier: String, bundle: Bundle?) {
@@ -15,6 +23,23 @@ extension UICollectionView {
         let nib = UINib(nibName: identifier, bundle: bundle)
         
         register(nib, forCellWithReuseIdentifier: identifier)
+    }
+    
+    func radioCollection(
+        inIndexPath currentIndexPath: IndexPath,
+        notEqualTo lastIndexPath: IndexPath?
+    ) {
+
+        if currentIndexPath != lastIndexPath {
+            
+            if let lastSelectedIndexPath = lastIndexPath {
+                
+                if let cell = cellForItem(at: lastSelectedIndexPath) {
+                    
+                    cell.layer.borderWidth = 0
+                }
+            }
+        }
     }
 }
 
@@ -60,5 +85,22 @@ extension UICollectionViewCell {
     
         layer.shadowPath = UIBezierPath(roundedRect: bounds,
                                         cornerRadius: 20).cgPath
+    }
+    
+    func selectedCollection(
+        inIndexPath currentIndexPath: IndexPath,
+        equalTo lastIndexPath: IndexPath?
+    ) {
+
+        if currentIndexPath == lastIndexPath {
+            
+            layer.borderWidth = 2
+            
+            layer.borderColor = UIColor.brown.cgColor
+            
+        } else {
+            
+            layer.borderWidth = 0
+        }
     }
 }

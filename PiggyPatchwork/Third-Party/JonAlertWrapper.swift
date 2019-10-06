@@ -9,11 +9,7 @@
 import JonAlert
 
 class PiggyJonAlert {
-    
-    static let shared = PiggyJonAlert()
-    
-    private init() {}
-    
+        
     static func showSuccess(message: String) {
         
         JonAlert.showSuccess(message: message)

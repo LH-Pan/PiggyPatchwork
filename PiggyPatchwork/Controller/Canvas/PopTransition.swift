@@ -1,5 +1,5 @@
 //
-//  PushTransition.swift
+//  PopTransition.swift
 //  PiggyPatchwork
 //
 //  Created by 潘立祥 on 2019/9/11.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PushTransition: NSObject, UIViewControllerAnimatedTransitioning {
+class PopTransition: NSObject, UIViewControllerAnimatedTransitioning {
     
     func transitionDuration(
         using transitionContext: UIViewControllerContextTransitioning?
@@ -21,31 +21,30 @@ class PushTransition: NSObject, UIViewControllerAnimatedTransitioning {
     ) {
         
         guard
-            let fromVC = transitionContext.viewController(forKey: .from) as? CollagePreviewViewController,
-            let toVC = transitionContext.viewController(forKey: .to) as? CanvasViewController
-        else {
-            return
-        }
+            let fromVC = transitionContext.viewController(forKey: .from) as? CanvasViewController,
+            let toVC = transitionContext.viewController(forKey: .to) as? CollagePreviewViewController
+        else { return }
         
         let container = transitionContext.containerView
         
-        let snapView = fromVC.previewImageView.snapshotView(afterScreenUpdates: true)
+        let snapView = fromVC.canvasImageView.snapshotView(afterScreenUpdates: false)
         
-        snapView?.frame = container.convert(fromVC.previewImageView.frame, from: fromVC.previewImageView)
+        snapView?.bounds = fromVC.canvasImageView.frame
         
-        toVC.canvasImageView.isHidden = true
+        toVC.previewImageView.isHidden = true
         
         container.addSubview(toVC.view)
         container.addSubview(snapView ?? UIView())
         
         UIView.animate(withDuration: 0.5, animations: {
             
-            snapView?.bounds = toVC.canvasImageView.frame
+            snapView?.frame = container.convert(toVC.previewImageView.frame,
+                                                 from: toVC.previewImageView)
         }, completion: { _ in
             
             snapView?.removeFromSuperview()
             
-            toVC.canvasImageView.isHidden = false
+            toVC.previewImageView.isHidden = false
             
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })

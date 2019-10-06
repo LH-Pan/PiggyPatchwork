@@ -119,7 +119,7 @@
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="myAlbum" translatesAutoresizingMaskIntoConstraints="NO" id="tcA-F7-7JM">
-                                        <rect key="frame" x="30" y="27.5" width="20" height="20.000000000000028"/>
+                                        <rect key="frame" x="30" y="27.5" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="tcA-F7-7JM" secondAttribute="height" id="ULz-ye-wLH"/>
                                             <constraint firstAttribute="width" constant="20" id="xWG-ct-hMS"/>
@@ -172,7 +172,7 @@
                                     </attributedString>
                                 </state>
                                 <connections>
-                                    <action selector="showPravicyPolicy:" destination="DZ5-rz-IrC" eventType="touchUpInside" id="UMN-xO-Ynm"/>
+                                    <action selector="showPrivacyPolicy:" destination="DZ5-rz-IrC" eventType="touchUpInside" id="zaJ-e9-FUH"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FoI-QD-bPM">

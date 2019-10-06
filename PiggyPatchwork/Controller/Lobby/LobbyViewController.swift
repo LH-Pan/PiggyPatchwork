@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import OpalImagePicker
-import Photos
 import Lottie
 
 class LobbyViewController: UIViewController {
@@ -23,6 +21,9 @@ class LobbyViewController: UIViewController {
     
     @IBOutlet weak var versionLabel: UILabel!
     
+    let imagePicker = PiggyOpalImagePicker()
+    
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,11 +49,13 @@ class LobbyViewController: UIViewController {
   
     }
     
-    func setupLabel() {
-        versionLabel.text = "v \(UIApplication.appVersion ?? String.empty)"
+    // MARK: - Private Method
+    private func setupLabel() {
+        
+        versionLabel.text = "v" + String.space + (UIApplication.appVersion ?? String.empty)
     }
 
-    func setupButtonView() {
+    private func setupButtonView() {
         
         viewAttributes(goToCollageView)
         
@@ -61,16 +64,18 @@ class LobbyViewController: UIViewController {
         viewAttributes(showAlbumView)
     }
     
-    func viewAttributes(_ view: UIView) {
+    private func viewAttributes(_ view: UIView) {
         
         view.layer.cornerRadius = 25 * UIScreen.screenWidthRatio
         
         view.addViewShadow()
     }
     
+    // MARK: - IBAction
     @IBAction func goToCollage(_ sender: Any) {
         
         if let collageViewController = UIStoryboard.collage.instantiateInitialViewController() {
+            
             show(collageViewController, sender: sender)
         }
     }
@@ -78,53 +83,23 @@ class LobbyViewController: UIViewController {
     @IBAction func goToPhotoMovie(_ sender: Any) {
         
         if let photoMovieViewController = UIStoryboard.photoMovie.instantiateInitialViewController() {
+            
             show(photoMovieViewController, sender: sender)
         }
     }
     
     @IBAction func showAlbum(_ sender: Any) {
         
-        showMyAlbum()
+        imagePicker.showAlbum(presenter: self,
+                              maximumAllowed: 1,
+                              completion: nil)
     }
     
-    @IBAction func showPravicyPolicy(_ sender: Any) {
+    @IBAction func showPrivacyPolicy(_ sender: Any) {
         
         if let privacyViewController = UIStoryboard.privacy.instantiateInitialViewController() {
+            
             show(privacyViewController, sender: sender)
         }
-    }
-}
-
-extension LobbyViewController: OpalImagePickerControllerDelegate {
-    
-    func showMyAlbum() {
-        
-        PHPhotoLibrary.requestAuthorization { [weak self] (status) in
-            
-            DispatchQueue.main.async {
-                
-                if status == .authorized {
-                    
-                    let imagePicker = OpalImagePickerController()
-                               
-                    imagePicker.imagePickerDelegate = self
-                                   
-                    self?.present(imagePicker, animated: true, completion: nil)
-                    
-                } else {
-                    
-                    PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.error_mark),
-                                                 message: "無法讀取相簿，請在「設定」中授與權限")
-                }
-            }
-        }
-    }
-    
-    func imagePicker(
-        _ picker: OpalImagePickerController,
-        didFinishPickingImages images: [UIImage]
-    ) {
-        
-        picker.dismiss(animated: true, completion: nil)
     }
 }

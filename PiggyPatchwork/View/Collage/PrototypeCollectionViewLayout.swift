@@ -31,10 +31,7 @@ class CollageCollectionViewLayout: UICollectionViewFlowLayout {
         
         let inset = ((collectionView?.frame.height ?? CGFloat.zero) - itemSize.height) / 2
         
-        sectionInset = UIEdgeInsets(top: inset,
-                                    left: 20,
-                                    bottom: inset,
-                                    right: 20)
+        sectionInset = UIEdgeInsets(top: inset, left: 20, bottom: inset, right: 20)
         
         minimumLineSpacing = UIScreen.width * CGFloat.insetRatio
         
@@ -53,6 +50,7 @@ class CollageCollectionViewLayout: UICollectionViewFlowLayout {
     override func shouldInvalidateLayout(
         forBoundsChange newBounds: CGRect
     ) -> Bool {
+        
         return true
     }
 }

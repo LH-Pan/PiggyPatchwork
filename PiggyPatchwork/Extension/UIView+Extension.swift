@@ -35,4 +35,11 @@ extension UIView {
         
         layer.masksToBounds = false
     }
+    
+    func setupFeatureView() {
+        
+        layer.cornerRadius = 25 * UIScreen.screenWidthRatio
+        
+        addViewShadow()
+    }
 }

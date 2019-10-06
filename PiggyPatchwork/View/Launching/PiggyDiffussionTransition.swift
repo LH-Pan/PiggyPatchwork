@@ -20,10 +20,14 @@ class PiggyDiffusionTransition: NSObject, UIViewControllerAnimatedTransitioning 
     
     convenience init(animatedView: UIView) {
         self.init()
+        
         self.animatedView = animatedView
     }
     
-    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+    func transitionDuration(
+        using transitionContext: UIViewControllerContextTransitioning?
+    ) -> TimeInterval {
+        
         return transitionDuration
     }
 
@@ -33,7 +37,9 @@ class PiggyDiffusionTransition: NSObject, UIViewControllerAnimatedTransitioning 
         var startFrame = CGRect.zero
         
         if animatedView != nil {
+            
             startFrame = animatedView?.frame ?? CGRect.zero
+            
             startBackgroundColor = animatedView?.backgroundColor
         }
         
@@ -41,7 +47,9 @@ class PiggyDiffusionTransition: NSObject, UIViewControllerAnimatedTransitioning 
         let animatedViewForTransition = UIView(frame: startFrame)
         
         animatedViewForTransition.clipsToBounds = true
+        
         animatedViewForTransition.layer.cornerRadius = animatedViewForTransition.frame.height / 2.0
+        
         animatedViewForTransition.backgroundColor = self.startBackgroundColor
         
         // add animated view on transitionContext's containerView
@@ -51,31 +59,43 @@ class PiggyDiffusionTransition: NSObject, UIViewControllerAnimatedTransitioning 
         let presentedController: UIViewController
         
         presentedController = transitionContext.viewController(forKey: .to) ?? UIViewController()
+        
         presentedController.view.layer.opacity = 0
+        
         presentedController.view.frame = transitionContext.containerView.bounds
         
         transitionContext.containerView.addSubview(presentedController.view)
         
         let size = max(transitionContext.containerView.frame.height,
                        transitionContext.containerView.frame.width) * 1.2
+        
         let scaleFactor = size / animatedViewForTransition.frame.height
+        
         let finalTransform = CGAffineTransform(scaleX: scaleFactor, y: scaleFactor)
         
             UIView.transition(with: animatedViewForTransition,
                               duration: self.transitionDuration(using: transitionContext) * 0.7,
                               options: [],
                               animations: {
+                                
                                 animatedViewForTransition.transform = finalTransform
+                                
                                 animatedViewForTransition.center = transitionContext.containerView.center
+                                
                                 animatedViewForTransition.backgroundColor = CustomColor.OrchidPink
+                                
             }, completion: nil)
             
             UIView.animate(withDuration: self.transitionDuration(using: transitionContext) * 0.4,
                            delay: self.transitionDuration(using: transitionContext) * 0.6,
                            animations: {
+                            
                             presentedController.view.layer.opacity = 1
+                            
             }, completion: { (_) in
+                
                 animatedViewForTransition.removeFromSuperview()
+                
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
             })
     }

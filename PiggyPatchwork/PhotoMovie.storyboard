@@ -128,10 +128,10 @@
             </objects>
             <point key="canvasLocation" x="-97.101449275362327" y="184.82142857142856"/>
         </scene>
-        <!--Movie Preview View Controller-->
+        <!--Photo Movie Preview View Controller-->
         <scene sceneID="Iri-Tl-fY9">
             <objects>
-                <viewController storyboardIdentifier="moviePreview" id="Rw4-0u-qCx" customClass="MoviePreviewViewController" customModule="PiggyPatchwork" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="photoMoviePreview" id="Rw4-0u-qCx" customClass="PhotoMoviePreviewViewController" customModule="PiggyPatchwork" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iza-7c-Fuh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -294,7 +294,7 @@
                     </view>
                     <connections>
                         <outlet property="backToPhotoMovieBtn" destination="FaZ-Bm-RwY" id="IQh-bG-eU9"/>
-                        <outlet property="loadingView" destination="DrG-vc-ijB" id="m9I-WW-N1M"/>
+                        <outlet property="loadingAnimationView" destination="DrG-vc-ijB" id="jmB-Se-kQ1"/>
                         <outlet property="movieView" destination="8he-oD-2ih" id="Hqh-hf-4Wf"/>
                         <outlet property="saveMovieBtn" destination="Idz-Nb-29p" id="o60-5X-pae"/>
                         <outlet property="saveMovieView" destination="0cX-Wo-aaT" id="W69-0X-UPC"/>

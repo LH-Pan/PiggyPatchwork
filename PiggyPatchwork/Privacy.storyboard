@@ -27,7 +27,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDJ-Z3-z9s">
                                 <rect key="frame" x="363" y="44" width="31" height="30"/>
                                 <state key="normal" title="關閉">
-                                    <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="backToHomePage:" destination="sBu-rA-tBZ" eventType="touchUpInside" id="Lgu-qu-95o"/>
@@ -51,7 +51,7 @@
                         <viewLayoutGuide key="safeArea" id="rCE-5k-N9f"/>
                     </view>
                     <connections>
-                        <outlet property="myActivityIndicatior" destination="OHv-kw-Uv9" id="YNw-cW-T5f"/>
+                        <outlet property="myActivityIndicator" destination="OHv-kw-Uv9" id="Czy-Vl-PFL"/>
                         <outlet property="myWebView" destination="Pqy-Rd-mb3" id="dQy-NG-jc2"/>
                     </connections>
                 </viewController>

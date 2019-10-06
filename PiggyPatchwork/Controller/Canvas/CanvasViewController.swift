@@ -30,6 +30,7 @@ class CanvasViewController: UIViewController {
     
     let canvas = Canvas()
     
+    // Third-party color slider
     let strokeColorSlider = ColorSlider(orientation: .horizontal, previewSide: .top)
     
     let strokeWidthSlider = UISlider()
@@ -38,6 +39,7 @@ class CanvasViewController: UIViewController {
     
     let thicknessImageView = UIImageView()
     
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -67,22 +69,16 @@ class CanvasViewController: UIViewController {
                              secondColor: CustomColor.OrchidPink)
     }
     
-    func setupButtons() {
+    // MARK: - Private Method
+    private func setupButtons() {
         
-        setupButtonAtrribute(backToPreviewBtn)
+        backToPreviewBtn.setupNavigationBtn()
         
-        setupButtonAtrribute(editCompleteBtn)
+        editCompleteBtn.setupNavigationBtn()
+        
     }
     
-    func setupButtonAtrribute(_ button: UIButton) {
-        
-        button.setTitleColor(CustomColor.OrchidPink,
-                             for: .normal)
-                   
-        button.layer.cornerRadius = 10
-    }
-    
-    func setupCanvas(canvas: Canvas, on view: UIView) {
+    private func setupCanvas(canvas: Canvas, on view: UIView) {
         
         canvas.backgroundColor = .clear
         
@@ -91,7 +87,7 @@ class CanvasViewController: UIViewController {
         view.addSubview(canvas)
     }
     
-    func setupColorSlider() {
+    private func setupColorSlider() {
         
         view.addSubview(strokeColorSlider)
         
@@ -108,7 +104,7 @@ class CanvasViewController: UIViewController {
             strokeColorSlider.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: -inset),
             strokeColorSlider.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -inset * 1.5),
             strokeColorSlider.heightAnchor.constraint(equalToConstant: 15)
-            ])
+        ])
     }
     
     @objc func changedStrokeColor(slider: ColorSlider) {
@@ -116,13 +112,13 @@ class CanvasViewController: UIViewController {
         canvas.setStrokeColor(color: slider.color)
     }
     
-    func setupWidthSlider() {
+    private func setupWidthSlider() {
         
         view.addSubview(strokeWidthSlider)
         
         strokeWidthSlider.addTarget(self,
-                              action: #selector(changedStrokeWidth(slider:)),
-                              for: .valueChanged)
+                                    action: #selector(changedStrokeWidth(slider:)),
+                                    for: .valueChanged)
         
         strokeWidthSlider.minimumValue = 1
         strokeWidthSlider.maximumValue = 50
@@ -139,7 +135,7 @@ class CanvasViewController: UIViewController {
             strokeWidthSlider.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: inset),
             strokeWidthSlider.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -inset * 1.5),
             strokeWidthSlider.centerYAnchor.constraint(equalTo: strokeColorSlider.centerYAnchor)
-            ])
+        ])
     }
     
     @objc func changedStrokeWidth(slider: UISlider) {
@@ -147,7 +143,7 @@ class CanvasViewController: UIViewController {
         canvas.setStrokeWidth(width: slider.value)
     }
     
-    func setupPaletteImage() {
+    private func setupPaletteImage() {
         
         view.addSubview(paletteImageView)
         
@@ -155,37 +151,38 @@ class CanvasViewController: UIViewController {
         
         let inset = CGFloat(10 * UIScreen.screenHeightRatio)
         
-        let imageSideLenth = CGFloat(40 * UIScreen.screenHeightRatio)
+        let imageSideLength = CGFloat(40 * UIScreen.screenHeightRatio)
         
         paletteImageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             paletteImageView.centerXAnchor.constraint(equalTo: strokeColorSlider.centerXAnchor),
             paletteImageView.bottomAnchor.constraint(equalTo: strokeColorSlider.topAnchor, constant: -inset),
-            paletteImageView.widthAnchor.constraint(equalToConstant: imageSideLenth),
-            paletteImageView.heightAnchor.constraint(equalToConstant: imageSideLenth)
+            paletteImageView.widthAnchor.constraint(equalToConstant: imageSideLength),
+            paletteImageView.heightAnchor.constraint(equalToConstant: imageSideLength)
         ])
     }
     
-    func setupThicknessImage() {
+    private func setupThicknessImage() {
 
         view.addSubview(thicknessImageView)
         
         thicknessImageView.image = UIImage.asset(.thickness)
 
-        let imageSideLenth = CGFloat(30 * UIScreen.screenWidthRatio)
+        let imageSideLength = CGFloat(30 * UIScreen.screenWidthRatio)
         
         thicknessImageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             thicknessImageView.centerXAnchor.constraint(equalTo: strokeWidthSlider.centerXAnchor),
             thicknessImageView.centerYAnchor.constraint(equalTo: paletteImageView.centerYAnchor),
-            thicknessImageView.widthAnchor.constraint(equalToConstant: imageSideLenth),
-            thicknessImageView.heightAnchor.constraint(equalToConstant: imageSideLenth)
+            thicknessImageView.widthAnchor.constraint(equalToConstant: imageSideLength),
+            thicknessImageView.heightAnchor.constraint(equalToConstant: imageSideLength)
         ])
         
     }
-
+    
+    // MARK: - IBAction
     @IBAction func cancelEdit(_ sender: Any) {
         
         self.navigationController?.popViewController(animated: true)
@@ -210,6 +207,8 @@ class CanvasViewController: UIViewController {
         canvas.clear()
     }
 }
+
+    // MARK: - Transition Animation
 
 extension CanvasViewController: UINavigationControllerDelegate {
     
