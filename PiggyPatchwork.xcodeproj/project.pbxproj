@@ -68,6 +68,7 @@
 		22FE5048231E77B600C2C1C1 /* EmoticonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22FE5047231E77B600C2C1C1 /* EmoticonCollectionViewCell.xib */; };
 		22FE504A231E78AE00C2C1C1 /* EmoticonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE5049231E78AE00C2C1C1 /* EmoticonCollectionViewCell.swift */; };
 		22FE5050231F9A5500C2C1C1 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE504F231F9A5500C2C1C1 /* CGFloat+Extension.swift */; };
+		22FEE0442349F30400F9F2A2 /* progressBar.json in Resources */ = {isa = PBXBuildFile; fileRef = 22FEE0432349F30400F9F2A2 /* progressBar.json */; };
 		252133BE3CDEF6C3528CA833 /* Pods_PiggyPatchwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05D3706CE9AF71A0B1261D49 /* Pods_PiggyPatchwork.framework */; };
 /* End PBXBuildFile section */
 
@@ -136,6 +137,7 @@
 		22FE5047231E77B600C2C1C1 /* EmoticonCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmoticonCollectionViewCell.xib; sourceTree = "<group>"; };
 		22FE5049231E78AE00C2C1C1 /* EmoticonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoticonCollectionViewCell.swift; sourceTree = "<group>"; };
 		22FE504F231F9A5500C2C1C1 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
+		22FEE0432349F30400F9F2A2 /* progressBar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = progressBar.json; sourceTree = "<group>"; };
 		86A91C2890B62BF2078CC51D /* Pods-PiggyPatchwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PiggyPatchwork.debug.xcconfig"; path = "Target Support Files/Pods-PiggyPatchwork/Pods-PiggyPatchwork.debug.xcconfig"; sourceTree = "<group>"; };
 		A10A8CAE55D2F84AFD8E0D3C /* Pods-PiggyPatchwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PiggyPatchwork.release.xcconfig"; path = "Target Support Files/Pods-PiggyPatchwork/Pods-PiggyPatchwork.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -229,6 +231,7 @@
 		22213E5323349A2900D24EF0 /* LottieAnimation */ = {
 			isa = PBXGroup;
 			children = (
+				22FEE0432349F30400F9F2A2 /* progressBar.json */,
 				2222F34F23367E920084FA91 /* loading.json */,
 				2222166B23351C8C005F48E1 /* video_animation.json */,
 				2222166923350211005F48E1 /* downArrow.json */,
@@ -545,6 +548,7 @@
 			files = (
 				22213E4C2333251A00D24EF0 /* Launching.storyboard in Resources */,
 				2222166C23351C8C005F48E1 /* video_animation.json in Resources */,
+				22FEE0442349F30400F9F2A2 /* progressBar.json in Resources */,
 				22FE5048231E77B600C2C1C1 /* EmoticonCollectionViewCell.xib in Resources */,
 				22FE5042231CE86300C2C1C1 /* BackgroundColorCollectionViewCell.xib in Resources */,
 				22D5269B2315460D00F76354 /* LaunchScreen.storyboard in Resources */,

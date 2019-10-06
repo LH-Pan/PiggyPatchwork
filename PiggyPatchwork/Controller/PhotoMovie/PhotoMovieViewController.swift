@@ -16,7 +16,6 @@ class PhotoMovieViewController: UIViewController {
     @IBOutlet weak var addPhotoBtn: UIButton! {
         
         didSet {
-            addPhotoBtn.layer.cornerRadius = addPhotoBtn.frame.height / 2
             
             addPhotoBtn.imageView?.addViewShadow()
         }
@@ -59,6 +58,12 @@ class PhotoMovieViewController: UIViewController {
                                        name: Lotties.downArrow,
                                        speed: 2,
                                        loopMode: .loop)
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        addPhotoBtn.layer.cornerRadius = addPhotoBtn.frame.height / 2
     }
     
     func setupButton() {

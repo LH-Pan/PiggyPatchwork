@@ -46,6 +46,8 @@ class PhotoMoviePreviewViewController: UIViewController {
     
     let filmAnimationView = AnimationView()
     
+    let progressingBar = AnimationView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,6 +65,8 @@ class PhotoMoviePreviewViewController: UIViewController {
         setupTranslucentView()
         
         setupFilmAnimationView()
+        
+        setupProgressingBar()
         
         DispatchQueue.main.async {
             
@@ -91,25 +95,44 @@ class PhotoMoviePreviewViewController: UIViewController {
         
         translucentView.frame = view.frame
         
-        translucentView.backgroundColor = UIColor.white.withAlphaComponent(0.8)
+        translucentView.backgroundColor = UIColor.white.withAlphaComponent(0.85)
         
         translucentView.isHidden = true
         
         view.addSubview(translucentView)
         
         translucentView.addSubview(filmAnimationView)
+        
+        translucentView.addSubview(progressingBar)
     }
     
     func setupFilmAnimationView() {
-        
-        filmAnimationView.frame.size = CGSize(width: 300 * UIScreen.screenWidthRatio,
-                                              height: 300 * UIScreen.screenWidthRatio)
-        
-        filmAnimationView.center.x = translucentView.center.x
-        
-        filmAnimationView.center.y = translucentView.center.y
-        
+
         filmAnimationView.backgroundColor = .clear
+
+        filmAnimationView.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            filmAnimationView.widthAnchor.constraint(equalToConstant: 300 * UIScreen.screenWidthRatio),
+            filmAnimationView.heightAnchor.constraint(equalToConstant: 300 * UIScreen.screenWidthRatio),
+            filmAnimationView.centerXAnchor.constraint(equalTo: translucentView.centerXAnchor),
+            filmAnimationView.bottomAnchor.constraint(equalTo: translucentView.centerYAnchor,
+                                                      constant: 85 * UIScreen.screenHeightRatio)
+        ])
+    }
+    
+    func setupProgressingBar() {
+        
+        progressingBar.backgroundColor = .clear
+        
+        progressingBar.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            progressingBar.centerXAnchor.constraint(equalTo: translucentView.centerXAnchor),
+            progressingBar.topAnchor.constraint(equalTo: filmAnimationView.bottomAnchor),
+            progressingBar.widthAnchor.constraint(equalTo: filmAnimationView.widthAnchor),
+            progressingBar.heightAnchor.constraint(equalToConstant: 25 * UIScreen.screenHeightRatio)
+        ])
     }
     
     func viewAttributes(_ view: UIView) {
@@ -154,15 +177,15 @@ class PhotoMoviePreviewViewController: UIViewController {
             guard status == .authorized else { return }
 
             PHPhotoLibrary.shared().performChanges({
-                
+
                 PHAssetChangeRequest.creationRequestForAssetFromVideo(
                     atFileURL: URL(fileURLWithPath: self.movieUrl) as URL
                 )
-                
+
             }, completionHandler: { (success, _) in
 
                 if !success {
-                    
+
                     PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.error_mark),
                                                  message: "無法存取影片至相簿中！")
                 }
@@ -176,7 +199,12 @@ class PhotoMoviePreviewViewController: UIViewController {
                                        speed: 2,
                                        loopMode: .playOnce)
         
-        filmAnimationView.play { [weak self] (finished) in
+        PiggyLottie.setupAnimationView(view: progressingBar,
+                                       name: Lotties.progressBar,
+                                       speed: 0.65,
+                                       loopMode: .playOnce)
+        
+        progressingBar.play { [weak self] (finished) in
             
             if finished {
                 
