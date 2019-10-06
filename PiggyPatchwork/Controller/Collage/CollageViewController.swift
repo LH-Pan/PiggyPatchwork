@@ -328,6 +328,7 @@ class CollageViewController: UIViewController {
         }
     }
     
+    // MARK: - IBAction
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         savedImage = collageView.takeSnapshot()
@@ -342,7 +343,7 @@ class CollageViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 }
-    // MARK: -  UICollectionViewDelegate & UICollectionViewDataSource
+    // MARK: - UICollectionViewDelegate & UICollectionViewDataSource
 extension CollageViewController: UICollectionViewDataSource,
                                  UICollectionViewDelegate {
     
@@ -578,7 +579,7 @@ extension CollageViewController: FaceDetectionDelegate {
         addShapeToFace(forObservations: frames)
     }
 }
-    // MARK: - Get images from third-party imagePicker
+    // MARK: - Get images from third-party image picker
 extension CollageViewController: PiggyImagePickerDelegate {
     
     func imagesProvider(

@@ -37,6 +37,7 @@ class PhotoMovieViewController: UIViewController {
     
     var cellIndexPath: IndexPath?
     
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -66,14 +67,15 @@ class PhotoMovieViewController: UIViewController {
         addPhotoBtn.layer.cornerRadius = addPhotoBtn.frame.height / 2
     }
     
-    func setupButton() {
+    // MARK: - Private Method
+    private func setupButton() {
         
         nextStepBtn.setupNavigationBtn()
         
         backToHomeBtn.setupNavigationBtn()
     }
     
-    func setupTableView() {
+    private func setupTableView() {
         
         photoMovieTableView.delegate = self
         
@@ -84,7 +86,7 @@ class PhotoMovieViewController: UIViewController {
         photoMovieTableView.isEditing = true
     }
     
-    func hideImages(_ hidden: Bool) {
+    private func hideImages(_ hidden: Bool) {
         
         animateArrow.isHidden = hidden
         
@@ -93,7 +95,7 @@ class PhotoMovieViewController: UIViewController {
         piggyStudioImageView.isHidden = hidden
     }
     
-    func didClickDeleteInCell(_ cell: UITableViewCell) {
+    private func didClickDeleteInCell(_ cell: UITableViewCell) {
         
         guard let indexPath = photoMovieTableView.indexPath(for: cell) else { return }
         
@@ -109,6 +111,7 @@ class PhotoMovieViewController: UIViewController {
         }
     }
     
+    // MARK: - IBAction
     @IBAction func nextStep(_ sender: Any) {
         
         if selectedPhotos == [] {
@@ -142,7 +145,7 @@ class PhotoMovieViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 }
-
+    // MARK: - UITableViewDataSource
 extension PhotoMovieViewController: UITableViewDataSource {
     
     func tableView(
@@ -199,6 +202,7 @@ extension PhotoMovieViewController: UITableViewDataSource {
     }
 }
 
+    // MARK: - UITableViewDelegate
 extension PhotoMovieViewController: UITableViewDelegate {
     
     func tableView(
@@ -225,7 +229,7 @@ extension PhotoMovieViewController: UITableViewDelegate {
         return false
     }
 }
-
+    // MARK: - Get image from third-party image picker
 extension PhotoMovieViewController: PiggyImagePickerDelegate {
     
     func imagesProvider(
@@ -248,7 +252,8 @@ extension PhotoMovieViewController: PiggyImagePickerDelegate {
         }
     }
 }
-
+    
+    // MARK: - Make TableViewCell delete
 extension PhotoMovieViewController: PhotoMovieTableViewCellDelegate {
    
     func deleteCell(_ cell: PhotoMovieTableViewCell) {

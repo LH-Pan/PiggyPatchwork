@@ -14,6 +14,7 @@ extension UIScreen {
 
     static let height = UIScreen.main.bounds.height
     
+    // iPhone 6.5 inch 的寬高比例
     static let screenWidthRatio = UIScreen.width / 414
     
     static let screenHeightRatio = UIScreen.height / 896

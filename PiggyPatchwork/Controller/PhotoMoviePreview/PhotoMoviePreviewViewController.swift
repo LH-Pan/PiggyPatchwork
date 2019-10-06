@@ -48,6 +48,7 @@ class PhotoMoviePreviewViewController: UIViewController {
     
     let progressingBar = AnimationView()
     
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -84,14 +85,15 @@ class PhotoMoviePreviewViewController: UIViewController {
         }
     }
     
-    func setupView() {
+    // MARK: - Private Method
+    private func setupView() {
         
-        viewAttributes(saveMovieView)
+        setupViewAttributes(saveMovieView)
         
-        viewAttributes(shareToPlatformView)
+        setupViewAttributes(shareToPlatformView)
     }
     
-    func setupTranslucentView() {
+    private func setupTranslucentView() {
         
         translucentView.frame = view.frame
         
@@ -106,7 +108,7 @@ class PhotoMoviePreviewViewController: UIViewController {
         translucentView.addSubview(progressingBar)
     }
     
-    func setupFilmAnimationView() {
+    private func setupFilmAnimationView() {
 
         filmAnimationView.backgroundColor = .clear
 
@@ -121,7 +123,7 @@ class PhotoMoviePreviewViewController: UIViewController {
         ])
     }
     
-    func setupProgressingBar() {
+    private func setupProgressingBar() {
         
         progressingBar.backgroundColor = .clear
         
@@ -135,11 +137,35 @@ class PhotoMoviePreviewViewController: UIViewController {
         ])
     }
     
-    func viewAttributes(_ view: UIView) {
+    private func setupViewAttributes(_ view: UIView) {
            
         view.layer.cornerRadius = 25
            
         view.addViewShadow()
+    }
+    
+    private func setupAnimationViews() {
+        
+        PiggyLottie.setupAnimationView(view: filmAnimationView,
+                                       name: Lotties.videoMaking,
+                                       speed: 2,
+                                       loopMode: .playOnce)
+        
+        PiggyLottie.setupAnimationView(view: progressingBar,
+                                       name: Lotties.progressBar,
+                                       speed: 0.65,
+                                       loopMode: .playOnce)
+        
+        progressingBar.play { [weak self] (finished) in
+            
+            if finished {
+                
+                PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.tick_mark),
+                                             message: "影片已儲存 d(＇∀＇)")
+                
+                self?.navigationController?.popToRootViewController(animated: true)
+            }
+        }
     }
     
     func displayVideo() {
@@ -163,6 +189,7 @@ class PhotoMoviePreviewViewController: UIViewController {
         player.play()
     }
     
+    // MARK: - IBAction
     @IBAction func backToPhotoMovie(_ sender: Any) {
         
         navigationController?.popViewController(animated: true)
@@ -194,26 +221,7 @@ class PhotoMoviePreviewViewController: UIViewController {
         
         translucentView.isHidden = false
         
-        PiggyLottie.setupAnimationView(view: filmAnimationView,
-                                       name: Lotties.videoMaking,
-                                       speed: 2,
-                                       loopMode: .playOnce)
-        
-        PiggyLottie.setupAnimationView(view: progressingBar,
-                                       name: Lotties.progressBar,
-                                       speed: 0.65,
-                                       loopMode: .playOnce)
-        
-        progressingBar.play { [weak self] (finished) in
-            
-            if finished {
-                
-                PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.tick_mark),
-                                             message: "影片已儲存 d(＇∀＇)")
-                
-                self?.navigationController?.popToRootViewController(animated: true)
-            }
-        }
+        setupAnimationViews()
     }
     
     @IBAction func shareToPlatform(_ sender: Any) {
@@ -228,7 +236,8 @@ class PhotoMoviePreviewViewController: UIViewController {
         present(activityController, animated: true, completion: nil)
     }
 }
-
+    
+    // MARK: - Get movie URL from MovieUrlProviderDelegate
 extension PhotoMoviePreviewViewController: MovieUrlProviderDelegate {
     
     func provider(

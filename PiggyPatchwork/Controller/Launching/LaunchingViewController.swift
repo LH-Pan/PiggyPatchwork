@@ -19,9 +19,10 @@ class LaunchingViewController: UIViewController {
     }
     
     @IBOutlet weak var transitionView: UIView!
-    
+        
     var diffusionTransition: PiggyDiffusionTransition?
-    
+
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,10 +41,11 @@ class LaunchingViewController: UIViewController {
         })
     }
     
+    // MARK: - Launching Animation
     func animate(view: UIView, fromPoint start: CGPoint, toPoint end: CGPoint) {
         
         let animation = CAKeyframeAnimation(keyPath: "position")
-        
+    
         animation.delegate = self
 
         let path = UIBezierPath()
@@ -71,6 +73,7 @@ class LaunchingViewController: UIViewController {
         view.layer.add(animation, forKey: nil)
     }
     
+    // MARK: - Transition Animation
     func goToLobbyTransition() {
         
         if let lobbyVC = UIStoryboard.lobby.instantiateInitialViewController() {
@@ -83,7 +86,7 @@ class LaunchingViewController: UIViewController {
         }
     }
 }
-
+    // 判斷 Launching Animation 結束後才進行 Transition Animation
 extension LaunchingViewController: CAAnimationDelegate {
     
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {

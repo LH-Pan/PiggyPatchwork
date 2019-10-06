@@ -30,6 +30,7 @@ class CanvasViewController: UIViewController {
     
     let canvas = Canvas()
     
+    // Third-party color slider
     let strokeColorSlider = ColorSlider(orientation: .horizontal, previewSide: .top)
     
     let strokeWidthSlider = UISlider()
@@ -38,6 +39,7 @@ class CanvasViewController: UIViewController {
     
     let thicknessImageView = UIImageView()
     
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -67,7 +69,8 @@ class CanvasViewController: UIViewController {
                              secondColor: CustomColor.OrchidPink)
     }
     
-    func setupButtons() {
+    // MARK: - Private Method
+    private func setupButtons() {
         
         backToPreviewBtn.setupNavigationBtn()
         
@@ -75,7 +78,7 @@ class CanvasViewController: UIViewController {
         
     }
     
-    func setupCanvas(canvas: Canvas, on view: UIView) {
+    private func setupCanvas(canvas: Canvas, on view: UIView) {
         
         canvas.backgroundColor = .clear
         
@@ -84,7 +87,7 @@ class CanvasViewController: UIViewController {
         view.addSubview(canvas)
     }
     
-    func setupColorSlider() {
+    private func setupColorSlider() {
         
         view.addSubview(strokeColorSlider)
         
@@ -109,7 +112,7 @@ class CanvasViewController: UIViewController {
         canvas.setStrokeColor(color: slider.color)
     }
     
-    func setupWidthSlider() {
+    private func setupWidthSlider() {
         
         view.addSubview(strokeWidthSlider)
         
@@ -140,7 +143,7 @@ class CanvasViewController: UIViewController {
         canvas.setStrokeWidth(width: slider.value)
     }
     
-    func setupPaletteImage() {
+    private func setupPaletteImage() {
         
         view.addSubview(paletteImageView)
         
@@ -160,7 +163,7 @@ class CanvasViewController: UIViewController {
         ])
     }
     
-    func setupThicknessImage() {
+    private func setupThicknessImage() {
 
         view.addSubview(thicknessImageView)
         
@@ -178,7 +181,8 @@ class CanvasViewController: UIViewController {
         ])
         
     }
-
+    
+    // MARK: - IBAction
     @IBAction func cancelEdit(_ sender: Any) {
         
         self.navigationController?.popViewController(animated: true)
@@ -203,6 +207,8 @@ class CanvasViewController: UIViewController {
         canvas.clear()
     }
 }
+
+    // MARK: - Transition Animation
 
 extension CanvasViewController: UINavigationControllerDelegate {
     

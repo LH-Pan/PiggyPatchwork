@@ -23,6 +23,7 @@ class LobbyViewController: UIViewController {
     
     let imagePicker = PiggyOpalImagePicker()
     
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,12 +49,13 @@ class LobbyViewController: UIViewController {
   
     }
     
-    func setupLabel() {
+    // MARK: - Private Method
+    private func setupLabel() {
         
         versionLabel.text = "v" + String.space + (UIApplication.appVersion ?? String.empty)
     }
 
-    func setupButtonView() {
+    private func setupButtonView() {
         
         viewAttributes(goToCollageView)
         
@@ -62,13 +64,14 @@ class LobbyViewController: UIViewController {
         viewAttributes(showAlbumView)
     }
     
-    func viewAttributes(_ view: UIView) {
+    private func viewAttributes(_ view: UIView) {
         
         view.layer.cornerRadius = 25 * UIScreen.screenWidthRatio
         
         view.addViewShadow()
     }
     
+    // MARK: - IBAction
     @IBAction func goToCollage(_ sender: Any) {
         
         if let collageViewController = UIStoryboard.collage.instantiateInitialViewController() {

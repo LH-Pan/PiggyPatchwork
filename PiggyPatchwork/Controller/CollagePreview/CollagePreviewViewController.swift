@@ -41,6 +41,7 @@ class CollagePreviewViewController: UIViewController {
     
     var storageImage: UIImage?
     
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,7 +60,8 @@ class CollagePreviewViewController: UIViewController {
                              secondColor: CustomColor.OrchidPink)
     }
     
-    func setupButtonView() {
+    // MARK: - Private Method
+    private func setupButtonView() {
         
         setupViewAttributes(editView)
         
@@ -68,13 +70,14 @@ class CollagePreviewViewController: UIViewController {
         setupViewAttributes(shareToPlatformView)
     }
     
-    func setupViewAttributes(_ view: UIView) {
+    private func setupViewAttributes(_ view: UIView) {
         
         view.layer.cornerRadius = 25 * UIScreen.screenWidthRatio
         
         view.addViewShadow()
     }
     
+    // MARK: - IBAction
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         guard let canvasVC = segue.destination as? CanvasViewController else { return }
@@ -115,7 +118,7 @@ class CollagePreviewViewController: UIViewController {
         self.present(activityViewController, animated: true, completion: nil)
     }
 }
-
+    // MARK: - Transition Animation
 extension CollagePreviewViewController: UINavigationControllerDelegate {
     
     func navigationController(
@@ -135,7 +138,8 @@ extension CollagePreviewViewController: UINavigationControllerDelegate {
         }
     }
 }
-
+    
+    // MARK: - Get edit complete image from CanvasViewController
 extension CollagePreviewViewController: ImageProviderDelegate {
     
     func manager(
