@@ -61,8 +61,6 @@ extension EmoticonController {
     ) {
         collectionView.radioCollection(inIndexPath: indexPath,
                                        notEqualTo: selectedIndexPath)
-                   
-//        selectedIndexPath = indexPath
     }
     
     func collectionView(

@@ -466,8 +466,8 @@
 			isa = PBXGroup;
 			children = (
 				22FE13832330BEBD002F7F30 /* CollageController.swift */,
-				22FAD72423463574001062D7 /* EmoticonController.swift */,
 				22FAD7222346355A001062D7 /* BackgroundColorController.swift */,
+				22FAD72423463574001062D7 /* EmoticonController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

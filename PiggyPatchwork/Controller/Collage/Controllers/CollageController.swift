@@ -65,7 +65,6 @@ class CollageController: NSObject, CollageMatchable {
             subView.backgroundColor = CustomColor.SilverGray
             
             collageCell.collageCellView.addSubview(subView)
-            
         }
         
         return collageCell

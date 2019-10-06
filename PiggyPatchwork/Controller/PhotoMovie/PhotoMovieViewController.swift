@@ -165,7 +165,7 @@ extension PhotoMovieViewController: UITableViewDataSource {
         
         if selectedPhotos != [] {
         
-        photoMovieCell.selectedPhotoImageView.image = selectedPhotos[indexPath.row]
+            photoMovieCell.selectedPhotoImageView.image = selectedPhotos[indexPath.row]
             
         }
         

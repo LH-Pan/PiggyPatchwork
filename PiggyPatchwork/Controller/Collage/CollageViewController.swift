@@ -220,7 +220,6 @@ class CollageViewController: UIViewController {
     }
     
     // MARK: - 人臉辨識
-
     func addShapeToFace(forObservations observations: [VNFaceObservation]) {
         
         if let sublayers = personFaceImageView.layer.sublayers {
@@ -468,7 +467,7 @@ extension CollageViewController: UICollectionViewDataSource,
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         
-        return chosenImageView
+        return scrollView.subviews.first
     }
 }
 

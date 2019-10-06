@@ -197,7 +197,7 @@ class MoviePreviewViewController: UIViewController {
         let activityController = UIActivityViewController(activityItems: activityItem,
                                                           applicationActivities: nil)
 
-        self.present(activityController, animated: true, completion: nil)
+        present(activityController, animated: true, completion: nil)
     }
 }
 

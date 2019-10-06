@@ -20,6 +20,7 @@ class PiggyDiffusionTransition: NSObject, UIViewControllerAnimatedTransitioning 
     
     convenience init(animatedView: UIView) {
         self.init()
+        
         self.animatedView = animatedView
     }
     
