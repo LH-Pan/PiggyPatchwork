@@ -20,3 +20,5 @@ excluded:
   - Source/ExcludedFolder
   - Source/ExcludedFile.swift
   - Source/*/ExcludedFile.swift
+
+cyclomatic_complexity: 12

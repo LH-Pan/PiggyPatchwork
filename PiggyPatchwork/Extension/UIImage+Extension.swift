@@ -24,6 +24,10 @@ enum ImageAsset: String {
     case thickness
     
     case Icons_24px_Close
+    
+    case Icons_24px_Add
+    
+    case Icons_24px_GreenAdd
 }
 
 // swiftlint:enable identifier_name
@@ -72,7 +76,6 @@ extension UIImage {
         return newImage!
     }
     
-    // swiftlint:disable cyclomatic_complexity
     func fixOrientation() -> UIImage {
         
         if self.imageOrientation == UIImage.Orientation.up {
@@ -129,13 +132,12 @@ extension UIImage {
         }
         
         // And now we just create a new UIImage from the drawing context
-        let cgimg = ctx!.makeImage()
+        let cgImg = ctx?.makeImage()
         
-        let img = UIImage(cgImage: cgimg!)
+        let img = UIImage(cgImage: cgImg!)
         
         return img
     }
-    // swiftlint:enable cyclomatic_complexity
 }
 
 extension UIImage {

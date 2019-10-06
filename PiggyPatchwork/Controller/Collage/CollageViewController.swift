@@ -395,13 +395,23 @@ extension CollageViewController: UICollectionViewDataSource,
             
             UIView.animate(withDuration: 0.2, animations: {
                 
-                for layout in frames {
+                for layout in frames { 
                     
                     let scrollView = UIScrollView()
+                    
+                    let placeHolderImageView = UIImageView()
                     
                     let imageView = UIImageView()
                     
                     scrollView.frame = layout
+                    
+                    placeHolderImageView.frame.size = CGSize(width: 24, height: 24)
+                    
+                    placeHolderImageView.center = scrollView.center
+                    
+                    placeHolderImageView.image = UIImage.asset(.Icons_24px_GreenAdd)
+                    
+                    self.collageView.addSubview(placeHolderImageView)
                     
                     self.setupScrollView(at: self.collageView,
                                          add: scrollView,
