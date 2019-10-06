@@ -12,7 +12,7 @@ import AVKit
 import Photos
 import Lottie
 
-class MoviePreviewViewController: UIViewController {
+class PhotoMoviePreviewViewController: UIViewController {
     
     @IBOutlet weak var movieView: UIView!
     
@@ -201,7 +201,7 @@ class MoviePreviewViewController: UIViewController {
     }
 }
 
-extension MoviePreviewViewController: MovieUrlProviderDelegate {
+extension PhotoMoviePreviewViewController: MovieUrlProviderDelegate {
     
     func provider(
         _ provider: ImageAnimator,

@@ -114,8 +114,8 @@ class CanvasViewController: UIViewController {
         view.addSubview(strokeWidthSlider)
         
         strokeWidthSlider.addTarget(self,
-                              action: #selector(changedStrokeWidth(slider:)),
-                              for: .valueChanged)
+                                    action: #selector(changedStrokeWidth(slider:)),
+                                    for: .valueChanged)
         
         strokeWidthSlider.minimumValue = 1
         strokeWidthSlider.maximumValue = 50

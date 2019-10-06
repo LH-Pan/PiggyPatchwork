@@ -115,8 +115,8 @@ class PhotoMovieViewController: UIViewController {
             
         guard
             let moviePreviewVC = storyboard?.instantiateViewController(
-                withIdentifier: "moviePreview"
-        ) as? MoviePreviewViewController
+                withIdentifier: "photoMoviePreview"
+        ) as? PhotoMoviePreviewViewController
         else { return }
 
         moviePreviewVC.makeMoviePhotos = selectedPhotos
