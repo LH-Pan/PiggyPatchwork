@@ -67,7 +67,7 @@ class CollageViewController: UIViewController {
     
     var savedImage: UIImage?
 
-    // MARK: View Life Cycle
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -90,7 +90,7 @@ class CollageViewController: UIViewController {
                              secondColor: CustomColor.OrchidPink)
     }
     
-    // MARK: Private method
+    // MARK: - Private method
     // 建立 collection view
     private func setupCollectionView() {
         
@@ -170,14 +170,14 @@ class CollageViewController: UIViewController {
         setupImageView(at: scrollView, add: subView)
     }
     
-    func setupButton() {
+    private func setupButton() {
         
         nextStepBtn.setupNavigationBtn()
         
         backToHomeBtn.setupNavigationBtn()
     }
     
-    func removeSubViews(
+    private func removeSubViews(
         subviews: [UIView]?,
         sublayers: [CALayer]?
     ) {
@@ -342,7 +342,7 @@ class CollageViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 }
-    // MARK: UICollectionViewDataSource
+    // MARK: -  UICollectionViewDelegate & UICollectionViewDataSource
 extension CollageViewController: UICollectionViewDataSource,
                                  UICollectionViewDelegate {
     
@@ -399,19 +399,20 @@ extension CollageViewController: UICollectionViewDataSource,
                     
                     let scrollView = UIScrollView()
                     
-                    let placeHolderImageView = UIImageView()
+                    let placeholderImageView = UIImageView()
                     
                     let imageView = UIImageView()
                     
                     scrollView.frame = layout
                     
-                    placeHolderImageView.frame.size = CGSize(width: 24, height: 24)
+                    placeholderImageView.frame.size = CGSize(width: 24 * UIScreen.screenWidthRatio,
+                                                             height: 24 * UIScreen.screenWidthRatio)
                     
-                    placeHolderImageView.center = scrollView.center
+                    placeholderImageView.center = scrollView.center
                     
-                    placeHolderImageView.image = UIImage.asset(.Icons_24px_GreenAdd)
+                    placeholderImageView.image = UIImage.asset(.Icons_24px_GreenAdd)
                     
-                    self.collageView.addSubview(placeHolderImageView)
+                    self.collageView.addSubview(placeholderImageView)
                     
                     self.setupScrollView(at: self.collageView,
                                          add: scrollView,
@@ -481,7 +482,7 @@ extension CollageViewController: UICollectionViewDataSource,
     }
 }
 
-    // MARK: SelectionViewDelegate & SelectionViewDataSource
+    // MARK: - SelectionViewDelegate & SelectionViewDataSource
 extension CollageViewController: SelectionViewDelegate,
                                  SelectionViewDataSource {
     
@@ -567,7 +568,7 @@ extension CollageViewController: SelectionViewDelegate,
         return true
     }
 }
-
+    // MARK: - Get FaceDetection frames
 extension CollageViewController: FaceDetectionDelegate {
     
     func faceDetecter(
@@ -577,7 +578,7 @@ extension CollageViewController: FaceDetectionDelegate {
         addShapeToFace(forObservations: frames)
     }
 }
-
+    // MARK: - Get images from third-party imagePicker
 extension CollageViewController: PiggyImagePickerDelegate {
     
     func imagesProvider(
