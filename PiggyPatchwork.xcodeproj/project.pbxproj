@@ -26,6 +26,7 @@
 		2205CC9C2329F736000682BE /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2205CC9B2329F736000682BE /* CanvasView.swift */; };
 		2205CCC1232A92E2000682BE /* StrokeLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2205CCC0232A92E2000682BE /* StrokeLine.swift */; };
 		2206B7E42318DCC3000B0135 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2206B7E32318DCC3000B0135 /* UIView+Extension.swift */; };
+		221DE7DC234F4131004B7DBE /* PiggyPatchworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221DE7DB234F4131004B7DBE /* PiggyPatchworkTests.swift */; };
 		22213E4C2333251A00D24EF0 /* Launching.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22213E4B2333251A00D24EF0 /* Launching.storyboard */; };
 		22213E4E2333604500D24EF0 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22213E4D2333604500D24EF0 /* CardView.swift */; };
 		2222166A23350211005F48E1 /* downArrow.json in Resources */ = {isa = PBXBuildFile; fileRef = 2222166923350211005F48E1 /* downArrow.json */; };
@@ -70,7 +71,18 @@
 		22FE5050231F9A5500C2C1C1 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FE504F231F9A5500C2C1C1 /* CGFloat+Extension.swift */; };
 		22FEE0442349F30400F9F2A2 /* progressBar.json in Resources */ = {isa = PBXBuildFile; fileRef = 22FEE0432349F30400F9F2A2 /* progressBar.json */; };
 		252133BE3CDEF6C3528CA833 /* Pods_PiggyPatchwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05D3706CE9AF71A0B1261D49 /* Pods_PiggyPatchwork.framework */; };
+		62F62DD770B7DD3459CBD7AB /* Pods_PiggyPatchworkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FFF437DC30CEC615C9DC0F7 /* Pods_PiggyPatchworkTests.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		221DE7DE234F4131004B7DBE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22D526822315460B00F76354 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 22D526892315460B00F76354;
+			remoteInfo = PiggyPatchwork;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		05D3706CE9AF71A0B1261D49 /* Pods_PiggyPatchwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PiggyPatchwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +105,9 @@
 		2205CC9B2329F736000682BE /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		2205CCC0232A92E2000682BE /* StrokeLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeLine.swift; sourceTree = "<group>"; };
 		2206B7E32318DCC3000B0135 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		221DE7D9234F4131004B7DBE /* PiggyPatchworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PiggyPatchworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		221DE7DB234F4131004B7DBE /* PiggyPatchworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiggyPatchworkTests.swift; sourceTree = "<group>"; };
+		221DE7DD234F4131004B7DBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22213E4B2333251A00D24EF0 /* Launching.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launching.storyboard; sourceTree = "<group>"; };
 		22213E4D2333604500D24EF0 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		2222166923350211005F48E1 /* downArrow.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = downArrow.json; sourceTree = "<group>"; };
@@ -138,11 +153,22 @@
 		22FE5049231E78AE00C2C1C1 /* EmoticonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmoticonCollectionViewCell.swift; sourceTree = "<group>"; };
 		22FE504F231F9A5500C2C1C1 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
 		22FEE0432349F30400F9F2A2 /* progressBar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = progressBar.json; sourceTree = "<group>"; };
+		5FFF437DC30CEC615C9DC0F7 /* Pods_PiggyPatchworkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PiggyPatchworkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C08F54342939AC7238122F9 /* Pods-PiggyPatchworkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PiggyPatchworkTests.release.xcconfig"; path = "Target Support Files/Pods-PiggyPatchworkTests/Pods-PiggyPatchworkTests.release.xcconfig"; sourceTree = "<group>"; };
 		86A91C2890B62BF2078CC51D /* Pods-PiggyPatchwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PiggyPatchwork.debug.xcconfig"; path = "Target Support Files/Pods-PiggyPatchwork/Pods-PiggyPatchwork.debug.xcconfig"; sourceTree = "<group>"; };
 		A10A8CAE55D2F84AFD8E0D3C /* Pods-PiggyPatchwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PiggyPatchwork.release.xcconfig"; path = "Target Support Files/Pods-PiggyPatchwork/Pods-PiggyPatchwork.release.xcconfig"; sourceTree = "<group>"; };
+		A8CEB22A03EB2EE232984CBA /* Pods-PiggyPatchworkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PiggyPatchworkTests.debug.xcconfig"; path = "Target Support Files/Pods-PiggyPatchworkTests/Pods-PiggyPatchworkTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		221DE7D6234F4131004B7DBE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62F62DD770B7DD3459CBD7AB /* Pods_PiggyPatchworkTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		22D526872315460B00F76354 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -160,6 +186,7 @@
 			children = (
 				2234F5F8233A5A63008B0303 /* WebKit.framework */,
 				05D3706CE9AF71A0B1261D49 /* Pods_PiggyPatchwork.framework */,
+				5FFF437DC30CEC615C9DC0F7 /* Pods_PiggyPatchworkTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -228,6 +255,15 @@
 			path = Canvas;
 			sourceTree = "<group>";
 		};
+		221DE7DA234F4131004B7DBE /* PiggyPatchworkTests */ = {
+			isa = PBXGroup;
+			children = (
+				221DE7DB234F4131004B7DBE /* PiggyPatchworkTests.swift */,
+				221DE7DD234F4131004B7DBE /* Info.plist */,
+			);
+			path = PiggyPatchworkTests;
+			sourceTree = "<group>";
+		};
 		22213E5323349A2900D24EF0 /* LottieAnimation */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				22D5268C2315460B00F76354 /* PiggyPatchwork */,
+				221DE7DA234F4131004B7DBE /* PiggyPatchworkTests */,
 				22D5268B2315460B00F76354 /* Products */,
 				F20B23BCCE0EA2967217A4D6 /* Pods */,
 				062763ABAE09E4E859CC2A99 /* Frameworks */,
@@ -271,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				22D5268A2315460B00F76354 /* PiggyPatchwork.app */,
+				221DE7D9234F4131004B7DBE /* PiggyPatchworkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -480,6 +518,8 @@
 			children = (
 				86A91C2890B62BF2078CC51D /* Pods-PiggyPatchwork.debug.xcconfig */,
 				A10A8CAE55D2F84AFD8E0D3C /* Pods-PiggyPatchwork.release.xcconfig */,
+				A8CEB22A03EB2EE232984CBA /* Pods-PiggyPatchworkTests.debug.xcconfig */,
+				6C08F54342939AC7238122F9 /* Pods-PiggyPatchworkTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -487,6 +527,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		221DE7D8234F4131004B7DBE /* PiggyPatchworkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 221DE7E2234F4131004B7DBE /* Build configuration list for PBXNativeTarget "PiggyPatchworkTests" */;
+			buildPhases = (
+				ED655572BDF39AD6878F14DC /* [CP] Check Pods Manifest.lock */,
+				221DE7D5234F4131004B7DBE /* Sources */,
+				221DE7D6234F4131004B7DBE /* Frameworks */,
+				221DE7D7234F4131004B7DBE /* Resources */,
+				896C791EF0F5162AC123FAE4 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				221DE7DF234F4131004B7DBE /* PBXTargetDependency */,
+			);
+			name = PiggyPatchworkTests;
+			productName = PiggyPatchworkTests;
+			productReference = 221DE7D9234F4131004B7DBE /* PiggyPatchworkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		22D526892315460B00F76354 /* PiggyPatchwork */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 22D5269F2315460D00F76354 /* Build configuration list for PBXNativeTarget "PiggyPatchwork" */;
@@ -514,10 +574,14 @@
 		22D526822315460B00F76354 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1030;
+				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = PanLiHsiang;
 				TargetAttributes = {
+					221DE7D8234F4131004B7DBE = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = 22D526892315460B00F76354;
+					};
 					22D526892315460B00F76354 = {
 						CreatedOnToolsVersion = 10.3;
 					};
@@ -537,11 +601,19 @@
 			projectRoot = "";
 			targets = (
 				22D526892315460B00F76354 /* PiggyPatchwork */,
+				221DE7D8234F4131004B7DBE /* PiggyPatchworkTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		221DE7D7234F4131004B7DBE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		22D526882315460B00F76354 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -604,6 +676,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
+		896C791EF0F5162AC123FAE4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PiggyPatchworkTests/Pods-PiggyPatchworkTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PiggyPatchworkTests/Pods-PiggyPatchworkTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PiggyPatchworkTests/Pods-PiggyPatchworkTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A6A977C51242F7B1421F74C6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -643,9 +732,39 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PiggyPatchwork/Pods-PiggyPatchwork-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		ED655572BDF39AD6878F14DC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PiggyPatchworkTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		221DE7D5234F4131004B7DBE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				221DE7DC234F4131004B7DBE /* PiggyPatchworkTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		22D526862315460B00F76354 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -700,6 +819,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		221DE7DF234F4131004B7DBE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 22D526892315460B00F76354 /* PiggyPatchwork */;
+			targetProxy = 221DE7DE234F4131004B7DBE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		22D526912315460B00F76354 /* Collage.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -720,6 +847,49 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		221DE7E0234F4131004B7DBE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8CEB22A03EB2EE232984CBA /* Pods-PiggyPatchworkTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = PiggyPatchworkTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.PersonalProject.PiggyPatchworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PiggyPatchwork.app/PiggyPatchwork";
+			};
+			name = Debug;
+		};
+		221DE7E1234F4131004B7DBE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C08F54342939AC7238122F9 /* Pods-PiggyPatchworkTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PiggyPatchworkTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.PersonalProject.PiggyPatchworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PiggyPatchwork.app/PiggyPatchwork";
+			};
+			name = Release;
+		};
 		22D5269D2315460D00F76354 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -884,6 +1054,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		221DE7E2234F4131004B7DBE /* Build configuration list for PBXNativeTarget "PiggyPatchworkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				221DE7E0234F4131004B7DBE /* Debug */,
+				221DE7E1234F4131004B7DBE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		22D526852315460B00F76354 /* Build configuration list for PBXProject "PiggyPatchwork" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
