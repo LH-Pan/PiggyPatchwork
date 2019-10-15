@@ -26,6 +26,140 @@ PiggyPatchwork 是一款拼貼照片的 app，裡面提供許多不同的樣板�
   - 長按照片右邊圖示待浮動後即可上下滑動至想要的位置更換順序
   - 可以預覽製作完成的影片
   - 製作完成後可以儲存至相簿中或分享至個人社群平台
+ 
+# Technique
+- 採用 MVC 架構
+
+- 運用 `Delegate Design Pattern` 在不同 `UIViewController` 之間進行傳值
+
+- 自製 `UIViewControllerAnimatedTransitioning` 來設計 `LuanchScreen` 的轉場動畫
+
+- 自製一個模組化的 `UIView` 畫布
+```Swift
+class Canvas: UIView {
+    
+    var lines = [Line]()
+    
+    var strokeColor = UIColor.red
+    
+    var strokeWidth: Float = 1
+    
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        
+        guard let context = UIGraphicsGetCurrentContext() else { return }
+        
+        lines.forEach { (line) in
+            
+            context.setStrokeColor(line.color.cgColor)
+            context.setLineWidth(CGFloat(line.strokeWidth))
+            context.setLineCap(.round)
+            
+            for (endPoint, startPoint) in line.points.enumerated() {
+                if endPoint == 0 {
+                    context.move(to: startPoint)
+                } else {
+                    context.addLine(to: startPoint)
+                }
+            }
+            context.strokePath()
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+        lines.append(Line.init(color: strokeColor,
+                               strokeWidth: strokeWidth,
+                               points: []))
+    }
+    
+    // track the finger as we move across screen
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        guard
+            let point = touches.first?.location(in: self),
+            var lastLine = lines.popLast()
+        else { return }
+
+        lastLine.points.append(point)
+
+        lines.append(lastLine)
+        
+        setNeedsDisplay()
+    }
+    
+    func undo() {
+        
+        _ = lines.popLast()
+        
+        setNeedsDisplay()
+    }
+    
+    func clear() {
+        
+        lines.removeAll()
+        
+        setNeedsDisplay()
+    }
+    
+    func setStrokeColor(color: UIColor) {
+        
+        strokeColor = color
+    }
+    
+    func setStrokeWidth(width: Float) {
+        
+        strokeWidth = width
+    }
+}
+
+```
+
+- 使用 `CoreML-Vision` 及 `AVFoundation` 進行人臉偵測
+```Swift
+class FaceDetection {
+    
+    weak var delegate: FaceDetectionDelegate?
+    
+    func faceDetection(detect image: UIImage?) {
+        
+        let detectRequest = VNDetectFaceRectanglesRequest(completionHandler: self.handleFaces)
+        
+        guard let image = image?.cgImage else { return }
+        
+        let detectRequestHandler = VNImageRequestHandler(cgImage: image,
+                                                         options: [ : ])
+        
+        do {
+            
+            try detectRequestHandler.perform([detectRequest])
+            
+        } catch {
+            
+            PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.exclamation_mark),
+                                         message: "人臉偵測錯誤 (つд⊂)")
+        }
+    }
+    
+    func handleFaces(request: VNRequest, error: Error?) {
+        
+        guard
+            let faceDetectResults = request.results as? [VNFaceObservation]
+        else {
+            fatalError("Unexpected result type from VNDetectFaceRetanglesRequest.")
+        }
+        
+        if faceDetectResults.count == 0 {
+            
+            PiggyJonAlert.showCustomIcon(icon: UIImage.asset(.exclamation_mark),
+                                         message: "這張照片偵測不到人臉 இдஇ")
+            return
+        }
+        
+        delegate?.faceDetecter(self, didGet: faceDetectResults)
+    }
+}
+```
 
 # Library
 * JonAlert
