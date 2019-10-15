@@ -34,6 +34,8 @@ PiggyPatchwork 是一款拼貼照片的 app，裡面提供許多不同的樣板�
 # Technique
 - 採用 MVC 架構
 
+- 建構 [Multiple-MVC](https://github.com/LH-Pan/PiggyPatchwork/blob/master/PiggyPatchwork/Controller/Collage/Controllers/CollageController.swift) 機制
+
 - 運用 `Delegate Design Pattern` 在不同 `UIViewController` 之間進行傳值
 
 - 自製 `UIViewControllerAnimatedTransitioning` 來設計 `LuanchScreen` 的轉場動畫
