@@ -19,7 +19,9 @@ PiggyPatchwork 是一款拼貼照片的 app，裡面提供許多不同的樣板�
   - 拼貼完成後可以預覽結果
   - 藝術塗鴉中可以選擇顏色、線條粗細並自由發揮藝術創作
   - 可將成果儲存於相簿中或分享至個人社群平台
-  
+ 
+<img src="https://github.com/LH-Pan/PiggyPatchwork/blob/master/ScreenShot/collage_present.gif" width="240" >   <img src="https://github.com/LH-Pan/PiggyPatchwork/blob/master/ScreenShot/canvas_present.gif" width="240" >
+
 - 相片製影
   - 點選添加按鈕選擇欲製作成影片的照片，最多可選擇十張
   - 點選刪除鍵即可刪除該照片
@@ -27,7 +29,7 @@ PiggyPatchwork 是一款拼貼照片的 app，裡面提供許多不同的樣板�
   - 可以預覽製作完成的影片
   - 製作完成後可以儲存至相簿中或分享至個人社群平台
 
-<img src="https://github.com/LH-Pan/PiggyPatchwork/blob/master/ScreenShot/tableView_present.gif" width="240" >  <img src="https://github.com/LH-Pan/PiggyPatchwork/blob/master/ScreenShot/photo_movie_preview.gif" width="240" >
+<img src="https://github.com/LH-Pan/PiggyPatchwork/blob/master/ScreenShot/tableView_present.gif" width="240" >  <img src="https://github.com/LH-Pan/PiggyPatchwork/blob/master/ScreenShot/canvas_present.gif" width="240">
  
 # Technique
 - 採用 MVC 架構
