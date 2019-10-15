@@ -26,6 +26,8 @@ PiggyPatchwork 是一款拼貼照片的 app，裡面提供許多不同的樣板�
   - 長按照片右邊圖示待浮動後即可上下滑動至想要的位置更換順序
   - 可以預覽製作完成的影片
   - 製作完成後可以儲存至相簿中或分享至個人社群平台
+
+<img src="https://github.com/LH-Pan/PiggyPatchwork/blob/master/ScreenShot/tableView_present.gif" width="240" >  <img src="https://github.com/LH-Pan/PiggyPatchwork/blob/master/ScreenShot/photo_movie_preview.gif" width="240" >
  
 # Technique
 - 採用 MVC 架構
