@@ -32,7 +32,7 @@ PiggyPatchwork 是一款拼貼照片的 app，裡面提供許多不同的樣板�
 <img src="https://github.com/LH-Pan/PiggyPatchwork/blob/master/ScreenShot/tableView_present.gif" width="240" >  <img src="https://github.com/LH-Pan/PiggyPatchwork/blob/master/ScreenShot/photo_movie_preview.gif" width="240">
  
 # Techniques
-- 採用 MVC 架構
+- 採用 `MVC` 架構
 
 - 建構 `Multiple-MVC` 機制
 
